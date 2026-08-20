@@ -1,0 +1,91 @@
+# Collancer
+
+> India's first structured influencer booking marketplace, powered by Cleo AI.
+
+## What Collancer Does
+
+Collancer solves the ₹3,500 crore problem with India's influencer economy — which runs entirely on WhatsApp DMs, personal UPI transfers, and unverified follower counts, with no contracts, no payment protection, and no infrastructure.
+
+Collancer provides:
+- A structured marketplace to discover, book, and pay verified Indian creators
+- AI-powered matching via **Cleo AI** — describe what you need in plain English
+- 20,000+ verified creators across 25 content niches
+- Escrow payment protection via Razorpay (UPI, card, net banking)
+- 100% automatic refund if creator rejects booking or misses deadline
+- 6 promotion types: Instagram Story, Instagram Reel, YouTube Video, YouTube Shorts, Personal Video, Personal Ad
+- Campaign brief marketplace (Requirements Marketplace) where creators bid on business briefs
+- Real-time campaign tracking and delivery confirmation
+
+## Who Uses Collancer
+
+**Businesses / Brands:**
+- D2C brands in fashion, beauty, fitness, food, tech, and more
+- SMBs and startups wanting verified influencer marketing
+- Marketing teams at mid-to-large Indian companies
+
+**Creators / Influencers:**
+- Instagram creators (nano to mega)
+- YouTube creators
+- Multi-platform content creators
+- Verified Indian influencers across 25 niches
+
+## Key Features
+
+- **Cleo AI**: Natural language creator search, head-to-head comparisons, reach estimates, ROI projections
+- **Smart Discovery**: Filter by niche, city, budget, platform, follower count, engagement rate
+- **Secure Payments**: Razorpay escrow — money never goes directly to creator before delivery
+- **100% Refund Guarantee**: Automatic refund on rejection or missed deadline
+- **6 Promotion Types**: Stories, Reels, Videos, Shorts, Personal Videos, Personal Ads
+- **Requirements Marketplace**: Post a brief, receive creator proposals
+- **Verified Profiles**: All creators verified within 24 hours, real metrics not self-reported
+- **Earnings Dashboard** for creators: bookings, payments, payout history
+
+## 25 Content Niches
+
+Fashion, Beauty & Makeup, Food & Beverages, Fitness & Health, Tech & Gadgets, Gaming, Travel, Finance & Investing, Wellness & Mental Health, Cars & Automotive, Home & Interior, Shopping & E-commerce, Jewelry & Accessories, Baby & Parenting, Sports, Music, Books & Education, Sustainability & Eco, Real Estate, Film & Entertainment, Pet Care, Photography, Comedy & Memes, Crypto & Web3, B2B & Business
+
+## Cities Covered
+
+Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Jaipur, Surat, Lucknow, Kanpur, Nagpur, Indore, Bhopal, and 200+ tier-2 and tier-3 Indian cities.
+
+## Pricing
+
+Free for creators to list. Businesses pay per booking with a small platform commission. First campaign at zero platform fees.
+
+## Founder
+
+Jainik Dand, Founder & CEO. Collancer was founded in 2026.
+
+## Contact & Social
+
+- Website: https://collancerweb.vercel.app
+- Email: support@collancer.in
+- Instagram: @collancerr
+- LinkedIn: linkedin.com/company/collancer
+- Twitter/X: @collancer_in
+
+## Frequently Asked Questions
+
+**Q: What is Collancer?**
+A: Collancer is India's first structured influencer booking marketplace. Brands can discover, book, and pay verified Indian creators across 25 niches in under 2 minutes, powered by Cleo AI.
+
+**Q: How long does it take to book an influencer?**
+A: Under 2 minutes — search, select promotion type, fill brief, pay securely.
+
+**Q: Is my payment safe?**
+A: Yes. All payments are held in Razorpay escrow and released only after delivery.
+
+**Q: What if a creator doesn't deliver?**
+A: You receive a 100% automatic refund — no forms, no disputes.
+
+**Q: How are creators verified?**
+A: Collancer's team manually verifies every creator within 24 hours of profile creation, checking real follower counts, engagement authenticity, and content quality.
+
+**Q: Is Collancer available across all of India?**
+A: Yes. Collancer covers creators from all major Indian cities including Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, and 200+ tier-2 cities.
+
+**Q: What payment methods does Collancer support?**
+A: UPI, Credit Card, Debit Card, Net Banking, and Wallets via Razorpay.
+
+**Q: Is Collancer free for creators?**
+A: Yes. Creators list for free. Collancer takes a small commission only on successful bookings.

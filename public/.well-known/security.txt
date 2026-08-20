@@ -1,0 +1,4 @@
+Contact: mailto:security@collancer.in
+Expires: 2027-05-26T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://collancer.in/.well-known/security.txt
