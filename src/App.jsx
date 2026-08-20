@@ -436,6 +436,12 @@ const CSS = `
   }
   .testimonial-card:hover { transform:translateY(-4px); border-color:var(--border-hover); box-shadow:0 24px 64px rgba(0,0,0,0.4); }
 
+  .role-switch-wrap{position:fixed;top:84px;left:50%;transform:translateX(-50%);z-index:997;display:flex;justify-content:center;pointer-events:none;}
+  .role-switch{pointer-events:auto;display:flex;align-items:center;gap:3px;padding:3px;border:1px solid rgba(170,220,255,.12);background:rgba(5,12,21,.78);border-radius:999px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 34px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.06)}
+  .role-switch button{border:0;background:transparent;color:var(--text-muted);padding:7px 13px;border-radius:999px;font:600 12px var(--ff-body);cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease;white-space:nowrap}
+  .role-switch button:hover{color:var(--text)}
+  .role-switch button.active{color:#041016;background:linear-gradient(135deg,#8af5ff,#55dff5);box-shadow:0 4px 18px rgba(0,229,255,.18)}
+  @media(max-width:768px){.role-switch-wrap{top:62px}.role-switch button{padding:7px 11px;font-size:11px}}
   .nav-bar {
     position:fixed; top:0; left:0; right:0; z-index:1000; padding:16px 24px;
     transition:all 0.4s var(--ease-out-expo);
@@ -520,7 +526,7 @@ h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .logo-marquee-section{margin-top:16px!important}
 @media(max-width:768px){.logo-marquee-section{margin-top:12px!important}}
-.reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
+.reveal{transform:translate3d(0,22px,0) scale(.99);opacity:0;transition:opacity .55s var(--ease-out-expo),transform .62s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);opacity:1}.glass-card>*{position:relative;z-index:1}
 
 .hero-background-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none;filter:saturate(.92) contrast(1.04) brightness(.72)}
 .hero-video-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 45%,rgba(3,9,20,.16),rgba(3,5,12,.56) 72%),linear-gradient(180deg,rgba(2,5,12,.58) 0%,rgba(2,5,12,.18) 38%,rgba(2,5,12,.74) 100%)}
@@ -528,7 +534,7 @@ h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}
 @keyframes glowPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}.glow-cyan{animation:glowPulse 5s ease-in-out infinite}.glow-purple{animation:glowPulse 6s ease-in-out infinite reverse}.glow-red{animation:glowPulse 7s ease-in-out infinite}
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #63eaff;outline-offset:4px;box-shadow:0 0 0 5px rgba(72,232,255,.12)}
-@media (prefers-reduced-motion:reduce){body::after,.nav-bar>div::before,.text-gradient,.glow-cyan,.glow-purple,.glow-red{animation:none!important}html{scroll-behavior:auto!important}.reveal{filter:none;transform:none;transition:none}}@media (max-width:768px){.nav-bar>div{border-radius:18px;min-height:52px}section{scroll-margin-top:78px}.glass-card{border-radius:22px;backdrop-filter:blur(20px) saturate(125%)}body::after{display:none}}
+@media (prefers-reduced-motion:reduce){body::after,.nav-bar>div::before,.text-gradient,.glow-cyan,.glow-purple,.glow-red{animation:none!important}html{scroll-behavior:auto!important}.reveal{transform:none;transition:none}}@media (max-width:768px){.nav-bar>div{border-radius:18px;min-height:52px}section{scroll-margin-top:78px}.glass-card{border-radius:22px;backdrop-filter:blur(20px) saturate(125%)}body::after{display:none}}
 
 /* FINAL VISUAL FIXES — glyph-clipped gradients + premium spatial polish */
 .text-gradient,.text-gradient-cyan,.text-gradient-purple,.text-gradient-warm{
@@ -773,10 +779,7 @@ const TESTIMONIALS = [];
 
 const LOGOS = [
   { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/FC2779?viewbox=auto", fallback: "nykaa", color: "#FC2779" },
-  { name: "Minimalist", logo: "/minimalist-original.png", fallback: "minimalist", color: "#F2F2F2" },
   { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A651?viewbox=auto", fallback: "mamaearth", color: "#00A651" },
-  { name: "Plum", logo: "/plum-original.webp", fallback: "plum", color: "#E98BC3" },
-  { name: "MARS Cosmetics", logo: "/mars-original.png", fallback: "MARS", color: "#EF4444" },
   { name: "Dot & Key", logo: "https://cdn.simpleicons.org/dotandkey/111111?viewbox=auto", fallback: "dot&key", color: "#FFFFFF" },
   { name: "Foxtale", logo: "https://cdn.simpleicons.org/foxtale/FF5C7A?viewbox=auto", fallback: "foxtale", color: "#FF5C7A" },
   { name: "Pilgrim", logo: "https://cdn.simpleicons.org/pilgrim/111111?viewbox=auto", fallback: "pilgrim", color: "#FFFFFF" },
@@ -871,12 +874,19 @@ function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [activeRole, setActiveRole] = useState('brands');
   const fadeTo = useFadeNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const targets = ['for-brands','for-creators'].map(id => document.getElementById(id)).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActiveRole(visible.target.id === 'for-creators' ? 'creators' : 'brands');
+    }, { rootMargin: '-35% 0px -50% 0px', threshold: [0, .25, .5, .75] });
+    targets.forEach(el => observer.observe(el));
+    return () => { window.removeEventListener('scroll', onScroll); observer.disconnect(); };
   }, []);
 
   const links = [
@@ -950,6 +960,13 @@ function Nav() {
           </div>
         </div>
       </nav>
+
+      <div className="role-switch-wrap" aria-label="Choose your role">
+        <div className="role-switch">
+          <button className={activeRole === 'brands' ? 'active' : ''} onClick={() => { setActiveRole('brands'); scrollTo('for-brands'); }}>For Brands</button>
+          <button className={activeRole === 'creators' ? 'active' : ''} onClick={() => { setActiveRole('creators'); scrollTo('for-creators'); }}>For Creators</button>
+        </div>
+      </div>
 
       {menuOpen && (
         <div className="mobile-overlay" style={{
@@ -1091,6 +1108,7 @@ function ProblemSection() {
     { icon: <ClipboardList size={28} />, title: "Collab Form Fatigue", short: "Creators jump between Google Forms, Instagram stories, WhatsApp groups and spreadsheets just to find genuine opportunities.", color: "#a78bfa", stat: "Too many forms", statLabel: "with no single place to track applications and outcomes" },
     { icon: <IndianRupee size={28} />, title: "Payment Uncertainty", short: "Informal deals and long payment cycles leave creators chasing invoices while brands lack a consistent transaction workflow.", color: "#f59e0b", stat: "Payment risk", statLabel: "when terms, delivery and payout aren't structured upfront" },
     { icon: <TrendingDown size={28} />, title: "Follower Count ≠ Fit", short: "Brands need the right audience and engagement—not just a large follower number—and creators need a fair way to show their value.", color: "#22d3ee", stat: "Better matching", statLabel: "starts with niche, audience, content quality and campaign fit" },
+    { icon: <ClipboardList size={28} />, title: "Endless Applications, No Selection", short: "Creators can fill dozens of collab forms and still never know whether a brand or agency saw, reviewed or selected their application.", color: "#c084fc", stat: "Less guesswork", statLabel: "live opportunities and structured creator profiles replace blind form submissions" },
   ];
 
   return (
@@ -1813,7 +1831,7 @@ function JoinSection() {
     // if Firebase hangs (e.g. missing env vars, network issue, Firestore rules block).
     const timeoutId = setTimeout(() => {
       setLoading(false);
-      setError('Request timed out. Please check your internet connection and try again. If the problem persists, email us at help@collancer.in');
+      setError('Request timed out. Please check your internet connection and try again. If the problem persists, email us at support@collancer.in');
     }, 12000);
 
     try {
@@ -2468,7 +2486,7 @@ function Footer() {
             <div>
               <div style={{ fontFamily: "var(--ff-display)", fontWeight: 700, marginBottom: 16, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-muted)' }}>Contact</div>
               {[
-                { label: 'help@collancer.in', href: 'mailto:help@collancer.in' },
+                { label: 'support@collancer.in', href: 'mailto:support@collancer.in' },
                 { label: 'Instagram', href: 'https://www.instagram.com/collancer_in' },
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/company/collancer' },
                 { label: 'Twitter / X', href: 'https://twitter.com/collancer_in' },
@@ -2492,10 +2510,11 @@ function Footer() {
           <p style={{ color: 'var(--text-muted)', fontSize: 13, display: 'flex', alignItems: 'center', gap: 4 }}>
             <Copyright size={13} /> 2026 Collancer. All rights reserved. Made in India <MapPin size={13} />
           </p>
-          <div style={{ display: 'flex', gap: 20 }}>
+          <div style={{ display: 'flex', gap: isMobile ? 14 : 20, flexWrap: 'wrap', justifyContent: isMobile ? 'center' : 'flex-end' }}>
             {[
-              { label: 'Privacy Policy', href: 'mailto:help@collancer.in?subject=Privacy%20Policy%20Request' },
-              { label: 'Terms of Service', href: 'mailto:help@collancer.in?subject=Terms%20of%20Service%20Request' }
+              { label: 'Contact Us', href: 'mailto:support@collancer.in' },
+              { label: 'Privacy Policy', href: 'mailto:support@collancer.in?subject=Privacy%20Policy%20Request' },
+              { label: 'Terms of Service', href: 'mailto:support@collancer.in?subject=Terms%20of%20Service%20Request' }
             ].map(l => (
               <a key={l.label} href={l.href} style={{ color: 'var(--text-muted)', fontSize: 13, textDecoration: 'none' }}
                 onMouseEnter={e => e.target.style.color = 'var(--cyan)'}
@@ -2653,7 +2672,7 @@ function SEOContent() {
       <address>
         <strong>Collancer</strong><br />
         India's First Structured Influencer Booking Marketplace<br />
-        Email: <a href="mailto:help@collancer.in">help@collancer.in</a><br />
+        Email: <a href="mailto:support@collancer.in">support@collancer.in</a><br />
         Website: <a href="https://collancer.in">https://collancer.in</a>
       </address>
 
@@ -2681,154 +2700,75 @@ function SEOContent() {
 function FAQSection() {
   const { isMobile } = useDevice();
   const [openIdx, setOpenIdx] = useState(null);
+  const [faqExpanded, setFaqExpanded] = useState(false);
 
   const faqs = [
-    {
-      q: "What is Collancer?",
-      a: "Collancer is India's first structured influencer booking marketplace powered by Collancer AI. It lets brands discover, book, and pay verified Indian creators across 25 niches in under 2 minutes — with secure Razorpay payments and a 100% refund guarantee."
-    },
-    {
-      q: "How is Collancer different from other influencer platforms in India?",
-      a: "Collancer is the only platform in India combining AI-powered matching (Collancer AI), escrow payment protection, a 100% automatic refund guarantee, a requirements marketplace where creators bid on your brief, and verified real metrics — not self-reported follower counts. No WhatsApp DMs. No guessing. No risk."
-    },
-    {
-      q: "How do I book an influencer on Collancer?",
-      a: "In 3 steps: (1) Use Collancer AI or filters to find a verified creator matching your niche, city, and budget. (2) Select your promotion type (Story, Reel, Video, etc.) and fill your campaign brief. (3) Pay securely via Razorpay — your money is held in escrow until the creator delivers."
-    },
-    {
-      q: "Is my payment safe on Collancer?",
-      a: "Yes. All payments are processed through Razorpay and held in escrow. Funds are only released to the creator after confirmed delivery. If a creator rejects your booking or misses the deadline, you receive a 100% automatic refund — no disputes, no forms, no waiting."
-    },
-    {
-      q: "Is Collancer free for creators?",
-      a: "Yes. Creators list their profiles completely free — no upfront cost, no monthly subscription. Collancer takes a small platform commission only on successful completed bookings."
-    },
-    {
-      q: "What is Collancer AI?",
-      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Collancer AI finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
-    },
-    {
-      q: "How many influencers are on Collancer?",
-      a: "Registration process for creators is currently in progress. Every creator is manually verified by the Collancer team within 24 hours — we check real engagement, audience geography, and content quality before approval."
-    },
-    {
-      q: "Which promotion types can I book?",
-      a: "Six types: Instagram Story, Instagram Reel, YouTube Video, YouTube Shorts, Personal Video, and Personal Ad. Each creator sets their own price per type, giving you transparent, fixed pricing before you book."
-    },
-    {
-      q: "Which cities does Collancer cover in India?",
-      a: "Collancer covers creators from all major Indian cities — Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Jaipur, Surat, Lucknow, Indore, Bhopal, and 200+ tier-2 and tier-3 cities. You can filter creators by city directly on the platform."
-    },
-    {
-      q: "What is the minimum budget to run a campaign on Collancer?",
-      a: "There's no minimum budget. Creators set their own prices, so you can find nano-influencers starting from as low as ₹500 per Story or Reel. The platform fee is a small percentage on top of the creator's rate — no hidden charges."
-    },
+    { q: "What is Collancer?", a: "Collancer is a structured influencer marketing platform built to connect Indian brands and creators directly. Brands can discover relevant creators, manage campaign requirements and bookings, while creators can discover opportunities and receive structured collaborations without relying only on scattered DMs and forms." },
+    { q: "What problem is Collancer solving?", a: "Influencer marketing still relies heavily on agencies, spreadsheets, DMs, WhatsApp groups and separate collaboration forms. Collancer brings discovery, opportunities, campaign requirements, creator profiles, bookings and structured communication into one platform." },
+    { q: "How is Collancer different from an influencer agency?", a: "Collancer is a technology platform, not a traditional agency. The goal is to reduce unnecessary middlemen and give brands and creators a more direct, transparent way to discover and collaborate with each other." },
+    { q: "How does Collancer help brands find creators?", a: "Brands can describe the campaign they need, use creator filters and use Collancer AI to identify relevant creators based on factors such as niche, audience, location, content style, platform and campaign requirements. The goal is better creator–brand fit instead of choosing only by follower count." },
+    { q: "What is Collancer AI for brands?", a: "Collancer AI is the platform's AI-powered creator discovery assistant. A brand can describe its campaign requirements in natural language and the demo experience shows how AI can surface relevant creator matches, compare profiles and help narrow down the right creators." },
+    { q: "What does Collancer AI do for creators?", a: "Creator-side Collancer AI is designed around two practical jobs: finding relevant live collaboration opportunities and helping creators generate content ideas after receiving a booking. It can turn a campaign brief into useful hooks, concepts and content directions." },
+    { q: "Do creators have to fill collaboration forms on Collancer?", a: "Collancer is designed to reduce dependence on disconnected collaboration forms. Instead of repeatedly filling forms across different campaigns, creators can build a structured profile and discover relevant opportunities in one place. Individual campaigns may still have their own requirements, but the platform is designed to make opportunity discovery more organized." },
+    { q: "Why do creators fill many forms but still not get selected?", a: "Traditional collaboration forms often give creators little visibility into whether an application was reviewed, how it matched the campaign or why someone else was selected. Collancer's structured profiles and opportunity discovery model are designed to make creator discovery more direct and relevant, rather than relying only on blind form submissions." },
+    { q: "Can creators join Collancer for free?", a: "Creator profile creation and discovery are designed to be accessible without an upfront subscription. Any platform fees or commissions applicable to a completed booking will be shown clearly in the relevant product flow." },
+    { q: "What types of collaborations can creators find?", a: "Collancer supports both paid and barter collaborations, with opportunities across categories such as beauty, skincare, fashion, technology, food, travel and other creator niches. Specific campaign requirements vary by brand." },
+    { q: "How do paid collaborations work?", a: "A creator can discover a paid opportunity, review the campaign requirements and respond through the structured Collancer workflow. The exact deliverables, timeline and commercial terms are presented as part of the campaign or booking." },
+    { q: "How do barter collaborations work?", a: "Barter opportunities allow creators to collaborate in exchange for products or other agreed benefits rather than a direct cash payout. Each campaign defines its own eligibility, deliverables and product terms." },
+    { q: "How does a brand book a creator?", a: "A brand can discover a creator, review the profile and campaign fit, choose the required collaboration or promotion format, provide the campaign brief and proceed through the platform's booking flow." },
+    { q: "Are creator profiles verified?", a: "Collancer is designed around verified creator profiles and stronger creator information so brands can make better decisions. Verification and profile-review requirements may vary as the platform and creator onboarding process evolve." },
+    { q: "What information should a creator add to their profile?", a: "Creators should provide accurate niche, platform, audience, location, content style, portfolio and collaboration information. A complete profile helps brands and Collancer AI understand where the creator is most relevant." },
+    { q: "Can brands work with micro and nano creators?", a: "Yes. Collancer is designed around creator–campaign fit rather than follower count alone, so brands can discover creators across different audience sizes when they are relevant to the campaign." },
+    { q: "Is Collancer only for Instagram creators?", a: "No. Collancer is designed for creators across multiple content platforms and formats. The available platform and promotion options depend on the creator profile and campaign requirements." },
+    { q: "Which cities does Collancer cover?", a: "Collancer is focused on Indian brands and creators and is designed to support creators across major cities as well as emerging creator markets throughout India." },
+    { q: "Is payment protection available?", a: "Collancer is building structured booking and payment workflows designed to make transactions clearer and safer for both sides. The exact payment, refund and release terms shown at checkout or booking should be treated as the governing terms for that transaction." },
+    { q: "How can I contact Collancer?", a: "For support, questions or partnership enquiries, email support@collancer.in." },
   ];
 
   return (
-    <section
-      id="faq"
-      aria-label="Frequently Asked Questions about Collancer"
-      style={{
-        padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)',
-        position: 'relative', zIndex: 1
-      }}
-    >
-      <div style={{ maxWidth: 800, margin: '0 auto' }}>
+    <section id="faq" aria-label="Frequently Asked Questions about Collancer" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 820, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div className="badge badge-cyan reveal" style={{ marginBottom: 20 }}>FAQs</div>
           <h2 className="section-title reveal">
-            Everything You Need<br />
-            <span className="text-gradient">To Know</span>
+            Questions Brands & Creators
+            <br /><span className="text-gradient">Actually Ask</span>
           </h2>
-          <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,1.8vw,17px)', maxWidth: 500, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            Quick answers to the most common questions about Collancer, Collancer AI, payments, and creator bookings.
+          <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,1.8vw,17px)', maxWidth: 590, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
+            Clear answers about Collancer, creator opportunities, Collancer AI, paid and barter collaborations, bookings and the problems we are building to solve.
           </p>
         </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="glass-card reveal"
-              style={{
-                transitionDelay: `${i * 0.05}s`,
-                overflow: 'hidden',
-                borderColor: openIdx === i ? 'rgba(0,229,255,0.25)' : 'var(--border)',
-              }}
-            >
-              {/* Question */}
-              <button
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                style={{
-                  width: '100%', background: 'none', border: 'none', cursor: 'pointer',
-                  padding: isMobile ? '18px 20px' : '20px 28px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
-                  textAlign: 'left',
-                }}
-                aria-expanded={openIdx === i}
-                aria-controls={`faq-answer-${i}`}
-              >
-                <h3 style={{
-                  fontFamily: 'var(--ff-display)', fontSize: isMobile ? 15 : 17,
-                  fontWeight: 700, color: openIdx === i ? 'var(--cyan)' : 'var(--text)',
-                  lineHeight: 1.4, flex: 1, transition: 'color 0.2s',
-                }}>
-                  {faq.q}
-                </h3>
-                <div style={{
-                  width: 28, height: 28, borderRadius: 8, flexShrink: 0,
-                  background: openIdx === i ? 'rgba(0,229,255,0.12)' : 'rgba(255,255,255,0.04)',
-                  border: openIdx === i ? '1px solid rgba(0,229,255,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'all 0.3s',
-                  transform: openIdx === i ? 'rotate(45deg)' : 'rotate(0deg)',
-                  color: openIdx === i ? 'var(--cyan)' : 'var(--text-muted)',
-                }}>
-                  <ChevronDown size={16} />
-                </div>
-              </button>
-
-              {/* Answer */}
-              <div
-                id={`faq-answer-${i}`}
-                role="region"
-                style={{
-                  maxHeight: openIdx === i ? 500 : 0,
-                  overflow: 'hidden',
-                  transition: 'max-height 0.4s cubic-bezier(0.16,1,0.3,1)',
-                }}
-              >
-                <p style={{
-                  padding: isMobile ? '0 20px 20px' : '0 28px 24px',
-                  color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.8,
-                }}>
-                  {faq.a}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA below FAQs */}
-        <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
-          <p style={{ color: 'var(--text-muted)', fontSize: 15, marginBottom: 20 }}>
-            Still have questions? We're happy to help.
-          </p>
-          <a
-            href="mailto:help@collancer.in"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '12px 28px', borderRadius: 12,
-              background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)',
-              color: 'var(--cyan)', fontSize: 14, fontWeight: 600, textDecoration: 'none',
-              transition: 'all 0.3s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.15)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.4)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.25)'; }}
+        <div className="reveal" style={{ display: 'flex', justifyContent: 'center', marginBottom: faqExpanded ? 24 : 0 }}>
+          <button
+            type="button"
+            onClick={() => { setFaqExpanded(v => !v); setOpenIdx(null); }}
+            aria-expanded={faqExpanded}
+            aria-controls="collancer-faq-list"
+            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: isMobile ? '14px 28px' : '15px 34px', borderRadius: 14, border: '1px solid rgba(0,229,255,0.32)', background: faqExpanded ? 'rgba(0,229,255,0.12)' : 'linear-gradient(135deg, rgba(0,229,255,0.12), rgba(179,136,255,0.10))', color: 'var(--cyan)', fontFamily: 'var(--ff-display)', fontSize: isMobile ? 14 : 15, fontWeight: 800, letterSpacing: 0.2, cursor: 'pointer', boxShadow: '0 10px 35px rgba(0,229,255,0.08)', transition: 'all 0.3s var(--ease-out-expo)' }}
           >
-            <Mail size={14} /> help@collancer.in
-          </a>
+            {faqExpanded ? 'Hide FAQs' : 'View FAQs'}
+            <ChevronDown size={17} style={{ transform: faqExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }} />
+          </button>
+        </div>
+
+        {faqExpanded && (
+          <div id="collancer-faq-list" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {faqs.map((faq, i) => (
+              <div key={i} className="glass-card" style={{ overflow: 'hidden', borderColor: openIdx === i ? 'rgba(0,229,255,0.25)' : 'var(--border)' }}>
+                <button onClick={() => setOpenIdx(openIdx === i ? null : i)} style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: isMobile ? '18px 20px' : '20px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, textAlign: 'left' }} aria-expanded={openIdx === i} aria-controls={`faq-answer-${i}`}>
+                  <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: isMobile ? 15 : 17, fontWeight: 700, color: openIdx === i ? 'var(--cyan)' : 'var(--text)', lineHeight: 1.4, flex: 1, transition: 'color 0.2s' }}>{faq.q}</h3>
+                  <div style={{ width: 28, height: 28, borderRadius: 8, flexShrink: 0, background: openIdx === i ? 'rgba(0,229,255,0.12)' : 'rgba(255,255,255,0.04)', border: openIdx === i ? '1px solid rgba(0,229,255,0.3)' : '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s', transform: openIdx === i ? 'rotate(45deg)' : 'rotate(0deg)', color: openIdx === i ? 'var(--cyan)' : 'var(--text-muted)' }}><ChevronDown size={16} /></div>
+                </button>
+                <div id={`faq-answer-${i}`} role="region" style={{ maxHeight: openIdx === i ? 700 : 0, overflow: 'hidden', transition: 'max-height 0.45s cubic-bezier(0.16,1,0.3,1)' }}>
+                  <p style={{ padding: isMobile ? '0 20px 20px' : '0 28px 24px', color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.8, margin: 0 }}>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: 15, marginBottom: 20 }}>Still have questions? We're happy to help.</p>
+          <a href="mailto:support@collancer.in" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', borderRadius: 12, background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)', color: 'var(--cyan)', fontSize: 14, fontWeight: 600, textDecoration: 'none', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.15)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.4)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.25)'; }}><Mail size={14} /> support@collancer.in</a>
         </div>
       </div>
     </section>

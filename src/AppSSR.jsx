@@ -932,6 +932,19 @@ function ProblemSection() {
       statLabel: "of creators have purchased fake followers at some point",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
     },
+    {
+      icon: <ClipboardList size={32} />,
+      title: "Endless Applications, No Selection",
+      short: "Creators fill form after form and still get little visibility into whether a brand or agency ever reviewed the application.",
+      details: [
+        "A creator can spend hours submitting campaign forms across Instagram stories, Google Forms, WhatsApp groups and agency links without knowing which opportunities are genuinely active.",
+        "Even after applying, there is often no clear status, feedback or explanation for why another creator was selected — leaving creators to keep applying blindly.",
+        "Collancer is designed to bring live opportunities, structured creator profiles and more relevant discovery into one place so creators can spend less time filling forms and more time creating."
+      ],
+      color: "#c084fc",
+      stat: "Less guesswork",
+      statLabel: "more structured opportunity discovery for creators"
+    },
   ];
 
   return (
@@ -2188,152 +2201,57 @@ function FAQSection() {
   const [openIdx, setOpenIdx] = useState(null);
 
   const faqs = [
-    {
-      q: "What is Collancer?",
-      a: "Collancer is India's first structured influencer booking marketplace powered by Collancer AI. It lets brands discover, book, and pay verified Indian creators across 25 niches in under 2 minutes — with secure Razorpay payments and a 100% refund guarantee."
-    },
-    {
-      q: "How is Collancer different from other influencer platforms in India?",
-      a: "Collancer is the only platform in India combining AI-powered matching (Collancer AI), escrow payment protection, a 100% automatic refund guarantee, a requirements marketplace where creators bid on your brief, and verified real metrics — not self-reported follower counts. No WhatsApp DMs. No guessing. No risk."
-    },
-    {
-      q: "How do I book an influencer on Collancer?",
-      a: "In 3 steps: (1) Use Collancer AI or filters to find a verified creator matching your niche, city, and budget. (2) Select your promotion type (Story, Reel, Video, etc.) and fill your campaign brief. (3) Pay securely via Razorpay — your money is held in escrow until the creator delivers."
-    },
-    {
-      q: "Is my payment safe on Collancer?",
-      a: "Yes. All payments are processed through Razorpay and held in escrow. Funds are only released to the creator after confirmed delivery. If a creator rejects your booking or misses the deadline, you receive a 100% automatic refund — no disputes, no forms, no waiting."
-    },
-    {
-      q: "Is Collancer free for creators?",
-      a: "Yes. Creators list their profiles completely free — no upfront cost, no monthly subscription. Collancer takes a small platform commission only on successful completed bookings."
-    },
-    {
-      q: "What is Collancer AI?",
-      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Collancer AI finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
-    },
-    {
-      q: "How many influencers are on Collancer?",
-      a: "growing verified Indian creators across 25 content niches. Every creator is manually verified by the Collancer team within 24 hours — we check real engagement, audience geography, and content quality before approval."
-    },
-    {
-      q: "Which promotion types can I book?",
-      a: "Six types: Instagram Story, Instagram Reel, YouTube Video, YouTube Shorts, Personal Video, and Personal Ad. Each creator sets their own price per type, giving you transparent, fixed pricing before you book."
-    },
-    {
-      q: "Which cities does Collancer cover in India?",
-      a: "Collancer covers creators from all major Indian cities — Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Jaipur, Surat, Lucknow, Indore, Bhopal, and 200+ tier-2 and tier-3 cities. You can filter creators by city directly on the platform."
-    },
-    {
-      q: "What is the minimum budget to run a campaign on Collancer?",
-      a: "There's no minimum budget. Creators set their own prices, so you can find nano-influencers starting from as low as ₹500 per Story or Reel. The platform fee is a small percentage on top of the creator's rate — no hidden charges."
-    },
+    { q: "What is Collancer?", a: "Collancer is a structured influencer marketing platform built to connect Indian brands and creators directly. Brands can discover relevant creators, manage campaign requirements and bookings, while creators can discover opportunities and receive structured collaborations without relying only on scattered DMs and forms." },
+    { q: "What problem is Collancer solving?", a: "Influencer marketing still relies heavily on agencies, spreadsheets, DMs, WhatsApp groups and separate collaboration forms. Collancer brings discovery, opportunities, campaign requirements, creator profiles, bookings and structured communication into one platform." },
+    { q: "How is Collancer different from an influencer agency?", a: "Collancer is a technology platform, not a traditional agency. The goal is to reduce unnecessary middlemen and give brands and creators a more direct, transparent way to discover and collaborate with each other." },
+    { q: "How does Collancer help brands find creators?", a: "Brands can describe the campaign they need, use creator filters and use Collancer AI to identify relevant creators based on factors such as niche, audience, location, content style, platform and campaign requirements. The goal is better creator–brand fit instead of choosing only by follower count." },
+    { q: "What is Collancer AI for brands?", a: "Collancer AI is the platform's AI-powered creator discovery assistant. A brand can describe its campaign requirements in natural language and the demo experience shows how AI can surface relevant creator matches, compare profiles and help narrow down the right creators." },
+    { q: "What does Collancer AI do for creators?", a: "Creator-side Collancer AI is designed around two practical jobs: finding relevant live collaboration opportunities and helping creators generate content ideas after receiving a booking. It can turn a campaign brief into useful hooks, concepts and content directions." },
+    { q: "Do creators have to fill collaboration forms on Collancer?", a: "Collancer is designed to reduce dependence on disconnected collaboration forms. Instead of repeatedly filling forms across different campaigns, creators can build a structured profile and discover relevant opportunities in one place. Individual campaigns may still have their own requirements, but the platform is designed to make opportunity discovery more organized." },
+    { q: "Why do creators fill many forms but still not get selected?", a: "Traditional collaboration forms often give creators little visibility into whether an application was reviewed, how it matched the campaign or why someone else was selected. Collancer's structured profiles and opportunity discovery model are designed to make creator discovery more direct and relevant, rather than relying only on blind form submissions." },
+    { q: "Can creators join Collancer for free?", a: "Creator profile creation and discovery are designed to be accessible without an upfront subscription. Any platform fees or commissions applicable to a completed booking will be shown clearly in the relevant product flow." },
+    { q: "What types of collaborations can creators find?", a: "Collancer supports both paid and barter collaborations, with opportunities across categories such as beauty, skincare, fashion, technology, food, travel and other creator niches. Specific campaign requirements vary by brand." },
+    { q: "How do paid collaborations work?", a: "A creator can discover a paid opportunity, review the campaign requirements and respond through the structured Collancer workflow. The exact deliverables, timeline and commercial terms are presented as part of the campaign or booking." },
+    { q: "How do barter collaborations work?", a: "Barter opportunities allow creators to collaborate in exchange for products or other agreed benefits rather than a direct cash payout. Each campaign defines its own eligibility, deliverables and product terms." },
+    { q: "How does a brand book a creator?", a: "A brand can discover a creator, review the profile and campaign fit, choose the required collaboration or promotion format, provide the campaign brief and proceed through the platform's booking flow." },
+    { q: "Are creator profiles verified?", a: "Collancer is designed around verified creator profiles and stronger creator information so brands can make better decisions. Verification and profile-review requirements may vary as the platform and creator onboarding process evolve." },
+    { q: "What information should a creator add to their profile?", a: "Creators should provide accurate niche, platform, audience, location, content style, portfolio and collaboration information. A complete profile helps brands and Collancer AI understand where the creator is most relevant." },
+    { q: "Can brands work with micro and nano creators?", a: "Yes. Collancer is designed around creator–campaign fit rather than follower count alone, so brands can discover creators across different audience sizes when they are relevant to the campaign." },
+    { q: "Is Collancer only for Instagram creators?", a: "No. Collancer is designed for creators across multiple content platforms and formats. The available platform and promotion options depend on the creator profile and campaign requirements." },
+    { q: "Which cities does Collancer cover?", a: "Collancer is focused on Indian brands and creators and is designed to support creators across major cities as well as emerging creator markets throughout India." },
+    { q: "Is payment protection available?", a: "Collancer is building structured booking and payment workflows designed to make transactions clearer and safer for both sides. The exact payment, refund and release terms shown at checkout or booking should be treated as the governing terms for that transaction." },
+    { q: "How can I contact Collancer?", a: "For support, questions or partnership enquiries, email support@collancer.in." },
   ];
 
   return (
-    <section
-      id="faq"
-      aria-label="Frequently Asked Questions about Collancer"
-      style={{
-        padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)',
-        position: 'relative', zIndex: 1
-      }}
-    >
-      <div style={{ maxWidth: 800, margin: '0 auto' }}>
+    <section id="faq" aria-label="Frequently Asked Questions about Collancer" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 820, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 56 }}>
           <div className="badge badge-cyan reveal" style={{ marginBottom: 20 }}>FAQs</div>
           <h2 className="section-title reveal">
-            Everything You Need<br />
-            <span className="text-gradient">To Know</span>
+            Questions Brands & Creators
+            <br /><span className="text-gradient">Actually Ask</span>
           </h2>
-          <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,1.8vw,17px)', maxWidth: 500, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            Quick answers to the most common questions about Collancer, Collancer AI, payments, and creator bookings.
+          <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,1.8vw,17px)', maxWidth: 590, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
+            Clear answers about Collancer, creator opportunities, Collancer AI, paid and barter collaborations, bookings and the problems we are building to solve.
           </p>
         </div>
-
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="glass-card reveal"
-              style={{
-                transitionDelay: `${i * 0.05}s`,
-                overflow: 'hidden',
-                borderColor: openIdx === i ? 'rgba(0,229,255,0.25)' : 'var(--border)',
-              }}
-            >
-              {/* Question */}
-              <button
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                style={{
-                  width: '100%', background: 'none', border: 'none', cursor: 'pointer',
-                  padding: isMobile ? '18px 20px' : '20px 28px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
-                  textAlign: 'left',
-                }}
-                aria-expanded={openIdx === i}
-                aria-controls={`faq-answer-${i}`}
-              >
-                <h3 style={{
-                  fontFamily: 'var(--ff-display)', fontSize: isMobile ? 15 : 17,
-                  fontWeight: 700, color: openIdx === i ? 'var(--cyan)' : 'var(--text)',
-                  lineHeight: 1.4, flex: 1, transition: 'color 0.2s',
-                }}>
-                  {faq.q}
-                </h3>
-                <div style={{
-                  width: 28, height: 28, borderRadius: 8, flexShrink: 0,
-                  background: openIdx === i ? 'rgba(0,229,255,0.12)' : 'rgba(255,255,255,0.04)',
-                  border: openIdx === i ? '1px solid rgba(0,229,255,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'all 0.3s',
-                  transform: openIdx === i ? 'rotate(45deg)' : 'rotate(0deg)',
-                  color: openIdx === i ? 'var(--cyan)' : 'var(--text-muted)',
-                }}>
-                  <ChevronDown size={16} />
-                </div>
+            <div key={i} className="glass-card reveal" style={{ transitionDelay: `${i * 0.025}s`, overflow: 'hidden', borderColor: openIdx === i ? 'rgba(0,229,255,0.25)' : 'var(--border)' }}>
+              <button onClick={() => setOpenIdx(openIdx === i ? null : i)} style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: isMobile ? '18px 20px' : '20px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, textAlign: 'left' }} aria-expanded={openIdx === i} aria-controls={`faq-answer-${i}`}>
+                <h3 style={{ fontFamily: 'var(--ff-display)', fontSize: isMobile ? 15 : 17, fontWeight: 700, color: openIdx === i ? 'var(--cyan)' : 'var(--text)', lineHeight: 1.4, flex: 1, transition: 'color 0.2s' }}>{faq.q}</h3>
+                <div style={{ width: 28, height: 28, borderRadius: 8, flexShrink: 0, background: openIdx === i ? 'rgba(0,229,255,0.12)' : 'rgba(255,255,255,0.04)', border: openIdx === i ? '1px solid rgba(0,229,255,0.3)' : '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s', transform: openIdx === i ? 'rotate(45deg)' : 'rotate(0deg)', color: openIdx === i ? 'var(--cyan)' : 'var(--text-muted)' }}><ChevronDown size={16} /></div>
               </button>
-
-              {/* Answer */}
-              <div
-                id={`faq-answer-${i}`}
-                role="region"
-                style={{
-                  maxHeight: openIdx === i ? 500 : 0,
-                  overflow: 'hidden',
-                  transition: 'max-height 0.4s cubic-bezier(0.16,1,0.3,1)',
-                }}
-              >
-                <p style={{
-                  padding: isMobile ? '0 20px 20px' : '0 28px 24px',
-                  color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.8,
-                }}>
-                  {faq.a}
-                </p>
+              <div id={`faq-answer-${i}`} role="region" style={{ maxHeight: openIdx === i ? 700 : 0, overflow: 'hidden', transition: 'max-height 0.45s cubic-bezier(0.16,1,0.3,1)' }}>
+                <p style={{ padding: isMobile ? '0 20px 20px' : '0 28px 24px', color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.8, margin: 0 }}>{faq.a}</p>
               </div>
             </div>
           ))}
         </div>
-
-        {/* CTA below FAQs */}
         <div className="reveal" style={{ textAlign: 'center', marginTop: 48 }}>
-          <p style={{ color: 'var(--text-muted)', fontSize: 15, marginBottom: 20 }}>
-            Still have questions? We're happy to help.
-          </p>
-          <a
-            href="mailto:support@collancer.in"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '12px 28px', borderRadius: 12,
-              background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)',
-              color: 'var(--cyan)', fontSize: 14, fontWeight: 600, textDecoration: 'none',
-              transition: 'all 0.3s',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.15)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.4)'; }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.25)'; }}
-          >
-            <Mail size={14} /> support@collancer.in
-          </a>
+          <p style={{ color: 'var(--text-muted)', fontSize: 15, marginBottom: 20 }}>Still have questions? We're happy to help.</p>
+          <a href="mailto:support@collancer.in" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 28px', borderRadius: 12, background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.25)', color: 'var(--cyan)', fontSize: 14, fontWeight: 600, textDecoration: 'none', transition: 'all 0.3s' }} onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.15)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.4)'; }} onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,229,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(0,229,255,0.25)'; }}><Mail size={14} /> support@collancer.in</a>
         </div>
       </div>
     </section>
