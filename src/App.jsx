@@ -504,7 +504,7 @@ section{isolation:isolate;scroll-margin-top:96px}section::before{content:'';posi
 .feat-icon,.number-ring{position:relative;box-shadow:0 10px 28px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transform:translateZ(16px)}.feat-icon::after,.number-ring::after{content:'';position:absolute;inset:6px;border-radius:inherit;border:1px solid rgba(255,255,255,.05);pointer-events:none}
 h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-.045em!important}.section-title{line-height:1.04!important}.text-gradient{background:linear-gradient(110deg,#f7fbff,#6deaff 31%,#8f7cff 70%,#f0a4ff);background-size:220% auto;animation:gradientFlow 8s ease-in-out infinite}@keyframes gradientFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 .btn-glow,.btn-outline{border-radius:16px!important;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 12px 34px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.18) inset!important}.btn-glow{background:linear-gradient(135deg,#6bf1ff,#21c9ee 48%,#7d6bff 120%)!important;box-shadow:0 14px 40px rgba(29,207,240,.24),0 1px 0 rgba(255,255,255,.35) inset!important}.btn-glow::before,.btn-outline::before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 38%,rgba(255,255,255,.05))}.btn-glow:hover,.btn-outline:hover{transform:translateY(-4px) scale(1.015)!important}
-.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;min-width:170px;height:72px;padding:16px 28px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 14px 40px rgba(0,0,0,.22);flex-shrink:0;transition:transform .45s var(--ease-out-expo),border-color .45s ease,background .45s ease}.brand-logo-tile:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(72,232,255,.3);background:linear-gradient(180deg,rgba(72,232,255,.08),rgba(255,255,255,.025))}.brand-logo-tile img{max-width:112px;max-height:34px;width:auto;height:auto;display:block;filter:grayscale(1) brightness(1.8);opacity:.78;transition:filter .4s ease,opacity .4s ease,transform .4s ease}.brand-logo-tile:hover img{filter:grayscale(0) brightness(1);opacity:1;transform:scale(1.04)}
+.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;min-width:170px;height:72px;padding:16px 28px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 14px 40px rgba(0,0,0,.22);flex-shrink:0;transition:transform .45s var(--ease-out-expo),border-color .45s ease,background .45s ease}.brand-logo-tile:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(72,232,255,.3);background:linear-gradient(180deg,rgba(72,232,255,.08),rgba(255,255,255,.025))}.brand-logo-plate{display:flex;align-items:center;justify-content:center;min-width:126px;height:46px;padding:8px 14px;border-radius:12px;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.9)}.brand-logo-tile img{max-width:108px;max-height:30px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;transition:transform .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
@@ -639,18 +639,18 @@ const STATS = [
 const TESTIMONIALS = [];
 
 const LOGOS = [
-  { name: "Zara", logo: "https://cdn.simpleicons.org/zara/ffffff" },
-  { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/ffffff" },
-  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/ffffff" },
-  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/ffffff" },
-  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/ffffff" },
-  { name: "CRED", logo: "https://cdn.simpleicons.org/cred/ffffff" },
-  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/ffffff" },
-  { name: "Noise", logo: "https://cdn.simpleicons.org/noise/ffffff" },
-  { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/ffffff" },
-  { name: "Moj", logo: "https://cdn.simpleicons.org/moj/ffffff" },
-  { name: "ShareChat", logo: "https://cdn.simpleicons.org/sharechat/ffffff" },
-  { name: "WOW Skin Science", logo: "https://cdn.simpleicons.org/wowskinscience/ffffff" },
+  { name: "Zara", logo: "https://cdn.simpleicons.org/zara/000000" },
+  { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/FC2779" },
+  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/E31E24" },
+  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/FF3F6C" },
+  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/FC8019" },
+  { name: "CRED", logo: "https://cdn.simpleicons.org/cred/000000" },
+  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/11B5E4" },
+  { name: "Noise", logo: "https://cdn.simpleicons.org/noise/000000" },
+  { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A86B" },
+  { name: "Moj", logo: "https://cdn.simpleicons.org/moj/000000" },
+  { name: "ShareChat", logo: "https://cdn.simpleicons.org/sharechat/FF5A5F" },
+  { name: "WOW Skin Science", logo: "https://cdn.simpleicons.org/wowskinscience/000000" },
 ];
 
 /* ═══ HOOKS ═══ */
@@ -971,7 +971,7 @@ function LogoMarquee() {
         <div className="marquee-track">
           {doubled.map((brand, i) => (
             <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name}>
-              <img src={brand.logo} alt={brand.name} loading="lazy" decoding="async" />
+              <div className="brand-logo-plate"><img src={brand.logo} alt={`${brand.name} logo`} loading="eager" decoding="async" /></div>
             </div>
           ))}
         </div>
@@ -984,31 +984,11 @@ function LogoMarquee() {
 function ProblemSection() {
   const { isMobile } = useDevice();
   const problems = [
-    {
-      icon: <MessagesSquare size={28} />,
-      title: "WhatsApp Chaos",
-      short: "3–4 hours wasted finding creators. No system, no contracts, no tracking.",
-      color: "#f87171",
-      stat: "3–4 hrs",
-      statLabel: "lost per campaign just finding a creator",
-      image: "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=600&q=80"
-    },
-    {
-      icon: <IndianRupee size={28} />,
-      title: "Payments Are a Gamble",
-      short: "40% of campaigns face ghosting or payment disputes. UPI transfers with zero protection.",
-      color: "#fb923c",
-      stat: "40%",
-      statLabel: "campaigns face payment disputes",
-    },
-    {
-      icon: <TrendingDown size={28} />,
-      title: "Fake Followers Everywhere",
-      short: "60% of creators have bought fake followers. No way to verify real reach before paying.",
-      color: "#a78bfa",
-      stat: "60%",
-      statLabel: "creators have inflated their numbers",
-    },
+    { icon: <MessagesSquare size={28} />, title: "DM & WhatsApp Chaos", short: "Campaigns still begin with scattered DMs, unclear briefs, missing budgets and endless follow-ups.", color: "#f87171", stat: "Too fragmented", statLabel: "discovery, negotiation and delivery live in different places" },
+    { icon: <Users size={28} />, title: "Agency Layers & Markups", short: "Multiple intermediaries can add commissions, hide campaign values and make creator–brand pricing harder to understand.", color: "#fb923c", stat: "Less transparency", statLabel: "when too many middlemen sit between brands and creators" },
+    { icon: <ClipboardList size={28} />, title: "Collab Form Fatigue", short: "Creators jump between Google Forms, Instagram stories, WhatsApp groups and spreadsheets just to find genuine opportunities.", color: "#a78bfa", stat: "Too many forms", statLabel: "with no single place to track applications and outcomes" },
+    { icon: <IndianRupee size={28} />, title: "Payment Uncertainty", short: "Informal deals and long payment cycles leave creators chasing invoices while brands lack a consistent transaction workflow.", color: "#f59e0b", stat: "Payment risk", statLabel: "when terms, delivery and payout aren't structured upfront" },
+    { icon: <TrendingDown size={28} />, title: "Follower Count ≠ Fit", short: "Brands need the right audience and engagement—not just a large follower number—and creators need a fair way to show their value.", color: "#22d3ee", stat: "Better matching", statLabel: "starts with niche, audience, content quality and campaign fit" },
   ];
 
   return (
@@ -1073,7 +1053,7 @@ function ForBrands() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, color: 'var(--red)', fontFamily: 'var(--ff-display)', fontWeight: 700, fontSize: 14 }}>
                 <X size={14} /> Without Collancer
               </div>
-              {["Spend hours searching across Instagram, YouTube and DMs", "Repeat the same negotiation across scattered DMs", "Pay via personal UPI — zero protection", "Creator ghosts, campaign fails, no refund"].map((item, i) => (
+              {["Search across Instagram, agencies, WhatsApp and spreadsheets", "Agency layers can add markups and slow approvals", "Campaign briefs, creator rates and usage terms are often scattered", "Pay before the workflow is clearly defined — then chase delivery or revisions"].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10, alignItems: 'flex-start' }}>
                   <X size={13} style={{ color: 'var(--red)', marginTop: 3, flexShrink: 0 }} />
                   <span style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6 }}>{item}</span>
@@ -1084,13 +1064,20 @@ function ForBrands() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, color: 'var(--cyan)', fontFamily: 'var(--ff-display)', fontWeight: 700, fontSize: 14 }}>
                 <Check size={14} /> With Collancer
               </div>
-              {["Use Cleo AI to narrow your shortlist in seconds", "Transparent creator rates and deliverables before you book", "Pay securely through Razorpay with escrow protection", "Automatic refund protection when the agreed booking fails"].map((item, i) => (
+              {["Use Cleo AI and creator signals to narrow the right shortlist", "See creator rates, formats, deliverables and campaign terms clearly", "Run a structured booking without unnecessary agency layers", "Pay securely through Razorpay with the platform booking protection flow"].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10, alignItems: 'flex-start' }}>
                   <Check size={13} style={{ color: 'var(--green)', marginTop: 3, flexShrink: 0 }} />
                   <span style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6 }}>{item}</span>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        <div className="reveal glass-card" style={{ marginBottom: 32, padding: 'clamp(20px,4vw,30px)', background: 'linear-gradient(135deg, rgba(248,113,113,0.04), rgba(179,136,255,0.04))', borderColor: 'rgba(179,136,255,0.16)' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:16, color:'var(--purple)', fontFamily:'var(--ff-display)', fontWeight:800, fontSize:15 }}><AlertTriangle size={18}/> What brands are dealing with today</div>
+          <div style={{ display:'grid', gridTemplateColumns:isMobile ? '1fr' : 'repeat(3,1fr)', gap:12 }}>
+            {[['Agency dependency','Briefs, negotiations and approvals can pass through multiple layers before reaching the creator.'],['Form + spreadsheet overload','Teams collect creator applications in forms, then manually sort, compare and follow up.'],['Unclear ROI & fit','Follower count alone does not tell a brand whether a creator matches the audience or campaign goal.']].map(([title,desc],i)=>(<div key={i} style={{padding:16,borderRadius:14,background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.06)'}}><div style={{fontWeight:700,fontSize:13,marginBottom:6}}>{title}</div><div style={{color:'var(--text-muted)',fontSize:12,lineHeight:1.6}}>{desc}</div></div>))}
           </div>
         </div>
 
@@ -1109,6 +1096,13 @@ function ForBrands() {
             <div style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.6 }}>
               If a creator <strong style={{ color: 'var(--text)' }}>rejects your booking</strong> or <strong style={{ color: 'var(--text)' }}>fails to deliver within the agreed deadline</strong>, your full payment is automatically refunded — no disputes, no forms, no waiting. Your money is never at risk on Collancer.
             </div>
+          </div>
+        </div>
+
+        <div className="reveal glass-card" style={{ marginBottom: 40, padding: 'clamp(20px,4vw,30px)', background: 'linear-gradient(135deg, rgba(255,110,180,0.04), rgba(179,136,255,0.04))', borderColor: 'rgba(255,110,180,0.15)' }}>
+          <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:16,color:'var(--pink)',fontFamily:'var(--ff-display)',fontWeight:800,fontSize:15}}><AlertCircle size={18}/> The creator-side problems are bigger than finding a collab</div>
+          <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'repeat(3,1fr)',gap:12}}>
+            {[['Collab form overload','Every opportunity has another form, another WhatsApp group and another spreadsheet—making it hard to track what you applied for.'],['Agency & middleman opacity','Creators may not know the original campaign value, commission structure, usage rights or who actually controls the deal.'],['Payment + proof problems','Creators can finish content and still spend weeks chasing invoices, approvals and payouts.']].map(([title,desc],i)=>(<div key={i} style={{padding:16,borderRadius:14,background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.06)'}}><div style={{fontWeight:700,fontSize:13,marginBottom:6}}>{title}</div><div style={{color:'var(--text-muted)',fontSize:12,lineHeight:1.6}}>{desc}</div></div>))}
           </div>
         </div>
 
@@ -1409,10 +1403,10 @@ function ForCreators() {
                 <ThumbsDown size={14} /> Creator Life Before Collancer
               </div>
               {[
-                "Random DMs with no brief, no budget, no clarity",
-                "3 days negotiating on WhatsApp for one deal",
-                "50% advance via UPI — then ghosted",
-                "No invoice, no contract, zero professional credibility",
+                "Collab forms scattered across Instagram, WhatsApp groups and creator communities",
+                "Agencies or middlemen can make rates, commissions and campaign values unclear",
+                "Unpaid work, delayed payouts and repeated follow-ups after content goes live",
+                "No single profile showing your rates, formats, reputation and completed collaborations",
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
                   <X size={13} style={{ color: 'var(--red)', marginTop: 3, flexShrink: 0 }} />
