@@ -11,7 +11,7 @@ import {
   Bitcoin, PawPrint, Camera, Eye, X, CheckCircle, Users, IndianRupee, Clock,
   ShieldCheck, Globe, TrendingDown, Headphones, Star as StarIcon, ChevronRight,
   ChevronDown, Play, BarChart, Lock, BadgeCheck, Handshake, Laugh, Angry,
-  AlertCircle, ThumbsDown, ArrowRight, PhoneOff, MessagesSquare, Banknote as BanknoteIcon, Gift
+  AlertCircle, ThumbsDown, ArrowRight, PhoneOff, MessagesSquare, Banknote as BanknoteIcon, Gift, Lightbulb
 } from "lucide-react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, serverTimestamp, query, where, getDocs, limit } from "firebase/firestore";
@@ -163,7 +163,6 @@ const CSS = `
   .lucide-pulse { animation: lucidePulse 2s ease-in-out infinite; }
   @keyframes lucidePulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
 
-  #motion-bg { position:fixed; inset:0; z-index:0; pointer-events:none; width:100%; height:100%; }
 
   section { position: relative; z-index: 1; }
 
@@ -570,6 +569,17 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 
 
 
+
+  .problem-grid .problem-card { overflow:hidden; }
+  .problem-card p { min-height: 74px; }
+  .problem-statbox { min-height: 58px; box-sizing:border-box; }
+  .problem-statbox .problem-stat-value { flex:0 0 auto; white-space:nowrap; }
+  .problem-statbox .problem-stat-label { flex:1; min-width:0; }
+  .creator-ai-card { position:relative; overflow:hidden; }
+  .creator-ai-card::after { content:''; position:absolute; width:280px; height:280px; right:-130px; top:-150px; border-radius:50%; background:radial-gradient(circle, rgba(0,229,255,.09), transparent 68%); pointer-events:none; }
+  .creator-ai-use { transition:transform .35s cubic-bezier(.16,1,.3,1), border-color .35s ease, background .35s ease; }
+  .creator-ai-use:hover { transform:translateY(-3px); border-color:rgba(0,229,255,.28) !important; background:rgba(255,255,255,.035) !important; }
+  @media (max-width: 680px) { .problem-card { min-height:0 !important; } .problem-card p { min-height:0; } .problem-statbox { flex-direction:column; gap:3px !important; } .problem-statbox .problem-stat-value { white-space:normal; font-size:20px !important; } }
 
   /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
 .cleo-showcase { position:relative; overflow:hidden; }
@@ -1066,15 +1076,15 @@ function ProblemSection() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 'clamp(12px,2vw,20px)', marginBottom: 40 }}>
+        <div className="problem-grid" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, minmax(0, 1fr))', gap: 'clamp(14px,2vw,20px)', marginBottom: 40 }}>
           {problems.map((p, i) => (
-            <div key={i} className="glass-card reveal spotlight-card" style={{ padding: 28, transitionDelay: `${i * 0.08}s`, borderLeft: `3px solid ${p.color}` }}>
+            <div key={i} className="glass-card reveal spotlight-card problem-card" style={{ padding: 'clamp(20px,2.4vw,28px)', transitionDelay: `${i * 0.08}s`, borderLeft: `3px solid ${p.color}`, minHeight: 238, display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14, color: p.color }}>
                 {p.icon}
                 <span style={{ fontFamily: 'var(--ff-display)', fontSize: 16, fontWeight: 800 }}>{p.title}</span>
               </div>
               <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, marginBottom: 16 }}>{p.short}</p>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: `${p.color}0f`, minWidth: 0, border: `1px solid ${p.color}25`, borderRadius: 12, padding: '10px 16px' }}>
+              <div className="problem-statbox" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, background: `${p.color}0f`, minWidth: 0, border: `1px solid ${p.color}25`, borderRadius: 12, padding: '11px 14px', marginTop: 'auto' }}>
                 <span className="problem-stat-value" style={{ fontFamily: 'var(--ff-display)', fontSize: 24, fontWeight: 800, color: p.color }}>{p.stat}</span>
                 <span className="problem-stat-label" style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.4 }}>{p.statLabel}</span>
               </div>
@@ -1164,6 +1174,27 @@ function ForBrands() {
           <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:16,color:'var(--pink)',fontFamily:'var(--ff-display)',fontWeight:800,fontSize:15}}><AlertCircle size={18}/> The creator-side problems are bigger than finding a collab</div>
           <div style={{display:'grid',gridTemplateColumns:isMobile?'1fr':'repeat(3,1fr)',gap:12}}>
             {[['Collab form overload','Every opportunity has another form, another WhatsApp group and another spreadsheet—making it hard to track what you applied for.'],['Agency & middleman opacity','Creators may not know the original campaign value, commission structure, usage rights or who actually controls the deal.'],['Payment + proof problems','Creators can finish content and still spend weeks chasing invoices, approvals and payouts.']].map(([title,desc],i)=>(<div key={i} style={{padding:16,borderRadius:14,background:'rgba(255,255,255,.025)',border:'1px solid rgba(255,255,255,.06)'}}><div style={{fontWeight:700,fontSize:13,marginBottom:6}}>{title}</div><div style={{color:'var(--text-muted)',fontSize:12,lineHeight:1.6}}>{desc}</div></div>))}
+          </div>
+        </div>
+
+        {/* Collancer AI for creators */}
+        <div className="reveal glass-card creator-ai-card" style={{ marginBottom: 48, padding: 'clamp(22px,4vw,34px)', background: 'linear-gradient(135deg, rgba(179,136,255,0.08), rgba(0,229,255,0.035))', borderColor: 'rgba(179,136,255,0.2)' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:18 }}>
+            <div style={{ width:46, height:46, borderRadius:15, display:'grid', placeItems:'center', background:'linear-gradient(135deg, rgba(179,136,255,.16), rgba(0,229,255,.1))', border:'1px solid rgba(179,136,255,.25)', color:'var(--purple)' }}><Bot size={22}/></div>
+            <div>
+              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:17 }}>Collancer AI for Creators</div>
+              <div style={{ color:'var(--text-muted)', fontSize:12, marginTop:3 }}>One AI assistant for discovering work and creating better content.</div>
+            </div>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:isMobile ? '1fr' : 'repeat(2,minmax(0,1fr))', gap:14 }}>
+            <div className="creator-ai-use" style={{ padding:20, borderRadius:18, background:'rgba(0,0,0,.16)', border:'1px solid rgba(0,229,255,.12)' }}>
+              <div style={{ display:'flex', alignItems:'center', gap:9, color:'var(--cyan)', fontWeight:800, fontSize:13, marginBottom:9 }}><Search size={16}/> Find Live Collab Opportunities</div>
+              <p style={{ color:'var(--text-muted)', fontSize:13, lineHeight:1.65, margin:0 }}>Tell Collancer AI your niche, platform, location and preferred collaboration type. It helps surface relevant live paid and barter opportunities instead of making you hunt through DMs, groups and endless forms.</p>
+            </div>
+            <div className="creator-ai-use" style={{ padding:20, borderRadius:18, background:'rgba(0,0,0,.16)', border:'1px solid rgba(179,136,255,.14)' }}>
+              <div style={{ display:'flex', alignItems:'center', gap:9, color:'var(--purple)', fontWeight:800, fontSize:13, marginBottom:9 }}><Lightbulb size={16}/> Write Content Ideas for Your Booking</div>
+              <p style={{ color:'var(--text-muted)', fontSize:13, lineHeight:1.65, margin:0 }}>Once you receive a booking, give Collancer AI the campaign brief and it can help turn the deliverables into hooks, Reel concepts, talking points and content angles tailored to the brand.</p>
+            </div>
           </div>
         </div>
 
@@ -1450,9 +1481,9 @@ function ForCreators() {
                 <ThumbsDown size={14} /> Creator Life Before Collancer
               </div>
               {[
-                "Collab forms scattered across Instagram, WhatsApp groups and creator communities",
+                "Creators fill form after form for campaigns and still may never hear back or get selected by the brand or agency",
                 "Agencies or middlemen can make rates, commissions and campaign values unclear",
-                "Unpaid work, delayed payouts and repeated follow-ups after content goes live",
+                "Even after applying, there is little visibility into selection, rejection or whether the opportunity is still active",
                 "No single profile showing your rates, formats, reputation and completed collaborations",
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
@@ -1469,7 +1500,8 @@ function ForCreators() {
                 "Brands arrive with structured briefs, clear deliverables and defined budgets",
                 "Your rates and promotion formats are clear before a booking starts",
                 "Payment is secured through the platform before you begin the agreed work",
-                "Verified reviews and completed work build a stronger creator profile over time",
+                "Collancer puts live opportunities in one place so you can apply once through a structured flow and track what happens",
+                "Your creator profile, fit signals and completed work help brands discover you beyond a single form submission",
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
                   <Check size={13} style={{ color: 'var(--green)', marginTop: 3, flexShrink: 0 }} />
@@ -2267,7 +2299,7 @@ function FounderSection() {
               padding: isMobile ? '0 8px' : '0 4px',
               wordBreak: 'break-word',
             }}>
-              India has millions of creators and brands — yet they still find each other over chaotic DMs. We are changing that. Collancer is the infrastructure India&apos;s creator economy has always deserved.
+              Influencer marketing has been built around agencies, spreadsheets, DMs, and forms. We&apos;re rebuilding it around technology, transparency, and direct connections between brands and creators.
             </p>
           </div>
 
