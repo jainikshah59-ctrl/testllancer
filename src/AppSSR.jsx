@@ -9,7 +9,7 @@ import {
   Bitcoin, PawPrint, Camera, Eye, X, CheckCircle, Users, IndianRupee, Clock,
   ShieldCheck, Globe, TrendingDown, Headphones, Star as StarIcon, ChevronRight,
   ChevronDown, Play, BarChart, Lock, BadgeCheck, Handshake, Laugh, Angry,
-  AlertCircle, ThumbsDown, ArrowRight, PhoneOff, MessagesSquare
+  AlertCircle, ThumbsDown, ArrowRight, PhoneOff, MessagesSquare, Banknote as BanknoteIcon, Gift
 } from "lucide-react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, serverTimestamp, query, where, getDocs, limit } from "firebase/firestore";
@@ -729,7 +729,7 @@ function Hero() {
   return (
     <section id="hero" aria-label="Collancer — India's #1 Influencer Booking Marketplace" itemScope itemType="https://schema.org/WPHeader" style={{
       minHeight: '100svh', display: 'flex', alignItems: 'center',
-      padding: isMobile ? '90px 16px 60px' : isTablet ? '110px 24px 70px' : 'clamp(100px, 14vw, 140px) clamp(16px, 4vw, 24px) clamp(60px, 8vw, 80px)',
+      padding: isMobile ? '72px 16px 0' : isTablet ? '96px 24px 0' : 'clamp(90px, 12vw, 125px) clamp(16px, 4vw, 24px) 0',
       position: 'relative', overflow: 'hidden'
     }}>
       <div style={{
@@ -764,7 +764,7 @@ function Hero() {
         <h1 className="reveal" style={{
           fontFamily: "var(--ff-display)",
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
-          fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20
+          fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 12
         }}>
           Where Indian Brands<br />
           <span className="text-gradient">Meet Verified Creators</span>
@@ -772,14 +772,14 @@ function Hero() {
 
         <p className="reveal" style={{
           fontSize: 'clamp(14px, 2vw, 20px)', color: 'var(--text-muted)',
-          lineHeight: 1.7, maxWidth: 600, margin: '0 auto 36px', transitionDelay: '0.1s'
+          lineHeight: 1.7, maxWidth: 600, margin: '0 auto 14px', transitionDelay: '0.1s'
         }}>
           Find creators, launch campaigns, collaborate securely, and grow your brand with India's next-generation creator marketplace.
         </p>
 
         <div className="reveal" style={{
           display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12, justifyContent: 'center',
-          transitionDelay: '0.15s', maxWidth: isMobile ? '100%' : 480, margin: '0 auto 40px',
+          transitionDelay: '0.15s', maxWidth: isMobile ? '100%' : 480, margin: '0 auto',
           width: '100%', padding: isMobile ? '0' : '0'
         }}>
           <button className="btn-glow" style={{ fontSize: 15, padding: isMobile ? '15px 24px' : 'clamp(14px,2vw,18px) clamp(28px,4vw,40px)' }}
@@ -800,9 +800,9 @@ function Hero() {
 function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <section aria-label="Example brands creators recognize" style={{ padding: '34px 0 40px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 18px', textAlign: 'center' }}>
-        <div className="badge badge-cyan" style={{ marginBottom: 10 }}>Brand ecosystem</div>
+    <section aria-label="Example brands creators recognize" style={{ padding: '0 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 8px', textAlign: 'center' }}>
+        <div className="badge badge-cyan" style={{ marginBottom: 6 }}>Brand ecosystem</div>
       </div>
       <div className="marquee-container">
         <div className="marquee-track">
@@ -1394,11 +1394,11 @@ function ForCreators() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, minmax(0, 1fr))', gap: 'clamp(14px,2vw,20px)' }}>
             {[
-              { icon: '💰', title: 'Paid Collaborations', desc: 'Create content for brands and get paid for your agreed deliverables. Set your rates, review the brief, and collaborate through a structured booking.', color: 'var(--cyan)', features: ['Set your own rates', 'Secure payment flow', 'Clear campaign brief'] },
-              { icon: '🎁', title: 'Barter Collaborations', desc: 'Collaborate with brands in exchange for products or experiences. Discover relevant opportunities and understand the deliverables before you accept.', color: 'var(--purple)', features: ['Product / experience exchange', 'Clear deliverables', 'Discover relevant opportunities'] }
+              { icon: <BanknoteIcon size={28} strokeWidth={1.8} />, title: 'Paid Collaborations', desc: 'Create content for brands and get paid for your agreed deliverables. Set your rates, review the brief, and collaborate through a structured booking.', color: 'var(--cyan)', features: ['Set your own rates', 'Secure payment flow', 'Clear campaign brief'] },
+              { icon: <Gift size={28} strokeWidth={1.8} />, title: 'Barter Collaborations', desc: 'Collaborate with brands in exchange for products or experiences. Discover relevant opportunities and understand the deliverables before you accept.', color: 'var(--purple)', features: ['Product / experience exchange', 'Clear deliverables', 'Discover relevant opportunities'] }
             ].map((item, i) => (
               <div key={i} className="glass-card reveal spotlight-card" style={{ padding: 'clamp(22px,3vw,32px)', textAlign: 'left', borderColor: `${item.color}22`, transitionDelay: `${i * 0.08}s` }}>
-                <div style={{ width: 58, height: 58, borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, background: `${item.color}12`, border: `1px solid ${item.color}30`, marginBottom: 18 }}>{item.icon}</div>
+                <div style={{ width: 58, height: 58, borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', color: item.color, background: `${item.color}12`, border: `1px solid ${item.color}30`, marginBottom: 18 }}>{item.icon}</div>
                 <h4 style={{ fontFamily: 'var(--ff-display)', fontSize: 20, fontWeight: 800, marginBottom: 10 }}>{item.title}</h4>
                 <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, marginBottom: 18 }}>{item.desc}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>

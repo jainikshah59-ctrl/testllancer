@@ -11,7 +11,7 @@ import {
   Bitcoin, PawPrint, Camera, Eye, X, CheckCircle, Users, IndianRupee, Clock,
   ShieldCheck, Globe, TrendingDown, Headphones, Star as StarIcon, ChevronRight,
   ChevronDown, Play, BarChart, Lock, BadgeCheck, Handshake, Laugh, Angry,
-  AlertCircle, ThumbsDown, ArrowRight, PhoneOff, MessagesSquare
+  AlertCircle, ThumbsDown, ArrowRight, PhoneOff, MessagesSquare, Banknote as BanknoteIcon, Gift
 } from "lucide-react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, serverTimestamp, query, where, getDocs, limit } from "firebase/firestore";
@@ -513,7 +513,7 @@ section{isolation:isolate;scroll-margin-top:96px}section::before{content:'';posi
 .feat-icon,.number-ring{position:relative;box-shadow:0 10px 28px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transform:translateZ(16px)}.feat-icon::after,.number-ring::after{content:'';position:absolute;inset:6px;border-radius:inherit;border:1px solid rgba(255,255,255,.05);pointer-events:none}
 h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-.045em!important}.section-title{line-height:1.04!important}.text-gradient{background:linear-gradient(110deg,#f7fbff,#6deaff 31%,#8f7cff 70%,#f0a4ff);background-size:220% auto;animation:gradientFlow 8s ease-in-out infinite}@keyframes gradientFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 .btn-glow,.btn-outline{border-radius:16px!important;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 12px 34px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.18) inset!important}.btn-glow{background:linear-gradient(135deg,#6bf1ff,#21c9ee 48%,#7d6bff 120%)!important;box-shadow:0 14px 40px rgba(29,207,240,.24),0 1px 0 rgba(255,255,255,.35) inset!important}.btn-glow::before,.btn-outline::before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 38%,rgba(255,255,255,.05))}.btn-glow:hover,.btn-outline:hover{transform:translateY(-4px) scale(1.015)!important}
-.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;width:112px;min-width:112px;height:64px;padding:4px 6px;flex-shrink:0;transition:transform .45s var(--ease-out-expo),filter .45s ease;position:relative}.brand-logo-tile:hover{transform:translateY(-4px) scale(1.06);filter:drop-shadow(0 0 18px rgba(72,232,255,.18))}.brand-logo-plate{display:contents}.brand-logo-tile img{max-width:96px;max-height:38px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;object-fit:contain;transition:transform .4s ease,filter .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}.brand-logo-fallback{font-family:var(--ff-display);font-size:18px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;width:104px;min-width:104px;height:52px;padding:2px 2px;flex-shrink:0;transition:transform .45s var(--ease-out-expo),filter .45s ease;position:relative}.brand-logo-tile:hover{transform:translateY(-4px) scale(1.06);filter:drop-shadow(0 0 18px rgba(72,232,255,.18))}.brand-logo-plate{display:contents}.brand-logo-tile img{max-width:88px;max-height:32px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;object-fit:contain;transition:transform .4s ease,filter .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}.brand-logo-fallback{font-family:var(--ff-display);font-size:18px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
@@ -563,6 +563,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 .btn-outline{background:rgba(255,255,255,.025)!important;border-color:rgba(170,220,255,.18)!important;border-radius:17px!important;min-height:54px;backdrop-filter:blur(18px)}
 @media(max-width:900px){.hero-stage .orb{width:360px;height:360px;right:-100px;top:22%;opacity:.6}.hero-stage .ring{right:-120px;width:560px;height:180px}.hero-stage .chip{display:none}}
 @media(max-width:768px){#hero h1{font-size:clamp(38px,10vw,58px)!important}.hero-stage .orb{width:280px;height:280px;right:-100px;opacity:.38}.hero-stage .ring{right:-170px;opacity:.5}}
+@media(max-width:768px){#hero{min-height:auto!important;padding-bottom:0!important}#hero .reveal{transition-delay:0s}.marquee-container{height:48px}.brand-logo-tile{width:92px;min-width:92px;height:48px}.brand-logo-tile img{max-width:78px;max-height:28px}}
 @media(prefers-reduced-motion:reduce){.text-gradient,.hero-stage *{animation:none!important}}
 
 
@@ -871,7 +872,7 @@ function Hero() {
   return (
     <section id="hero" aria-label="Collancer — India's #1 Influencer Booking Marketplace" itemScope itemType="https://schema.org/WPHeader" style={{
       minHeight: '100svh', display: 'flex', alignItems: 'center',
-      padding: isMobile ? '90px 16px 60px' : isTablet ? '110px 24px 70px' : 'clamp(100px, 14vw, 140px) clamp(16px, 4vw, 24px) clamp(60px, 8vw, 80px)',
+      padding: isMobile ? '72px 16px 0' : isTablet ? '96px 24px 0' : 'clamp(90px, 12vw, 125px) clamp(16px, 4vw, 24px) 0',
       position: 'relative', overflow: 'hidden'
     }}>
       <div style={{
@@ -915,7 +916,7 @@ function Hero() {
         <h1 className="reveal" style={{
           fontFamily: "var(--ff-display)",
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
-          fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20
+          fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 12
         }}>
           Where Indian Brands<br />
           <span className="text-gradient">Meet Verified Creators</span>
@@ -923,14 +924,14 @@ function Hero() {
 
         <p className="reveal" style={{
           fontSize: 'clamp(14px, 2vw, 20px)', color: 'var(--text-muted)',
-          lineHeight: 1.7, maxWidth: 600, margin: '0 auto 36px', transitionDelay: '0.1s'
+          lineHeight: 1.7, maxWidth: 600, margin: '0 auto 14px', transitionDelay: '0.1s'
         }}>
           Find creators, launch campaigns, collaborate securely, and grow your brand with India's next-generation creator marketplace.
         </p>
 
         <div className="reveal" style={{
           display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12, justifyContent: 'center',
-          transitionDelay: '0.15s', maxWidth: isMobile ? '100%' : 480, margin: '0 auto 40px',
+          transitionDelay: '0.15s', maxWidth: isMobile ? '100%' : 480, margin: '0 auto',
           width: '100%', padding: isMobile ? '0' : '0'
         }}>
           <button className="btn-glow" style={{ fontSize: 15, padding: isMobile ? '15px 24px' : 'clamp(14px,2vw,18px) clamp(28px,4vw,40px)' }}
@@ -951,9 +952,9 @@ function Hero() {
 function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <section aria-label="Example brands creators recognize" style={{ padding: '34px 0 40px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 18px', textAlign: 'center' }}>
-        <div className="badge badge-cyan" style={{ marginBottom: 10 }}>Brand ecosystem</div>
+    <section aria-label="Example brands creators recognize" style={{ padding: '0 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 8px', textAlign: 'center' }}>
+        <div className="badge badge-cyan" style={{ marginBottom: 6 }}>Brand ecosystem</div>
       </div>
       <div className="marquee-container">
         <div className="marquee-track">
@@ -1457,11 +1458,11 @@ function ForCreators() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, minmax(0, 1fr))', gap: 'clamp(14px,2vw,20px)' }}>
             {[
-              { icon: '💰', title: 'Paid Collaborations', desc: 'Create content for brands and get paid for your agreed deliverables. Set your rates, review the brief, and collaborate through a structured booking.', color: 'var(--cyan)', features: ['Set your own rates', 'Secure payment flow', 'Clear campaign brief'] },
-              { icon: '🎁', title: 'Barter Collaborations', desc: 'Collaborate with brands in exchange for products or experiences. Discover relevant opportunities and understand the deliverables before you accept.', color: 'var(--purple)', features: ['Product / experience exchange', 'Clear deliverables', 'Discover relevant opportunities'] }
+              { icon: <BanknoteIcon size={28} strokeWidth={1.8} />, title: 'Paid Collaborations', desc: 'Create content for brands and get paid for your agreed deliverables. Set your rates, review the brief, and collaborate through a structured booking.', color: 'var(--cyan)', features: ['Set your own rates', 'Secure payment flow', 'Clear campaign brief'] },
+              { icon: <Gift size={28} strokeWidth={1.8} />, title: 'Barter Collaborations', desc: 'Collaborate with brands in exchange for products or experiences. Discover relevant opportunities and understand the deliverables before you accept.', color: 'var(--purple)', features: ['Product / experience exchange', 'Clear deliverables', 'Discover relevant opportunities'] }
             ].map((item, i) => (
               <div key={i} className="glass-card reveal spotlight-card" style={{ padding: 'clamp(22px,3vw,32px)', textAlign: 'left', borderColor: `${item.color}22`, transitionDelay: `${i * 0.08}s` }}>
-                <div style={{ width: 58, height: 58, borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, background: `${item.color}12`, border: `1px solid ${item.color}30`, marginBottom: 18 }}>{item.icon}</div>
+                <div style={{ width: 58, height: 58, borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', color: item.color, background: `${item.color}12`, border: `1px solid ${item.color}30`, marginBottom: 18 }}>{item.icon}</div>
                 <h4 style={{ fontFamily: 'var(--ff-display)', fontSize: 20, fontWeight: 800, marginBottom: 10 }}>{item.title}</h4>
                 <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, marginBottom: 18 }}>{item.desc}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
