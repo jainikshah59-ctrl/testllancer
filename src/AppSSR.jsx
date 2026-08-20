@@ -754,13 +754,6 @@ function Hero() {
       </div>
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
-        <div className="reveal" style={{ marginBottom: 24, display: 'flex', justifyContent: 'center' }}>
-          <div className="badge badge-cyan" style={{ fontSize: 12, letterSpacing: 0.8 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
-            India's First Structured Influencer Booking Platform
-          </div>
-        </div>
-
         <h1 className="reveal" style={{
           fontFamily: "var(--ff-display)",
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
