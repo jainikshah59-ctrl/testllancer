@@ -757,24 +757,15 @@ function Hero() {
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
           fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20
         }}>
-          Where Indian Brands<br />
-          <span className="text-gradient">Meet Verified Creators</span>
+          Where Influence<br />
+          <span className="text-gradient">Meets Industry</span>
         </h1>
-
-        <p className="reveal" style={{
-          fontFamily: "var(--ff-display)",
-          fontSize: 'clamp(10px, 1.4vw, 15px)',
-          fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase',
-          background: 'linear-gradient(135deg, var(--cyan), var(--purple))',
-          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-          marginBottom: 24, transitionDelay: '0.05s'
-        }}>Where Influence Meets Industry</p>
 
         <p className="reveal" style={{
           fontSize: 'clamp(14px, 2vw, 20px)', color: 'var(--text-muted)',
           lineHeight: 1.7, maxWidth: 600, margin: '0 auto 36px', transitionDelay: '0.1s'
         }}>
-          Stop managing influencer campaigns over WhatsApp DMs. Discover, book, and pay verified creators across 25 niches — powered by Cleo AI, all in under 2 minutes.
+          The New Home of Brands & Creators
         </p>
 
         <div className="reveal" style={{
@@ -790,26 +781,6 @@ function Hero() {
             onClick={() => document.getElementById('for-creators')?.scrollIntoView({ behavior: 'smooth' })}>
             I am a Creator <Sparkles size={18} className="lucide-anim" />
           </button>
-        </div>
-
-        <div className="reveal" style={{
-          display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
-          background: 'linear-gradient(180deg, rgba(15,15,34,0.9), rgba(10,10,26,0.95))',
-          border: '1px solid var(--border)', borderRadius: 20,
-          overflow: 'hidden', boxShadow: '0 4px 0 rgba(0,0,0,0.3), 0 12px 40px rgba(0,0,0,0.3)',
-          maxWidth: isMobile ? '100%' : 700, margin: '0 auto', transitionDelay: '0.2s'
-        }}>
-          {STATS.map((stat, i) => (
-            <div key={i} style={{
-              padding: isMobile ? '16px 12px' : 'clamp(14px,3vw,24px) clamp(10px,2vw,20px)', textAlign: 'center',
-              borderRight: isMobile ? (i % 2 === 0 ? '1px solid rgba(255,255,255,0.04)' : 'none') : (i < STATS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none'),
-              borderBottom: isMobile && i < 2 ? '1px solid rgba(255,255,255,0.04)' : 'none'
-            }}>
-              <div style={{ marginBottom: 6, display: 'flex', justifyContent: 'center' }}><EmojiToIcon emoji={stat.icon} size={20} /></div>
-              <div style={{ fontFamily: "var(--ff-display)", fontSize: 'clamp(13px,2.2vw,18px)', fontWeight: 800, color: stat.color, lineHeight: 1, letterSpacing: '-0.5px' }}>{stat.value}</div>
-              <div style={{ fontSize: 10, color: 'var(--text-dim)', marginTop: 4, letterSpacing: 0.5, fontWeight: 600, lineHeight: 1.3 }}>{stat.label}</div>
-            </div>
-          ))}
         </div>
 
         <div style={{ marginTop: 56, display: 'flex', justifyContent: 'center' }}>
