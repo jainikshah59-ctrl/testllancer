@@ -511,9 +511,6 @@ h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #63eaff;outline-offset:4px;box-shadow:0 0 0 5px rgba(72,232,255,.12)}
 @media (prefers-reduced-motion:reduce){body::after,.nav-bar>div::before,.text-gradient,.glow-cyan,.glow-purple,.glow-red{animation:none!important}html{scroll-behavior:auto!important}.reveal{filter:none;transform:none;transition:none}}@media (max-width:768px){.nav-bar>div{border-radius:18px;min-height:52px}section{scroll-margin-top:78px}.glass-card{border-radius:22px;backdrop-filter:blur(20px) saturate(125%)}body::after{display:none}}
 
-`;
-
-
 /* FINAL VISUAL FIXES — glyph-clipped gradients + premium spatial polish */
 .text-gradient,.text-gradient-cyan,.text-gradient-purple,.text-gradient-warm{
   display:inline!important;
@@ -557,6 +554,10 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 @media(max-width:900px){.hero-stage .orb{width:360px;height:360px;right:-100px;top:22%;opacity:.6}.hero-stage .ring{right:-120px;width:560px;height:180px}.hero-stage .chip{display:none}}
 @media(max-width:768px){#hero h1{font-size:clamp(38px,10vw,58px)!important}.hero-stage .orb{width:280px;height:280px;right:-100px;opacity:.38}.hero-stage .ring{right:-170px;opacity:.5}}
 @media(prefers-reduced-motion:reduce){.text-gradient,.hero-stage *{animation:none!important}}
+
+
+
+`;
 
 
 
