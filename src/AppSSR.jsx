@@ -459,10 +459,6 @@ const CSS = `
   }
 
   /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
-  
-  .collancer-ai-logo-spin{width:22px;height:22px;object-fit:contain;display:block;animation:collancerAiSpin 8s linear infinite;filter:drop-shadow(0 0 10px rgba(0,229,255,.28));}
-  .collancer-ai-logo-spin.large{width:28px;height:28px;}
-  @keyframes collancerAiSpin{from{transform:rotateY(0deg) rotateZ(0deg)}to{transform:rotateY(360deg) rotateZ(0deg)}}
 .cleo-showcase { position:relative; overflow:hidden; }
   .cleo-showcase::before {
     content:''; position:absolute; width:620px; height:620px; border-radius:50%;
@@ -807,13 +803,18 @@ function Hero() {
       padding: isMobile ? '82px 16px 0' : isTablet ? '104px 24px 0' : 'clamp(105px, 12vw, 140px) clamp(16px, 4vw, 24px) 0',
       position: 'relative', overflow: 'hidden'
     }}>
+      <video className="hero-background-video" autoPlay muted loop playsInline preload="auto" poster="/hero-poster.jpg" aria-hidden="true">
+        <source src="/hero-background.webm" type="video/webm" />
+        <source src="/hero-background.mp4" type="video/mp4" />
+      </video>
+      <div className="hero-video-overlay" aria-hidden="true" />
       <div style={{
         position: 'absolute', width: 600, height: 600, borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%)',
         left: mousePos.x - 300, top: mousePos.y - 300,
-        pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 0
+        pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 1
       }} />
-      <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
+      <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
       <div className="reveal" style={{ marginBottom: 18, display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 3 }}>
@@ -1154,7 +1155,7 @@ function CleoSection() {
   useEffect(() => {
     if (!visible) return;
 
-    // Play the Cleo demo once when it first enters view.
+    // Play the Collancer AI demo once when it first enters view.
     // After the full sequence is shown, leave it in the completed state
     // instead of restarting the animation every few seconds.
     let typingTimer;
@@ -1185,7 +1186,7 @@ function CleoSection() {
     <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Collancer AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
       <div style={{ maxWidth: 1180, margin:'0 auto', position:'relative', zIndex:2 }}>
         <div style={{ textAlign:'center', marginBottom: 52 }}>
-          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><img className="collancer-ai-logo-spin" src="/logo.png" alt="" aria-hidden="true" /> Meet Collancer AI</div>
+          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Collancer AI</div>
           <h2 className="section-title reveal" style={{ marginBottom:18 }}>
             Tell Collancer AI What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
           </h2>
@@ -1196,9 +1197,9 @@ function CleoSection() {
 
         <div className="cleo-demo-shell reveal">
           <div className="cleo-windowbar">
-            <div className="cleo-window-orb"><img className="collancer-ai-logo-spin large" src="/logo.png" alt="" aria-hidden="true" /></div>
+            <div className="cleo-window-orb"><Bot size={16} color="var(--cyan)" /></div>
             <div>
-              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI <span style={{ color:'var(--purple)' }}>AI</span></div>
+              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI</div>
               <div style={{ fontSize:10, color:'var(--text-muted)' }}>Creator Discovery Engine</div>
             </div>
             <div className="cleo-status"><span className="cleo-status-dot" /> Live demo</div>
@@ -1284,7 +1285,7 @@ function CleoSection() {
               <div className="cleo-pulse-ring" />
               <div className="cleo-side-stack" style={{ width:'100%', position:'relative', zIndex:2 }}>
                 <div className="cleo-metric-card">
-                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--cyan)', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:.8 }}><Target size={14}/> What Cleo matches</div>
+                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--cyan)', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:.8 }}><Target size={14}/> What Collancer AI matches</div>
                   <div style={{ display:'grid', gap:10, marginTop:15 }}>
                     {[['Audience fit','98%'],['Content style','94%'],['Campaign fit','97%'],['Budget fit','92%']].map(([label,val]) => <div key={label}><div style={{display:'flex',justifyContent:'space-between',fontSize:10,color:'var(--text-muted)'}}><span>{label}</span><strong style={{color:'var(--text)'}}>{val}</strong></div><div className="cleo-mini-bar"><span style={{width:val}} /></div></div>)}
                   </div>
@@ -2067,7 +2068,7 @@ function SEOContent() {
       <p>
         Collancer AI is Collancer's built-in AI assistant for influencer campaign strategy. Instead of spending hours
         browsing creator profiles and guessing at metrics, brands simply describe what they need in plain
-        English. Cleo understands the brand, budget, and audience goals, then surfaces exact creators who fit.
+        English. Collancer AI understands the brand, budget, and audience goals, then surfaces exact creators who fit.
         Collancer AI supports natural language creator search, head-to-head creator comparisons, reach and ROI estimates,
         and niche-perfect matching.
       </p>
@@ -2195,7 +2196,7 @@ function FAQSection() {
     },
     {
       q: "What is Collancer AI?",
-      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Cleo finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
+      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Collancer AI finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
     },
     {
       q: "How many influencers are on Collancer?",

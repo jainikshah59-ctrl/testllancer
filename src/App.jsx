@@ -531,6 +531,10 @@ h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-
 .logo-marquee-section{margin-top:16px!important}
 @media(max-width:768px){.logo-marquee-section{margin-top:12px!important}}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
+
+.hero-background-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none;filter:saturate(.92) contrast(1.04) brightness(.72)}
+.hero-video-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 45%,rgba(3,9,20,.16),rgba(3,5,12,.56) 72%),linear-gradient(180deg,rgba(2,5,12,.58) 0%,rgba(2,5,12,.18) 38%,rgba(2,5,12,.74) 100%)}
+@media(max-width:768px){.hero-background-video{object-position:center center;filter:saturate(.9) contrast(1.03) brightness(.64)}.hero-video-overlay{background:linear-gradient(180deg,rgba(2,5,12,.66) 0%,rgba(2,5,12,.24) 38%,rgba(2,5,12,.78) 100%)}}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
 @keyframes glowPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}.glow-cyan{animation:glowPulse 5s ease-in-out infinite}.glow-purple{animation:glowPulse 6s ease-in-out infinite reverse}.glow-red{animation:glowPulse 7s ease-in-out infinite}
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #63eaff;outline-offset:4px;box-shadow:0 0 0 5px rgba(72,232,255,.12)}
@@ -590,10 +594,6 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 
 
   /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
-  
-  .collancer-ai-logo-spin{width:22px;height:22px;object-fit:contain;display:block;animation:collancerAiSpin 8s linear infinite;filter:drop-shadow(0 0 10px rgba(0,229,255,.28));}
-  .collancer-ai-logo-spin.large{width:28px;height:28px;}
-  @keyframes collancerAiSpin{from{transform:rotateY(0deg) rotateZ(0deg)}to{transform:rotateY(360deg) rotateZ(0deg)}}
 .cleo-showcase { position:relative; overflow:hidden; }
   .cleo-showcase::before {
     content:''; position:absolute; width:620px; height:620px; border-radius:50%;
@@ -673,34 +673,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
   }
 
 
-
-  /* ═══ COLLANCER 5s CINEMATIC SPLASH ═══ */
-  .collancer-splash { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; overflow: hidden; background: #05050e; color: #fff; opacity: 1; visibility: visible; transition: opacity .75s cubic-bezier(.16,1,.3,1), visibility .75s; }
-  .collancer-splash.is-exiting { opacity: 0; visibility: hidden; pointer-events: none; }
-  .splash-grid { position:absolute; inset:-20%; background-image: linear-gradient(rgba(0,229,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(179,136,255,.045) 1px, transparent 1px); background-size: 52px 52px; transform: perspective(800px) rotateX(60deg) translateY(12%); transform-origin:center bottom; mask-image: linear-gradient(to top, black, transparent 75%); animation: splash-grid-drift 5s linear both; }
-  .splash-glow { position:absolute; width:min(70vw,720px); aspect-ratio:1; border-radius:50%; background: radial-gradient(circle, rgba(0,229,255,.18), rgba(179,136,255,.09) 34%, transparent 68%); filter: blur(8px); animation: splash-breathe 2.2s ease-in-out infinite; }
-  .splash-orb { position:absolute; width:clamp(190px,24vw,310px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.14); box-shadow: inset 0 0 70px rgba(0,229,255,.08), 0 0 80px rgba(0,229,255,.08); animation:splash-orb 4.8s cubic-bezier(.16,1,.3,1) both; }
-  .splash-orb::before,.splash-orb::after { content:""; position:absolute; inset:12%; border-radius:50%; border:1px solid rgba(0,229,255,.16); transform:rotate(55deg) scaleX(1.55); }
-  .splash-orb::after { inset:23%; border-color:rgba(179,136,255,.15); transform:rotate(-35deg) scaleX(1.7); }
-  .splash-core { position:absolute; width:clamp(58px,8vw,96px); aspect-ratio:1; border-radius:28%; background:linear-gradient(145deg, rgba(255,255,255,.28), rgba(0,229,255,.13) 40%, rgba(179,136,255,.12)); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(18px); box-shadow:0 0 35px rgba(0,229,255,.24), inset 0 1px 0 rgba(255,255,255,.28); transform:rotate(45deg); animation:splash-core 4.8s cubic-bezier(.16,1,.3,1) both; }
-  .splash-core::after { content:""; position:absolute; inset:24%; border-radius:22%; border:1px solid rgba(255,255,255,.4); box-shadow:0 0 22px rgba(0,229,255,.28); }
-  .splash-wordmark { position:relative; z-index:3; margin-top:clamp(240px,28vw,330px); text-align:center; font-family:var(--ff-display); font-weight:800; letter-spacing:-.055em; font-size:clamp(38px,7vw,78px); line-height:1; opacity:0; transform:translateY(22px) scale(.97); animation:splash-wordmark 1s .55s cubic-bezier(.16,1,.3,1) forwards; }
-  .splash-wordmark span { background:linear-gradient(100deg,#fff 10%,#bffaff 42%,#00e5ff 62%,#b388ff 92%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .splash-sub { margin-top:14px; color:rgba(238,238,255,.62); font-family:var(--ff-body); font-size:clamp(11px,1.5vw,15px); letter-spacing:.18em; text-transform:uppercase; opacity:0; animation:splash-sub 1s 1.05s ease forwards; }
-  .splash-line { position:absolute; bottom:8vh; width:min(250px,42vw); height:2px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.08); }
-  .splash-line::after { content:""; display:block; width:100%; height:100%; transform:translateX(-100%); background:linear-gradient(90deg,transparent,#00e5ff,#b388ff,transparent); animation:splash-progress 4.2s .2s cubic-bezier(.16,1,.3,1) forwards; box-shadow:0 0 18px rgba(0,229,255,.7); }
-  .splash-particle { position:absolute; width:3px; height:3px; border-radius:50%; background:#00e5ff; box-shadow:0 0 12px #00e5ff; animation:splash-particle 4.5s ease-out both; }
-  .splash-p1{left:18%;top:30%;animation-delay:.15s}.splash-p2{left:77%;top:25%;animation-delay:.65s}.splash-p3{left:12%;top:72%;animation-delay:1.1s}.splash-p4{left:86%;top:66%;animation-delay:.4s}.splash-p5{left:30%;top:16%;animation-delay:1.4s}.splash-p6{left:69%;top:80%;animation-delay:.9s}
-  @keyframes splash-grid-drift{from{transform:perspective(800px) rotateX(60deg) translateY(18%)}to{transform:perspective(800px) rotateX(60deg) translateY(5%)}}
-  @keyframes splash-breathe{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.08);opacity:1}}
-  @keyframes splash-orb{0%{transform:scale(.55) rotate(-28deg);opacity:0}35%{opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
-  @keyframes splash-core{0%{transform:rotate(45deg) scale(.1);opacity:0}38%{opacity:1}100%{transform:rotate(225deg) scale(1);opacity:1}}
-  @keyframes splash-wordmark{to{opacity:1;transform:none}}
-  @keyframes splash-sub{to{opacity:1;transform:translateY(0)}}
-  @keyframes splash-progress{to{transform:translateX(100%)}}
-  @keyframes splash-particle{0%{transform:translate3d(0,35px,0) scale(.2);opacity:0}25%{opacity:1}100%{transform:translate3d(0,-45px,0) scale(1.3);opacity:0}}
-  @media (max-width:600px){ .splash-grid{background-size:36px 36px}.splash-wordmark{margin-top:220px}.splash-sub{letter-spacing:.11em}.splash-line{bottom:7vh;width:180px} }
-  @media (prefers-reduced-motion:reduce){.collancer-splash *{animation-duration:1ms!important;animation-delay:0ms!important}.collancer-splash{transition:none}}`;
+`;
 
 
 
@@ -1013,14 +986,19 @@ function Hero() {
       padding: isMobile ? '82px 16px 0' : isTablet ? '104px 24px 0' : 'clamp(105px, 12vw, 140px) clamp(16px, 4vw, 24px) 0',
       position: 'relative', overflow: 'hidden'
     }}>
+      <video className="hero-background-video" autoPlay muted loop playsInline preload="auto" poster="/hero-poster.jpg" aria-hidden="true">
+        <source src="/hero-background.webm" type="video/webm" />
+        <source src="/hero-background.mp4" type="video/mp4" />
+      </video>
+      <div className="hero-video-overlay" aria-hidden="true" />
       <div style={{
         position: 'absolute', width: 600, height: 600, borderRadius: '50%',
         background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%)',
         left: mousePos.x - 300, top: mousePos.y - 300,
-        pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 0
+        pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 1
       }} />
-      <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
-      <div className="hero-stage" aria-hidden="true">
+      <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
+      <div className="hero-stage" aria-hidden="true" style={{ zIndex: 1 }}>
         <div className="orb" />
         <div className="ring" />
         <div className="ring r2" />
@@ -1285,7 +1263,7 @@ function CleoSection() {
   useEffect(() => {
     if (!visible) return;
 
-    // Play the Cleo demo once when it first enters view.
+    // Play the Collancer AI demo once when it first enters view.
     // After the full sequence is shown, leave it in the completed state
     // instead of restarting the animation every few seconds.
     let typingTimer;
@@ -1316,7 +1294,7 @@ function CleoSection() {
     <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Collancer AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
       <div style={{ maxWidth: 1180, margin:'0 auto', position:'relative', zIndex:2 }}>
         <div style={{ textAlign:'center', marginBottom: 52 }}>
-          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><img className="collancer-ai-logo-spin" src="/logo.png" alt="" aria-hidden="true" /> Meet Collancer AI</div>
+          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Collancer AI</div>
           <h2 className="section-title reveal" style={{ marginBottom:18 }}>
             Tell Collancer AI What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
           </h2>
@@ -1327,9 +1305,9 @@ function CleoSection() {
 
         <div className="cleo-demo-shell reveal">
           <div className="cleo-windowbar">
-            <div className="cleo-window-orb"><img className="collancer-ai-logo-spin large" src="/logo.png" alt="" aria-hidden="true" /></div>
+            <div className="cleo-window-orb"><Bot size={16} color="var(--cyan)" /></div>
             <div>
-              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI <span style={{ color:'var(--purple)' }}>AI</span></div>
+              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI</div>
               <div style={{ fontSize:10, color:'var(--text-muted)' }}>Creator Discovery Engine</div>
             </div>
             <div className="cleo-status"><span className="cleo-status-dot" /> Live demo</div>
@@ -1415,7 +1393,7 @@ function CleoSection() {
               <div className="cleo-pulse-ring" />
               <div className="cleo-side-stack" style={{ width:'100%', position:'relative', zIndex:2 }}>
                 <div className="cleo-metric-card">
-                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--cyan)', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:.8 }}><Target size={14}/> What Cleo matches</div>
+                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--cyan)', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:.8 }}><Target size={14}/> What Collancer AI matches</div>
                   <div style={{ display:'grid', gap:10, marginTop:15 }}>
                     {[['Audience fit','98%'],['Content style','94%'],['Campaign fit','97%'],['Budget fit','92%']].map(([label,val]) => <div key={label}><div style={{display:'flex',justifyContent:'space-between',fontSize:10,color:'var(--text-muted)'}}><span>{label}</span><strong style={{color:'var(--text)'}}>{val}</strong></div><div className="cleo-mini-bar"><span style={{width:val}} /></div></div>)}
                   </div>
@@ -2660,7 +2638,7 @@ function FAQSection() {
     },
     {
       q: "What is Collancer AI?",
-      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Cleo finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
+      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Collancer AI finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
     },
     {
       q: "How many influencers are on Collancer?",
@@ -3065,34 +3043,6 @@ function usePremiumMotion() {
 }
 
 
-function CollancerSplash() {
-  const [visible, setVisible] = useState(() => {
-    try { return sessionStorage.getItem('collancer_splash_seen') !== '1'; } catch { return true; }
-  });
-  const [exiting, setExiting] = useState(false);
-  useEffect(() => {
-    if (!visible) return;
-    const exitTimer = setTimeout(() => setExiting(true), 4300);
-    const hideTimer = setTimeout(() => {
-      try { sessionStorage.setItem('collancer_splash_seen', '1'); } catch {}
-      setVisible(false);
-    }, 5050);
-    return () => { clearTimeout(exitTimer); clearTimeout(hideTimer); };
-  }, [visible]);
-  if (!visible) return null;
-  return (
-    <div className={`collancer-splash ${exiting ? 'is-exiting' : ''}`} aria-label="Collancer loading" role="status">
-      <div className="splash-grid" />
-      <div className="splash-glow" />
-      <div className="splash-orb" />
-      <div className="splash-core" />
-      <i className="splash-particle splash-p1"/><i className="splash-particle splash-p2"/><i className="splash-particle splash-p3"/><i className="splash-particle splash-p4"/><i className="splash-particle splash-p5"/><i className="splash-particle splash-p6"/>
-      <div className="splash-wordmark"><span>COLLANCER</span><div className="splash-sub">Where Indian Brands Meet Verified Creators</div></div>
-      <div className="splash-line" aria-hidden="true"/>
-    </div>
-  );
-}
-
 export default function App() {
   useRevealAnimation();
   usePremiumMotion();
@@ -3198,7 +3148,6 @@ export default function App() {
           the canvas from unmounting on navigation (which killed the animation loop)
           and keeps global CSS active on /blog so z-index stacking stays correct. */}
       <style>{FONTS}{CSS}</style>
-      <CollancerSplash />
       <canvas id="motion-bg" aria-hidden="true" />
 
       <ScrollToTop />
