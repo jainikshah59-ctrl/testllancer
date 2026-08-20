@@ -1207,8 +1207,6 @@ function ForBrands() {
           </div>
         </div>
 
-        <CreatorAIShowcase />
-
         <div style={{
           display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
           gap: 'clamp(14px, 2vw, 20px)', marginBottom: 'clamp(48px, 7vw, 72px)'
@@ -1617,6 +1615,9 @@ function ForCreators() {
             List Your Profile Free <Sparkles size={16} className="lucide-anim" />
           </button>
         </div>
+
+        {/* Collancer AI is intentionally the final feature moment in the creator section. */}
+        <CreatorAIShowcase />
       </div>
     </section>
   );
