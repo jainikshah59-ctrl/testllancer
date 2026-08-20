@@ -757,119 +757,154 @@ function Nav() {
   );
 }
 
-/* ═══ HERO ═══ */
+/* ═══ HERO — card-collage layout ═══ */
+function HeroCampaignCard({ style, badge, badgeColor, title, price, meta }) {
+  return (
+    <div className="hero-campaign-card reveal-scale visible" style={{
+      position: 'absolute', width: 208, background: 'linear-gradient(160deg, rgba(20,20,42,0.92), rgba(9,9,20,0.97))',
+      border: '1px solid var(--border)', borderRadius: 18, padding: '14px 16px 16px',
+      boxShadow: '0 20px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02)',
+      backdropFilter: 'blur(20px)', ...style
+    }}>
+      <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', marginBottom: 6 }}>{title}</div>
+      <div style={{ fontFamily: 'var(--ff-display)', fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 4 }}>{price}</div>
+      <div style={{ fontSize: 11, color: 'var(--text-dim)', marginBottom: 12 }}>{meta}</div>
+      <span className="badge" style={{
+        fontSize: 10, padding: '4px 12px', background: `${badgeColor}18`, color: badgeColor,
+        border: `1px solid ${badgeColor}33`, textTransform: 'none', letterSpacing: 0
+      }}>{badge}</span>
+    </div>
+  );
+}
+
 function Hero() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const onMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
-    window.addEventListener('mousemove', onMove, { passive: true });
-    return () => window.removeEventListener('mousemove', onMove);
-  }, []);
-
-  const floatingTags = [
-    { top: '15%', left: '5%', delay: '0s', text: 'Verified Creators', color: 'var(--green)', anim: 'float1' },
-    { top: '20%', right: '4%', delay: '1.5s', text: 'UPI / Razorpay', color: 'var(--cyan)', anim: 'float2' },
-    { bottom: '32%', left: '3%', delay: '0.8s', text: 'Book in 2 Minutes', color: 'var(--amber)', anim: 'float2' },
-    { bottom: '26%', right: '5%', delay: '2s', text: 'Made for India 🇮🇳', color: 'var(--purple)', anim: 'float1' },
-    { top: '52%', left: '1%', delay: '2.5s', text: 'Cleo AI Inside', color: 'var(--pink)', anim: 'float1' },
-    { top: '47%', right: '1%', delay: '0.3s', text: 'Escrow Protected', color: 'var(--blue)', anim: 'float2' },
-  ];
-
   const { isMobile, isTablet } = useDevice();
+
   return (
     <section id="hero" aria-label="Collancer — India's #1 Influencer Booking Marketplace" itemScope itemType="https://schema.org/WPHeader" style={{
-      minHeight: '100svh', display: 'flex', alignItems: 'center',
-      padding: isMobile ? '90px 16px 60px' : isTablet ? '110px 24px 70px' : 'clamp(100px, 14vw, 140px) clamp(16px, 4vw, 24px) clamp(60px, 8vw, 80px)',
+      padding: isMobile ? '104px 16px 40px' : isTablet ? '120px 24px 48px' : '140px clamp(24px,4vw,64px) 64px',
       position: 'relative', overflow: 'hidden'
     }}>
-      <div style={{
-        position: 'absolute', width: 600, height: 600, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(0,229,255,0.05) 0%, transparent 70%)',
-        left: mousePos.x - 300, top: mousePos.y - 300,
-        pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 0
-      }} />
       <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
 
-      <div className="hide-mobile">
-        {floatingTags.map((tag, i) => (
-          <div key={i} style={{
-            position: 'absolute', ...tag,
-            animation: `${tag.anim} ${3 + i * 0.3}s ease-in-out infinite`, animationDelay: tag.delay,
-            background: 'linear-gradient(180deg, rgba(15,15,34,0.9), rgba(10,10,26,0.95))',
-            border: `1px solid ${tag.color}22`, borderRadius: 50,
-            padding: '8px 18px', fontSize: 12, fontWeight: 600, color: tag.color,
-            boxShadow: `0 4px 20px ${tag.color}15`, whiteSpace: 'nowrap', zIndex: 2, backdropFilter: 'blur(10px)'
-          }}>{tag.text}</div>
-        ))}
+      <div style={{
+        maxWidth: 1280, margin: '0 auto', width: '100%', position: 'relative', zIndex: 2,
+        display: 'grid', gridTemplateColumns: isMobile || isTablet ? '1fr' : 'minmax(0,460px) 1fr',
+        gap: isMobile ? 48 : 24, alignItems: 'center'
+      }}>
+        {/* ── Left: copy ── */}
+        <div className="reveal visible" style={{ textAlign: isMobile ? 'center' : 'left' }}>
+          <div className="badge badge-cyan" style={{ fontSize: 11, letterSpacing: 0.6, marginBottom: 20 }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
+            India's Creator Collaboration Platform
+          </div>
+
+          <h1 style={{
+            fontFamily: "var(--ff-display)", fontSize: 'clamp(30px, 4.2vw, 52px)',
+            fontWeight: 800, lineHeight: 1.06, letterSpacing: '-0.03em', marginBottom: 18
+          }}>
+            Where Indian<br />businesses meet<br /><span className="text-gradient-cyan">verified creators.</span>
+          </h1>
+
+          <p style={{ fontSize: 16, color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: 440, margin: isMobile ? '0 auto 28px' : '0 0 28px' }}>
+            Collancer connects businesses with the right creators. Real opportunities. Fair collaborations. Real growth.
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12, justifyContent: isMobile ? 'center' : 'flex-start', marginBottom: 28 }}>
+            <button className="btn-glow" style={{ fontSize: 14, padding: '13px 26px' }}
+              onClick={() => document.getElementById('for-creators')?.scrollIntoView({ behavior: 'smooth' })}>
+              I'm a Creator <ArrowRight size={16} />
+            </button>
+            <button className="btn-outline" style={{ fontSize: 14, padding: '13px 26px', color: 'var(--text)', borderColor: 'var(--border-hover)', boxShadow: 'none' }}
+              onClick={() => document.getElementById('for-businesses')?.scrollIntoView({ behavior: 'smooth' })}>
+              I'm a Brand <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, justifyContent: isMobile ? 'center' : 'flex-start' }}>
+            <div style={{ display: 'flex' }}>
+              {['#ff6eb4', '#00e5ff', '#b388ff', '#4ade80'].map((c, i) => (
+                <div key={i} style={{
+                  width: 34, height: 34, borderRadius: '50%', marginLeft: i === 0 ? 0 : -10,
+                  background: `linear-gradient(135deg, ${c}, ${c}99)`, border: '2px solid var(--bg)'
+                }} />
+              ))}
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.4 }}>
+              <div><strong style={{ color: 'var(--text)' }}>10K+</strong> Creators · <strong style={{ color: 'var(--text)' }}>500+</strong> Brands</div>
+              <div style={{ color: 'var(--text-dim)' }}>Growing Together</div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Right: floating card collage ── */}
+        {!isMobile && (
+          <div style={{ position: 'relative', height: isTablet ? 420 : 480 }}>
+            <div style={{
+              position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+              width: 140, height: 140, borderRadius: 32,
+              background: 'linear-gradient(160deg, rgba(0,229,255,0.12), rgba(20,20,42,0.9))',
+              border: '1px solid rgba(0,229,255,0.25)', boxShadow: '0 0 80px rgba(0,229,255,0.15), inset 0 0 40px rgba(0,229,255,0.05)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1
+            }}>
+              <span style={{ fontFamily: 'var(--ff-display)', fontSize: 72, fontWeight: 800, color: 'var(--cyan)', textShadow: '0 0 30px rgba(0,229,255,0.6)' }}>C</span>
+            </div>
+
+            <div style={{
+              position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+              width: 260, height: 260, borderRadius: '50%', border: '1px solid rgba(0,229,255,0.12)', zIndex: 0
+            }} />
+
+            <HeroCampaignCard style={{ top: 0, left: 0, transform: 'rotate(-4deg)' }}
+              title="Beauty Campaign" price="₹25,000" meta="Reel · 1 Post · 2 Stories" badge="Open" badgeColor="var(--purple)" />
+            <HeroCampaignCard style={{ top: 10, right: 0, transform: 'rotate(3deg)' }}
+              title="Fashion Campaign" price="₹18,000" meta="Reel · 2 Stories" badge="Open" badgeColor="var(--green)" />
+            <HeroCampaignCard style={{ bottom: 60, left: -10, transform: 'rotate(3deg)' }}
+              title="Tech Review" price="₹30,000" meta="YouTube Short · Reel" badge="Open" badgeColor="var(--purple)" />
+            <HeroCampaignCard style={{ bottom: 20, right: -10, transform: 'rotate(-3deg)' }}
+              title="Lifestyle Campaign" price="₹15,000" meta="Reel · 1 Story" badge="Open" badgeColor="var(--green)" />
+
+            <div style={{
+              position: 'absolute', bottom: 90, left: '50%', transform: 'translateX(-50%)',
+              display: 'flex', background: 'linear-gradient(180deg, rgba(15,15,34,0.95), rgba(10,10,26,0.98))',
+              border: '1px solid var(--border)', borderRadius: 14, overflow: 'hidden',
+              boxShadow: '0 12px 32px rgba(0,0,0,0.4)', zIndex: 2
+            }}>
+              {[['500+', 'Brands'], ['10K+', 'Creators'], ['25K+', 'Campaigns']].map(([v, l], i) => (
+                <div key={i} style={{ padding: '10px 18px', textAlign: 'center', borderRight: i < 2 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
+                  <div style={{ fontFamily: 'var(--ff-display)', fontSize: 15, fontWeight: 800, color: 'var(--cyan)' }}>{v}</div>
+                  <div style={{ fontSize: 9, color: 'var(--text-dim)' }}>{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
-        <div className="reveal" style={{ marginBottom: 24, display: 'flex', justifyContent: 'center' }}>
-          <div className="badge badge-cyan" style={{ fontSize: 12, letterSpacing: 0.8 }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
-            India's First Structured Influencer Booking Platform
-          </div>
-        </div>
-
-        <h1 className="reveal" style={{
-          fontFamily: "var(--ff-display)",
-          fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
-          fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20
-        }}>
-          Where Indian Businesses<br />
-          <span className="text-gradient">Meet Verified Creators</span>
-        </h1>
-
-        <p className="reveal" style={{
-          fontSize: 'clamp(14px, 2vw, 20px)', color: 'var(--text-muted)',
-          lineHeight: 1.7, maxWidth: 600, margin: '0 auto 36px', transitionDelay: '0.1s'
-        }}>
-          Stop managing influencer campaigns over WhatsApp DMs. Discover, book, and pay verified creators across 25 niches — powered by Cleo AI, all in under 2 minutes.
-        </p>
-
-        <div className="reveal" style={{
-          display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: 12, justifyContent: 'center',
-          transitionDelay: '0.15s', maxWidth: isMobile ? '100%' : 480, margin: '0 auto 40px',
-          width: '100%', padding: isMobile ? '0' : '0'
-        }}>
-          <button className="btn-glow" style={{ fontSize: 15, padding: isMobile ? '15px 24px' : 'clamp(14px,2vw,18px) clamp(28px,4vw,40px)' }}
-            onClick={() => document.getElementById('for-businesses')?.scrollIntoView({ behavior: 'smooth' })}>
-            I am a Business <Building2 size={18} className="lucide-anim" />
-          </button>
-          <button className="btn-outline" style={{ fontSize: 15, padding: isMobile ? '15px 24px' : undefined }}
-            onClick={() => document.getElementById('for-creators')?.scrollIntoView({ behavior: 'smooth' })}>
-            I am a Creator <Sparkles size={18} className="lucide-anim" />
-          </button>
-        </div>
-
-        <div className="reveal" style={{
+      {/* ── Stats strip ── */}
+      <div className="reveal visible" style={{ maxWidth: 1000, margin: isMobile ? '48px auto 0' : '72px auto 0', position: 'relative', zIndex: 2 }}>
+        <div style={{
           display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
-          background: 'linear-gradient(180deg, rgba(15,15,34,0.9), rgba(10,10,26,0.95))',
-          border: '1px solid var(--border)', borderRadius: 20,
-          overflow: 'hidden', boxShadow: '0 4px 0 rgba(0,0,0,0.3), 0 12px 40px rgba(0,0,0,0.3)',
-          maxWidth: isMobile ? '100%' : 700, margin: '0 auto', transitionDelay: '0.2s'
+          background: 'linear-gradient(180deg, rgba(15,15,34,0.85), rgba(10,10,26,0.9))',
+          border: '1px solid var(--border)', borderRadius: 18, overflow: 'hidden',
+          boxShadow: '0 12px 40px rgba(0,0,0,0.3)'
         }}>
-          {STATS.map((stat, i) => (
+          {[
+            { icon: <Users size={20} />, value: '10K+', label: 'Verified Creators', color: 'var(--cyan)' },
+            { icon: <Building2 size={20} />, value: '500+', label: 'Brands Onboarded', color: 'var(--purple)' },
+            { icon: <Rocket size={20} />, value: '25K+', label: 'Campaigns Completed', color: 'var(--pink)' },
+            { icon: <ShieldCheck size={20} />, value: '98%', label: 'Collaboration Success', color: 'var(--green)' },
+          ].map((s, i) => (
             <div key={i} style={{
-              padding: isMobile ? '16px 12px' : 'clamp(14px,3vw,24px) clamp(10px,2vw,20px)', textAlign: 'center',
-              borderRight: isMobile ? (i % 2 === 0 ? '1px solid rgba(255,255,255,0.04)' : 'none') : (i < STATS.length - 1 ? '1px solid rgba(255,255,255,0.04)' : 'none'),
+              padding: '20px 16px', textAlign: 'center',
+              borderRight: isMobile ? (i % 2 === 0 ? '1px solid rgba(255,255,255,0.04)' : 'none') : (i < 3 ? '1px solid rgba(255,255,255,0.04)' : 'none'),
               borderBottom: isMobile && i < 2 ? '1px solid rgba(255,255,255,0.04)' : 'none'
             }}>
-              <div style={{ marginBottom: 6, display: 'flex', justifyContent: 'center' }}><EmojiToIcon emoji={stat.icon} size={20} /></div>
-              <div style={{ fontFamily: "var(--ff-display)", fontSize: 'clamp(13px,2.2vw,18px)', fontWeight: 800, color: stat.color, lineHeight: 1, letterSpacing: '-0.5px' }}>{stat.value}</div>
-              <div style={{ fontSize: 10, color: 'var(--text-dim)', marginTop: 4, letterSpacing: 0.5, fontWeight: 600, lineHeight: 1.3 }}>{stat.label}</div>
+              <div style={{ marginBottom: 8, display: 'flex', justifyContent: 'center', color: s.color }}>{s.icon}</div>
+              <div style={{ fontFamily: 'var(--ff-display)', fontSize: 22, fontWeight: 800, letterSpacing: '-0.02em' }}>{s.value}</div>
+              <div style={{ fontSize: 11, color: 'var(--text-dim)', marginTop: 4 }}>{s.label}</div>
             </div>
           ))}
-        </div>
-
-        <div style={{ marginTop: 56, display: 'flex', justifyContent: 'center' }}>
-          <div style={{
-            width: 26, height: 40, borderRadius: 13, border: '1.5px solid rgba(0,229,255,0.25)',
-            display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '6px 0'
-          }}>
-            <div style={{ width: 4, height: 7, borderRadius: 2, background: 'var(--cyan)', animation: 'scroll-indicate 2s ease-in-out infinite' }} />
-          </div>
         </div>
       </div>
     </section>
