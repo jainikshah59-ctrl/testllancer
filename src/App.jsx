@@ -581,7 +581,37 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
   .creator-ai-use:hover { transform:translateY(-3px); border-color:rgba(0,229,255,.28) !important; background:rgba(255,255,255,.035) !important; }
   @media (max-width: 680px) { .problem-card { min-height:0 !important; } .problem-card p { min-height:0; } .problem-statbox { flex-direction:column; gap:3px !important; } .problem-statbox .problem-stat-value { white-space:normal; font-size:20px !important; } }
 
-  /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
+  /* ═══ CREATOR AI SHOWCASE — LIVE CREATOR DEMO ═══ */
+.creator-ai-live { position:relative; overflow:hidden; }
+.creator-ai-live::before { content:""; position:absolute; inset:-40%; background:radial-gradient(circle at 20% 30%, rgba(0,229,255,.10), transparent 34%), radial-gradient(circle at 80% 70%, rgba(179,136,255,.09), transparent 32%); animation: creatorAiAmbient 12s ease-in-out infinite alternate; pointer-events:none; }
+@keyframes creatorAiAmbient { from{transform:translate3d(-2%,1%,0) scale(1)} to{transform:translate3d(3%,-2%,0) scale(1.05)} }
+.creator-ai-window { position:relative; z-index:1; border:1px solid rgba(255,255,255,.09); border-radius:24px; background:rgba(5,7,20,.72); backdrop-filter:blur(20px); box-shadow:0 28px 80px rgba(0,0,0,.35); overflow:hidden; }
+.creator-ai-windowbar { display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid rgba(255,255,255,.07); background:rgba(255,255,255,.018); }
+.creator-ai-orb { width:32px; height:32px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(145deg,rgba(0,229,255,.17),rgba(179,136,255,.18)); border:1px solid rgba(0,229,255,.22); box-shadow:0 0 24px rgba(0,229,255,.12); }
+.creator-ai-status { margin-left:auto; display:flex; align-items:center; gap:6px; font-size:10px; color:var(--text-muted); }
+.creator-ai-status i { width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 12px rgba(74,222,128,.7); animation:creatorAiPulse 1.8s ease-in-out infinite; }
+@keyframes creatorAiPulse { 0%,100%{opacity:.5;transform:scale(.85)} 50%{opacity:1;transform:scale(1.15)} }
+.creator-ai-chat { padding:18px; min-height:500px; position:relative; }
+.creator-ai-bubble { animation:creatorAiBubble .7s cubic-bezier(.16,1,.3,1) both; }
+@keyframes creatorAiBubble { from{opacity:0;transform:translateY(14px) scale(.98);filter:blur(3px)} to{opacity:1;transform:none;filter:blur(0)} }
+.creator-ai-user { max-width:82%; margin-left:auto; padding:13px 15px; border-radius:18px 18px 5px 18px; background:linear-gradient(135deg,rgba(0,229,255,.16),rgba(124,58,237,.12)); border:1px solid rgba(0,229,255,.22); font-size:13px; line-height:1.55; }
+.creator-ai-bot { max-width:92%; padding:13px 15px; border-radius:5px 18px 18px 18px; background:linear-gradient(145deg,rgba(179,136,255,.10),rgba(16,17,40,.78)); border:1px solid rgba(179,136,255,.18); font-size:13px; line-height:1.55; }
+.creator-ai-scan { margin:14px 0; padding:12px 14px; border:1px solid rgba(0,229,255,.14); border-radius:16px; background:rgba(0,229,255,.035); overflow:hidden; position:relative; animation:creatorAiBubble .7s both; }
+.creator-ai-scan::after { content:""; position:absolute; left:0; right:0; top:0; height:2px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); animation:creatorAiScan 2.1s linear infinite; }
+@keyframes creatorAiScan { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+.creator-ai-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
+.creator-ai-chip { display:inline-flex; align-items:center; gap:5px; padding:6px 8px; border-radius:999px; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.07); font-size:9px; color:var(--text-muted); }
+.creator-ai-opportunity { display:flex; align-items:center; gap:10px; padding:10px; border-radius:13px; margin-top:8px; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); animation:creatorAiBubble .55s both; }
+.creator-ai-logo { width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-weight:800; font-size:10px; color:var(--text); flex-shrink:0; }
+.creator-ai-fit { margin-left:auto; text-align:right; }
+.creator-ai-score { color:var(--cyan); font-weight:800; font-size:13px; }
+.creator-ai-label { font-size:8px; color:var(--text-dim); letter-spacing:.8px; }
+.creator-ai-ideas { margin-top:10px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+.creator-ai-idea { padding:9px; border-radius:11px; background:rgba(0,229,255,.035); border:1px solid rgba(0,229,255,.10); font-size:9px; color:var(--text-muted); line-height:1.45; animation:creatorAiBubble .55s both; }
+@media(max-width:640px){ .creator-ai-chat{min-height:560px;padding:14px}.creator-ai-user{max-width:92%}.creator-ai-ideas{grid-template-columns:1fr}.creator-ai-window{border-radius:19px} }
+@media(prefers-reduced-motion:reduce){ .creator-ai-live::before,.creator-ai-status i,.creator-ai-scan::after{animation:none!important}.creator-ai-bubble,.creator-ai-opportunity,.creator-ai-idea{animation:none!important} }
+
+/* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
 .cleo-showcase { position:relative; overflow:hidden; }
   .cleo-showcase::before {
     content:''; position:absolute; width:620px; height:620px; border-radius:50%;
@@ -1177,26 +1207,7 @@ function ForBrands() {
           </div>
         </div>
 
-        {/* Collancer AI for creators */}
-        <div className="reveal glass-card creator-ai-card" style={{ marginBottom: 48, padding: 'clamp(22px,4vw,34px)', background: 'linear-gradient(135deg, rgba(179,136,255,0.08), rgba(0,229,255,0.035))', borderColor: 'rgba(179,136,255,0.2)' }}>
-          <div style={{ display:'flex', alignItems:'center', gap:12, marginBottom:18 }}>
-            <div style={{ width:46, height:46, borderRadius:15, display:'grid', placeItems:'center', background:'linear-gradient(135deg, rgba(179,136,255,.16), rgba(0,229,255,.1))', border:'1px solid rgba(179,136,255,.25)', color:'var(--purple)' }}><Bot size={22}/></div>
-            <div>
-              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:17 }}>Collancer AI for Creators</div>
-              <div style={{ color:'var(--text-muted)', fontSize:12, marginTop:3 }}>One AI assistant for discovering work and creating better content.</div>
-            </div>
-          </div>
-          <div style={{ display:'grid', gridTemplateColumns:isMobile ? '1fr' : 'repeat(2,minmax(0,1fr))', gap:14 }}>
-            <div className="creator-ai-use" style={{ padding:20, borderRadius:18, background:'rgba(0,0,0,.16)', border:'1px solid rgba(0,229,255,.12)' }}>
-              <div style={{ display:'flex', alignItems:'center', gap:9, color:'var(--cyan)', fontWeight:800, fontSize:13, marginBottom:9 }}><Search size={16}/> Find Live Collab Opportunities</div>
-              <p style={{ color:'var(--text-muted)', fontSize:13, lineHeight:1.65, margin:0 }}>Tell Collancer AI your niche, platform, location and preferred collaboration type. It helps surface relevant live paid and barter opportunities instead of making you hunt through DMs, groups and endless forms.</p>
-            </div>
-            <div className="creator-ai-use" style={{ padding:20, borderRadius:18, background:'rgba(0,0,0,.16)', border:'1px solid rgba(179,136,255,.14)' }}>
-              <div style={{ display:'flex', alignItems:'center', gap:9, color:'var(--purple)', fontWeight:800, fontSize:13, marginBottom:9 }}><Lightbulb size={16}/> Write Content Ideas for Your Booking</div>
-              <p style={{ color:'var(--text-muted)', fontSize:13, lineHeight:1.65, margin:0 }}>Once you receive a booking, give Collancer AI the campaign brief and it can help turn the deliverables into hooks, Reel concepts, talking points and content angles tailored to the brand.</p>
-            </div>
-          </div>
-        </div>
+        <CreatorAIShowcase />
 
         <div style={{
           display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
@@ -1222,6 +1233,46 @@ function ForBrands() {
           <button className="btn-glow" style={{ fontSize: 17, padding: '18px 48px' }} onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}>
             Find Creators <Sparkles size={16} className="lucide-anim" />
           </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══ CREATOR COLLANCER AI — LIVE DEMO ═══ */
+function CreatorAIShowcase() {
+  const { isMobile } = useDevice();
+  const [phase, setPhase] = useState(0);
+  const [typed, setTyped] = useState('');
+  const prompt = 'Find live paid skincare collabs for me in Mumbai under ₹10K, then help me create content for my next booking.';
+  useEffect(() => {
+    let timers=[]; let i=0;
+    const start=setTimeout(()=>setPhase(1),450);
+    const type=setInterval(()=>{
+      i+=2; setTyped(prompt.slice(0,i));
+      if(i>=prompt.length){ clearInterval(type); timers.push(setTimeout(()=>setPhase(2),800)); timers.push(setTimeout(()=>setPhase(3),2200)); timers.push(setTimeout(()=>setPhase(4),4300)); timers.push(setTimeout(()=>setPhase(5),6200)); }
+    },40);
+    return ()=>{ clearTimeout(start); clearInterval(type); timers.forEach(clearTimeout); };
+  },[]);
+  return (
+    <section className="creator-ai-live glass-card reveal" aria-label="Collancer AI for creators" style={{marginBottom:48,padding:'clamp(22px,4vw,34px)',background:'linear-gradient(135deg,rgba(0,229,255,.055),rgba(179,136,255,.07))',borderColor:'rgba(0,229,255,.17)'}}>
+      <div style={{position:'relative',zIndex:2,textAlign:'center',marginBottom:28}}>
+        <div className="badge badge-cyan" style={{marginBottom:16}}><Bot size={13}/> Meet Collancer AI for Creators</div>
+        <h3 style={{fontFamily:'var(--ff-display)',fontSize:'clamp(22px,3.2vw,34px)',fontWeight:850,margin:'0 0 12px'}}>Stop hunting for collabs.<br/><span className="text-gradient">Let Collancer AI find them.</span></h3>
+        <p style={{color:'var(--text-muted)',fontSize:14,lineHeight:1.7,maxWidth:680,margin:'0 auto'}}>A live preview of how creators can discover relevant opportunities and turn a confirmed booking into stronger content ideas.</p>
+      </div>
+      <div className="creator-ai-window">
+        <div className="creator-ai-windowbar">
+          <div className="creator-ai-orb"><Bot size={16} color="var(--cyan)"/></div>
+          <div><div style={{fontFamily:'var(--ff-display)',fontWeight:800,fontSize:14}}>Collancer AI</div><div style={{fontSize:10,color:'var(--text-muted)'}}>Creator Opportunity & Content Assistant</div></div>
+          <div className="creator-ai-status"><i/> Live demo</div>
+        </div>
+        <div className="creator-ai-chat">
+          <div style={{position:'relative',zIndex:2,display:'flex',justifyContent:'center',marginBottom:15}}><span style={{fontSize:9,color:'var(--text-dim)',letterSpacing:1.1,textTransform:'uppercase'}}>Live opportunities → smart match → content ideas</span></div>
+          {phase>=1 && <div className="creator-ai-bubble" style={{display:'flex',justifyContent:'flex-end',marginBottom:12}}><div className="creator-ai-user">{typed}<span style={{display:'inline-block',width:2,height:13,background:'var(--cyan)',marginLeft:2,verticalAlign:'middle',animation:'cleoCursor 1s infinite'}}/></div></div>}
+          {phase>=2 && <div className="creator-ai-bubble" style={{display:'flex',justifyContent:'flex-start',marginBottom:12}}><div className="creator-ai-bot">Got it. I’m matching your profile to <strong>live campaigns</strong> using your niche, location, format, audience and budget — then I’ll turn any confirmed booking into content ideas.</div></div>}
+          {phase>=3 && phase<4 && <div className="creator-ai-scan"><div style={{display:'flex',alignItems:'center',gap:8,color:'var(--cyan)',fontSize:11,fontWeight:700}}><Search size={13}/> Finding relevant live opportunities</div><div className="creator-ai-chips"><span className="creator-ai-chip"><Sparkles size={10}/> Paid</span><span className="creator-ai-chip"><MapPin size={10}/> Mumbai</span><span className="creator-ai-chip"><Shirt size={10}/> Skincare</span><span className="creator-ai-chip"><Video size={10}/> Reel</span><span className="creator-ai-chip"><IndianRupee size={10}/> Under ₹10K</span></div></div>}
+          {phase>=4 && <div className="creator-ai-bubble"><div className="creator-ai-bot" style={{maxWidth:'100%'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--cyan)',fontWeight:800,fontSize:11,textTransform:'uppercase',letterSpacing:.7,marginBottom:8}}><BadgeCheck size={14}/> 3 live collabs match your profile</div>{[['PLUM','Skincare Reel','₹7,500','96%'],['MARS','Beauty UGC Reel','₹6,000','93%'],['Minimalist','Routine Reel','₹5,500','91%']].map((x,i)=><div className="creator-ai-opportunity" key={x[0]}><div className="creator-ai-logo">{x[0].slice(0,2)}</div><div style={{minWidth:0,flex:1}}><div style={{fontSize:12,fontWeight:800}}>{x[0]} · {x[1]}</div><div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>Paid collaboration · Apply through Collancer</div></div><div className="creator-ai-fit"><div className="creator-ai-score">{x[3]}</div><div className="creator-ai-label">FIT</div></div></div>)}{phase>=5&&<div style={{marginTop:12,paddingTop:11,borderTop:'1px solid rgba(255,255,255,.06)'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--purple)',fontWeight:800,fontSize:11,marginBottom:8}}><Lightbulb size={14}/> Booking received — here are 3 content directions</div><div className="creator-ai-ideas"><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>01 · Hook-first</strong><br/>“I tested this for 7 days — here's what actually changed.”</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>02 · Routine</strong><br/>Build the product into a fast morning skincare routine.</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>03 · Story</strong><br/>Problem → product → result with a natural creator voice.</div></div></div>}</div></div>}
         </div>
       </div>
     </section>
