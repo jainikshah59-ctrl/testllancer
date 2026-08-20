@@ -69,19 +69,6 @@
       ]
     },
     {
-      "source": "/*.html",
-      "headers": [
-        {
-          "key": "Last-Modified",
-          "value": "Sat, 30 May 2026 00:00:00 GMT"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
       "source": "/",
       "headers": [
         {
