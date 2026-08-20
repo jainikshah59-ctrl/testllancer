@@ -800,15 +800,6 @@ function Hero() {
     return () => window.removeEventListener('mousemove', onMove);
   }, []);
 
-  const floatingTags = [
-    { top: '15%', left: '5%', delay: '0s', text: 'growing Verified Creators', color: 'var(--green)', anim: 'float1' },
-    { top: '20%', right: '4%', delay: '1.5s', text: 'UPI / Razorpay', color: 'var(--cyan)', anim: 'float2' },
-    { bottom: '32%', left: '3%', delay: '0.8s', text: 'Book in 2 Minutes', color: 'var(--amber)', anim: 'float2' },
-    { bottom: '26%', right: '5%', delay: '2s', text: 'Made for India 🇮🇳', color: 'var(--purple)', anim: 'float1' },
-    { top: '52%', left: '1%', delay: '2.5s', text: 'Collancer AI Inside', color: 'var(--pink)', anim: 'float1' },
-    { top: '47%', right: '1%', delay: '0.3s', text: 'Escrow Protected', color: 'var(--blue)', anim: 'float2' },
-  ];
-
   const { isMobile, isTablet } = useDevice();
   return (
     <section id="hero" aria-label="Collancer — India's #1 Influencer Booking Marketplace" itemScope itemType="https://schema.org/WPHeader" style={{
@@ -823,19 +814,6 @@ function Hero() {
         pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 0
       }} />
       <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
-
-      <div className="hide-mobile">
-        {floatingTags.map((tag, i) => (
-          <div key={i} style={{
-            position: 'absolute', ...tag,
-            animation: `${tag.anim} ${3 + i * 0.3}s ease-in-out infinite`, animationDelay: tag.delay,
-            background: 'linear-gradient(180deg, rgba(15,15,34,0.9), rgba(10,10,26,0.95))',
-            border: `1px solid ${tag.color}22`, borderRadius: 50,
-            padding: '8px 18px', fontSize: 12, fontWeight: 600, color: tag.color,
-            boxShadow: `0 4px 20px ${tag.color}15`, whiteSpace: 'nowrap', zIndex: 2, backdropFilter: 'blur(10px)'
-          }}>{tag.text}</div>
-        ))}
-      </div>
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
       <div className="reveal" style={{ marginBottom: 18, display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 3 }}>

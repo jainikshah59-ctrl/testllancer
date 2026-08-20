@@ -672,7 +672,35 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
     .cleo-demo-shell::before,.cleo-status-dot,.cleo-send,.cleo-orbit,.cleo-scan::after,.cleo-mini-bar span,.cleo-pulse-ring { animation:none !important; }
   }
 
-`;
+
+
+  /* ═══ COLLANCER 5s CINEMATIC SPLASH ═══ */
+  .collancer-splash { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; overflow: hidden; background: #05050e; color: #fff; opacity: 1; visibility: visible; transition: opacity .75s cubic-bezier(.16,1,.3,1), visibility .75s; }
+  .collancer-splash.is-exiting { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash-grid { position:absolute; inset:-20%; background-image: linear-gradient(rgba(0,229,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(179,136,255,.045) 1px, transparent 1px); background-size: 52px 52px; transform: perspective(800px) rotateX(60deg) translateY(12%); transform-origin:center bottom; mask-image: linear-gradient(to top, black, transparent 75%); animation: splash-grid-drift 5s linear both; }
+  .splash-glow { position:absolute; width:min(70vw,720px); aspect-ratio:1; border-radius:50%; background: radial-gradient(circle, rgba(0,229,255,.18), rgba(179,136,255,.09) 34%, transparent 68%); filter: blur(8px); animation: splash-breathe 2.2s ease-in-out infinite; }
+  .splash-orb { position:absolute; width:clamp(190px,24vw,310px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.14); box-shadow: inset 0 0 70px rgba(0,229,255,.08), 0 0 80px rgba(0,229,255,.08); animation:splash-orb 4.8s cubic-bezier(.16,1,.3,1) both; }
+  .splash-orb::before,.splash-orb::after { content:""; position:absolute; inset:12%; border-radius:50%; border:1px solid rgba(0,229,255,.16); transform:rotate(55deg) scaleX(1.55); }
+  .splash-orb::after { inset:23%; border-color:rgba(179,136,255,.15); transform:rotate(-35deg) scaleX(1.7); }
+  .splash-core { position:absolute; width:clamp(58px,8vw,96px); aspect-ratio:1; border-radius:28%; background:linear-gradient(145deg, rgba(255,255,255,.28), rgba(0,229,255,.13) 40%, rgba(179,136,255,.12)); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(18px); box-shadow:0 0 35px rgba(0,229,255,.24), inset 0 1px 0 rgba(255,255,255,.28); transform:rotate(45deg); animation:splash-core 4.8s cubic-bezier(.16,1,.3,1) both; }
+  .splash-core::after { content:""; position:absolute; inset:24%; border-radius:22%; border:1px solid rgba(255,255,255,.4); box-shadow:0 0 22px rgba(0,229,255,.28); }
+  .splash-wordmark { position:relative; z-index:3; margin-top:clamp(240px,28vw,330px); text-align:center; font-family:var(--ff-display); font-weight:800; letter-spacing:-.055em; font-size:clamp(38px,7vw,78px); line-height:1; opacity:0; transform:translateY(22px) scale(.97); animation:splash-wordmark 1s .55s cubic-bezier(.16,1,.3,1) forwards; }
+  .splash-wordmark span { background:linear-gradient(100deg,#fff 10%,#bffaff 42%,#00e5ff 62%,#b388ff 92%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .splash-sub { margin-top:14px; color:rgba(238,238,255,.62); font-family:var(--ff-body); font-size:clamp(11px,1.5vw,15px); letter-spacing:.18em; text-transform:uppercase; opacity:0; animation:splash-sub 1s 1.05s ease forwards; }
+  .splash-line { position:absolute; bottom:8vh; width:min(250px,42vw); height:2px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.08); }
+  .splash-line::after { content:""; display:block; width:100%; height:100%; transform:translateX(-100%); background:linear-gradient(90deg,transparent,#00e5ff,#b388ff,transparent); animation:splash-progress 4.2s .2s cubic-bezier(.16,1,.3,1) forwards; box-shadow:0 0 18px rgba(0,229,255,.7); }
+  .splash-particle { position:absolute; width:3px; height:3px; border-radius:50%; background:#00e5ff; box-shadow:0 0 12px #00e5ff; animation:splash-particle 4.5s ease-out both; }
+  .splash-p1{left:18%;top:30%;animation-delay:.15s}.splash-p2{left:77%;top:25%;animation-delay:.65s}.splash-p3{left:12%;top:72%;animation-delay:1.1s}.splash-p4{left:86%;top:66%;animation-delay:.4s}.splash-p5{left:30%;top:16%;animation-delay:1.4s}.splash-p6{left:69%;top:80%;animation-delay:.9s}
+  @keyframes splash-grid-drift{from{transform:perspective(800px) rotateX(60deg) translateY(18%)}to{transform:perspective(800px) rotateX(60deg) translateY(5%)}}
+  @keyframes splash-breathe{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+  @keyframes splash-orb{0%{transform:scale(.55) rotate(-28deg);opacity:0}35%{opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+  @keyframes splash-core{0%{transform:rotate(45deg) scale(.1);opacity:0}38%{opacity:1}100%{transform:rotate(225deg) scale(1);opacity:1}}
+  @keyframes splash-wordmark{to{opacity:1;transform:none}}
+  @keyframes splash-sub{to{opacity:1;transform:translateY(0)}}
+  @keyframes splash-progress{to{transform:translateX(100%)}}
+  @keyframes splash-particle{0%{transform:translate3d(0,35px,0) scale(.2);opacity:0}25%{opacity:1}100%{transform:translate3d(0,-45px,0) scale(1.3);opacity:0}}
+  @media (max-width:600px){ .splash-grid{background-size:36px 36px}.splash-wordmark{margin-top:220px}.splash-sub{letter-spacing:.11em}.splash-line{bottom:7vh;width:180px} }
+  @media (prefers-reduced-motion:reduce){.collancer-splash *{animation-duration:1ms!important;animation-delay:0ms!important}.collancer-splash{transition:none}}`;
 
 
 
@@ -978,15 +1006,6 @@ function Hero() {
     return () => window.removeEventListener('mousemove', onMove);
   }, []);
 
-  const floatingTags = [
-    { top: '15%', left: '5%', delay: '0s', text: 'Verified Creators', color: 'var(--green)', anim: 'float1' },
-    { top: '20%', right: '4%', delay: '1.5s', text: 'UPI / Razorpay', color: 'var(--cyan)', anim: 'float2' },
-    { bottom: '32%', left: '3%', delay: '0.8s', text: 'Book in 2 Minutes', color: 'var(--amber)', anim: 'float2' },
-    { bottom: '26%', right: '5%', delay: '2s', text: 'Made for India 🇮🇳', color: 'var(--purple)', anim: 'float1' },
-    { top: '52%', left: '1%', delay: '2.5s', text: 'Collancer AI Inside', color: 'var(--pink)', anim: 'float1' },
-    { top: '47%', right: '1%', delay: '0.3s', text: 'Escrow Protected', color: 'var(--blue)', anim: 'float2' },
-  ];
-
   const { isMobile, isTablet } = useDevice();
   return (
     <section id="hero" aria-label="Collancer — India's #1 Influencer Booking Marketplace" itemScope itemType="https://schema.org/WPHeader" style={{
@@ -1009,19 +1028,6 @@ function Hero() {
         <div className="chip c1">VERIFIED CREATOR</div>
         <div className="chip c2">COLLANCER AI MATCH</div>
         <div className="chip c3">SECURE BOOKING</div>
-      </div>
-
-      <div className="hide-mobile">
-        {floatingTags.map((tag, i) => (
-          <div key={i} style={{
-            position: 'absolute', ...tag,
-            animation: `${tag.anim} ${3 + i * 0.3}s ease-in-out infinite`, animationDelay: tag.delay,
-            background: 'linear-gradient(180deg, rgba(15,15,34,0.9), rgba(10,10,26,0.95))',
-            border: `1px solid ${tag.color}22`, borderRadius: 50,
-            padding: '8px 18px', fontSize: 12, fontWeight: 600, color: tag.color,
-            boxShadow: `0 4px 20px ${tag.color}15`, whiteSpace: 'nowrap', zIndex: 2, backdropFilter: 'blur(10px)'
-          }}>{tag.text}</div>
-        ))}
       </div>
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
@@ -3058,34 +3064,6 @@ function usePremiumMotion() {
   }, []);
 }
 
-
-  /* ═══ COLLANCER 5s CINEMATIC SPLASH ═══ */
-  .collancer-splash { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; overflow: hidden; background: #05050e; color: #fff; opacity: 1; visibility: visible; transition: opacity .75s cubic-bezier(.16,1,.3,1), visibility .75s; }
-  .collancer-splash.is-exiting { opacity: 0; visibility: hidden; pointer-events: none; }
-  .splash-grid { position:absolute; inset:-20%; background-image: linear-gradient(rgba(0,229,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(179,136,255,.045) 1px, transparent 1px); background-size: 52px 52px; transform: perspective(800px) rotateX(60deg) translateY(12%); transform-origin:center bottom; mask-image: linear-gradient(to top, black, transparent 75%); animation: splash-grid-drift 5s linear both; }
-  .splash-glow { position:absolute; width:min(70vw,720px); aspect-ratio:1; border-radius:50%; background: radial-gradient(circle, rgba(0,229,255,.18), rgba(179,136,255,.09) 34%, transparent 68%); filter: blur(8px); animation: splash-breathe 2.2s ease-in-out infinite; }
-  .splash-orb { position:absolute; width:clamp(190px,24vw,310px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.14); box-shadow: inset 0 0 70px rgba(0,229,255,.08), 0 0 80px rgba(0,229,255,.08); animation:splash-orb 4.8s cubic-bezier(.16,1,.3,1) both; }
-  .splash-orb::before,.splash-orb::after { content:""; position:absolute; inset:12%; border-radius:50%; border:1px solid rgba(0,229,255,.16); transform:rotate(55deg) scaleX(1.55); }
-  .splash-orb::after { inset:23%; border-color:rgba(179,136,255,.15); transform:rotate(-35deg) scaleX(1.7); }
-  .splash-core { position:absolute; width:clamp(58px,8vw,96px); aspect-ratio:1; border-radius:28%; background:linear-gradient(145deg, rgba(255,255,255,.28), rgba(0,229,255,.13) 40%, rgba(179,136,255,.12)); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(18px); box-shadow:0 0 35px rgba(0,229,255,.24), inset 0 1px 0 rgba(255,255,255,.28); transform:rotate(45deg); animation:splash-core 4.8s cubic-bezier(.16,1,.3,1) both; }
-  .splash-core::after { content:""; position:absolute; inset:24%; border-radius:22%; border:1px solid rgba(255,255,255,.4); box-shadow:0 0 22px rgba(0,229,255,.28); }
-  .splash-wordmark { position:relative; z-index:3; margin-top:clamp(240px,28vw,330px); text-align:center; font-family:var(--ff-display); font-weight:800; letter-spacing:-.055em; font-size:clamp(38px,7vw,78px); line-height:1; opacity:0; transform:translateY(22px) scale(.97); animation:splash-wordmark 1s .55s cubic-bezier(.16,1,.3,1) forwards; }
-  .splash-wordmark span { background:linear-gradient(100deg,#fff 10%,#bffaff 42%,#00e5ff 62%,#b388ff 92%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .splash-sub { margin-top:14px; color:rgba(238,238,255,.62); font-family:var(--ff-body); font-size:clamp(11px,1.5vw,15px); letter-spacing:.18em; text-transform:uppercase; opacity:0; animation:splash-sub 1s 1.05s ease forwards; }
-  .splash-line { position:absolute; bottom:8vh; width:min(250px,42vw); height:2px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.08); }
-  .splash-line::after { content:""; display:block; width:100%; height:100%; transform:translateX(-100%); background:linear-gradient(90deg,transparent,#00e5ff,#b388ff,transparent); animation:splash-progress 4.2s .2s cubic-bezier(.16,1,.3,1) forwards; box-shadow:0 0 18px rgba(0,229,255,.7); }
-  .splash-particle { position:absolute; width:3px; height:3px; border-radius:50%; background:#00e5ff; box-shadow:0 0 12px #00e5ff; animation:splash-particle 4.5s ease-out both; }
-  .splash-p1{left:18%;top:30%;animation-delay:.15s}.splash-p2{left:77%;top:25%;animation-delay:.65s}.splash-p3{left:12%;top:72%;animation-delay:1.1s}.splash-p4{left:86%;top:66%;animation-delay:.4s}.splash-p5{left:30%;top:16%;animation-delay:1.4s}.splash-p6{left:69%;top:80%;animation-delay:.9s}
-  @keyframes splash-grid-drift{from{transform:perspective(800px) rotateX(60deg) translateY(18%)}to{transform:perspective(800px) rotateX(60deg) translateY(5%)}}
-  @keyframes splash-breathe{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.08);opacity:1}}
-  @keyframes splash-orb{0%{transform:scale(.55) rotate(-28deg);opacity:0}35%{opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
-  @keyframes splash-core{0%{transform:rotate(45deg) scale(.1);opacity:0}38%{opacity:1}100%{transform:rotate(225deg) scale(1);opacity:1}}
-  @keyframes splash-wordmark{to{opacity:1;transform:none}}
-  @keyframes splash-sub{to{opacity:1;transform:translateY(0)}}
-  @keyframes splash-progress{to{transform:translateX(100%)}}
-  @keyframes splash-particle{0%{transform:translate3d(0,35px,0) scale(.2);opacity:0}25%{opacity:1}100%{transform:translate3d(0,-45px,0) scale(1.3);opacity:0}}
-  @media (max-width:600px){ .splash-grid{background-size:36px 36px}.splash-wordmark{margin-top:220px}.splash-sub{letter-spacing:.11em}.splash-line{bottom:7vh;width:180px} }
-  @media (prefers-reduced-motion:reduce){.collancer-splash *{animation-duration:1ms!important;animation-delay:0ms!important}.collancer-splash{transition:none}}
 
 function CollancerSplash() {
   const [visible, setVisible] = useState(() => {
