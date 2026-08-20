@@ -515,8 +515,8 @@ h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-
 .btn-glow,.btn-outline{border-radius:16px!important;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 12px 34px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.18) inset!important}.btn-glow{background:linear-gradient(135deg,#6bf1ff,#21c9ee 48%,#7d6bff 120%)!important;box-shadow:0 14px 40px rgba(29,207,240,.24),0 1px 0 rgba(255,255,255,.35) inset!important}.btn-glow::before,.btn-outline::before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 38%,rgba(255,255,255,.05))}.btn-glow:hover,.btn-outline:hover{transform:translateY(-4px) scale(1.015)!important}
 .badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;width:104px;min-width:104px;height:64px;padding:0 4px;flex-shrink:0;transition:transform .45s var(--ease-out-expo),filter .45s ease;position:relative}.brand-logo-tile:hover{transform:translateY(-4px) scale(1.06);filter:drop-shadow(0 0 18px rgba(72,232,255,.18))}.brand-logo-plate{display:contents}.brand-logo-tile img{max-width:88px;max-height:32px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;object-fit:contain;transition:transform .4s ease,filter .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}.brand-logo-fallback{font-family:var(--ff-display);font-size:18px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.logo-marquee-section{margin-top:14px!important}
-@media(max-width:768px){.logo-marquee-section{margin-top:10px!important}}
+.logo-marquee-section{margin-top:16px!important}
+@media(max-width:768px){.logo-marquee-section{margin-top:12px!important}}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
 @keyframes glowPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}.glow-cyan{animation:glowPulse 5s ease-in-out infinite}.glow-purple{animation:glowPulse 6s ease-in-out infinite reverse}.glow-red{animation:glowPulse 7s ease-in-out infinite}
@@ -565,7 +565,12 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 .btn-outline{background:rgba(255,255,255,.025)!important;border-color:rgba(170,220,255,.18)!important;border-radius:17px!important;min-height:54px;backdrop-filter:blur(18px)}
 @media(max-width:900px){.hero-stage .orb{width:360px;height:360px;right:-100px;top:22%;opacity:.6}.hero-stage .ring{right:-120px;width:560px;height:180px}.hero-stage .chip{display:none}}
 @media(max-width:768px){#hero h1{font-size:clamp(38px,10vw,58px)!important}.hero-stage .orb{width:280px;height:280px;right:-100px;opacity:.38}.hero-stage .ring{right:-170px;opacity:.5}}
-@media(max-width:768px){#hero{min-height:auto!important;padding-top:60px!important;padding-bottom:0!important}#hero .reveal{transition-delay:0s}#hero p{margin-bottom:10px!important;line-height:1.55!important}.marquee-container{height:58px}.brand-logo-tile{width:92px;min-width:92px;height:52px}.brand-logo-tile img{max-width:78px;max-height:28px}}
+@media(max-width:768px){#hero{min-height:auto!important;align-items:flex-start!important;padding-top:78px!important;padding-bottom:14px!important}#hero .reveal{transition-delay:0s}#hero p{margin-bottom:10px!important;line-height:1.55!important}.marquee-container{height:58px}.brand-logo-tile{width:92px;min-width:92px;height:52px}.brand-logo-tile img{max-width:78px;max-height:28px}}
+
+@media(max-width:768px){
+  #hero .badge{box-sizing:border-box;width:fit-content;max-width:calc(100vw - 32px);margin-inline:auto;overflow-wrap:anywhere}
+  #hero > div[style*='max-width: 920px']{max-width:100%!important}
+}
 @media(prefers-reduced-motion:reduce){.text-gradient,.hero-stage *{animation:none!important}}
 
 
@@ -909,7 +914,7 @@ function Hero() {
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
       <div className="reveal" style={{ marginBottom: 18, display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 3 }}>
-        <div className="badge badge-cyan" style={{ fontSize: isMobile ? 10 : 12, letterSpacing: 0.8, padding: isMobile ? '6px 12px' : '7px 14px', whiteSpace: 'nowrap' }}>
+        <div className="badge badge-cyan" style={{ fontSize: isMobile ? 'clamp(8.5px, 2.25vw, 10px)' : 12, letterSpacing: isMobile ? 0.45 : 0.8, lineHeight: 1.2, padding: isMobile ? '6px 9px' : '7px 14px', whiteSpace: isMobile ? 'normal' : 'nowrap', maxWidth: '100%', textAlign: 'center', justifyContent: 'center' }}>
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
           India's First Structured Influencer Booking Platform
         </div>

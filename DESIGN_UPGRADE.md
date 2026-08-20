@@ -1,26 +1,9 @@
-# Collancer — Visual Redesign Upgrade
+# Collancer v19 — Mobile Hero Structure Fix
 
-This version keeps the existing website content, routes, forms, SEO structure, Firebase/EmailJS integrations, and business logic intact while upgrading the visual system.
-
-## Visual direction
-- Cinematic 3D spatial glassmorphism
-- Dark graphite / midnight canvas with cyan and violet ambient lighting
-- Sora display typography + DM Sans body typography
-- Premium glass navigation and cards
-- Cursor-reactive glass-card spotlight
-- Softer depth, lift, reflections, and 3D hover states
-- More cinematic reveal choreography
-- Reduced-motion accessibility support
-- Mobile-safe glass effects and interaction states
-
-## Run locally
-`npm install`
-`npm run dev`
-
-## Production build
-`npm run build`
-`npm run preview`
-
-Copy `.env.example` to `.env` and add the project's real environment variables before testing forms/Firebase features.
-
-The original `.env` was intentionally not included in this deliverable so private project credentials are not redistributed.
+Fixed the mobile hero structure based on the supplied screenshot:
+- The "India's First Structured Influencer Booking Platform" badge is retained and constrained to the viewport so it cannot clip horizontally.
+- Mobile hero height is content-driven instead of forcing a full viewport blank area.
+- Hero content is top-aligned below the fixed navigation with controlled spacing.
+- Brand logo train follows the role-selection buttons with a small, intentional gap and remains visible in the initial mobile viewport.
+- Logo train remains vertically centered within its container.
+- Desktop layout is preserved.

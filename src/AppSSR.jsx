@@ -755,7 +755,7 @@ function Hero() {
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
       <div className="reveal" style={{ marginBottom: 18, display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 3 }}>
-        <div className="badge badge-cyan" style={{ fontSize: isMobile ? 10 : 12, letterSpacing: 0.8, padding: isMobile ? '6px 12px' : '7px 14px', whiteSpace: 'nowrap' }}>
+        <div className="badge badge-cyan" style={{ fontSize: isMobile ? 'clamp(8.5px, 2.25vw, 10px)' : 12, letterSpacing: isMobile ? 0.45 : 0.8, lineHeight: 1.2, padding: isMobile ? '6px 9px' : '7px 14px', whiteSpace: isMobile ? 'normal' : 'nowrap', maxWidth: '100%', textAlign: 'center', justifyContent: 'center' }}>
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
           India's First Structured Influencer Booking Platform
         </div>
