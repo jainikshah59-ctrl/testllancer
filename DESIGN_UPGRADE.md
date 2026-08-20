@@ -1,9 +1,15 @@
-# Collancer v19 — Mobile Hero Structure Fix
+# Collancer — Cleo AI Showcase Upgrade
 
-Fixed the mobile hero structure based on the supplied screenshot:
-- The "India's First Structured Influencer Booking Platform" badge is retained and constrained to the viewport so it cannot clip horizontally.
-- Mobile hero height is content-driven instead of forcing a full viewport blank area.
-- Hero content is top-aligned below the fixed navigation with controlled spacing.
-- Brand logo train follows the role-selection buttons with a small, intentional gap and remains visible in the initial mobile viewport.
-- Logo train remains vertically centered within its container.
-- Desktop layout is preserved.
+## What changed
+- Added a cinematic, premium Cleo AI showcase section after the Brands section.
+- The demo visually simulates a brand typing a natural-language creator brief.
+- Cleo transitions through AI analysis, matching signals, and ranked creator results.
+- Added animated creator result cards with fit scores, budget, niche, reach, and match rationale.
+- Added a secondary AI matching panel showing audience, content, campaign, and budget fit.
+- Added smooth scanning, glass-sweep, orbit, typing, result-entry, and status animations.
+- Added mobile-responsive layout with the chat first and matching insights below.
+- Added reduced-motion handling for accessibility.
+- Kept the demo clearly labelled as a demo interface and does not claim the displayed creators are real Collancer data.
+
+## Placement
+The Cleo section is rendered immediately after `ForBrands` and before `ForCreators` in both `App.jsx` and `AppSSR.jsx`.

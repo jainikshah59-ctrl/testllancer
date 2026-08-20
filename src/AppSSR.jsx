@@ -457,6 +457,86 @@ const CSS = `
     .btn-outline:hover { transform: none; }
     .creator-card:hover { transform: none; }
   }
+
+  /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
+  .cleo-showcase { position:relative; overflow:hidden; }
+  .cleo-showcase::before {
+    content:''; position:absolute; width:620px; height:620px; border-radius:50%;
+    background:radial-gradient(circle, rgba(0,229,255,.12) 0%, rgba(124,58,237,.07) 35%, transparent 70%);
+    top:-180px; right:-180px; filter:blur(8px); pointer-events:none;
+  }
+  .cleo-showcase::after {
+    content:''; position:absolute; width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle, rgba(179,136,255,.08), transparent 68%);
+    bottom:-260px; left:-160px; pointer-events:none;
+  }
+  .cleo-demo-shell {
+    position:relative; border:1px solid rgba(179,136,255,.22); border-radius:30px;
+    background:linear-gradient(145deg, rgba(17,17,40,.94), rgba(7,8,22,.98));
+    box-shadow:0 40px 120px rgba(0,0,0,.48), 0 0 80px rgba(124,58,237,.08), inset 0 1px 0 rgba(255,255,255,.08);
+    overflow:hidden; transform:translateZ(0);
+  }
+  .cleo-demo-shell::before {
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(115deg, transparent 15%, rgba(255,255,255,.035) 48%, transparent 62%);
+    transform:translateX(-120%); animation:cleoGlassSweep 8s ease-in-out infinite;
+  }
+  @keyframes cleoGlassSweep { 0%,58%{transform:translateX(-120%)} 78%,100%{transform:translateX(120%)} }
+  .cleo-windowbar { display:flex; align-items:center; gap:10px; padding:15px 18px; border-bottom:1px solid rgba(255,255,255,.07); background:rgba(255,255,255,.018); }
+  .cleo-window-orb { width:32px; height:32px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(145deg, rgba(0,229,255,.18), rgba(124,58,237,.2)); border:1px solid rgba(0,229,255,.22); box-shadow:0 0 25px rgba(0,229,255,.12); }
+  .cleo-status { margin-left:auto; display:flex; align-items:center; gap:6px; font-size:10px; color:var(--text-muted); }
+  .cleo-status-dot { width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 12px rgba(74,222,128,.7); animation:cleoStatus 1.8s ease-in-out infinite; }
+  @keyframes cleoStatus { 0%,100%{opacity:.5;transform:scale(.85)} 50%{opacity:1;transform:scale(1.15)} }
+  .cleo-chat { padding:18px; min-height:540px; position:relative; }
+  .cleo-chat::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 20% 20%, rgba(0,229,255,.07) 0 1px, transparent 1.5px), radial-gradient(circle at 80% 70%, rgba(179,136,255,.07) 0 1px, transparent 1.5px); background-size:80px 80px,110px 110px; opacity:.6; pointer-events:none; }
+  .cleo-msg { position:relative; z-index:2; animation:cleoBubble .65s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes cleoBubble { from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(4px)} to{opacity:1;transform:none;filter:blur(0)} }
+  .cleo-user-msg { max-width:78%; margin-left:auto; padding:13px 15px; border-radius:18px 18px 5px 18px; background:linear-gradient(135deg, rgba(0,229,255,.18), rgba(124,58,237,.13)); border:1px solid rgba(0,229,255,.24); box-shadow:0 12px 30px rgba(0,0,0,.22); font-size:13px; line-height:1.55; }
+  .cleo-ai-msg { max-width:88%; padding:13px 15px; border-radius:5px 18px 18px 18px; background:linear-gradient(145deg, rgba(179,136,255,.11), rgba(16,17,40,.8)); border:1px solid rgba(179,136,255,.2); font-size:13px; line-height:1.55; }
+  .cleo-typing { display:inline-flex; align-items:center; gap:4px; }
+  .cleo-typing i { width:6px; height:6px; border-radius:50%; background:var(--purple); animation:cleoTyping 1s ease-in-out infinite; }
+  .cleo-typing i:nth-child(2){animation-delay:.15s}.cleo-typing i:nth-child(3){animation-delay:.3s}
+  @keyframes cleoTyping { 0%,70%,100%{opacity:.25;transform:translateY(0)} 35%{opacity:1;transform:translateY(-4px)} }
+  .cleo-scan { margin:14px 0; padding:12px 14px; border:1px solid rgba(0,229,255,.14); border-radius:16px; background:rgba(0,229,255,.035); overflow:hidden; position:relative; }
+  .cleo-scan::after { content:''; position:absolute; left:0; right:0; top:0; height:2px; background:linear-gradient(90deg, transparent, var(--cyan), transparent); animation:cleoScan 2s linear infinite; }
+  @keyframes cleoScan { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+  .cleo-scan-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:9px; }
+  .cleo-chip { display:inline-flex; align-items:center; gap:5px; padding:6px 9px; border-radius:999px; font-size:10px; color:#cbd5ff; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.07); }
+  .cleo-results { margin-top:14px; display:grid; gap:9px; }
+  .cleo-result { display:flex; align-items:center; gap:10px; padding:10px; border-radius:15px; background:linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border:1px solid rgba(255,255,255,.07); animation:cleoResult .75s cubic-bezier(.16,1,.3,1) both; position:relative; overflow:hidden; }
+  .cleo-result:nth-child(2){animation-delay:.12s}.cleo-result:nth-child(3){animation-delay:.24s}
+  @keyframes cleoResult { from{opacity:0;transform:translateX(-22px) scale(.97);filter:blur(3px)} to{opacity:1;transform:none;filter:blur(0)} }
+  .cleo-avatar { width:42px; height:42px; flex:0 0 42px; border-radius:14px; display:grid; place-items:center; font-family:var(--ff-display); font-weight:800; font-size:13px; color:#fff; background:linear-gradient(135deg, rgba(0,229,255,.24), rgba(124,58,237,.32)); border:1px solid rgba(255,255,255,.1); box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+  .cleo-fit { margin-left:auto; text-align:right; flex:0 0 auto; }
+  .cleo-fit-score { font-family:var(--ff-display); font-size:16px; font-weight:800; color:var(--green); }
+  .cleo-fit-label { font-size:9px; color:var(--text-dim); }
+  .cleo-rank { position:absolute; top:7px; right:7px; font-size:8px; font-weight:800; color:var(--amber); background:rgba(255,179,71,.1); border:1px solid rgba(255,179,71,.2); border-radius:999px; padding:2px 6px; }
+  .cleo-composer { margin-top:14px; padding:9px; display:flex; align-items:center; gap:8px; border-radius:15px; border:1px solid rgba(255,255,255,.08); background:rgba(0,0,0,.2); }
+  .cleo-composer-input { flex:1; min-width:0; color:var(--text-dim); font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .cleo-send { width:32px; height:32px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--cyan),#7c3aed); color:#06101a; box-shadow:0 6px 18px rgba(0,229,255,.18); animation:cleoSend 2.8s ease-in-out infinite; }
+  @keyframes cleoSend { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,229,255,.28)} }
+  .cleo-orbit { position:absolute; width:170px; height:170px; border:1px solid rgba(0,229,255,.08); border-radius:50%; right:-50px; top:80px; animation:cleoOrbit 12s linear infinite; pointer-events:none; }
+  .cleo-orbit::after { content:''; position:absolute; width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 18px var(--cyan); top:16px; left:28px; }
+  @keyframes cleoOrbit { to{transform:rotate(360deg)} }
+  .cleo-side-stack { display:grid; gap:12px; }
+  .cleo-metric-card { padding:17px; border-radius:20px; background:linear-gradient(145deg, rgba(17,17,40,.9), rgba(10,10,26,.95)); border:1px solid rgba(255,255,255,.07); box-shadow:0 20px 50px rgba(0,0,0,.25); position:relative; overflow:hidden; }
+  .cleo-metric-card::after { content:''; position:absolute; width:100px; height:100px; border-radius:50%; right:-40px; top:-45px; background:radial-gradient(circle, rgba(0,229,255,.12), transparent 70%); }
+  .cleo-mini-bar { height:6px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; margin-top:9px; }
+  .cleo-mini-bar span { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--cyan),var(--purple)); animation:cleoBar 2.8s ease-out both; transform-origin:left; }
+  @keyframes cleoBar { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+  .cleo-pulse-ring { position:absolute; width:260px; height:260px; border:1px solid rgba(0,229,255,.08); border-radius:50%; left:-100px; bottom:-110px; animation:cleoRing 5s ease-in-out infinite; pointer-events:none; }
+  @keyframes cleoRing { 0%,100%{transform:scale(.95);opacity:.4} 50%{transform:scale(1.08);opacity:.9} }
+  @media (max-width: 820px) {
+    .cleo-chat { min-height:500px; padding:14px; }
+    .cleo-demo-shell { border-radius:24px; }
+    .cleo-user-msg { max-width:88%; }
+    .cleo-ai-msg { max-width:96%; }
+    .cleo-orbit { opacity:.45; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cleo-demo-shell::before,.cleo-status-dot,.cleo-send,.cleo-orbit,.cleo-scan::after,.cleo-mini-bar span,.cleo-pulse-ring { animation:none !important; }
+  }
+
 `;
 
 
@@ -1067,200 +1147,180 @@ function ForBrands() {
 /* ═══ CLEO AI SECTION ═══ */
 function CleoSection() {
   const { isMobile, isTablet } = useDevice();
-  const cleoFeatures = [
-    { icon: "💬", label: "Natural Language Search", desc: '"Find 5 beauty creators in Mumbai under ₹5,000"' },
-    { icon: "🔄", label: "Head-to-Head Comparisons", desc: '"Compare these creators for my skincare launch"' },
-    { icon: "📊", label: "Reach & ROI Estimates", desc: '"What creator mix can I get for a ₹20,000 campaign?"' },
-    { icon: "🎯", label: "Niche-Perfect Matches", desc: '"Find food creators in Bengaluru with strong local reach"' },
+  const sectionRef = useRef(null);
+  const [phase, setPhase] = useState(0);
+  const [typed, setTyped] = useState('');
+  const [visible, setVisible] = useState(false);
+
+  const prompt = 'Find 3 skincare creators in Mumbai for a ₹25,000 launch. Prioritise strong engagement, women 18–34 audience, Reels, and creators who fit our premium positioning.';
+  const creators = [
+    { initials:'AK', name:'Aarohi Kapoor', handle:'@aarohikapoor', niche:'Beauty · Mumbai', reach:'118K', fit:'98%', price:'₹8,500', note:'Premium aesthetic' },
+    { initials:'RS', name:'Riya Shah', handle:'@riyashah', niche:'Skincare · Mumbai', reach:'84K', fit:'96%', price:'₹6,500', note:'Strong engagement' },
+    { initials:'MN', name:'Mehak Nair', handle:'@mehaknair', niche:'Beauty · Mumbai', reach:'62K', fit:'94%', price:'₹5,500', note:'Audience match' },
   ];
 
-  const sectionRef = useRef(null);
-  const [animStep, setAnimStep] = useState(0);
-  const [typedQ1, setTypedQ1] = useState('');
-  const [typedQ2, setTypedQ2] = useState('');
-  const [thinkDots, setThinkDots] = useState('');
-  const animStarted = useRef(false);
-  const thinkInterval = useRef(null);
-
-  const Q1 = 'Find tech creators in Bengaluru under ₹10,000';
-  const Q2 = 'Build a creator shortlist for a ₹25,000 campaign';
-
-  const startThinking = (cb) => {
-    let d = 0;
-    const dots = ['', '.', '..', '...'];
-    thinkInterval.current = setInterval(() => { d = (d + 1) % dots.length; setThinkDots(dots[d]); }, 400);
-    setTimeout(() => { clearInterval(thinkInterval.current); setThinkDots(''); cb(); }, 2200);
-  };
-
   useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !animStarted.current) {
-        animStarted.current = true;
-        setTimeout(() => {
-          setAnimStep(1);
-          let i = 0;
-          const typeQ1 = setInterval(() => { i++; setTypedQ1(Q1.slice(0, i)); if (i >= Q1.length) { clearInterval(typeQ1); setTimeout(() => { setAnimStep(1.5); startThinking(() => { setAnimStep(2); setTimeout(() => { setAnimStep(3); let j = 0; const typeQ2 = setInterval(() => { j++; setTypedQ2(Q2.slice(0, j)); if (j >= Q2.length) { clearInterval(typeQ2); setTimeout(() => { setAnimStep(3.5); startThinking(() => { setAnimStep(4); }); }, 500); } }, 40); }, 2000); }); }, 400); } }, 40);
-        }, 800);
-      }
-    }, { threshold: 0.4 });
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => { observer.disconnect(); clearInterval(thinkInterval.current); };
+      if (entry.isIntersecting) setVisible(true);
+    }, { threshold: 0.28 });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!visible) return;
+    let typingTimer;
+    let cycleTimer;
+    const run = () => {
+      setPhase(1); setTyped('');
+      let i = 0;
+      typingTimer = setInterval(() => {
+        i += 2;
+        setTyped(prompt.slice(0, i));
+        if (i >= prompt.length) {
+          clearInterval(typingTimer);
+          setTimeout(() => setPhase(2), 450);
+          setTimeout(() => setPhase(3), 1250);
+          setTimeout(() => setPhase(4), 3150);
+          setTimeout(() => setPhase(5), 3900);
+          cycleTimer = setTimeout(() => run(), 9000);
+        }
+      }, 22);
+    };
+    run();
+    return () => { clearInterval(typingTimer); clearTimeout(cycleTimer); };
+  }, [visible]);
+
   return (
-    <section id="cleo" aria-label="Cleo AI — Collancer's AI-Powered Campaign Strategist" style={{ padding: (isMobile || isTablet) ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: (isMobile || isTablet) ? '1fr' : 'minmax(0,1fr) minmax(0,1fr)', gap: (isMobile || isTablet) ? '32px' : 'clamp(32px,5vw,64px)', alignItems: 'center' }}>
-          {/* Left */}
-          <div>
-            <div className="badge badge-purple reveal" style={{ marginBottom: 24 }}>Meet Cleo AI</div>
-            <h2 className="section-title reveal" style={{ marginBottom: 24 }}>
-              Your AI-Powered<br /><span className="text-gradient-purple">Campaign Strategist</span>
-            </h2>
-            <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,1.8vw,17px)', lineHeight: 1.8, marginBottom: 36, transitionDelay: '0.1s' }}>
-              Cleo is Collancer's built-in AI assistant. Instead of spending hours browsing profiles and guessing at metrics, just describe what you need in plain English — Cleo understands your campaign, budget, audience and creator-fit goals, then surfaces the exact creators who fit.
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {cleoFeatures.map((f, i) => (
-                <div key={i} className="reveal" style={{ display: 'flex', gap: 16, alignItems: 'flex-start', transitionDelay: `${0.15 + i * 0.08}s` }}>
-                  <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(179,136,255,0.08)', border: '1px solid rgba(179,136,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <EmojiToIcon emoji={f.icon} size={20} />
-                  </div>
-                  <div>
-                    <div style={{ fontFamily: 'var(--ff-display)', fontSize: 15, fontWeight: 700, marginBottom: 4 }}>{f.label}</div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: 14, fontStyle: 'italic' }}>{f.desc}</div>
-                  </div>
-                </div>
-              ))}
+    <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Cleo AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
+      <div style={{ maxWidth: 1180, margin:'0 auto', position:'relative', zIndex:2 }}>
+        <div style={{ textAlign:'center', marginBottom: 52 }}>
+          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Cleo AI</div>
+          <h2 className="section-title reveal" style={{ marginBottom:18 }}>
+            Tell Cleo What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
+          </h2>
+          <p className="reveal" style={{ color:'var(--text-muted)', fontSize:'clamp(14px,1.8vw,18px)', lineHeight:1.75, maxWidth:700, margin:'0 auto' }}>
+            Brands describe the campaign in plain language. Cleo turns the brief into a ranked creator shortlist — matching niche, audience, content style, location, budget and campaign fit.
+          </p>
+        </div>
+
+        <div className="cleo-demo-shell reveal">
+          <div className="cleo-windowbar">
+            <div className="cleo-window-orb"><Bot size={16} color="var(--cyan)" /></div>
+            <div>
+              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Cleo <span style={{ color:'var(--purple)' }}>AI</span></div>
+              <div style={{ fontSize:10, color:'var(--text-muted)' }}>Creator Discovery Engine</div>
             </div>
+            <div className="cleo-status"><span className="cleo-status-dot" /> Live demo</div>
           </div>
 
-          {/* Right: Cleo chat demo */}
-          <div ref={sectionRef} className="reveal" style={{ transitionDelay: '0.2s' }}>
-            <div className="glass-card" style={{ padding: 0, overflow: 'hidden', border: '1px solid rgba(179,136,255,0.2)' }}>
-              <div style={{ padding: '14px 18px', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(179,136,255,0.06)', display: 'flex', alignItems: 'center', gap: 10 }}>
-                <div style={{ width: 32, height: 32, borderRadius: 10, background: 'linear-gradient(135deg, rgba(179,136,255,0.2), rgba(107,48,224,0.15))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Bot size={16} style={{ color: 'var(--purple)' }} />
-                </div>
-                <div>
-                  <div style={{ fontFamily: 'var(--ff-display)', fontWeight: 700, fontSize: 14 }}>Cleo <span style={{ background: 'rgba(74,222,128,0.12)', color: 'var(--green)', border: '1px solid rgba(74,222,128,0.25)', borderRadius: 50, padding: '1px 8px', fontSize: 10 }}>AI</span></div>
-                  <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Collancer's campaign strategist</div>
-                </div>
-                <div style={{ marginLeft: 'auto', display: 'flex', gap: 6 }}>
-                  {['#f87171','#ffb347','#4ade80'].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />)}
+          <div style={{ display:'grid', gridTemplateColumns:(isMobile || isTablet) ? '1fr' : 'minmax(0,1.45fr) minmax(280px,.65fr)', minHeight:560 }}>
+            <div className="cleo-chat">
+              <div className="cleo-orbit" />
+              <div style={{ position:'relative', zIndex:2, display:'flex', justifyContent:'center', marginBottom:16 }}>
+                <span style={{ fontSize:9, color:'var(--text-dim)', letterSpacing:1.2, textTransform:'uppercase' }}>Campaign brief → AI matching → ranked creators</span>
+              </div>
+
+              <div className="cleo-msg" style={{ display:'flex', justifyContent:'flex-end', marginBottom:12 }}>
+                <div className="cleo-user-msg">
+                  {typed || (phase === 0 ? 'I need creators for my next campaign…' : '')}
+                  {phase === 1 && <span style={{ display:'inline-block', width:2, height:14, background:'var(--cyan)', marginLeft:2, verticalAlign:'middle', animation:'cleoCursor 1s infinite' }} />}
                 </div>
               </div>
-              <div style={{ padding: '20px 16px', minHeight: 360, display: 'flex', flexDirection: 'column', gap: 0 }}>
-                {/* System msg */}
-                <div style={{ textAlign: 'center', marginBottom: 16 }}>
-                  <span style={{ fontSize: 11, color: 'var(--text-dim)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', padding: '4px 12px', borderRadius: 50 }}>Cleo is ready · Built into Collancer</span>
-                </div>
 
-                {animStep >= 1 && (
-                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16, animation: 'cleoMsgIn 0.8s cubic-bezier(0.16,1,0.3,1)' }}>
-                    <div style={{ maxWidth: '78%', padding: '10px 16px', borderRadius: '18px 18px 4px 18px', background: 'linear-gradient(135deg, rgba(0,229,255,0.15), rgba(0,153,204,0.12))', border: '1px solid rgba(0,229,255,0.25)', fontSize: 13, color: 'var(--text)', lineHeight: 1.6, fontWeight: 500, minHeight: 40, display: 'flex', alignItems: 'center' }}>
-                      {typedQ1}<span style={{ display: animStep === 1 ? 'inline-block' : 'none', width: 2, height: 14, background: 'var(--cyan)', marginLeft: 2, animation: 'cleoCursor 1s ease-in-out infinite' }} />
-                    </div>
+              {phase >= 2 && (
+                <div className="cleo-msg" style={{ display:'flex', justifyContent:'flex-start', marginBottom:12 }}>
+                  <div className="cleo-ai-msg">
+                    Got it. I’m translating your brief into creator signals — <strong>niche, audience, engagement, location, content style and budget.</strong>
                   </div>
-                )}
-                {animStep === 1.5 && (
-                  <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: 16, animation: 'cleoMsgIn 0.6s cubic-bezier(0.16,1,0.3,1)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 16px', borderRadius: '4px 18px 18px 18px', background: 'rgba(179,136,255,0.07)', border: '1px solid rgba(179,136,255,0.2)' }}>
-                      <div style={{ display: 'flex', gap: 5 }}>
-                        {[0, 0.2, 0.4].map(d => <span key={d} style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--purple)', display: 'inline-block', animation: `cleoThink 1.2s ease-in-out infinite`, animationDelay: `${d}s` }} />)}
-                      </div>
-                      <span style={{ fontSize: 12, color: 'var(--text-muted)', fontStyle: 'italic' }}>Cleo is researching{thinkDots}</span>
-                    </div>
-                  </div>
-                )}
-                {animStep >= 2 && (
-                  <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: 16, animation: 'cleoResponseIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
-                    <div style={{ maxWidth: '92%', borderRadius: '4px 18px 18px 18px', overflow: 'hidden', border: '1px solid rgba(179,136,255,0.25)', background: 'linear-gradient(180deg, rgba(179,136,255,0.1) 0%, rgba(107,48,224,0.06) 100%)' }}>
-                      <div style={{ padding: '10px 14px 8px', borderBottom: '1px solid rgba(179,136,255,0.12)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <Sparkles size={12} style={{ color: 'var(--purple)' }} />
-                        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--purple)', letterSpacing: 0.5, textTransform: 'uppercase' }}>Verified creator matches</span>
-                      </div>
-                      <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                        {[
-                          { name: 'Siddharth Nair', handle: '@siddharthnair', subs: '22K subs', rating: '4.2★', price: '₹6,000', platform: 'YouTube', badge: '🏆 Top Pick' },
-                          { name: 'Aditya Kumar', handle: '@adityatech', subs: '70K subs', rating: '4.5★', price: '₹9,500', platform: 'YouTube', badge: null },
-                        ].map((c, i) => (
-                          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 10px', borderRadius: 10, background: i === 0 ? 'rgba(179,136,255,0.12)' : 'rgba(255,255,255,0.03)', border: `1px solid ${i === 0 ? 'rgba(179,136,255,0.3)' : 'rgba(255,255,255,0.06)'}` }}>
-                            <div style={{ width: 32, height: 32, borderRadius: 10, background: 'linear-gradient(135deg, rgba(179,136,255,0.25), rgba(107,48,224,0.2))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 14 }}>📱</div>
-                            <div style={{ flex: 1, minWidth: 0 }}>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-                                <span style={{ fontSize: 13, fontWeight: 700 }}>{c.name}</span>
-                                {c.badge && <span style={{ fontSize: 10, fontWeight: 700, color: '#ffb347', background: 'rgba(255,179,71,0.12)', border: '1px solid rgba(255,179,71,0.25)', borderRadius: 50, padding: '1px 7px' }}>{c.badge}</span>}
-                              </div>
-                              <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>{c.handle} · {c.platform} · {c.subs}</div>
-                            </div>
-                            <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--green)' }}>{c.price}</div>
-                              <div style={{ fontSize: 11, color: '#ffb347' }}>{c.rating}</div>
-                            </div>
-                          </div>
-                        ))}
-                        <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4, paddingTop: 8, borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 5 }}>
-                          <Bot size={11} style={{ color: 'var(--purple)' }} /> Want me to compare fit, pricing and reach?
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                {animStep >= 3 && (
-                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16, animation: 'cleoMsgIn 0.8s cubic-bezier(0.16,1,0.3,1)' }}>
-                    <div style={{ maxWidth: '78%', padding: '10px 16px', borderRadius: '18px 18px 4px 18px', background: 'linear-gradient(135deg, rgba(0,229,255,0.15), rgba(0,153,204,0.12))', border: '1px solid rgba(0,229,255,0.25)', fontSize: 13, color: 'var(--text)', lineHeight: 1.6, fontWeight: 500, minHeight: 40, display: 'flex', alignItems: 'center' }}>
-                      {typedQ2}<span style={{ display: animStep === 3 ? 'inline-block' : 'none', width: 2, height: 14, background: 'var(--cyan)', marginLeft: 2, animation: 'cleoCursor 1s ease-in-out infinite' }} />
-                    </div>
-                  </div>
-                )}
-                {animStep === 3.5 && (
-                  <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: 16, animation: 'cleoMsgIn 0.6s cubic-bezier(0.16,1,0.3,1)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 16px', borderRadius: '4px 18px 18px 18px', background: 'rgba(0,229,255,0.06)', border: '1px solid rgba(0,229,255,0.15)' }}>
-                      {[0, 0.2, 0.4].map(d => <span key={d} style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: `cleoThink 1.2s ease-in-out infinite`, animationDelay: `${d}s` }} />)}
-                      <span style={{ fontSize: 12, color: 'var(--text-muted)', fontStyle: 'italic' }}>Cleo is researching{thinkDots}</span>
-                    </div>
-                  </div>
-                )}
-                {animStep >= 4 && (
-                  <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: 8, animation: 'cleoResponseIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
-                    <div style={{ maxWidth: '92%', borderRadius: '4px 18px 18px 18px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)', background: 'linear-gradient(180deg, rgba(0,229,255,0.07) 0%, rgba(0,229,255,0.03) 100%)' }}>
-                      <div style={{ padding: '10px 14px 8px', borderBottom: '1px solid rgba(0,229,255,0.1)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <TrendingUp size={12} style={{ color: 'var(--cyan)' }} />
-                        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--cyan)', letterSpacing: 0.5, textTransform: 'uppercase' }}>Reach Estimate · ₹25,000 Budget</span>
-                      </div>
-                      <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                        {[
-                          { platform: 'YouTube', icon: '🎬', reach: '200K – 400K', type: 'Mid-range creator', color: '#ff6eb4' },
-                          { platform: 'Instagram Reels', icon: '📱', reach: '500K – 1M', type: 'High-reach creator', color: 'var(--cyan)' },
-                        ].map((r, i) => (
-                          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 10px', borderRadius: 10, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                            <span style={{ fontSize: 18, flexShrink: 0 }}>{r.icon}</span>
-                            <div style={{ flex: 1 }}>
-                              <div style={{ fontSize: 12, fontWeight: 700 }}>{r.platform}</div>
-                              <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{r.type}</div>
-                            </div>
-                            <div style={{ fontSize: 13, fontWeight: 800, color: r.color }}>{r.reach}</div>
-                          </div>
-                        ))}
-                        <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4, paddingTop: 8, borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 5 }}>
-                          <Bot size={11} style={{ color: 'var(--cyan)' }} /> Want the shortlist ranked by campaign fit?
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                <div style={{ textAlign: 'center', marginTop: 8, fontSize: 11, color: 'var(--text-dim)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
-                  <Sparkles size={11} className="lucide-pulse" style={{ color: 'var(--purple)' }} /> Built into the Collancer workflow
                 </div>
+              )}
+
+              {phase >= 3 && phase < 4 && (
+                <div className="cleo-scan cleo-msg">
+                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--cyan)', fontSize:11, fontWeight:700 }}><Search size={13} /> Searching the creator network</div>
+                  <div className="cleo-scan-row">
+                    <span className="cleo-chip"><Target size={10} /> Skincare</span>
+                    <span className="cleo-chip"><MapPin size={10} /> Mumbai</span>
+                    <span className="cleo-chip"><Users size={10} /> Women 18–34</span>
+                    <span className="cleo-chip"><BarChart3 size={10} /> Engagement</span>
+                    <span className="cleo-chip"><IndianRupee size={10} /> ₹25K</span>
+                  </div>
+                </div>
+              )}
+
+              {phase >= 4 && (
+                <div className="cleo-msg">
+                  <div className="cleo-ai-msg" style={{ maxWidth:'100%' }}>
+                    <div style={{ display:'flex', alignItems:'center', gap:7, color:'var(--cyan)', fontWeight:800, fontSize:11, textTransform:'uppercase', letterSpacing:.8, marginBottom:10 }}>
+                      <BadgeCheck size={14} /> 3 high-fit creators found
+                    </div>
+                    <div style={{ color:'var(--text-muted)', fontSize:11, marginBottom:10 }}>Ranked by campaign fit — not follower count alone.</div>
+                    <div className="cleo-results">
+                      {creators.map((c, i) => (
+                        <div className="cleo-result" key={c.name}>
+                          {i === 0 && <span className="cleo-rank">TOP MATCH</span>}
+                          <div className="cleo-avatar">{c.initials}</div>
+                          <div style={{ minWidth:0, flex:1 }}>
+                            <div style={{ fontSize:12, fontWeight:800, paddingRight:i===0?70:0 }}>{c.name}</div>
+                            <div style={{ fontSize:10, color:'var(--text-muted)', marginTop:2 }}>{c.handle} · {c.niche}</div>
+                            <div style={{ display:'flex', gap:7, flexWrap:'wrap', marginTop:6 }}>
+                              <span style={{ fontSize:9, color:'var(--text-muted)' }}>{c.reach} reach</span>
+                              <span style={{ fontSize:9, color:'var(--cyan)' }}>{c.note}</span>
+                              <span style={{ fontSize:9, color:'var(--green)' }}>{c.price}</span>
+                            </div>
+                          </div>
+                          <div className="cleo-fit"><div className="cleo-fit-score">{c.fit}</div><div className="cleo-fit-label">FIT</div></div>
+                        </div>
+                      ))}
+                    </div>
+                    {phase >= 5 && (
+                      <div style={{ marginTop:11, paddingTop:10, borderTop:'1px solid rgba(255,255,255,.06)', display:'flex', alignItems:'center', justifyContent:'space-between', gap:10, animation:'cleoBubble .55s both' }}>
+                        <span style={{ fontSize:10, color:'var(--text-muted)' }}>Want me to draft the campaign brief?</span>
+                        <span style={{ fontSize:10, fontWeight:800, color:'var(--cyan)', display:'inline-flex', alignItems:'center', gap:4 }}>Continue <ArrowRight size={11}/></span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              <div className="cleo-composer">
+                <div className="cleo-composer-input">Describe your campaign to Cleo…</div>
+                <div className="cleo-send"><ArrowRight size={15} /></div>
+              </div>
+            </div>
+
+            <div style={{ padding: isMobile ? '0 14px 16px' : '22px', display:'flex', alignItems:'center', position:'relative' }}>
+              <div className="cleo-pulse-ring" />
+              <div className="cleo-side-stack" style={{ width:'100%', position:'relative', zIndex:2 }}>
+                <div className="cleo-metric-card">
+                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--cyan)', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:.8 }}><Target size={14}/> What Cleo matches</div>
+                  <div style={{ display:'grid', gap:10, marginTop:15 }}>
+                    {[['Audience fit','98%'],['Content style','94%'],['Campaign fit','97%'],['Budget fit','92%']].map(([label,val]) => <div key={label}><div style={{display:'flex',justifyContent:'space-between',fontSize:10,color:'var(--text-muted)'}}><span>{label}</span><strong style={{color:'var(--text)'}}>{val}</strong></div><div className="cleo-mini-bar"><span style={{width:val}} /></div></div>)}
+                  </div>
+                </div>
+                <div className="cleo-metric-card">
+                  <div style={{ display:'flex', alignItems:'center', gap:8, color:'var(--purple)', fontSize:11, fontWeight:800, textTransform:'uppercase', letterSpacing:.8 }}><Sparkles size={14}/> Why brands care</div>
+                  <div style={{ marginTop:12, display:'grid', gap:9 }}>
+                    {['Skip the endless DM search','Compare relevant creators faster','Start with a structured campaign brief','Keep discovery focused on fit'].map((x,i)=><div key={x} style={{display:'flex',alignItems:'center',gap:8,fontSize:11,color:'var(--text-muted)'}}><CheckCircle size={13} color={i<2?'var(--cyan)':'var(--purple)'}/>{x}</div>)}
+                  </div>
+                </div>
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:7, color:'var(--text-dim)', fontSize:10, paddingTop:2 }}><Lock size={11}/> Demo interface · no real creator data used</div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div style={{ display:'flex', justifyContent:'center', gap:10, flexWrap:'wrap', marginTop:18 }}>
+          {['Natural language search','Creator fit scoring','Budget-aware matching','Ranked shortlists'].map((x,i)=><span key={x} className="cleo-chip" style={{ padding:'7px 11px', color:i===0?'var(--cyan)':'var(--text-muted)' }}><CheckCircle size={11}/>{x}</span>)}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ═══ REQUIREMENTS MARKETPLACE ═══ */
 function RequirementsMarketplace() {
