@@ -270,8 +270,8 @@ const CSS = `
   .reveal-scale { opacity:0; transform:scale(0.92) translateY(30px); transition:opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
   .reveal-scale.visible { opacity:1; transform:scale(1) translateY(0); }
 
-  .marquee-container { overflow:hidden; mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
-  .marquee-track { display:flex; gap:10px; width:max-content; animation:marquee 42s linear infinite; touch-action:pan-y; align-items:center; }
+  .marquee-container { height:76px; display:flex; align-items:center; overflow:hidden; mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
+  .marquee-track { display:flex; gap:20px; width:max-content; height:100%; animation:marquee 42s linear infinite; touch-action:pan-y; align-items:center; }
   @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
   @keyframes float1 { 0%,100%{transform:translateY(0) rotate(-1deg);} 50%{transform:translateY(-10px) rotate(1deg);} }
@@ -432,7 +432,7 @@ const CSS = `
     .toggle-pill { width: 100%; }
     .toggle-pill button { flex: 1; padding: 10px 8px; font-size: 12px; }
     .feat-icon { width: 44px; height: 44px; border-radius: 12px; }
-    .marquee-track { gap: 6px; animation-duration: 30s; }
+    .marquee-track { gap: 16px; animation-duration: 30s; }
     .badge { font-size: 10px; padding: 4px 10px; }
     .stat-big { font-size: clamp(22px, 7vw, 30px) !important; }
     .number-ring { width: 36px; height: 36px; font-size: 14px; border-radius: 10px; }
@@ -800,11 +800,11 @@ function Hero() {
 function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <section aria-label="Example brands creators recognize" style={{ padding: '0 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+    <section aria-label="Example brands creators recognize" style={{ padding: '8px 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
       <div className="marquee-container">
         <div className="marquee-track">
           {doubled.map((brand, i) => (
-            <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name}>
+            <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name} style={brand.name === 'Mamaearth' ? { marginLeft: 10 } : undefined}>
               <img src={brand.logo} alt={brand.name} loading="lazy" decoding="async" />
             </div>
           ))}

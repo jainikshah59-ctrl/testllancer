@@ -275,8 +275,8 @@ const CSS = `
   .reveal-scale { opacity:0; transform:scale(0.92) translateY(30px); transition:opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
   .reveal-scale.visible { opacity:1; transform:scale(1) translateY(0); }
 
-  .marquee-container { overflow:hidden; mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
-  .marquee-track { display:flex; gap:10px; width:max-content; animation:marquee 42s linear infinite; touch-action:pan-y; align-items:center; }
+  .marquee-container { height:76px; display:flex; align-items:center; overflow:hidden; mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
+  .marquee-track { display:flex; gap:20px; width:max-content; height:100%; animation:marquee 42s linear infinite; touch-action:pan-y; align-items:center; }
   @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
   @keyframes float1 { 0%,100%{transform:translateY(0) rotate(-1deg);} 50%{transform:translateY(-10px) rotate(1deg);} }
@@ -478,7 +478,7 @@ const CSS = `
     .toggle-pill { width: 100%; }
     .toggle-pill button { flex: 1; padding: 10px 8px; font-size: 12px; }
     .feat-icon { width: 44px; height: 44px; border-radius: 12px; }
-    .marquee-track { gap: 6px; animation-duration: 30s; }
+    .marquee-track { gap: 16px; animation-duration: 30s; }
     .badge { font-size: 10px; padding: 4px 10px; }
     .stat-big { font-size: clamp(22px, 7vw, 30px) !important; }
     .number-ring { width: 36px; height: 36px; font-size: 14px; border-radius: 10px; }
@@ -513,7 +513,7 @@ section{isolation:isolate;scroll-margin-top:96px}section::before{content:'';posi
 .feat-icon,.number-ring{position:relative;box-shadow:0 10px 28px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transform:translateZ(16px)}.feat-icon::after,.number-ring::after{content:'';position:absolute;inset:6px;border-radius:inherit;border:1px solid rgba(255,255,255,.05);pointer-events:none}
 h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-.045em!important}.section-title{line-height:1.04!important}.text-gradient{background:linear-gradient(110deg,#f7fbff,#6deaff 31%,#8f7cff 70%,#f0a4ff);background-size:220% auto;animation:gradientFlow 8s ease-in-out infinite}@keyframes gradientFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 .btn-glow,.btn-outline{border-radius:16px!important;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 12px 34px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.18) inset!important}.btn-glow{background:linear-gradient(135deg,#6bf1ff,#21c9ee 48%,#7d6bff 120%)!important;box-shadow:0 14px 40px rgba(29,207,240,.24),0 1px 0 rgba(255,255,255,.35) inset!important}.btn-glow::before,.btn-outline::before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 38%,rgba(255,255,255,.05))}.btn-glow:hover,.btn-outline:hover{transform:translateY(-4px) scale(1.015)!important}
-.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;width:104px;min-width:104px;height:52px;padding:2px 2px;flex-shrink:0;transition:transform .45s var(--ease-out-expo),filter .45s ease;position:relative}.brand-logo-tile:hover{transform:translateY(-4px) scale(1.06);filter:drop-shadow(0 0 18px rgba(72,232,255,.18))}.brand-logo-plate{display:contents}.brand-logo-tile img{max-width:88px;max-height:32px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;object-fit:contain;transition:transform .4s ease,filter .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}.brand-logo-fallback{font-family:var(--ff-display);font-size:18px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;width:104px;min-width:104px;height:64px;padding:0 4px;flex-shrink:0;transition:transform .45s var(--ease-out-expo),filter .45s ease;position:relative}.brand-logo-tile:hover{transform:translateY(-4px) scale(1.06);filter:drop-shadow(0 0 18px rgba(72,232,255,.18))}.brand-logo-plate{display:contents}.brand-logo-tile img{max-width:88px;max-height:32px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;object-fit:contain;transition:transform .4s ease,filter .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}.brand-logo-fallback{font-family:var(--ff-display);font-size:18px;font-weight:900;letter-spacing:-.04em;white-space:nowrap}
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
@@ -563,7 +563,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 .btn-outline{background:rgba(255,255,255,.025)!important;border-color:rgba(170,220,255,.18)!important;border-radius:17px!important;min-height:54px;backdrop-filter:blur(18px)}
 @media(max-width:900px){.hero-stage .orb{width:360px;height:360px;right:-100px;top:22%;opacity:.6}.hero-stage .ring{right:-120px;width:560px;height:180px}.hero-stage .chip{display:none}}
 @media(max-width:768px){#hero h1{font-size:clamp(38px,10vw,58px)!important}.hero-stage .orb{width:280px;height:280px;right:-100px;opacity:.38}.hero-stage .ring{right:-170px;opacity:.5}}
-@media(max-width:768px){#hero{min-height:auto!important;padding-bottom:0!important}#hero .reveal{transition-delay:0s}.marquee-container{height:48px}.brand-logo-tile{width:92px;min-width:92px;height:48px}.brand-logo-tile img{max-width:78px;max-height:28px}}
+@media(max-width:768px){#hero{min-height:auto!important;padding-top:60px!important;padding-bottom:0!important}#hero .reveal{transition-delay:0s}#hero p{margin-bottom:10px!important;line-height:1.55!important}.marquee-container{height:58px}.brand-logo-tile{width:92px;min-width:92px;height:52px}.brand-logo-tile img{max-width:78px;max-height:28px}}
 @media(prefers-reduced-motion:reduce){.text-gradient,.hero-stage *{animation:none!important}}
 
 
@@ -952,11 +952,11 @@ function Hero() {
 function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <section aria-label="Example brands creators recognize" style={{ padding: '0 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+    <section aria-label="Example brands creators recognize" style={{ padding: '8px 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
       <div className="marquee-container">
         <div className="marquee-track">
           {doubled.map((brand, i) => (
-            <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name}>
+            <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name} style={brand.name === 'Mamaearth' ? { marginLeft: 10 } : undefined}>
               <img
                 src={brand.logo}
                 alt={`${brand.name} logo`}
