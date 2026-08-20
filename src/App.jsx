@@ -504,7 +504,8 @@ section{isolation:isolate;scroll-margin-top:96px}section::before{content:'';posi
 .feat-icon,.number-ring{position:relative;box-shadow:0 10px 28px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transform:translateZ(16px)}.feat-icon::after,.number-ring::after{content:'';position:absolute;inset:6px;border-radius:inherit;border:1px solid rgba(255,255,255,.05);pointer-events:none}
 h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-.045em!important}.section-title{line-height:1.04!important}.text-gradient{background:linear-gradient(110deg,#f7fbff,#6deaff 31%,#8f7cff 70%,#f0a4ff);background-size:220% auto;animation:gradientFlow 8s ease-in-out infinite}@keyframes gradientFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 .btn-glow,.btn-outline{border-radius:16px!important;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 12px 34px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.18) inset!important}.btn-glow{background:linear-gradient(135deg,#6bf1ff,#21c9ee 48%,#7d6bff 120%)!important;box-shadow:0 14px 40px rgba(29,207,240,.24),0 1px 0 rgba(255,255,255,.35) inset!important}.btn-glow::before,.btn-outline::before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 38%,rgba(255,255,255,.05))}.btn-glow:hover,.btn-outline:hover{transform:translateY(-4px) scale(1.015)!important}
-.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;min-width:170px;height:72px;padding:16px 28px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 14px 40px rgba(0,0,0,.22);flex-shrink:0;transition:transform .45s var(--ease-out-expo),border-color .45s ease,background .45s ease}.brand-logo-tile:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(72,232,255,.3);background:linear-gradient(180deg,rgba(72,232,255,.08),rgba(255,255,255,.025))}.brand-logo-tile img{max-width:112px;max-height:34px;width:auto;height:auto;display:block;filter:grayscale(1) brightness(1.8);opacity:.78;transition:filter .4s ease,opacity .4s ease,transform .4s ease}.brand-logo-tile:hover img{filter:grayscale(0) brightness(1);opacity:1;transform:scale(1.04)}
+.marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
 @keyframes glowPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}.glow-cyan{animation:glowPulse 5s ease-in-out infinite}.glow-purple{animation:glowPulse 6s ease-in-out infinite reverse}.glow-red{animation:glowPulse 7s ease-in-out infinite}
@@ -573,7 +574,7 @@ const CATEGORIES = [
   { icon: "🛒", label: "E-Commerce" }, { icon: "💍", label: "Jewellery" },
   { icon: "👶", label: "Kids & Family" }, { icon: "⚽", label: "Sports" },
   { icon: "💍", label: "Wedding" }, { icon: "🌿", label: "Eco & Organic" },
-  { icon: "🏢", label: "Business" }, { icon: "🎬", label: "Entertainment" },
+  { icon: "🚀", label: "Startups & D2C" }, { icon: "🎬", label: "Entertainment" },
   { icon: "🐾", label: "Pets" }, { icon: "🔮", label: "Astrology" },
   { icon: "₿", label: "Crypto & Web3" },
 ];
@@ -590,15 +591,15 @@ const CREATORS_DEMO = [
 const PROMO_TYPES = [
   { key: "story", label: "Story Promotion", icon: "📸", desc: "24-hour Instagram Story with swipe-up CTA link to your product.", tag: "Instagram", tagColor: "#4ade80", features: ["24-hr visibility", "Swipe-up CTA", "Quick turnaround"] },
   { key: "reel", label: "Reel Promotion", icon: "🎬", desc: "Permanent Instagram Reel — short vertical video on creator's profile.", tag: "Most Popular", tagColor: "#00e5ff", features: ["Permanent on profile", "High organic reach", "Caption + hashtags"] },
-  { key: "video", label: "Video Promotion", icon: "📺", desc: "30–60 second business promo placed mid-roll in a YouTube video.", tag: "YouTube", tagColor: "#ffb347", features: ["Mid-roll placement", "30–60 sec", "Description link"] },
-  { key: "personalvideo", label: "Personal Video", icon: "🎥", desc: "Fully scripted personal video dedicated to your business.", tag: "Premium", tagColor: "#b388ff", features: ["Dedicated content", "Scripted", "Exclusive for you"] },
-  { key: "personalad", label: "Personal Ad", icon: "📢", desc: "Exclusive scripted business content across Instagram & YouTube.", tag: "Premium", tagColor: "#b388ff", features: ["Cross-platform", "Full usage rights", "60-day campaign"] },
+  { key: "video", label: "Video Promotion", icon: "📺", desc: "30–60 second brand promo placed mid-roll in a YouTube video.", tag: "YouTube", tagColor: "#ffb347", features: ["Mid-roll placement", "30–60 sec", "Description link"] },
+  { key: "personalvideo", label: "Personal Video", icon: "🎥", desc: "Fully scripted personal video dedicated to your brand.", tag: "Premium", tagColor: "#b388ff", features: ["Dedicated content", "Scripted", "Exclusive for you"] },
+  { key: "personalad", label: "Personal Ad", icon: "📢", desc: "Exclusive scripted brand content across Instagram & YouTube.", tag: "Premium", tagColor: "#b388ff", features: ["Cross-platform", "Full usage rights", "60-day campaign"] },
   { key: "ytshorts", label: "YouTube Shorts", icon: "⚡", desc: "60-second branded YouTube Short with high discovery potential.", tag: "YouTube", tagColor: "#f87171", features: ["Shorts feed", "60 sec max", "High discoverability"] },
 ];
 
 const HOW_IT_WORKS_CREATOR = [
   { num: "01", icon: "✨", title: "Create Your Profile", desc: "List your niche, platform, city, prices, and categories. Get verified by our team in 24 hours.", color: "var(--cyan)" },
-  { num: "02", icon: "📩", title: "Receive Bookings", desc: "Businesses discover you and send booking requests directly. Review their brief instantly.", color: "var(--purple)" },
+  { num: "02", icon: "📩", title: "Receive Bookings", desc: "Brands discover you and send booking requests directly. Review their brief instantly.", color: "var(--purple)" },
   { num: "03", icon: "🎨", title: "Deliver Content", desc: "Accept the brief, create the content, and deliver within the agreed timeline.", color: "var(--pink)" },
   { num: "04", icon: "💰", title: "Get Paid", desc: "Payment is released to your account automatically after delivery. No chasing, no waiting.", color: "var(--amber)" },
 ];
@@ -611,37 +612,46 @@ const HOW_IT_WORKS_BIZ = [
 ];
 
 const FEATURES_CREATOR = [
-  { icon: "🌟", title: "Free Listing", desc: "Get discovered by Verified Indian businesses & brands completely free. No upfront cost, no monthly fees.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
-  { icon: "💸", title: "Guaranteed Payment", desc: "100% of your fee is collected upfront and held in escrow. Complete the campaign on time and it's yours — instantly, automatically.", color: "rgba(74,222,128,0.08)", border: "rgba(74,222,128,0.2)", accent: "var(--green)" },
-  { icon: "🎯", title: "6 Promotion Types", desc: "Offer Stories, Reels, Videos, Shorts, Personal Videos & Personal Ads. Set your own prices.", color: "rgba(255,110,180,0.08)", border: "rgba(255,110,180,0.2)", accent: "var(--pink)" },
-  { icon: "📋", title: "Browse Business Briefs", desc: "See live campaign briefs from businesses looking for creators in your niche. Send proposals.", color: "rgba(179,136,255,0.08)", border: "rgba(179,136,255,0.2)", accent: "var(--purple)" },
-  { icon: "🏆", title: "Build Reputation", desc: "Collect verified reviews from real businesses. Build a portfolio that attracts more bookings.", color: "rgba(255,179,71,0.08)", border: "rgba(255,179,71,0.2)", accent: "var(--amber)" },
-  { icon: "📈", title: "Earnings Dashboard", desc: "See all bookings, earnings, payout history, and campaign status in one dashboard.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
+  { icon: "🌟", title: "Free Profile Listing", desc: "Create your Collancer profile without upfront listing fees or a monthly subscription.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
+  { icon: "💸", title: "Payment Protection", desc: "Creator fees are collected upfront and held securely. Complete the agreed work and your payout is released through the platform flow.", color: "rgba(74,222,128,0.08)", border: "rgba(74,222,128,0.2)", accent: "var(--green)" },
+  { icon: "🎯", title: "Set Your Own Rates", desc: "Offer Stories, Reels, YouTube Videos, Shorts, Personal Videos and Personal Ads — with your own pricing for each format.", color: "rgba(255,110,180,0.08)", border: "rgba(255,110,180,0.2)", accent: "var(--pink)" },
+  { icon: "📋", title: "Get Structured Brand Briefs", desc: "See campaign requirements, budgets, deliverables and timelines clearly instead of piecing together details from DMs.", color: "rgba(179,136,255,0.08)", border: "rgba(179,136,255,0.2)", accent: "var(--purple)" },
+  { icon: "🏆", title: "Build Verified Reputation", desc: "Completed collaborations and verified reviews strengthen your profile and make it easier for brands to trust your work.", color: "rgba(255,179,71,0.08)", border: "rgba(255,179,71,0.2)", accent: "var(--amber)" },
+  { icon: "📈", title: "Track Your Earnings", desc: "Keep your bookings, campaign status, payout history and creator activity organized in one place.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
 ];
 
 const FEATURES_BIZ = [
-  { icon: "🔍", title: "Smart Discovery", desc: "Filter verified creators by niche, city, budget, platform, followers & engagement rate.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
-  { icon: "🤖", title: "Cleo AI Assistant", desc: "Ask in plain English — find perfect creators, compare head-to-head, or get reach estimates.", color: "rgba(179,136,255,0.08)", border: "rgba(179,136,255,0.2)", accent: "var(--purple)" },
-  { icon: "📋", title: "Requirements Marketplace", desc: "Post your brief and let verified creators come to you with proposals. Review & accept in one tap.", color: "rgba(255,110,180,0.08)", border: "rgba(255,110,180,0.2)", accent: "var(--pink)" },
-  { icon: "💳", title: "Secure Payments", desc: "UPI, cards, net banking via Razorpay. Money held safely until your campaign is delivered.", color: "rgba(255,179,71,0.08)", border: "rgba(255,179,71,0.2)", accent: "var(--amber)" },
-  { icon: "📊", title: "Real Analytics", desc: "Genuine follower counts, engagement rates, average views, past reviews & audience demographics.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
-  { icon: "🔄", title: "Full Refund Guarantee", desc: "If a creator rejects your booking or misses the delivery deadline, 100% of your payment is automatically returned. No disputes. No delays.", color: "rgba(74,222,128,0.08)", border: "rgba(74,222,128,0.2)", accent: "var(--green)" },
+  { icon: "🔍", title: "Discover the Right Creators", desc: "Search verified Indian creators by niche, city, platform, budget, audience size and engagement — then shortlist with confidence.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
+  { icon: "🤖", title: "Cleo AI Matching", desc: "Describe your campaign in plain English. Cleo helps surface relevant creators, compare options and estimate potential reach for your budget.", color: "rgba(179,136,255,0.08)", border: "rgba(179,136,255,0.2)", accent: "var(--purple)" },
+  { icon: "📋", title: "Structured Campaign Briefs", desc: "Define deliverables, budget, category and timeline in one clear brief. Creators know exactly what you need before they apply.", color: "rgba(255,110,180,0.08)", border: "rgba(255,110,180,0.2)", accent: "var(--pink)" },
+  { icon: "💳", title: "Secure Escrow Payments", desc: "Pay securely through Razorpay. Funds are held until the agreed delivery, protecting both brands and creators throughout the booking.", color: "rgba(255,179,71,0.08)", border: "rgba(255,179,71,0.2)", accent: "var(--amber)" },
+  { icon: "📊", title: "Verified Creator Signals", desc: "Evaluate profiles using verified metrics, engagement signals, content quality, reviews and clear creator pricing — not follower count alone.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
+  { icon: "🔄", title: "Automatic Refund Protection", desc: "If a creator rejects the booking or misses the agreed delivery deadline, the booking is protected by Collancer's automatic refund flow.", color: "rgba(74,222,128,0.08)", border: "rgba(74,222,128,0.2)", accent: "var(--green)" },
 ];
 
 const STATS = [
-  { value: "BOOK", label: "Verified Creators", icon: "✨", color: "var(--cyan)" },
-  { value: "BOOKINGS FROM", label: "Verified Businesses", icon: "🏢", color: "var(--purple)" },
-  { value: "25", label: "Niches Covered", icon: "🎯", color: "var(--pink)" },
-  { value: "6", label: "Promotion Types", icon: "📢", color: "var(--amber)" },
+  { value: "FREE", label: "Creator Profile Listing", icon: "✨", color: "var(--cyan)" },
+  { value: "100%", label: "Payment Protection", icon: "🛡️", color: "var(--purple)" },
+  { value: "25", label: "Creator Niches", icon: "🎯", color: "var(--pink)" },
+  { value: "6", label: "Promotion Formats", icon: "📢", color: "var(--amber)" },
 ];
 
-const TESTIMONIALS = [
-  { name: "Meera Kapoor", role: "Founder, D2C Beauty Business", quote: "We used to spend 3 days negotiating with creators on WhatsApp. Collancer made our last campaign happen in 20 minutes flat. It's exactly what Indian businesses needed.", emoji: "💄", color: "#ff6eb4", stars: 5 },
-  { name: "Aryan Singh", role: "Marketing Head, D2C Fitness Business", quote: "Finding the right fitness creator was always a headache. Cleo AI showed me 10 perfectly matched options in seconds — with verified metrics, not just follower counts.", emoji: "💪", color: "#4ade80", stars: 5 },
-  { name: "Riya Desai", role: "Content Creator, 85K followers", quote: "I used to get random business DMs with no proper brief or payment guarantee. On Collancer, businesses come to me with structured briefs and the money is already secured.", emoji: "✨", color: "#b388ff", stars: 5 },
-];
+const TESTIMONIALS = [];
 
-const LOGOS = ["Zara", "Nykaa", "BoAt", "Myntra", "Swiggy", "Cred", "Lenskart", "Noise", "Mamaearth", "Moj", "ShareChat", "Wow Skin"];
+const LOGOS = [
+  { name: "Zara", logo: "https://cdn.simpleicons.org/zara/ffffff" },
+  { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/ffffff" },
+  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/ffffff" },
+  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/ffffff" },
+  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/ffffff" },
+  { name: "CRED", logo: "https://cdn.simpleicons.org/cred/ffffff" },
+  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/ffffff" },
+  { name: "Noise", logo: "https://cdn.simpleicons.org/noise/ffffff" },
+  { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/ffffff" },
+  { name: "Moj", logo: "https://cdn.simpleicons.org/moj/ffffff" },
+  { name: "ShareChat", logo: "https://cdn.simpleicons.org/sharechat/ffffff" },
+  { name: "WOW Skin Science", logo: "https://cdn.simpleicons.org/wowskinscience/ffffff" },
+];
 
 /* ═══ HOOKS ═══ */
 function useRevealAnimation() {
@@ -712,7 +722,7 @@ function Nav() {
   }, []);
 
   const links = [
-    { label: 'For Businesses', id: 'for-businesses' },
+    { label: 'For Brands', id: 'for-brands' },
     { label: 'For Creators', id: 'for-creators' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'FAQ', id: 'faq' },
@@ -889,7 +899,7 @@ function Hero() {
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
           fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20
         }}>
-          Where Indian Businesses<br />
+          Where Indian Brands<br />
           <span className="text-gradient">Meet Verified Creators</span>
         </h1>
 
@@ -906,8 +916,8 @@ function Hero() {
           width: '100%', padding: isMobile ? '0' : '0'
         }}>
           <button className="btn-glow" style={{ fontSize: 15, padding: isMobile ? '15px 24px' : 'clamp(14px,2vw,18px) clamp(28px,4vw,40px)' }}
-            onClick={() => document.getElementById('for-businesses')?.scrollIntoView({ behavior: 'smooth' })}>
-            I am a Business <Building2 size={18} className="lucide-anim" />
+            onClick={() => document.getElementById('for-brands')?.scrollIntoView({ behavior: 'smooth' })}>
+            I am a Brand <Building2 size={18} className="lucide-anim" />
           </button>
           <button className="btn-outline" style={{ fontSize: 15, padding: isMobile ? '15px 24px' : undefined }}
             onClick={() => document.getElementById('for-creators')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -952,18 +962,17 @@ function Hero() {
 function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <section style={{ padding: '40px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+    <section aria-label="Example brands creators recognize" style={{ padding: '34px 0 40px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 18px', textAlign: 'center' }}>
+        <div className="badge badge-cyan" style={{ marginBottom: 10 }}>Brand ecosystem</div>
+        <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Examples of brands creators aspire to work with</div>
+      </div>
       <div className="marquee-container">
         <div className="marquee-track">
-          {doubled.map((logo, i) => (
-            <div key={i} style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              padding: '10px 24px', borderRadius: 12,
-              background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border)',
-              whiteSpace: 'nowrap', flexShrink: 0,
-              fontFamily: "var(--ff-display)", fontSize: 15, fontWeight: 600,
-              color: 'var(--text-dim)', letterSpacing: 0.5
-            }}>{logo}</div>
+          {doubled.map((brand, i) => (
+            <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name}>
+              <img src={brand.logo} alt={brand.name} loading="lazy" decoding="async" />
+            </div>
           ))}
         </div>
       </div>
@@ -1012,7 +1021,7 @@ function ProblemSection() {
             <span className="glow-red">is Completely Broken</span>
           </h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,2vw,17px)', maxWidth: 560, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            ₹3,500 crore spent annually — yet managed entirely over WhatsApp DMs, personal UPI, and gut feeling. No structure. No protection.
+            Creator marketing is growing, but the workflow is still fragmented across DMs, spreadsheets, invoices and payment follow-ups. Collancer brings discovery, briefs, bookings and payment protection into one structured flow.
           </p>
         </div>
 
@@ -1044,16 +1053,16 @@ function ProblemSection() {
 }
 
 /* ═══ FOR BUSINESSES ═══ */
-function ForBusinesses() {
+function ForBrands() {
   const { isMobile } = useDevice();
   return (
-    <section id="for-businesses" aria-label="Collancer for Businesses — Book Verified Indian Influencers" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)', background: 'rgba(0,229,255,0.012)' }}>
+    <section id="for-brands" aria-label="Collancer for Brands — Book Verified Indian Influencers" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)', background: 'rgba(0,229,255,0.012)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <div className="badge badge-cyan reveal" style={{ marginBottom: 24 }}>For Businesses</div>
-          <h2 className="section-title reveal">Find the Perfect Creator<br /><span className="text-gradient">In Minutes, Not Days</span></h2>
+          <div className="badge badge-cyan reveal" style={{ marginBottom: 24 }}>For Brands</div>
+          <h2 className="section-title reveal">Find the Right Creator<br /><span className="text-gradient">Without the DM Chaos</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,2vw,18px)', maxWidth: 560, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            Browse verified Indian creators by niche, city, and budget — or ask Cleo AI and get matched instantly.
+            Discover verified Indian creators across 25 niches, compare fit and pricing, or ask Cleo AI to help narrow the shortlist.
           </p>
         </div>
 
@@ -1064,7 +1073,7 @@ function ForBusinesses() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, color: 'var(--red)', fontFamily: 'var(--ff-display)', fontWeight: 700, fontSize: 14 }}>
                 <X size={14} /> Without Collancer
               </div>
-              {["3–4 hours finding one creator on Instagram", "Negotiate over 20+ WhatsApp messages", "Pay via personal UPI — zero protection", "Creator ghosts, campaign fails, no refund"].map((item, i) => (
+              {["Spend hours searching across Instagram, YouTube and DMs", "Repeat the same negotiation across scattered DMs", "Pay via personal UPI — zero protection", "Creator ghosts, campaign fails, no refund"].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10, alignItems: 'flex-start' }}>
                   <X size={13} style={{ color: 'var(--red)', marginTop: 3, flexShrink: 0 }} />
                   <span style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6 }}>{item}</span>
@@ -1075,7 +1084,7 @@ function ForBusinesses() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, color: 'var(--cyan)', fontFamily: 'var(--ff-display)', fontWeight: 700, fontSize: 14 }}>
                 <Check size={14} /> With Collancer
               </div>
-              {["Ask Cleo AI — matched in under 60 seconds", "Fixed, transparent pricing before you book", "Pay via Razorpay — funds locked in escrow", "100% automatic refund if delivery fails"].map((item, i) => (
+              {["Use Cleo AI to narrow your shortlist in seconds", "Transparent creator rates and deliverables before you book", "Pay securely through Razorpay with escrow protection", "Automatic refund protection when the agreed booking fails"].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10, alignItems: 'flex-start' }}>
                   <Check size={13} style={{ color: 'var(--green)', marginTop: 3, flexShrink: 0 }} />
                   <span style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6 }}>{item}</span>
@@ -1120,12 +1129,12 @@ function ForBusinesses() {
 
         <div className="glass-card reveal" style={{ padding: 'clamp(28px,5vw,48px) clamp(20px,4vw,40px)', textAlign: 'center', background: 'linear-gradient(180deg, rgba(0,229,255,0.06), rgba(179,136,255,0.04))' }}>
           <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'center' }}><Building2 size={48} className="lucide-anim" /></div>
-          <h3 style={{ fontFamily: "var(--ff-display)", fontSize: 'clamp(18px,3vw,28px)', fontWeight: 800, marginBottom: 12 }}>Ready to run your first campaign?</h3>
+          <h3 style={{ fontFamily: "var(--ff-display)", fontSize: 'clamp(18px,3vw,28px)', fontWeight: 800, marginBottom: 12 }}>Ready to find your next creator?</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: 16, maxWidth: 500, margin: '0 auto 32px', lineHeight: 1.7 }}>
-            Join thousands of Indian businesses already discovering and booking creators on Collancer. Your first campaign has zero platform fees.
+            Discover creators with transparent pricing, structured briefs, secure payments, and AI-powered matching — all in one place.
           </p>
           <button className="btn-glow" style={{ fontSize: 17, padding: '18px 48px' }} onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}>
-            Start Booking Creators <Sparkles size={16} className="lucide-anim" />
+            Find Creators <Sparkles size={16} className="lucide-anim" />
           </button>
         </div>
       </div>
@@ -1137,10 +1146,10 @@ function ForBusinesses() {
 function CleoSection() {
   const { isMobile, isTablet } = useDevice();
   const cleoFeatures = [
-    { icon: "💬", label: "Natural Language Search", desc: '"Find a fitness creator in Mumbai under ₹5,000"' },
-    { icon: "🔄", label: "Head-to-Head Comparisons", desc: '"Compare Priya Sharma vs Kavya Nair for my business"' },
-    { icon: "📊", label: "Reach & ROI Estimates", desc: '"What reach can I expect for ₹20,000 budget?"' },
-    { icon: "🎯", label: "Niche-Perfect Matches", desc: '"Who is the best food creator in Bengaluru?"' },
+    { icon: "💬", label: "Natural Language Search", desc: '"Find 5 beauty creators in Mumbai under ₹5,000"' },
+    { icon: "🔄", label: "Head-to-Head Comparisons", desc: '"Compare these creators for my skincare launch"' },
+    { icon: "📊", label: "Reach & ROI Estimates", desc: '"What creator mix can I get for a ₹20,000 campaign?"' },
+    { icon: "🎯", label: "Niche-Perfect Matches", desc: '"Find food creators in Bengaluru with strong local reach"' },
   ];
 
   const sectionRef = useRef(null);
@@ -1151,8 +1160,8 @@ function CleoSection() {
   const animStarted = useRef(false);
   const thinkInterval = useRef(null);
 
-  const Q1 = 'Find a tech creator in Bengaluru under ₹10,000';
-  const Q2 = 'What reach can I expect for ₹25,000?';
+  const Q1 = 'Find tech creators in Bengaluru under ₹10,000';
+  const Q2 = 'Build a creator shortlist for a ₹25,000 campaign';
 
   const startThinking = (cb) => {
     let d = 0;
@@ -1222,7 +1231,7 @@ function CleoSection() {
               <div style={{ padding: '20px 16px', minHeight: 360, display: 'flex', flexDirection: 'column', gap: 0 }}>
                 {/* System msg */}
                 <div style={{ textAlign: 'center', marginBottom: 16 }}>
-                  <span style={{ fontSize: 11, color: 'var(--text-dim)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', padding: '4px 12px', borderRadius: 50 }}>Cleo is ready · Pro feature</span>
+                  <span style={{ fontSize: 11, color: 'var(--text-dim)', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', padding: '4px 12px', borderRadius: 50 }}>Cleo is ready · Built into Collancer</span>
                 </div>
 
                 {animStep >= 1 && (
@@ -1247,7 +1256,7 @@ function CleoSection() {
                     <div style={{ maxWidth: '92%', borderRadius: '4px 18px 18px 18px', overflow: 'hidden', border: '1px solid rgba(179,136,255,0.25)', background: 'linear-gradient(180deg, rgba(179,136,255,0.1) 0%, rgba(107,48,224,0.06) 100%)' }}>
                       <div style={{ padding: '10px 14px 8px', borderBottom: '1px solid rgba(179,136,255,0.12)', display: 'flex', alignItems: 'center', gap: 6 }}>
                         <Sparkles size={12} style={{ color: 'var(--purple)' }} />
-                        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--purple)', letterSpacing: 0.5, textTransform: 'uppercase' }}>5 Verified Matches Found</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--purple)', letterSpacing: 0.5, textTransform: 'uppercase' }}>Verified creator matches</span>
                       </div>
                       <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
                         {[
@@ -1270,7 +1279,7 @@ function CleoSection() {
                           </div>
                         ))}
                         <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4, paddingTop: 8, borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 5 }}>
-                          <Bot size={11} style={{ color: 'var(--purple)' }} /> Want me to compare them head-to-head?
+                          <Bot size={11} style={{ color: 'var(--purple)' }} /> Want me to compare fit, pricing and reach?
                         </div>
                       </div>
                     </div>
@@ -1313,14 +1322,14 @@ function CleoSection() {
                           </div>
                         ))}
                         <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4, paddingTop: 8, borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', gap: 5 }}>
-                          <Bot size={11} style={{ color: 'var(--cyan)' }} /> Want top picks sorted by ROI?
+                          <Bot size={11} style={{ color: 'var(--cyan)' }} /> Want the shortlist ranked by campaign fit?
                         </div>
                       </div>
                     </div>
                   </div>
                 )}
                 <div style={{ textAlign: 'center', marginTop: 8, fontSize: 11, color: 'var(--text-dim)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
-                  <Sparkles size={11} className="lucide-pulse" style={{ color: 'var(--purple)' }} /> Available for Pro members
+                  <Sparkles size={11} className="lucide-pulse" style={{ color: 'var(--purple)' }} /> Built into the Collancer workflow
                 </div>
               </div>
             </div>
@@ -1348,7 +1357,7 @@ function RequirementsMarketplace() {
           <div className="badge badge-cyan reveal" style={{ marginBottom: 20 }}>Pro Feature</div>
           <h2 className="section-title reveal">Requirements <span className="text-gradient">Marketplace</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(15px,2vw,18px)', maxWidth: 560, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            Post your campaign brief and let verified creators pitch you. You set the terms — they come to you.
+            Post a clear campaign brief and let relevant creators pitch you with their rates, timelines and reasons they fit the campaign.
           </p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: 'clamp(12px,2vw,20px)' }}>
@@ -1366,8 +1375,8 @@ function RequirementsMarketplace() {
         <div className="glass-card reveal" style={{ marginTop: 32, padding: '20px 28px', background: 'linear-gradient(180deg, rgba(179,136,255,0.08), rgba(0,229,255,0.04))', borderColor: 'rgba(179,136,255,0.2)', display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
           <ClipboardList size={28} className="lucide-anim" style={{ color: 'var(--purple)' }} />
           <div style={{ flex: 1 }}>
-            <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4, fontFamily: 'var(--ff-display)' }}>Available for Pro members</div>
-            <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Unlock unlimited brief posting, creator proposals inbox, and one-tap booking conversion.</div>
+            <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4, fontFamily: 'var(--ff-display)' }}>Built into the Collancer workflow</div>
+            <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Create structured briefs, receive creator proposals, compare offers, and book the right fit without leaving Collancer.</div>
           </div>
           <button className="btn-outline" style={{ fontSize: 14, padding: '11px 24px', whiteSpace: 'nowrap' }} onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}>
             Get Early Access <Sparkles size={14} className="lucide-anim" />
@@ -1388,7 +1397,7 @@ function ForCreators() {
           <div className="badge badge-purple reveal" style={{ marginBottom: 24 }}>For Creators</div>
           <h2 className="section-title reveal">Turn Your Audience Into<br /><span className="text-gradient-purple">Steady, Guaranteed Income</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(13px,1.8vw,17px)', maxWidth: 600, margin: '20px auto 0', lineHeight: 1.75, transitionDelay: '0.1s' }}>
-            List your profile free, receive structured bookings from businesses, and get paid automatically — no chasing, no ghosting.
+            Create your profile once, get discovered by brands, receive clear briefs, and manage paid collaborations without the usual DM chaos.
           </p>
         </div>
 
@@ -1416,10 +1425,10 @@ function ForCreators() {
                 <Sparkles size={14} /> Creator Life with Collancer
               </div>
               {[
-                "Businesses arrive with full briefs and fixed budgets",
-                "Your prices are public — serious buyers only",
-                "100% payment locked in escrow before you create anything",
-                "Verified reviews build a profile that sells for you 24/7",
+                "Brands arrive with structured briefs, clear deliverables and defined budgets",
+                "Your rates and promotion formats are clear before a booking starts",
+                "Payment is secured through the platform before you begin the agreed work",
+                "Verified reviews and completed work build a stronger creator profile over time",
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
                   <Check size={13} style={{ color: 'var(--green)', marginTop: 3, flexShrink: 0 }} />
@@ -1476,9 +1485,9 @@ function ForCreators() {
               <Sparkles size={32} className="lucide-anim" style={{ color: 'var(--purple)' }} />
             </div>
           </div>
-          <h3 style={{ fontFamily: "var(--ff-display)", fontSize: 'clamp(20px,3vw,32px)', fontWeight: 800, marginBottom: 14 }}>Ready to get discovered by businesses?</h3>
+          <h3 style={{ fontFamily: "var(--ff-display)", fontSize: 'clamp(20px,3vw,32px)', fontWeight: 800, marginBottom: 14 }}>Ready to turn your content into brand opportunities?</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: 16, maxWidth: 500, margin: '0 auto 32px', lineHeight: 1.7 }}>
-            Create your free creator profile today. Businesses are already searching for creators in your niche. Listing is completely free — always.
+            Create your free creator profile and make your rates, niche and content visible to brands looking for the right creator fit.
           </p>
           <button className="btn-glow" style={{ fontSize: 17, padding: '18px 48px' }} onClick={() => document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })}>
             List Your Profile Free <Sparkles size={16} className="lucide-anim" />
@@ -1492,36 +1501,41 @@ function ForCreators() {
 /* ═══ HOW IT WORKS ═══ */
 function HowItWorks() {
   const { isMobile } = useDevice();
-  const steps = HOW_IT_WORKS_CREATOR;
+  const [active, setActive] = useState('brand');
+  const steps = active === 'brand' ? HOW_IT_WORKS_BIZ : HOW_IT_WORKS_CREATOR;
 
   return (
-    <section id="how-it-works" aria-label="How Collancer Works — Step by Step Guide" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)' }}>
+    <section id="how-it-works" aria-label="How Collancer Works for Brands and Creators" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)' }}>
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 56 }}>
+        <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div className="badge badge-green reveal" style={{ marginBottom: 20 }}>Simple Process</div>
           <h2 className="section-title reveal">How <span className="text-gradient">Collancer Works</span></h2>
-          <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 18, maxWidth: 500, margin: '20px auto 36px', lineHeight: 1.7, transitionDelay: '0.05s' }}>
-            From discovery to delivery — everything in one place.
+          <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 18, maxWidth: 580, margin: '20px auto 28px', lineHeight: 1.7 }}>
+            A structured path from creator discovery to delivery — with clear terms and payment protection built in.
           </p>
+          <div className="toggle-pill reveal" style={{ margin: '0 auto' }}>
+            <button className={active === 'brand' ? 'active' : ''} onClick={() => setActive('brand')}>For Brands</button>
+            <button className={active === 'creator' ? 'active' : ''} onClick={() => setActive('creator')}>For Creators</button>
+          </div>
         </div>
 
         <div style={{ position: 'relative' }}>
           <div style={{ position: 'absolute', left: 23, top: 56, bottom: 60, width: 2, background: 'linear-gradient(to bottom, var(--cyan), var(--purple), transparent)', zIndex: 0 }} className="hide-mobile" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
-            {steps.map((s, i) => (
-              <div key={`creator-${i}`} style={{ display: 'flex', gap: isMobile ? 12 : 24, alignItems: 'flex-start', position: 'relative', zIndex: 1, opacity: 1, transform: 'none' }}>
-                {!isMobile && <div className="number-ring" style={{ background: `color-mix(in srgb, ${s.color} 12%, #0a0a1a)`, border: `2px solid ${s.color}50`, color: s.color, flexShrink: 0 }}>{s.num}</div>}
+            {steps.map((st, i) => (
+              <div key={`${active}-${i}`} className="reveal" style={{ display: 'flex', gap: isMobile ? 12 : 24, alignItems: 'flex-start', position: 'relative', zIndex: 1 }}>
+                {!isMobile && <div className="number-ring" style={{ background: `color-mix(in srgb, ${st.color} 12%, #0a0a1a)`, border: `2px solid ${st.color}50`, color: st.color, flexShrink: 0 }}>{st.num}</div>}
                 <div className="glass-card spotlight-card" style={{ flex: 1, padding: isMobile ? 18 : 28 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-                    <div style={{ width: isMobile ? 36 : 40, height: isMobile ? 36 : 40, borderRadius: 12, background: `color-mix(in srgb, ${s.color} 10%, #0f0f22)`, border: `1px solid ${s.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <EmojiToIcon emoji={s.icon} size={isMobile ? 18 : 20} />
+                    <div style={{ width: isMobile ? 36 : 40, height: isMobile ? 36 : 40, borderRadius: 12, background: `color-mix(in srgb, ${st.color} 10%, #0f0f22)`, border: `1px solid ${st.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <EmojiToIcon emoji={st.icon} size={isMobile ? 18 : 20} />
                     </div>
                     <div>
-                      {isMobile && <div style={{ fontFamily: 'var(--ff-display)', fontSize: 10, fontWeight: 700, color: s.color, marginBottom: 2, letterSpacing: 0.5 }}>STEP {s.num}</div>}
-                      <h3 style={{ fontFamily: "var(--ff-display)", fontSize: isMobile ? 15 : 18, fontWeight: 700, color: s.color }}>{s.title}</h3>
+                      {isMobile && <div style={{ fontFamily: 'var(--ff-display)', fontSize: 10, fontWeight: 700, color: st.color, marginBottom: 2, letterSpacing: 0.5 }}>STEP {st.num}</div>}
+                      <h3 style={{ fontFamily: "var(--ff-display)", fontSize: isMobile ? 15 : 18, fontWeight: 700, color: st.color }}>{st.title}</h3>
                     </div>
                   </div>
-                  <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.75 }}>{s.desc}</p>
+                  <p style={{ color: 'var(--text-muted)', fontSize: 15, lineHeight: 1.75 }}>{st.desc}</p>
                 </div>
               </div>
             ))}
@@ -1541,7 +1555,7 @@ function Categories() {
           <div className="badge badge-amber reveal" style={{ marginBottom: 20 }}>All Niches</div>
           <h2 className="section-title reveal">25 <span className="text-gradient-warm">Categories Covered</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 17, maxWidth: 500, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.05s' }}>
-            From fashion to finance, fitness to fintech — every Indian business category is covered.
+            From fashion and beauty to food, finance, tech and travel — Collancer is built around 25 creator niches.
           </p>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center' }}>
@@ -1601,7 +1615,7 @@ function SocialProof() {
 /* ═══ JOIN ═══ */
 function JoinSection() {
   const { isMobile } = useDevice();
-  const [tab, setTab] = useState('business');
+  const [tab, setTab] = useState('brand');
   const [form, setForm] = useState({ name: '', email: '', type: '', phone: '', platform: '', socialUsername: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -1702,7 +1716,7 @@ function JoinSection() {
           {
             to_name:  cleanName,
             to_email: cleanEmail,
-            reg_type: tab === 'creator' ? 'Creator' : 'Business',
+            reg_type: tab === 'creator' ? 'Creator' : 'Brand',
             niche:    cleanType || '—',
             platform: cleanPlatform || '—',
             username: cleanUsername ? `@${cleanUsername}` : '—',
@@ -1737,17 +1751,16 @@ function JoinSection() {
   };
 
   const bizBenefits = [
-    'First campaign with zero platform fee',
-    'Early access before public launch',
-    'Personal onboarding call with founder',
-    '3 months Business Pro features completely free',
+    'Early access to brand-side Collancer features',
+    'Priority onboarding during early access',
+    'Hands-on campaign setup guidance',
+    'Priority onboarding and early access to brand features',
   ];
   const creatorBenefits = [
-    'Lifetime free listing on the platform',
-    'Get discovered by 20,000+ brands',
-	'Guaranteed and on time payments',
-	'Instant withdrawls',
-   
+    'Free creator profile listing',
+    'Get discovered by brands across India',
+    'Payment protection through secure booking flows',
+    'Clear payout tracking',
   ];
 
   return (
@@ -1758,16 +1771,16 @@ function JoinSection() {
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
             Limited Early Access
           </div>
-          <h2 className="section-title reveal">Be Among the <span className="text-gradient">First 500</span></h2>
+          <h2 className="section-title reveal">Be Among the <span className="text-gradient">Early Community</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(15px,2vw,18px)', marginTop: 16, lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            We are personally onboarding our first 500 businesses and creators right now. Register your interest and we will reach out within 24 hours — with your early access details and founder-level perks.
+            Join Collancer early and get priority access as we build the infrastructure for faster, safer brand–creator collaborations in India.
           </p>
         </div>
 
         <div className="glass-card reveal" style={{ padding: 'clamp(20px,5vw,44px)' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 32 }}>
             <div className="toggle-pill">
-              <button className={tab === 'business' ? 'active' : ''} onClick={() => setTab('business')}>I'm a Business</button>
+              <button className={tab === 'brand' ? 'active' : ''} onClick={() => setTab('brand')}>I'm a Brand</button>
               <button className={tab === 'creator' ? 'active' : ''} onClick={() => setTab('creator')}>I'm a Creator</button>
             </div>
           </div>
@@ -1786,10 +1799,10 @@ function JoinSection() {
                 aria-hidden="true"
               />
               {[
-                { key: 'name',  placeholder: tab === 'business' ? 'Business Name *' : 'Your Full Name *', type: 'text',  maxLen: 100, autoComplete: 'name' },
+                { key: 'name',  placeholder: tab === 'brand' ? 'Brand Name *' : 'Your Full Name *', type: 'text',  maxLen: 100, autoComplete: 'name' },
                 { key: 'email', placeholder: 'Email Address *',                                           type: 'email', maxLen: 100, autoComplete: 'email' },
                 { key: 'phone', placeholder: 'WhatsApp Number (optional)',                                type: 'tel',   maxLen: 15,  autoComplete: 'tel' },
-                { key: 'type',  placeholder: tab === 'business' ? 'Your Industry (e.g. Fashion, Food, Tech)' : 'Your Content Niche (e.g. Fitness, Beauty)', type: 'text', maxLen: 80, autoComplete: 'off' },
+                { key: 'type',  placeholder: tab === 'brand' ? 'Your Industry (e.g. Fashion, Food, Tech)' : 'Your Content Niche (e.g. Fitness, Beauty)', type: 'text', maxLen: 80, autoComplete: 'off' },
               ].map(f => (
                 <input key={f.key} type={f.type} placeholder={f.placeholder} value={form[f.key]}
                   maxLength={f.maxLen}
@@ -1871,15 +1884,15 @@ function JoinSection() {
                 </>
               )}
 
-              <div style={{ background: tab === 'business' ? 'rgba(0,229,255,0.05)' : 'rgba(179,136,255,0.05)', border: `1px solid ${tab === 'business' ? 'rgba(0,229,255,0.2)' : 'rgba(179,136,255,0.2)'}`, borderRadius: 14, padding: '20px 24px' }}>
-                <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 14, color: tab === 'business' ? 'var(--cyan)' : 'var(--purple)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                  {tab === 'business' ? <Building2 size={14} className='lucide-anim' /> : <Sparkles size={14} className='lucide-anim' />}
-                  {tab === 'business' ? 'What you get as an early business' : 'Benefits of this registration'}
+              <div style={{ background: tab === 'brand' ? 'rgba(0,229,255,0.05)' : 'rgba(179,136,255,0.05)', border: `1px solid ${tab === 'brand' ? 'rgba(0,229,255,0.2)' : 'rgba(179,136,255,0.2)'}`, borderRadius: 14, padding: '20px 24px' }}>
+                <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 14, color: tab === 'brand' ? 'var(--cyan)' : 'var(--purple)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  {tab === 'brand' ? <Building2 size={14} className='lucide-anim' /> : <Sparkles size={14} className='lucide-anim' />}
+                  {tab === 'brand' ? 'What you get as an early brand' : 'Benefits of this registration'}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  {(tab === 'business' ? bizBenefits : creatorBenefits).map(b => (
+                  {(tab === 'brand' ? bizBenefits : creatorBenefits).map(b => (
                     <div key={b} style={{ fontSize: 14, color: 'var(--text-muted)', display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                      <CheckCircle size={15} style={{ color: tab === 'business' ? 'var(--green)' : 'var(--purple)', marginTop: 1, flexShrink: 0 }} /> {b}
+                      <CheckCircle size={15} style={{ color: tab === 'brand' ? 'var(--green)' : 'var(--purple)', marginTop: 1, flexShrink: 0 }} /> {b}
                     </div>
                   ))}
                 </div>
@@ -1887,7 +1900,7 @@ function JoinSection() {
 
               <button className="btn-glow" style={{ fontSize: 16, padding: '16px', width: '100%', opacity: loading ? 0.7 : 1 }} onClick={handleSubmit} disabled={loading}>
                 {loading ? <><Loader size={16} className='lucide-spin' /> Submitting...</> :
-                  tab === 'business' ? <>Register as a Business <Building2 size={16} className='lucide-anim' /></> :
+                  tab === 'brand' ? <>Join as a Brand <Building2 size={16} className='lucide-anim' /></> :
                     <>Register as a Creator <Sparkles size={16} className='lucide-anim' /></>}
               </button>
 
@@ -2213,7 +2226,7 @@ function FounderSection() {
               padding: isMobile ? '0 8px' : '0 4px',
               wordBreak: 'break-word',
             }}>
-              India has millions of creators and businesses — yet they still find each other over chaotic DMs. We are changing that. Collancer is the infrastructure India&apos;s creator economy has always deserved.
+              India has millions of creators and brands — yet they still find each other over chaotic DMs. We are changing that. Collancer is the infrastructure India&apos;s creator economy has always deserved.
             </p>
           </div>
 
@@ -2400,6 +2413,21 @@ function SEOContent() {
         <li>Earnings Dashboard: Track all bookings, earnings, payout history, and campaign status in one place</li>
       </ul>
 
+      <h2>For Brands — Find and Book the Right Creators</h2>
+      <p>
+        Brands can discover verified Indian creators across 25 niches, compare creator fit and transparent pricing,
+        publish structured campaign briefs, receive proposals, and manage secure bookings in one workflow.
+        Razorpay-powered payment protection and Collancer's refund flow are designed to reduce risk for both sides.
+      </p>
+      <ul>
+        <li>Creator Discovery: Search by niche, city, platform, audience size, budget and engagement.</li>
+        <li>Cleo AI: Describe your campaign in plain English and get creator-matching help, comparisons and reach estimates.</li>
+        <li>Structured Briefs: Define deliverables, budget and timeline before creators respond.</li>
+        <li>Requirements Marketplace: Let relevant creators pitch your campaign instead of relying on cold outreach.</li>
+        <li>Secure Payments: Pay through Razorpay with funds protected through the booking workflow.</li>
+        <li>Refund Protection: Bookings are protected when a creator rejects the booking or misses the agreed deadline.</li>
+      </ul>
+
       <h2>What is Cleo AI?</h2>
       <p>
         Cleo is Collancer's built-in AI assistant for creator discovery and campaign matching. Cleo AI supports
@@ -2446,10 +2474,9 @@ function SEOContent() {
 
       <h3>What makes Collancer different from other influencer platforms in India?</h3>
       <p>
-        Collancer is India's first fully structured influencer booking marketplace with AI-powered matching via Cleo AI,
-        escrow payment protection via Razorpay, a 100% automatic refund guarantee, a requirements marketplace where
-        creators bid on briefs, and verified metrics — not self-reported follower counts. Unlike traditional agencies
-        or DM-based negotiations, Collancer is fully digital, instant, and secure.
+        Collancer combines AI-powered creator matching via Cleo AI, escrow payment protection through Razorpay, a requirements marketplace,
+        structured briefs, and verified creator signals in one digital workflow. It replaces fragmented DM-based negotiations
+        with a clearer path from discovery and proposal to booking and delivery.
       </p>
 
       <h3>Is Collancer free for creators?</h3>
@@ -2460,8 +2487,8 @@ function SEOContent() {
 
       <h3>How many influencers are on Collancer?</h3>
       <p>
-        Collancer has verified Indian creators across 25 niches. All creators are manually verified by
-        the Collancer team within 24 hours of profile creation, checking real engagement data and content quality.
+        Creator onboarding is currently in progress. Each creator profile is reviewed by the Collancer team before approval,
+        with checks focused on real engagement, audience context and content quality.
       </p>
 
       <h3>Which cities does Collancer cover?</h3>
@@ -2733,7 +2760,7 @@ function useAnalytics() {
 
     // ── Section visibility tracking (for engagement metrics) ───────────────
     const SECTIONS = [
-      'hero', 'problem', 'for-businesses', 'for-creators', 'how-it-works',
+      'hero', 'problem', 'for-brands', 'for-creators', 'how-it-works',
       'categories', 'testimonials', 'join', 'founder'
     ];
     const sectionObserver = new IntersectionObserver(
@@ -3066,14 +3093,14 @@ export default function App() {
             <main id="main-content" role="main" itemScope itemType="https://schema.org/WebPage">
               <article itemScope itemType="https://schema.org/SoftwareApplication">
                 <meta itemProp="name" content="Collancer" />
-                <meta itemProp="applicationCategory" content="BusinessApplication" />
+                <meta itemProp="applicationCategory" content="MarketingApplication" />
                 <meta itemProp="operatingSystem" content="Web" />
                 <meta itemProp="description" content="India's first structured influencer booking marketplace powered by Cleo AI" />
 
                 <Hero />
                 <LogoMarquee />
                 <ProblemSection />
-                <ForBusinesses />
+                <ForBrands />
                 <ForCreators />
                 <HowItWorks />
                 <Categories />

@@ -298,7 +298,7 @@ Based on conversations with creators across Collancer's platform and data from Y
 
 3. **Digital products** (15–20%): Courses, presets, templates, and e-books. A fitness creator selling a ₹999 workout plan to 500 followers per month earns ₹5,99,400 annually — often more than their brand deal income.
 
-4. **Requirements Marketplace bookings** (10–15%): Responding to brand briefs on platforms like Collancer's Requirements Marketplace, where businesses post campaign needs and creators bid. This inverts the traditional model — creators hunt for work that fits their niche rather than waiting for inbound DMs.
+4. **Requirements Marketplace bookings** (10–15%): Responding to brand briefs on platforms like Collancer's Requirements Marketplace, where brands post campaign needs and creators bid. This inverts the traditional model — creators hunt for work that fits their niche rather than waiting for inbound DMs.
 
 5. **Live and events** (5–10%): Instagram Live gifts, YouTube Super Thanks, and paid virtual events.
 
@@ -755,7 +755,7 @@ At 25K+ followers with strong engagement, you are in the most cost-efficient cre
 
 **The mindset shift**
 
-The creators who build careers in India don't think of themselves as "trying to be famous." They think of themselves as service providers: their content is a product, their audience is an asset, and their niche expertise is their business. That mindset shift — from hobby to profession — is what separates the top 5% from everyone else.
+The creators who build careers in India don't think of themselves as "trying to be famous." They think of themselves as service providers: their content is a product, their audience is an asset, and their niche expertise is their brand. That mindset shift — from hobby to profession — is what separates the top 5% from everyone else.
     `,
   },
   {
