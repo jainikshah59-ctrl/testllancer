@@ -409,6 +409,19 @@ const CSS = `
     transition:all 0.3s var(--ease-out-expo);
     background:transparent; color:var(--text-muted);
   }
+  #how-it-works .toggle-pill {
+    display: inline-flex;
+    justify-content: center;
+  }
+  #how-it-works .glass-card {
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    #how-it-works > div { width: 100%; }
+    #how-it-works .toggle-pill { width: min(100%, 360px); }
+    #how-it-works .toggle-pill button { min-width: 0; }
+  }
+
   .toggle-pill button.active {
     background:linear-gradient(135deg, var(--cyan), #0099cc);
     color:#000;
@@ -607,7 +620,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
   @keyframes cleoStatus { 0%,100%{opacity:.5;transform:scale(.85)} 50%{opacity:1;transform:scale(1.15)} }
   .cleo-chat { padding:18px; min-height:540px; position:relative; }
   .cleo-chat::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 20% 20%, rgba(0,229,255,.07) 0 1px, transparent 1.5px), radial-gradient(circle at 80% 70%, rgba(179,136,255,.07) 0 1px, transparent 1.5px); background-size:80px 80px,110px 110px; opacity:.6; pointer-events:none; }
-  .cleo-msg { position:relative; z-index:2; animation:cleoBubble .65s cubic-bezier(.16,1,.3,1) both; }
+  .cleo-msg { position:relative; z-index:2; animation:cleoBubble .85s cubic-bezier(.16,1,.3,1) both; }
   @keyframes cleoBubble { from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(4px)} to{opacity:1;transform:none;filter:blur(0)} }
   .cleo-user-msg { max-width:78%; margin-left:auto; padding:13px 15px; border-radius:18px 18px 5px 18px; background:linear-gradient(135deg, rgba(0,229,255,.18), rgba(124,58,237,.13)); border:1px solid rgba(0,229,255,.24); box-shadow:0 12px 30px rgba(0,0,0,.22); font-size:13px; line-height:1.55; }
   .cleo-ai-msg { max-width:88%; padding:13px 15px; border-radius:5px 18px 18px 18px; background:linear-gradient(145deg, rgba(179,136,255,.11), rgba(16,17,40,.8)); border:1px solid rgba(179,136,255,.2); font-size:13px; line-height:1.55; }
@@ -621,7 +634,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
   .cleo-scan-row { display:flex; flex-wrap:wrap; gap:7px; margin-top:9px; }
   .cleo-chip { display:inline-flex; align-items:center; gap:5px; padding:6px 9px; border-radius:999px; font-size:10px; color:#cbd5ff; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.07); }
   .cleo-results { margin-top:14px; display:grid; gap:9px; }
-  .cleo-result { display:flex; align-items:center; gap:10px; padding:10px; border-radius:15px; background:linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border:1px solid rgba(255,255,255,.07); animation:cleoResult .75s cubic-bezier(.16,1,.3,1) both; position:relative; overflow:hidden; }
+  .cleo-result { display:flex; align-items:center; gap:10px; padding:10px; border-radius:15px; background:linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border:1px solid rgba(255,255,255,.07); animation:cleoResult 1s cubic-bezier(.16,1,.3,1) both; position:relative; overflow:hidden; }
   .cleo-result:nth-child(2){animation-delay:.12s}.cleo-result:nth-child(3){animation-delay:.24s}
   @keyframes cleoResult { from{opacity:0;transform:translateX(-22px) scale(.97);filter:blur(3px)} to{opacity:1;transform:none;filter:blur(0)} }
   .cleo-avatar { width:42px; height:42px; flex:0 0 42px; border-radius:14px; display:grid; place-items:center; font-family:var(--ff-display); font-weight:800; font-size:13px; color:#fff; background:linear-gradient(135deg, rgba(0,229,255,.24), rgba(124,58,237,.32)); border:1px solid rgba(255,255,255,.1); box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
@@ -702,7 +715,7 @@ const HOW_IT_WORKS_CREATOR = [
 ];
 
 const HOW_IT_WORKS_BIZ = [
-  { num: "01", icon: "🔍", title: "Discover Creators", desc: "Browse verified Indian creators by niche, city, budget & platform. Or ask Cleo AI for instant recommendations.", color: "var(--cyan)" },
+  { num: "01", icon: "🔍", title: "Discover Creators", desc: "Browse verified Indian creators by niche, city, budget & platform. Or ask Collancer AI for instant recommendations.", color: "var(--cyan)" },
   { num: "02", icon: "📋", title: "Choose & Book", desc: "Select your promotion type, fill your campaign brief, and confirm your order in under 2 minutes.", color: "var(--purple)" },
   { num: "03", icon: "💳", title: "Pay Securely", desc: "Pay via UPI, card, or net banking through Razorpay. Your payment is held safely until delivery.", color: "var(--pink)" },
   { num: "04", icon: "🚀", title: "Campaign Goes Live", desc: "Creator delivers your promotion. Track in real time. Leave a review. Done.", color: "var(--amber)" },
@@ -719,7 +732,7 @@ const FEATURES_CREATOR = [
 
 const FEATURES_BIZ = [
   { icon: "🔍", title: "Discover the Right Creators", desc: "Search verified Indian creators by niche, city, platform, budget, audience size and engagement — then shortlist with confidence.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
-  { icon: "🤖", title: "Cleo AI Matching", desc: "Describe your campaign in plain English. Cleo helps surface relevant creators, compare options and estimate potential reach for your budget.", color: "rgba(179,136,255,0.08)", border: "rgba(179,136,255,0.2)", accent: "var(--purple)" },
+  { icon: "🤖", title: "Collancer AI Matching", desc: "Describe your campaign in plain English. Collancer AI helps surface relevant creators, compare options and estimate potential reach for your budget.", color: "rgba(179,136,255,0.08)", border: "rgba(179,136,255,0.2)", accent: "var(--purple)" },
   { icon: "📋", title: "Structured Campaign Briefs", desc: "Define deliverables, budget, category and timeline in one clear brief. Creators know exactly what you need before they apply.", color: "rgba(255,110,180,0.08)", border: "rgba(255,110,180,0.2)", accent: "var(--pink)" },
   { icon: "💳", title: "Secure Escrow Payments", desc: "Pay securely through Razorpay. Funds are held until the agreed delivery, protecting both brands and creators throughout the booking.", color: "rgba(255,179,71,0.08)", border: "rgba(255,179,71,0.2)", accent: "var(--amber)" },
   { icon: "📊", title: "Verified Creator Signals", desc: "Evaluate profiles using verified metrics, engagement signals, content quality, reviews and clear creator pricing — not follower count alone.", color: "rgba(0,229,255,0.08)", border: "rgba(0,229,255,0.2)", accent: "var(--cyan)" },
@@ -763,21 +776,36 @@ const LOGOS = [
 function useRevealAnimation() {
   const { pathname } = useLocation();
   useEffect(() => {
-    // Re-run on every route change so freshly-mounted .reveal elements
-    // (which start at opacity:0) get re-observed and made visible again.
+    // Keep revealed content visible once it has entered the viewport.
+    // The observer also picks up newly rendered content (for example when
+    // switching the Brands / Creators tabs in How It Works).
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        } else { entry.target.classList.remove('visible'); }
+          setTimeout(() => entry.target.classList.add('visible'), i * 45);
+          observer.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    const t = setTimeout(() => {
-      document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
-    }, 50);
-    return () => { clearTimeout(t); observer.disconnect(); };
+
+    const observeAll = () => {
+      document.querySelectorAll('.reveal, .reveal-scale').forEach(el => {
+        if (!el.classList.contains('visible')) observer.observe(el);
+      });
+    };
+
+    const t = setTimeout(observeAll, 50);
+    const mutation = new MutationObserver(() => observeAll());
+    mutation.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      clearTimeout(t);
+      mutation.disconnect();
+      observer.disconnect();
+    };
   }, [pathname]);
 }
+
 
 
 /* ═══ DEVICE DETECTION HOOK ═══ */
@@ -951,7 +979,7 @@ function Hero() {
     { top: '20%', right: '4%', delay: '1.5s', text: 'UPI / Razorpay', color: 'var(--cyan)', anim: 'float2' },
     { bottom: '32%', left: '3%', delay: '0.8s', text: 'Book in 2 Minutes', color: 'var(--amber)', anim: 'float2' },
     { bottom: '26%', right: '5%', delay: '2s', text: 'Made for India 🇮🇳', color: 'var(--purple)', anim: 'float1' },
-    { top: '52%', left: '1%', delay: '2.5s', text: 'Cleo AI Inside', color: 'var(--pink)', anim: 'float1' },
+    { top: '52%', left: '1%', delay: '2.5s', text: 'Collancer AI Inside', color: 'var(--pink)', anim: 'float1' },
     { top: '47%', right: '1%', delay: '0.3s', text: 'Escrow Protected', color: 'var(--blue)', anim: 'float2' },
   ];
 
@@ -975,7 +1003,7 @@ function Hero() {
         <div className="ring r2" />
         <div className="beam" />
         <div className="chip c1">VERIFIED CREATOR</div>
-        <div className="chip c2">CLEO AI MATCH</div>
+        <div className="chip c2">COLLANCER AI MATCH</div>
         <div className="chip c3">SECURE BOOKING</div>
       </div>
 
@@ -1125,7 +1153,7 @@ function ForBrands() {
           <div className="badge badge-cyan reveal" style={{ marginBottom: 24 }}>For Brands</div>
           <h2 className="section-title reveal">Find the Right Creator<br /><span className="text-gradient">Without the DM Chaos</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,2vw,18px)', maxWidth: 560, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            Discover verified Indian creators across 25 niches, compare fit and pricing, or ask Cleo AI to help narrow the shortlist.
+            Discover verified Indian creators across 25 niches, compare fit and pricing, or ask Collancer AI to help narrow the shortlist.
           </p>
         </div>
 
@@ -1147,7 +1175,7 @@ function ForBrands() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, color: 'var(--cyan)', fontFamily: 'var(--ff-display)', fontWeight: 700, fontSize: 14 }}>
                 <Check size={14} /> With Collancer
               </div>
-              {["Use Cleo AI and creator signals to narrow the right shortlist", "See creator rates, formats, deliverables and campaign terms clearly", "Run a structured booking without unnecessary agency layers", "Pay securely through Razorpay with the platform booking protection flow"].map((item, i) => (
+              {["Use Collancer AI and creator signals to narrow the right shortlist", "See creator rates, formats, deliverables and campaign terms clearly", "Run a structured booking without unnecessary agency layers", "Pay securely through Razorpay with the platform booking protection flow"].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 10, alignItems: 'flex-start' }}>
                   <Check size={13} style={{ color: 'var(--green)', marginTop: 3, flexShrink: 0 }} />
                   <span style={{ color: 'var(--text-muted)', fontSize: 13, lineHeight: 1.6 }}>{item}</span>
@@ -1219,7 +1247,7 @@ function ForBrands() {
   );
 }
 
-/* ═══ CLEO AI SECTION ═══ */
+/* ═══ COLLANCER AI SECTION ═══ */
 function CleoSection() {
   const { isMobile, isTablet } = useDevice();
   const sectionRef = useRef(null);
@@ -1246,38 +1274,44 @@ function CleoSection() {
 
   useEffect(() => {
     if (!visible) return;
+
+    // Play the Cleo demo once when it first enters view.
+    // After the full sequence is shown, leave it in the completed state
+    // instead of restarting the animation every few seconds.
     let typingTimer;
-    let cycleTimer;
-    const run = () => {
-      setPhase(1); setTyped('');
-      let i = 0;
-      typingTimer = setInterval(() => {
-        i += 2;
-        setTyped(prompt.slice(0, i));
-        if (i >= prompt.length) {
-          clearInterval(typingTimer);
-          setTimeout(() => setPhase(2), 450);
-          setTimeout(() => setPhase(3), 1250);
-          setTimeout(() => setPhase(4), 3150);
-          setTimeout(() => setPhase(5), 3900);
-          cycleTimer = setTimeout(() => run(), 9000);
-        }
-      }, 22);
+    const phaseTimers = [];
+
+    setPhase(1);
+    setTyped('');
+    let i = 0;
+    typingTimer = setInterval(() => {
+      i += 2;
+      setTyped(prompt.slice(0, i));
+      if (i >= prompt.length) {
+        clearInterval(typingTimer);
+        phaseTimers.push(setTimeout(() => setPhase(2), 800));
+        phaseTimers.push(setTimeout(() => setPhase(3), 1900));
+        phaseTimers.push(setTimeout(() => setPhase(4), 4700));
+        phaseTimers.push(setTimeout(() => setPhase(5), 5900));
+      }
+    }, 34);
+
+    return () => {
+      clearInterval(typingTimer);
+      phaseTimers.forEach(clearTimeout);
     };
-    run();
-    return () => { clearInterval(typingTimer); clearTimeout(cycleTimer); };
   }, [visible]);
 
   return (
-    <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Cleo AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
+    <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Collancer AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
       <div style={{ maxWidth: 1180, margin:'0 auto', position:'relative', zIndex:2 }}>
         <div style={{ textAlign:'center', marginBottom: 52 }}>
-          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Cleo AI</div>
+          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Collancer AI</div>
           <h2 className="section-title reveal" style={{ marginBottom:18 }}>
-            Tell Cleo What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
+            Tell Collancer AI What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
           </h2>
           <p className="reveal" style={{ color:'var(--text-muted)', fontSize:'clamp(14px,1.8vw,18px)', lineHeight:1.75, maxWidth:700, margin:'0 auto' }}>
-            Brands describe the campaign in plain language. Cleo turns the brief into a ranked creator shortlist — matching niche, audience, content style, location, budget and campaign fit.
+            Brands describe the campaign in plain language. Collancer AI turns the brief into a ranked creator shortlist — matching niche, audience, content style, location, budget and campaign fit.
           </p>
         </div>
 
@@ -1285,7 +1319,7 @@ function CleoSection() {
           <div className="cleo-windowbar">
             <div className="cleo-window-orb"><Bot size={16} color="var(--cyan)" /></div>
             <div>
-              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Cleo <span style={{ color:'var(--purple)' }}>AI</span></div>
+              <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI <span style={{ color:'var(--purple)' }}>AI</span></div>
               <div style={{ fontSize:10, color:'var(--text-muted)' }}>Creator Discovery Engine</div>
             </div>
             <div className="cleo-status"><span className="cleo-status-dot" /> Live demo</div>
@@ -1362,7 +1396,7 @@ function CleoSection() {
               )}
 
               <div className="cleo-composer">
-                <div className="cleo-composer-input">Describe your campaign to Cleo…</div>
+                <div className="cleo-composer-input">Describe your campaign to Collancer AI…</div>
                 <div className="cleo-send"><ArrowRight size={15} /></div>
               </div>
             </div>
@@ -1563,20 +1597,20 @@ function HowItWorks() {
 
   return (
     <section id="how-it-works" aria-label="How Collancer Works for Brands and Creators" style={{ padding: isMobile ? '56px 16px' : 'clamp(80px, 10vw, 120px) clamp(16px, 4vw, 24px)' }}>
-      <div style={{ maxWidth: 900, margin: '0 auto' }}>
+      <div style={{ width: '100%', maxWidth: 980, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div className="badge badge-green reveal" style={{ marginBottom: 20 }}>Simple Process</div>
           <h2 className="section-title reveal">How <span className="text-gradient">Collancer Works</span></h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 18, maxWidth: 580, margin: '20px auto 28px', lineHeight: 1.7 }}>
             A structured path from creator discovery to delivery — with clear terms and payment protection built in.
           </p>
-          <div className="toggle-pill reveal" style={{ margin: '0 auto' }}>
+          <div className="toggle-pill reveal" style={{ margin: '0 auto', justifyContent: 'center', width: 'fit-content', maxWidth: '100%' }}>
             <button className={active === 'brand' ? 'active' : ''} onClick={() => setActive('brand')}>For Brands</button>
             <button className={active === 'creator' ? 'active' : ''} onClick={() => setActive('creator')}>For Creators</button>
           </div>
         </div>
 
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: 860, margin: '0 auto' }}>
           <div style={{ position: 'absolute', left: 23, top: 56, bottom: 60, width: 2, background: 'linear-gradient(to bottom, var(--cyan), var(--purple), transparent)', zIndex: 0 }} className="hide-mobile" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
             {steps.map((st, i) => (
@@ -2359,15 +2393,15 @@ function Footer() {
               </div>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.75 }}>
-              India's first structured influencer booking marketplace for creators across 25 niches, powered by Cleo AI.
+              India's first structured influencer booking marketplace for creators across 25 niches, powered by Collancer AI.
             </p>
           </div>
 
           <div style={{ display: 'flex', gap: isMobile ? 32 : 'clamp(32px, 5vw, 64px)', flexWrap: 'wrap' }}>
             <div>
               <div style={{ fontFamily: "var(--ff-display)", fontWeight: 700, marginBottom: 16, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-muted)' }}>Platform</div>
-            {['For Creators', 'How It Works', 'Categories', 'Cleo AI', 'Join Early'].map(l => {
-                const ids = { 'For Creators': '#for-creators', 'How It Works': '#how-it-works', 'Categories': '#categories', 'Cleo AI': '#cleo', 'Join Early': '#join' };
+            {['For Creators', 'How It Works', 'Categories', 'Collancer AI', 'Join Early'].map(l => {
+                const ids = { 'For Creators': '#for-creators', 'How It Works': '#how-it-works', 'Categories': '#categories', 'Collancer AI': '#cleo', 'Join Early': '#join' };
                 return (
                 <div key={l} style={{ marginBottom: 10 }}>
                   <a href={ids[l] || '#'} style={{ color: 'var(--text-muted)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s' }}
@@ -2442,7 +2476,7 @@ function SEOContent() {
       {/* Full keyword-rich content for search engine crawlers */}
       <h2>Collancer — India's Number One Influencer Booking Marketplace | Get Discovered as a Creator</h2>
       <p>
-        Collancer is India's first structured influencer booking marketplace, powered by Cleo AI.
+        Collancer is India's first structured influencer booking marketplace, powered by Collancer AI.
         Indian content creators can list their profile for free, get discovered across 25 content niches,
         and receive structured, paid bookings in under 2 minutes.
         Secure payments via Razorpay with a 100% automatic refund guarantee for every booking. Made in India, for India.
@@ -2453,7 +2487,7 @@ function SEOContent() {
         Collancer is an AI-powered influencer marketing platform and booking marketplace for India's creator economy.
         It solves the core problems creators face — unverified DMs, no payment protection,
         unstructured negotiations, and chasing payments — with a fully digital, structured,
-        escrow-backed booking system powered by Cleo AI.
+        escrow-backed booking system powered by Collancer AI.
       </p>
 
       <h2>For Creators — Get Paid for Your Influence</h2>
@@ -2478,16 +2512,16 @@ function SEOContent() {
       </p>
       <ul>
         <li>Creator Discovery: Search by niche, city, platform, audience size, budget and engagement.</li>
-        <li>Cleo AI: Describe your campaign in plain English and get creator-matching help, comparisons and reach estimates.</li>
+        <li>Collancer AI: Describe your campaign in plain English and get creator-matching help, comparisons and reach estimates.</li>
         <li>Structured Briefs: Define deliverables, budget and timeline before creators respond.</li>
         <li>Requirements Marketplace: Let relevant creators pitch your campaign instead of relying on cold outreach.</li>
         <li>Secure Payments: Pay through Razorpay with funds protected through the booking workflow.</li>
         <li>Refund Protection: Bookings are protected when a creator rejects the booking or misses the agreed deadline.</li>
       </ul>
 
-      <h2>What is Cleo AI?</h2>
+      <h2>What is Collancer AI?</h2>
       <p>
-        Cleo is Collancer's built-in AI assistant for creator discovery and campaign matching. Cleo AI supports
+        Collancer AI is Collancer's built-in AI assistant for creator discovery and campaign matching. Collancer AI supports
         natural language creator search, head-to-head creator comparisons, reach estimates,
         and niche-perfect matching — helping the right opportunities find the right creators faster.
       </p>
@@ -2531,7 +2565,7 @@ function SEOContent() {
 
       <h3>What makes Collancer different from other influencer platforms in India?</h3>
       <p>
-        Collancer combines AI-powered creator matching via Cleo AI, escrow payment protection through Razorpay, a requirements marketplace,
+        Collancer combines AI-powered creator matching via Collancer AI, escrow payment protection through Razorpay, a requirements marketplace,
         structured briefs, and verified creator signals in one digital workflow. It replaces fragmented DM-based negotiations
         with a clearer path from discovery and proposal to booking and delivery.
       </p>
@@ -2576,7 +2610,7 @@ function SEOContent() {
         {' | '}
         <a href="https://collancer.in/#categories">Browse Influencer Categories</a>
         {' | '}
-        <a href="https://collancer.in/#cleo">Meet Cleo AI</a>
+        <a href="https://collancer.in/#cleo">Meet Collancer AI</a>
         {' | '}
         <a href="https://collancer.in/#faq">Frequently Asked Questions</a>
         {' | '}
@@ -2596,15 +2630,15 @@ function FAQSection() {
   const faqs = [
     {
       q: "What is Collancer?",
-      a: "Collancer is India's first structured influencer booking marketplace powered by Cleo AI. It lets brands discover, book, and pay verified Indian creators across 25 niches in under 2 minutes — with secure Razorpay payments and a 100% refund guarantee."
+      a: "Collancer is India's first structured influencer booking marketplace powered by Collancer AI. It lets brands discover, book, and pay verified Indian creators across 25 niches in under 2 minutes — with secure Razorpay payments and a 100% refund guarantee."
     },
     {
       q: "How is Collancer different from other influencer platforms in India?",
-      a: "Collancer is the only platform in India combining AI-powered matching (Cleo AI), escrow payment protection, a 100% automatic refund guarantee, a requirements marketplace where creators bid on your brief, and verified real metrics — not self-reported follower counts. No WhatsApp DMs. No guessing. No risk."
+      a: "Collancer is the only platform in India combining AI-powered matching (Collancer AI), escrow payment protection, a 100% automatic refund guarantee, a requirements marketplace where creators bid on your brief, and verified real metrics — not self-reported follower counts. No WhatsApp DMs. No guessing. No risk."
     },
     {
       q: "How do I book an influencer on Collancer?",
-      a: "In 3 steps: (1) Use Cleo AI or filters to find a verified creator matching your niche, city, and budget. (2) Select your promotion type (Story, Reel, Video, etc.) and fill your campaign brief. (3) Pay securely via Razorpay — your money is held in escrow until the creator delivers."
+      a: "In 3 steps: (1) Use Collancer AI or filters to find a verified creator matching your niche, city, and budget. (2) Select your promotion type (Story, Reel, Video, etc.) and fill your campaign brief. (3) Pay securely via Razorpay — your money is held in escrow until the creator delivers."
     },
     {
       q: "Is my payment safe on Collancer?",
@@ -2615,8 +2649,8 @@ function FAQSection() {
       a: "Yes. Creators list their profiles completely free — no upfront cost, no monthly subscription. Collancer takes a small platform commission only on successful completed bookings."
     },
     {
-      q: "What is Cleo AI?",
-      a: "Cleo is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Cleo finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
+      q: "What is Collancer AI?",
+      a: "Collancer AI is Collancer's built-in AI campaign strategist. Describe what you need in plain English — Cleo finds perfect creators, compares options head-to-head, estimates your reach for a given budget, and identifies the best-fit influencer for your niche and city in seconds."
     },
     {
       q: "How many influencers are on Collancer?",
@@ -2653,7 +2687,7 @@ function FAQSection() {
             <span className="text-gradient">To Know</span>
           </h2>
           <p className="reveal" style={{ color: 'var(--text-muted)', fontSize: 'clamp(14px,1.8vw,17px)', maxWidth: 500, margin: '20px auto 0', lineHeight: 1.7, transitionDelay: '0.1s' }}>
-            Quick answers to the most common questions about Collancer, Cleo AI, payments, and creator bookings.
+            Quick answers to the most common questions about Collancer, Collancer AI, payments, and creator bookings.
           </p>
         </div>
 
@@ -3152,7 +3186,7 @@ export default function App() {
                 <meta itemProp="name" content="Collancer" />
                 <meta itemProp="applicationCategory" content="MarketingApplication" />
                 <meta itemProp="operatingSystem" content="Web" />
-                <meta itemProp="description" content="India's first structured influencer booking marketplace powered by Cleo AI" />
+                <meta itemProp="description" content="India's first structured influencer booking marketplace powered by Collancer AI" />
 
                 <Hero />
                 <LogoMarquee />

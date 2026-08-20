@@ -72,8 +72,8 @@ Platforms that can surface verified nano creators by city, niche, and engagement
     excerpt:
       'Natural language search, head-to-head comparisons, and ROI projections — how AI is replacing spreadsheets and gut instinct in influencer marketing.',
     image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&fm=webp&q=75',
-    imageAlt: 'AI chat interface for searching influencers — Cleo AI concept',
-    tags: ['AI', 'Creator Discovery', 'Cleo AI'],
+    imageAlt: 'AI chat interface for searching influencers — Collancer AI concept',
+    tags: ['AI', 'Creator Discovery', 'Collancer AI'],
     externalLinks: [
       {
         label: 'McKinsey: The State of AI in Marketing 2026',
@@ -91,7 +91,7 @@ AI-powered discovery — where you type "find me a Bengaluru-based skincare crea
 
 **How it actually works**
 
-Modern AI discovery engines (like Cleo AI on Collancer) do several things simultaneously that humans can't:
+Modern AI discovery engines (like Collancer AI on Collancer) do several things simultaneously that humans can't:
 
 - **Intent parsing**: Understanding "skincare creator in Bengaluru" as a compound query covering location + niche + platform
 - **Engagement authenticity scoring**: Cross-referencing follower-growth curves against post frequency to flag bought followers
@@ -798,7 +798,7 @@ Before we get to specifics, here are the five criteria that matter most in 2026:
 
 The most modern category. These platforms handle the full workflow — discovery, booking, payment, delivery, and campaign tracking. Creator profiles are independently verified. Payments are escrow-backed. Refunds are automatic on non-delivery.
 
-Collancer is India's first platform built specifically around this model — designed so a brand can discover, book, and pay a verified creator in under 2 minutes via Cleo AI. Key differentiators: 20,000+ verified Indian creators across 25 niches, 100% automatic refund on non-delivery, Razorpay escrow integration, and a Requirements Marketplace where brands post briefs and receive creator bids.
+Collancer is India's first platform built specifically around this model — designed so a brand can discover, book, and pay a verified creator in under 2 minutes via Collancer AI. Key differentiators: 20,000+ verified Indian creators across 25 niches, 100% automatic refund on non-delivery, Razorpay escrow integration, and a Requirements Marketplace where brands post briefs and receive creator bids.
 
 **Category 2: Agency-Tech Hybrids**
 

@@ -1,6 +1,6 @@
 # Collancer
 
-> India's first structured influencer booking marketplace, powered by Cleo AI.
+> India's first structured influencer booking marketplace, powered by Collancer AI.
 
 ## What Collancer Does
 
@@ -8,7 +8,7 @@ Collancer solves the ₹3,500 crore problem with India's influencer economy — 
 
 Collancer provides:
 - A structured marketplace to discover, book, and pay verified Indian creators
-- AI-powered matching via **Cleo AI** — describe what you need in plain English
+- AI-powered matching via **Collancer AI** — describe what you need in plain English
 - 20,000+ verified creators across 25 content niches
 - Escrow payment protection via Razorpay (UPI, card, net banking)
 - 100% automatic refund if creator rejects booking or misses deadline
@@ -31,7 +31,7 @@ Collancer provides:
 
 ## Key Features
 
-- **Cleo AI**: Natural language creator search, head-to-head comparisons, reach estimates, ROI projections
+- **Collancer AI**: Natural language creator search, head-to-head comparisons, reach estimates, ROI projections
 - **Smart Discovery**: Filter by niche, city, budget, platform, follower count, engagement rate
 - **Secure Payments**: Razorpay escrow — money never goes directly to creator before delivery
 - **100% Refund Guarantee**: Automatic refund on rejection or missed deadline
@@ -67,7 +67,7 @@ Jainik Dand, Founder & CEO. Collancer was founded in 2026.
 ## Frequently Asked Questions
 
 **Q: What is Collancer?**
-A: Collancer is India's first structured influencer booking marketplace. Brands can discover, book, and pay verified Indian creators across 25 niches in under 2 minutes, powered by Cleo AI.
+A: Collancer is India's first structured influencer booking marketplace. Brands can discover, book, and pay verified Indian creators across 25 niches in under 2 minutes, powered by Collancer AI.
 
 **Q: How long does it take to book an influencer?**
 A: Under 2 minutes — search, select promotion type, fill brief, pay securely.

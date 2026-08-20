@@ -1,7 +1,7 @@
-# Collancer — Cleo AI Showcase Upgrade
+# Collancer — Collancer AI Showcase Upgrade
 
 ## What changed
-- Added a cinematic, premium Cleo AI showcase section after the Brands section.
+- Added a cinematic, premium Collancer AI showcase section after the Brands section.
 - The demo visually simulates a brand typing a natural-language creator brief.
 - Cleo transitions through AI analysis, matching signals, and ranked creator results.
 - Added animated creator result cards with fit scores, budget, niche, reach, and match rationale.
