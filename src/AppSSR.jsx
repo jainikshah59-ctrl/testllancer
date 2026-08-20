@@ -800,7 +800,7 @@ function Hero() {
 function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
-    <section aria-label="Example brands creators recognize" style={{ padding: '8px 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
+    <section className="logo-marquee-section" aria-label="Example brands creators recognize" style={{ padding: '8px 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
       <div className="marquee-container">
         <div className="marquee-track">
           {doubled.map((brand, i) => (
