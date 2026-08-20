@@ -953,9 +953,6 @@ function LogoMarquee() {
   const doubled = [...LOGOS, ...LOGOS];
   return (
     <section aria-label="Example brands creators recognize" style={{ padding: '0 0 18px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 8px', textAlign: 'center' }}>
-        <div className="badge badge-cyan" style={{ marginBottom: 6 }}>Brand ecosystem</div>
-      </div>
       <div className="marquee-container">
         <div className="marquee-track">
           {doubled.map((brand, i) => (
