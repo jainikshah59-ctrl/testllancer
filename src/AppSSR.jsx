@@ -2445,71 +2445,60 @@ export default function AppSSR() {
     meta.content = 'width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover';
   }, []);
 
-  useEffect(() => {
-    const canvas = document.getElementById('motion-bg');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-    resize();
-    window.addEventListener('resize', resize);
-
-    const COLORS = ['#00e5ff', '#b388ff', '#ff6eb4', '#4ade80', '#60a5fa'];
-    const isMobileDevice = window.innerWidth <= 600;
-    const particleCount = isMobileDevice ? 24 : 72;
-    const particles = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
-      r: Math.random() * 1.5 + 0.4, vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)], alpha: Math.random() * 0.5 + 0.2,
-    }));
-    const blobs = Array.from({ length: 5 }, (_, i) => ({
-      x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
-      r: 220 + Math.random() * 180, vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18,
-      color: COLORS[i % COLORS.length],
-    }));
-
-    let raf;
-    const draw = () => {
-      const W = canvas.width, H = canvas.height;
-      ctx.clearRect(0, 0, W, H);
-      ctx.fillStyle = '#05050e'; ctx.fillRect(0, 0, W, H);
-      blobs.forEach(b => {
-        b.x += b.vx; b.y += b.vy;
-        if (b.x < -b.r) b.x = W + b.r; if (b.x > W + b.r) b.x = -b.r;
-        if (b.y < -b.r) b.y = H + b.r; if (b.y > H + b.r) b.y = -b.r;
-        const g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
-        g.addColorStop(0, b.color + '14'); g.addColorStop(1, 'transparent');
-        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill();
-      });
-      particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color + Math.round(p.alpha * 255).toString(16).padStart(2, '0'); ctx.fill();
-      });
-      // Skip O(n²) connection-line pass on mobile — saves battery and prevents jank
-      if (!isMobileDevice) {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(0,229,255,${0.07 * (1 - dist / 120)})`; ctx.lineWidth = 0.5; ctx.stroke();
-          }
-        }
-      }
-      }
-      raf = requestAnimationFrame(draw);
-    };
-    draw();
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
-
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
-      <canvas id="motion-bg" aria-hidden="true" />
+      <style>{`
+/* ═══ V33 AMBIENT BACKGROUND — lightweight CSS animation for all non-hero sections ═══ */
+.site-ambient-bg{
+  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  background:
+    radial-gradient(900px 520px at 14% 12%, rgba(0,190,255,.13), transparent 68%),
+    radial-gradient(780px 500px at 86% 78%, rgba(104,72,255,.12), transparent 70%),
+    radial-gradient(620px 420px at 52% 42%, rgba(0,229,255,.045), transparent 72%),
+    #030811;
+}
+.site-ambient-bg::before{
+  content:""; position:absolute; inset:-28%;
+  background:
+    radial-gradient(ellipse 520px 180px at 22% 62%, rgba(0,229,255,.12), transparent 70%),
+    radial-gradient(ellipse 560px 200px at 78% 36%, rgba(126,92,255,.11), transparent 70%),
+    radial-gradient(circle at 48% 18%, rgba(72,232,255,.07), transparent 28%);
+  filter:blur(24px); transform:translate3d(-2%,0,0) rotate(-2deg);
+  animation:ambientDrift 22s ease-in-out infinite alternate;
+}
+.site-ambient-bg::after{
+  content:""; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(72,232,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(72,232,255,.022) 1px, transparent 1px),
+    radial-gradient(circle at 18% 24%, rgba(72,232,255,.16) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 78% 68%, rgba(155,140,255,.13) 0 1px, transparent 1.6px);
+  background-size:72px 72px,72px 72px,150px 150px,190px 190px;
+  mask-image:linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  opacity:.72; animation:ambientGrid 28s linear infinite;
+}
+@keyframes ambientDrift{
+  0%{transform:translate3d(-3%,-1%,0) rotate(-2deg) scale(1)}
+  50%{transform:translate3d(2%,2%,0) rotate(1deg) scale(1.035)}
+  100%{transform:translate3d(-1%,4%,0) rotate(-1deg) scale(1.02)}
+}
+@keyframes ambientGrid{from{background-position:0 0,0 0,0 0,0 0}to{background-position:72px 36px,-36px 72px,150px 75px,-190px 95px}}
+/* Non-hero sections now reveal the shared ambient background instead of painted section backgrounds. */
+section:not(#hero){background:transparent!important}
+section:not(#hero)::before{display:none!important}
+body{background:#030811!important}
+body::after{display:none!important}
+@media(max-width:768px){
+  .site-ambient-bg::before{filter:blur(18px);animation-duration:28s}
+  .site-ambient-bg::after{background-size:88px 88px,88px 88px,180px 180px,220px 220px;opacity:.58}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-ambient-bg::before,.site-ambient-bg::after{animation:none!important}
+}
+`}</style>
+      <div className="site-ambient-bg" aria-hidden="true" />
       <SEOContent />
       <a
         href="#main-content"
