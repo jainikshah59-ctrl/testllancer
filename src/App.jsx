@@ -874,7 +874,7 @@ function Hero() {
   return (
     <section id="hero" aria-label="Collancer — India's #1 Influencer Booking Marketplace" itemScope itemType="https://schema.org/WPHeader" style={{
       minHeight: '100svh', display: 'flex', alignItems: 'center',
-      padding: isMobile ? '72px 16px 0' : isTablet ? '96px 24px 0' : 'clamp(90px, 12vw, 125px) clamp(16px, 4vw, 24px) 0',
+      padding: isMobile ? '82px 16px 0' : isTablet ? '104px 24px 0' : 'clamp(105px, 12vw, 140px) clamp(16px, 4vw, 24px) 0',
       position: 'relative', overflow: 'hidden'
     }}>
       <div style={{
@@ -908,6 +908,12 @@ function Hero() {
       </div>
 
       <div style={{ maxWidth: 920, margin: '0 auto', width: '100%', textAlign: 'center', position: 'relative', zIndex: 2 }}>
+      <div className="reveal" style={{ marginBottom: 18, display: 'flex', justifyContent: 'center', position: 'relative', zIndex: 3 }}>
+        <div className="badge badge-cyan" style={{ fontSize: isMobile ? 10 : 12, letterSpacing: 0.8, padding: isMobile ? '6px 12px' : '7px 14px', whiteSpace: 'nowrap' }}>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--cyan)', display: 'inline-block', animation: 'pulse-dot 2s ease-in-out infinite' }} />
+          India's First Structured Influencer Booking Platform
+        </div>
+      </div>
         <h1 className="reveal" style={{
           fontFamily: "var(--ff-display)",
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
