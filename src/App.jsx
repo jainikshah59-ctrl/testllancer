@@ -363,6 +363,15 @@ const CSS = `
     transition:all 0.5s var(--ease-out-expo);
   }
   .problem-card:hover { transform:translateY(-4px); border-color:rgba(248,113,113,0.25); box-shadow:0 20px 60px rgba(248,113,113,0.08); }
+  .problem-card { min-width: 0; box-sizing: border-box; }
+  .problem-stat { min-width: 0; box-sizing: border-box; }
+  .problem-stat-label { min-width: 0; overflow-wrap: anywhere; }
+  @media (max-width: 600px) {
+    .problem-stat { width: 100%; display: flex !important; align-items: flex-start !important; flex-direction: column !important; gap: 4px !important; }
+    .problem-stat-value { font-size: 21px !important; line-height: 1.15; }
+    .problem-card { width: 100%; }
+  }
+
 
   .solution-card {
     background:linear-gradient(180deg, rgba(0,229,255,0.04), rgba(10,10,26,0.98));
@@ -908,15 +917,15 @@ function Hero() {
           fontSize: isMobile ? 'clamp(22px, 6vw, 30px)' : isTablet ? 'clamp(26px, 4.5vw, 40px)' : 'clamp(32px, 3.5vw, 56px)',
           fontWeight: 800, lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20
         }}>
-          Where Influence<br />
-          <span className="text-gradient">Meets Industry</span>
+          Where Indian Brands<br />
+          <span className="text-gradient">Meet Verified Creators</span>
         </h1>
 
         <p className="reveal" style={{
           fontSize: 'clamp(14px, 2vw, 20px)', color: 'var(--text-muted)',
           lineHeight: 1.7, maxWidth: 600, margin: '0 auto 36px', transitionDelay: '0.1s'
         }}>
-          The New Home of Brands & Creators
+          Find creators, launch campaigns, collaborate securely, and grow your brand with India's next-generation creator marketplace.
         </p>
 
         <div className="reveal" style={{
@@ -933,15 +942,6 @@ function Hero() {
             I am a Creator <Sparkles size={18} className="lucide-anim" />
           </button>
         </div>
-
-        <div style={{ marginTop: 56, display: 'flex', justifyContent: 'center' }}>
-          <div style={{
-            width: 26, height: 40, borderRadius: 13, border: '1.5px solid rgba(0,229,255,0.25)',
-            display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '6px 0'
-          }}>
-            <div style={{ width: 4, height: 7, borderRadius: 2, background: 'var(--cyan)', animation: 'scroll-indicate 2s ease-in-out infinite' }} />
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -954,7 +954,6 @@ function LogoMarquee() {
     <section aria-label="Example brands creators recognize" style={{ padding: '34px 0 40px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 18px', textAlign: 'center' }}>
         <div className="badge badge-cyan" style={{ marginBottom: 10 }}>Brand ecosystem</div>
-        <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Indian skincare, fashion, beauty & tech brands</div>
       </div>
       <div className="marquee-container">
         <div className="marquee-track">
@@ -1013,9 +1012,9 @@ function ProblemSection() {
                 <span style={{ fontFamily: 'var(--ff-display)', fontSize: 16, fontWeight: 800 }}>{p.title}</span>
               </div>
               <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, marginBottom: 16 }}>{p.short}</p>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: `${p.color}0f`, border: `1px solid ${p.color}25`, borderRadius: 12, padding: '10px 16px' }}>
-                <span style={{ fontFamily: 'var(--ff-display)', fontSize: 24, fontWeight: 800, color: p.color }}>{p.stat}</span>
-                <span style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.4 }}>{p.statLabel}</span>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: `${p.color}0f`, minWidth: 0, border: `1px solid ${p.color}25`, borderRadius: 12, padding: '10px 16px' }}>
+                <span className="problem-stat-value" style={{ fontFamily: 'var(--ff-display)', fontSize: 24, fontWeight: 800, color: p.color }}>{p.stat}</span>
+                <span className="problem-stat-label" style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.4 }}>{p.statLabel}</span>
               </div>
             </div>
           ))}
@@ -1448,26 +1447,26 @@ function ForCreators() {
           ))}
         </div>
 
-        {/* 6 promotion types */}
+        {/* Two core collaboration models */}
         <div style={{ marginBottom: 72 }}>
           <h3 className="reveal" style={{ fontFamily: "var(--ff-display)", fontSize: 24, fontWeight: 800, textAlign: 'center', marginBottom: 10 }}>
-            6 Ways to <span className="glow-purple">Earn From Your Content</span>
+            Two Ways to <span className="glow-purple">Collaborate</span>
           </h3>
-          <p className="reveal" style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 14, marginBottom: 28, transitionDelay: '0.05s' }}>
-            Set your own price for each type. You decide what you earn.
+          <p className="reveal" style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 14, marginBottom: 28 }}>
+            Choose the collaboration model that works best for your content and your goals.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: isMobile ? '10px' : 'clamp(10px,1.5vw,16px)' }}>
-            {PROMO_TYPES.map((pt, i) => (
-              <div key={i} className="glass-card reveal" style={{ padding: isMobile ? 16 : 24, transitionDelay: `${i * 0.08}s`, textAlign: 'center' }}>
-                <div style={{ marginBottom: 8, display: 'flex', justifyContent: 'center' }}><EmojiToIcon emoji={pt.icon} size={isMobile ? 28 : 36} /></div>
-                <div style={{ fontFamily: "var(--ff-display)", fontSize: 16, fontWeight: 700, marginBottom: 6 }}>{pt.label}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: 12 }}>{pt.desc}</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center', marginBottom: 10 }}>
-                  {pt.features.slice(0,2).map((f, fi) => (
-                    <span key={fi} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 50, padding: '2px 8px', fontSize: 10, color: 'var(--text-muted)' }}>{f}</span>
-                  ))}
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, minmax(0, 1fr))', gap: 'clamp(14px,2vw,20px)' }}>
+            {[
+              { icon: '💰', title: 'Paid Collaborations', desc: 'Create content for brands and get paid for your agreed deliverables. Set your rates, review the brief, and collaborate through a structured booking.', color: 'var(--cyan)', features: ['Set your own rates', 'Secure payment flow', 'Clear campaign brief'] },
+              { icon: '🎁', title: 'Barter Collaborations', desc: 'Collaborate with brands in exchange for products or experiences. Discover relevant opportunities and understand the deliverables before you accept.', color: 'var(--purple)', features: ['Product / experience exchange', 'Clear deliverables', 'Discover relevant opportunities'] }
+            ].map((item, i) => (
+              <div key={i} className="glass-card reveal spotlight-card" style={{ padding: 'clamp(22px,3vw,32px)', textAlign: 'left', borderColor: `${item.color}22`, transitionDelay: `${i * 0.08}s` }}>
+                <div style={{ width: 58, height: 58, borderRadius: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, background: `${item.color}12`, border: `1px solid ${item.color}30`, marginBottom: 18 }}>{item.icon}</div>
+                <h4 style={{ fontFamily: 'var(--ff-display)', fontSize: 20, fontWeight: 800, marginBottom: 10 }}>{item.title}</h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7, marginBottom: 18 }}>{item.desc}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
+                  {item.features.map((f, fi) => <span key={fi} style={{ padding: '6px 10px', borderRadius: 999, background: `${item.color}0c`, border: `1px solid ${item.color}20`, color: 'var(--text-muted)', fontSize: 11 }}>{f}</span>)}
                 </div>
-                <span style={{ background: `${pt.tagColor}18`, color: pt.tagColor, border: `1px solid ${pt.tagColor}33`, borderRadius: 50, padding: '4px 12px', fontSize: 11, fontWeight: 700 }}>{pt.tag}</span>
               </div>
             ))}
           </div>
