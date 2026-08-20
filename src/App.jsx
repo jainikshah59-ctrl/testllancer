@@ -514,6 +514,51 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 `;
 
 
+/* FINAL VISUAL FIXES — glyph-clipped gradients + premium spatial polish */
+.text-gradient,.text-gradient-cyan,.text-gradient-purple,.text-gradient-warm{
+  display:inline!important;
+  background-color:transparent!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.text-gradient{background-image:linear-gradient(100deg,#f8fbff 0%,#61eaff 34%,#9a8cff 70%,#f0b0ff 100%)!important;background-size:200% 100%!important;animation:finalGradientFlow 7s ease-in-out infinite}
+.text-gradient-cyan{background-image:linear-gradient(100deg,#f6fdff,#51e9ff 58%,#62a8ff)!important}
+.text-gradient-purple{background-image:linear-gradient(100deg,#a99cff,#f08bff)!important}
+.text-gradient-warm{background-image:linear-gradient(100deg,#ffd28a,#ff8e4f)!important}
+@keyframes finalGradientFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+/* prevent accidental gradient backgrounds from painting empty rectangular text boxes */
+span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-gradient-warm{width:auto!important;height:auto!important;min-width:0!important;min-height:0!important}
+
+
+/* CINEMATIC HERO STAGE */
+#hero{isolation:isolate!important;overflow:hidden!important}
+#hero .hero-stage{position:absolute;inset:6% 0 0;pointer-events:none;z-index:0;perspective:1200px;overflow:hidden}
+.hero-stage .orb{position:absolute;width:min(34vw,520px);height:min(34vw,520px);right:7%;top:14%;border-radius:50%;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.20),rgba(86,229,255,.13) 17%,rgba(105,88,255,.10) 44%,rgba(4,13,23,.12) 68%,transparent 70%);box-shadow:inset -35px -30px 80px rgba(0,0,0,.55),0 0 100px rgba(50,218,255,.12);animation:heroOrb 9s ease-in-out infinite}
+.hero-stage .orb:before{content:'';position:absolute;inset:9%;border-radius:50%;border:1px solid rgba(117,236,255,.24);box-shadow:0 0 50px rgba(71,224,255,.12) inset}
+.hero-stage .ring{position:absolute;right:1%;top:31%;width:min(46vw,680px);height:min(16vw,230px);border:1px solid rgba(78,226,255,.22);border-radius:50%;transform:rotate(-18deg);box-shadow:0 0 40px rgba(49,210,255,.08);animation:heroRing 11s ease-in-out infinite}
+.hero-stage .ring.r2{right:7%;top:27%;width:min(38vw,560px);height:min(12vw,180px);border-color:rgba(153,126,255,.18);animation-delay:-3s}
+.hero-stage .beam{position:absolute;width:42%;height:2px;right:0;top:52%;background:linear-gradient(90deg,transparent,rgba(81,228,255,.5),transparent);filter:blur(1px);transform:rotate(-13deg);animation:heroBeam 5s ease-in-out infinite}
+.hero-stage .chip{position:absolute;padding:10px 14px;border:1px solid rgba(160,222,255,.16);background:rgba(8,18,29,.48);backdrop-filter:blur(18px);border-radius:16px;color:#bfefff;font-size:11px;font-weight:700;letter-spacing:.04em;box-shadow:0 18px 45px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.09);animation:heroChip 6s ease-in-out infinite}
+.hero-stage .c1{right:35%;top:18%}.hero-stage .c2{right:8%;top:57%;animation-delay:-2s}.hero-stage .c3{right:29%;top:68%;animation-delay:-4s}
+@keyframes heroOrb{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(-18px,-22px,0) rotate(5deg)}}
+@keyframes heroRing{0%,100%{transform:rotate(-18deg) translate3d(0,0,0)}50%{transform:rotate(-12deg) translate3d(-18px,-10px,0)}}
+@keyframes heroBeam{0%,100%{opacity:.25;transform:rotate(-13deg) scaleX(.8)}50%{opacity:.8;transform:rotate(-13deg) scaleX(1)}}
+@keyframes heroChip{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+#hero h1{font-size:clamp(44px,6.1vw,88px)!important;line-height:.98!important;letter-spacing:-.065em!important;text-shadow:0 12px 45px rgba(0,0,0,.35)}
+#hero p{max-width:700px!important;font-size:clamp(16px,1.55vw,21px)!important;color:#aab9c9!important}
+.glass-card{background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018) 30%,rgba(4,12,21,.72) 100%)!important;border-color:rgba(170,220,255,.12)!important;border-radius:30px!important;backdrop-filter:blur(30px) saturate(150%)!important;box-shadow:0 1px 0 rgba(255,255,255,.09) inset,0 -1px 0 rgba(0,0,0,.5) inset,0 22px 70px rgba(0,0,0,.28)!important}
+.glass-card:hover{transform:translateY(-9px) perspective(1000px) rotateX(1deg)!important;border-color:rgba(96,224,255,.30)!important;box-shadow:0 34px 100px rgba(0,0,0,.46),0 0 65px rgba(0,203,255,.08),inset 0 1px 0 rgba(255,255,255,.13)!important}
+.btn-glow{background:linear-gradient(135deg,#8af5ff,#31d4f1 48%,#8b7dff 120%)!important;color:#021018!important;border-radius:17px!important;min-height:54px}
+.btn-outline{background:rgba(255,255,255,.025)!important;border-color:rgba(170,220,255,.18)!important;border-radius:17px!important;min-height:54px;backdrop-filter:blur(18px)}
+@media(max-width:900px){.hero-stage .orb{width:360px;height:360px;right:-100px;top:22%;opacity:.6}.hero-stage .ring{right:-120px;width:560px;height:180px}.hero-stage .chip{display:none}}
+@media(max-width:768px){#hero h1{font-size:clamp(38px,10vw,58px)!important}.hero-stage .orb{width:280px;height:280px;right:-100px;opacity:.38}.hero-stage .ring{right:-170px;opacity:.5}}
+@media(prefers-reduced-motion:reduce){.text-gradient,.hero-stage *{animation:none!important}}
+
+
 
 /* ═══ DATA ═══ */
 const CATEGORIES = [
@@ -779,7 +824,7 @@ function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const onMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+    const onMove = (e) => { setMousePos({ x: e.clientX, y: e.clientY }); document.documentElement.style.setProperty('--mx', `${e.clientX}px`); document.documentElement.style.setProperty('--my', `${e.clientY}px`); };
     window.addEventListener('mousemove', onMove, { passive: true });
     return () => window.removeEventListener('mousemove', onMove);
   }, []);
@@ -807,6 +852,15 @@ function Hero() {
         pointerEvents: 'none', transition: 'left 0.3s ease-out, top 0.3s ease-out', zIndex: 0
       }} />
       <div className="grid-bg" style={{ position: 'absolute', inset: 0, zIndex: 0 }} />
+      <div className="hero-stage" aria-hidden="true">
+        <div className="orb" />
+        <div className="ring" />
+        <div className="ring r2" />
+        <div className="beam" />
+        <div className="chip c1">VERIFIED CREATOR</div>
+        <div className="chip c2">CLEO AI MATCH</div>
+        <div className="chip c3">SECURE BOOKING</div>
+      </div>
 
       <div className="hide-mobile">
         {floatingTags.map((tag, i) => (
