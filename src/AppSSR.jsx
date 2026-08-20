@@ -271,7 +271,7 @@ const CSS = `
   .reveal-scale.visible { opacity:1; transform:scale(1) translateY(0); }
 
   .marquee-container { overflow:hidden; mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
-  .marquee-track { display:flex; gap:40px; width:max-content; animation:marquee 35s linear infinite; touch-action:pan-y; }
+  .marquee-track { display:flex; gap:10px; width:max-content; animation:marquee 42s linear infinite; touch-action:pan-y; align-items:center; }
   @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
   @keyframes float1 { 0%,100%{transform:translateY(0) rotate(-1deg);} 50%{transform:translateY(-10px) rotate(1deg);} }
@@ -423,7 +423,7 @@ const CSS = `
     .toggle-pill { width: 100%; }
     .toggle-pill button { flex: 1; padding: 10px 8px; font-size: 12px; }
     .feat-icon { width: 44px; height: 44px; border-radius: 12px; }
-    .marquee-track { gap: 16px; animation-duration: 20s; }
+    .marquee-track { gap: 6px; animation-duration: 30s; }
     .badge { font-size: 10px; padding: 4px 10px; }
     .stat-big { font-size: clamp(22px, 7vw, 30px) !important; }
     .number-ring { width: 36px; height: 36px; font-size: 14px; border-radius: 10px; }
@@ -520,18 +520,27 @@ const STATS = [
 const TESTIMONIALS = [];
 
 const LOGOS = [
-  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/FF3F6C?viewbox=auto" },
-  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/FC8019?viewbox=auto" },
-  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/11B5E4?viewbox=auto" },
-  { name: "Instagram", logo: "https://cdn.simpleicons.org/instagram/E4405F?viewbox=auto" },
-  { name: "YouTube", logo: "https://cdn.simpleicons.org/youtube/FF0000?viewbox=auto" },
-  { name: "Amazon", logo: "https://cdn.simpleicons.org/amazon/FF9900?viewbox=auto" },
-  { name: "Spotify", logo: "https://cdn.simpleicons.org/spotify/1DB954?viewbox=auto" },
-  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/E31E24?viewbox=auto" },
-  { name: "Coca-Cola", logo: "https://cdn.simpleicons.org/cocacola/F40009?viewbox=auto" },
-  { name: "Netflix", logo: "https://cdn.simpleicons.org/netflix/E50914?viewbox=auto" },
-  { name: "Airbnb", logo: "https://cdn.simpleicons.org/airbnb/FF5A5F?viewbox=auto" },
-  { name: "Pepsi", logo: "https://cdn.simpleicons.org/pepsi/004B93?viewbox=auto" },
+  { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/FC2779?viewbox=auto", fallback: "nykaa", color: "#FC2779" },
+  { name: "Minimalist", logo: "https://cdn.simpleicons.org/minimalist/111111?viewbox=auto", fallback: "minimalist", color: "#F2F2F2" },
+  { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A651?viewbox=auto", fallback: "mamaearth", color: "#00A651" },
+  { name: "Plum", logo: "https://cdn.simpleicons.org/plum/6B2D5C?viewbox=auto", fallback: "plum", color: "#E98BC3" },
+  { name: "Dot & Key", logo: "https://cdn.simpleicons.org/dotandkey/111111?viewbox=auto", fallback: "dot&key", color: "#FFFFFF" },
+  { name: "Foxtale", logo: "https://cdn.simpleicons.org/foxtale/FF5C7A?viewbox=auto", fallback: "foxtale", color: "#FF5C7A" },
+  { name: "Pilgrim", logo: "https://cdn.simpleicons.org/pilgrim/111111?viewbox=auto", fallback: "pilgrim", color: "#FFFFFF" },
+  { name: "mCaffeine", logo: "https://cdn.simpleicons.org/mcaffeine/7B3F00?viewbox=auto", fallback: "mCaffeine", color: "#C98A5B" },
+  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/FF3F6C?viewbox=auto", fallback: "myntra", color: "#FF3F6C" },
+  { name: "Meesho", logo: "https://cdn.simpleicons.org/meesho/F43397?viewbox=auto", fallback: "meesho", color: "#F43397" },
+  { name: "Bata", logo: "https://cdn.simpleicons.org/bata/DD282E?viewbox=auto", fallback: "Bata", color: "#DD282E" },
+  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/11B5E4?viewbox=auto", fallback: "Lenskart", color: "#11B5E4" },
+  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/E20722?viewbox=auto", fallback: "boAt", color: "#E20722" },
+  { name: "Noise", logo: "https://cdn.simpleicons.org/noise/000000?viewbox=auto", fallback: "noise", color: "#FFFFFF" },
+  { name: "CRED", logo: "https://cdn.simpleicons.org/cred/2E2E2E?viewbox=auto", fallback: "CRED", color: "#FFFFFF" },
+  { name: "PhonePe", logo: "https://cdn.simpleicons.org/phonepe/5F259F?viewbox=auto", fallback: "PhonePe", color: "#8B5CF6" },
+  { name: "Paytm", logo: "https://cdn.simpleicons.org/paytm/00BAF2?viewbox=auto", fallback: "paytm", color: "#00BAF2" },
+  { name: "Zerodha", logo: "https://cdn.simpleicons.org/zerodha/387ED1?viewbox=auto", fallback: "zerodha", color: "#4CA6FF" },
+  { name: "Tata", logo: "https://cdn.simpleicons.org/tata/0057A8?viewbox=auto", fallback: "TATA", color: "#45A6FF" },
+  { name: "Jio", logo: "https://cdn.simpleicons.org/jio/0A66C2?viewbox=auto", fallback: "Jio", color: "#00A8FF" },
+  { name: "Reliance", logo: "https://cdn.simpleicons.org/relianceindustrieslimited/D1AB66?viewbox=auto", fallback: "Reliance", color: "#D1AB66" },
 ];
 
 /* ═══ HOOKS ═══ */
@@ -823,7 +832,7 @@ function LogoMarquee() {
     <section aria-label="Example brands creators recognize" style={{ padding: '34px 0 40px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', background: 'rgba(255,255,255,0.01)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px 18px', textAlign: 'center' }}>
         <div className="badge badge-cyan" style={{ marginBottom: 10 }}>Brand ecosystem</div>
-        <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Examples of brands creators aspire to work with</div>
+        <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>Indian skincare, fashion, beauty & tech brands</div>
       </div>
       <div className="marquee-container">
         <div className="marquee-track">
