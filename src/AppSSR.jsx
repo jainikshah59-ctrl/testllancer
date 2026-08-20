@@ -620,9 +620,9 @@ const TESTIMONIALS = [];
 
 const LOGOS = [
   { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/FC2779?viewbox=auto", fallback: "nykaa", color: "#FC2779" },
-  { name: "Minimalist", logo: "https://cdn.simpleicons.org/minimalist/111111?viewbox=auto", fallback: "minimalist", color: "#F2F2F2" },
+  { name: "Minimalist", logo: "/minimalist-original.png", fallback: "minimalist", color: "#F2F2F2" },
   { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A651?viewbox=auto", fallback: "mamaearth", color: "#00A651" },
-  { name: "Plum", logo: "https://cdn.simpleicons.org/plum/6B2D5C?viewbox=auto", fallback: "plum", color: "#E98BC3" },
+  { name: "Plum", logo: "/plum-original.webp", fallback: "plum", color: "#E98BC3" },
   { name: "Dot & Key", logo: "https://cdn.simpleicons.org/dotandkey/111111?viewbox=auto", fallback: "dot&key", color: "#FFFFFF" },
   { name: "Foxtale", logo: "https://cdn.simpleicons.org/foxtale/FF5C7A?viewbox=auto", fallback: "foxtale", color: "#FF5C7A" },
   { name: "Pilgrim", logo: "https://cdn.simpleicons.org/pilgrim/111111?viewbox=auto", fallback: "pilgrim", color: "#FFFFFF" },

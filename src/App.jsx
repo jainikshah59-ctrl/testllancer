@@ -602,7 +602,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 .creator-ai-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
 .creator-ai-chip { display:inline-flex; align-items:center; gap:5px; padding:6px 8px; border-radius:999px; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.07); font-size:9px; color:var(--text-muted); }
 .creator-ai-opportunity { display:flex; align-items:center; gap:10px; padding:10px; border-radius:13px; margin-top:8px; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); animation:creatorAiBubble .55s both; }
-.creator-ai-logo { width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-weight:800; font-size:10px; color:var(--text); flex-shrink:0; } .creator-ai-logo img{width:24px;height:24px;object-fit:contain;display:block}
+.creator-ai-logo { width:42px; height:34px; border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-weight:800; font-size:10px; color:var(--text); flex-shrink:0; } .creator-ai-logo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:8px}
 .creator-ai-fit { margin-left:auto; text-align:right; }
 .creator-ai-score { color:var(--cyan); font-weight:800; font-size:13px; }
 .creator-ai-label { font-size:8px; color:var(--text-dim); letter-spacing:.8px; }
@@ -773,10 +773,10 @@ const TESTIMONIALS = [];
 
 const LOGOS = [
   { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/FC2779?viewbox=auto", fallback: "nykaa", color: "#FC2779" },
-  { name: "Minimalist", logo: "https://cdn.simpleicons.org/minimalist/111111?viewbox=auto", fallback: "minimalist", color: "#F2F2F2" },
+  { name: "Minimalist", logo: "/minimalist-original.png", fallback: "minimalist", color: "#F2F2F2" },
   { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A651?viewbox=auto", fallback: "mamaearth", color: "#00A651" },
-  { name: "Plum", logo: "https://cdn.simpleicons.org/plum/6B2D5C?viewbox=auto", fallback: "plum", color: "#E98BC3" },
-  { name: "MARS Cosmetics", logo: "https://cdn.simpleicons.org/mars/EF4444?viewbox=auto", fallback: "MARS", color: "#EF4444" },
+  { name: "Plum", logo: "/plum-original.webp", fallback: "plum", color: "#E98BC3" },
+  { name: "MARS Cosmetics", logo: "/mars-original.png", fallback: "MARS", color: "#EF4444" },
   { name: "Dot & Key", logo: "https://cdn.simpleicons.org/dotandkey/111111?viewbox=auto", fallback: "dot&key", color: "#FFFFFF" },
   { name: "Foxtale", logo: "https://cdn.simpleicons.org/foxtale/FF5C7A?viewbox=auto", fallback: "foxtale", color: "#FF5C7A" },
   { name: "Pilgrim", logo: "https://cdn.simpleicons.org/pilgrim/111111?viewbox=auto", fallback: "pilgrim", color: "#FFFFFF" },
@@ -1289,9 +1289,9 @@ function CreatorAIShowcase() {
           {phase>=2 && <div className="creator-ai-bubble" style={{display:'flex',justifyContent:'flex-start',marginBottom:12}}><div className="creator-ai-bot">Got it. I’m matching your profile to <strong>live campaigns</strong> using your niche, location, format, audience and budget — then I’ll turn any confirmed booking into content ideas.</div></div>}
           {phase>=3 && phase<4 && <div className="creator-ai-scan"><div style={{display:'flex',alignItems:'center',gap:8,color:'var(--cyan)',fontSize:11,fontWeight:700}}><Search size={13}/> Finding relevant live opportunities</div><div className="creator-ai-chips"><span className="creator-ai-chip"><Sparkles size={10}/> Paid</span><span className="creator-ai-chip"><MapPin size={10}/> Mumbai</span><span className="creator-ai-chip"><Shirt size={10}/> Skincare</span><span className="creator-ai-chip"><Video size={10}/> Reel</span><span className="creator-ai-chip"><IndianRupee size={10}/> Under ₹10K</span></div></div>}
           {phase>=4 && <div className="creator-ai-bubble"><div className="creator-ai-bot" style={{maxWidth:'100%'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--cyan)',fontWeight:800,fontSize:11,textTransform:'uppercase',letterSpacing:.7,marginBottom:8}}><BadgeCheck size={14}/> 3 live collabs match your profile</div>{[
-              ['Plum','Skincare Reel','₹7,500','96%','https://cdn.simpleicons.org/plum/6B2D5C?viewbox=auto','#E98BC3'],
-              ['MARS Cosmetics','Beauty UGC Reel','₹6,000','93%','https://cdn.simpleicons.org/mars/EF4444?viewbox=auto','#EF4444'],
-              ['Minimalist','Routine Reel','₹5,500','91%','https://cdn.simpleicons.org/minimalist/111111?viewbox=auto','#F2F2F2']
+              ['Plum','Skincare Reel','₹7,500','96%','/plum-original.webp','#E98BC3'],
+              ['MARS Cosmetics','Beauty UGC Reel','₹6,000','93%','/mars-original.png','#EF4444'],
+              ['Minimalist','Routine Reel','₹5,500','91%','/minimalist-original.png','#F2F2F2']
             ].map((x,i)=><div className="creator-ai-opportunity" key={x[0]}><div className="creator-ai-logo" style={{background:'rgba(255,255,255,.035)'}}><img src={x[4]} alt={`${x[0]} logo`} loading="eager" decoding="async" onError={(e)=>{e.currentTarget.style.display='none';e.currentTarget.nextElementSibling.style.display='inline-flex';}}/><span style={{display:'none',alignItems:'center',justifyContent:'center',width:'100%',height:'100%',fontWeight:900,fontSize:9,color:x[5]}}>{x[0]}</span></div><div style={{minWidth:0,flex:1}}><div style={{fontSize:12,fontWeight:800}}>{x[0]} · {x[1]}</div><div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>Paid collaboration · Apply through Collancer</div></div><div className="creator-ai-fit"><div className="creator-ai-score">{x[3]}</div><div className="creator-ai-label">FIT</div></div></div>)}{phase>=5&&<div style={{marginTop:12,paddingTop:11,borderTop:'1px solid rgba(255,255,255,.06)'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--purple)',fontWeight:800,fontSize:11,marginBottom:8}}><Lightbulb size={14}/> Booking received — here are 3 content directions</div><div className="creator-ai-ideas"><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>01 · Hook-first</strong><br/>“I tested this for 7 days — here's what actually changed.”</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>02 · Routine</strong><br/>Build the product into a fast morning skincare routine.</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>03 · Story</strong><br/>Problem → product → result with a natural creator voice.</div></div></div>}</div></div>}
         </div>
       </div>
