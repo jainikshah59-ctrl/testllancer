@@ -803,7 +803,7 @@ function Hero() {
       padding: isMobile ? '82px 16px 0' : isTablet ? '104px 24px 0' : 'clamp(105px, 12vw, 140px) clamp(16px, 4vw, 24px) 0',
       position: 'relative', overflow: 'hidden'
     }}>
-      <video className="hero-background-video" autoPlay muted loop playsInline preload="auto" poster="/hero-poster.jpg" aria-hidden="true">
+      <video className="hero-background-video" autoPlay muted loop playsInline preload="metadata" poster="/hero-poster.jpg" aria-hidden="true">
         <source src="/hero-background.webm" type="video/webm" />
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>
