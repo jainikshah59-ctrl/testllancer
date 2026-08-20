@@ -520,18 +520,18 @@ const STATS = [
 const TESTIMONIALS = [];
 
 const LOGOS = [
-  { name: "Zara", logo: "https://cdn.simpleicons.org/zara/ffffff" },
-  { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/ffffff" },
-  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/ffffff" },
-  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/ffffff" },
-  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/ffffff" },
-  { name: "CRED", logo: "https://cdn.simpleicons.org/cred/ffffff" },
-  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/ffffff" },
-  { name: "Noise", logo: "https://cdn.simpleicons.org/noise/ffffff" },
-  { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/ffffff" },
-  { name: "Moj", logo: "https://cdn.simpleicons.org/moj/ffffff" },
-  { name: "ShareChat", logo: "https://cdn.simpleicons.org/sharechat/ffffff" },
-  { name: "WOW Skin Science", logo: "https://cdn.simpleicons.org/wowskinscience/ffffff" },
+  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/FF3F6C?viewbox=auto" },
+  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/FC8019?viewbox=auto" },
+  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/11B5E4?viewbox=auto" },
+  { name: "Instagram", logo: "https://cdn.simpleicons.org/instagram/E4405F?viewbox=auto" },
+  { name: "YouTube", logo: "https://cdn.simpleicons.org/youtube/FF0000?viewbox=auto" },
+  { name: "Amazon", logo: "https://cdn.simpleicons.org/amazon/FF9900?viewbox=auto" },
+  { name: "Spotify", logo: "https://cdn.simpleicons.org/spotify/1DB954?viewbox=auto" },
+  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/E31E24?viewbox=auto" },
+  { name: "Coca-Cola", logo: "https://cdn.simpleicons.org/cocacola/F40009?viewbox=auto" },
+  { name: "Netflix", logo: "https://cdn.simpleicons.org/netflix/E50914?viewbox=auto" },
+  { name: "Airbnb", logo: "https://cdn.simpleicons.org/airbnb/FF5A5F?viewbox=auto" },
+  { name: "Pepsi", logo: "https://cdn.simpleicons.org/pepsi/004B93?viewbox=auto" },
 ];
 
 /* ═══ HOOKS ═══ */

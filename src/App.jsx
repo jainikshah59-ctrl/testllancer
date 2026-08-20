@@ -504,7 +504,7 @@ section{isolation:isolate;scroll-margin-top:96px}section::before{content:'';posi
 .feat-icon,.number-ring{position:relative;box-shadow:0 10px 28px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transform:translateZ(16px)}.feat-icon::after,.number-ring::after{content:'';position:absolute;inset:6px;border-radius:inherit;border:1px solid rgba(255,255,255,.05);pointer-events:none}
 h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-.045em!important}.section-title{line-height:1.04!important}.text-gradient{background:linear-gradient(110deg,#f7fbff,#6deaff 31%,#8f7cff 70%,#f0a4ff);background-size:220% auto;animation:gradientFlow 8s ease-in-out infinite}@keyframes gradientFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 .btn-glow,.btn-outline{border-radius:16px!important;position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 12px 34px rgba(0,0,0,.24),0 1px 0 rgba(255,255,255,.18) inset!important}.btn-glow{background:linear-gradient(135deg,#6bf1ff,#21c9ee 48%,#7d6bff 120%)!important;box-shadow:0 14px 40px rgba(29,207,240,.24),0 1px 0 rgba(255,255,255,.35) inset!important}.btn-glow::before,.btn-outline::before{content:'';position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.20),transparent 38%,rgba(255,255,255,.05))}.btn-glow:hover,.btn-outline:hover{transform:translateY(-4px) scale(1.015)!important}
-.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;min-width:170px;height:72px;padding:16px 28px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 14px 40px rgba(0,0,0,.22);flex-shrink:0;transition:transform .45s var(--ease-out-expo),border-color .45s ease,background .45s ease}.brand-logo-tile:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(72,232,255,.3);background:linear-gradient(180deg,rgba(72,232,255,.08),rgba(255,255,255,.025))}.brand-logo-plate{display:flex;align-items:center;justify-content:center;min-width:126px;height:46px;padding:8px 14px;border-radius:12px;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.9)}.brand-logo-tile img{max-width:108px;max-height:30px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;transition:transform .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}
+.badge{backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 25px rgba(0,0,0,.18)}.brand-logo-tile{display:flex;align-items:center;justify-content:center;min-width:150px;height:70px;padding:10px 24px;flex-shrink:0;transition:transform .45s var(--ease-out-expo),filter .45s ease;position:relative}.brand-logo-tile:hover{transform:translateY(-5px) scale(1.08);filter:drop-shadow(0 0 18px rgba(72,232,255,.18))}.brand-logo-plate{display:contents}.brand-logo-tile img{max-width:126px;max-height:42px;width:auto;height:auto;display:block;filter:none!important;opacity:1!important;object-fit:contain;transition:transform .4s ease,filter .4s ease}.brand-logo-tile:hover img{transform:scale(1.06)}
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .reveal{transform:translate3d(0,34px,0) scale(.985);filter:blur(7px);opacity:0;transition:opacity 1s var(--ease-out-expo),transform 1.1s var(--ease-out-expo),filter 1.1s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);filter:blur(0);opacity:1}.glass-card>*{position:relative;z-index:1}
 #hero{min-height:min(900px,100svh);display:flex;align-items:center}#hero::after{content:'';position:absolute;inset:auto 0 0;height:38%;pointer-events:none;background:linear-gradient(to bottom,transparent,#03050b);z-index:-1}
@@ -639,18 +639,18 @@ const STATS = [
 const TESTIMONIALS = [];
 
 const LOGOS = [
-  { name: "Zara", logo: "https://cdn.simpleicons.org/zara/000000" },
-  { name: "Nykaa", logo: "https://cdn.simpleicons.org/nykaa/FC2779" },
-  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/E31E24" },
-  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/FF3F6C" },
-  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/FC8019" },
-  { name: "CRED", logo: "https://cdn.simpleicons.org/cred/000000" },
-  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/11B5E4" },
-  { name: "Noise", logo: "https://cdn.simpleicons.org/noise/000000" },
-  { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A86B" },
-  { name: "Moj", logo: "https://cdn.simpleicons.org/moj/000000" },
-  { name: "ShareChat", logo: "https://cdn.simpleicons.org/sharechat/FF5A5F" },
-  { name: "WOW Skin Science", logo: "https://cdn.simpleicons.org/wowskinscience/000000" },
+  { name: "Myntra", logo: "https://cdn.simpleicons.org/myntra/FF3F6C?viewbox=auto" },
+  { name: "Swiggy", logo: "https://cdn.simpleicons.org/swiggy/FC8019?viewbox=auto" },
+  { name: "Lenskart", logo: "https://cdn.simpleicons.org/lenskart/11B5E4?viewbox=auto" },
+  { name: "Instagram", logo: "https://cdn.simpleicons.org/instagram/E4405F?viewbox=auto" },
+  { name: "YouTube", logo: "https://cdn.simpleicons.org/youtube/FF0000?viewbox=auto" },
+  { name: "Amazon", logo: "https://cdn.simpleicons.org/amazon/FF9900?viewbox=auto" },
+  { name: "Spotify", logo: "https://cdn.simpleicons.org/spotify/1DB954?viewbox=auto" },
+  { name: "boAt", logo: "https://cdn.simpleicons.org/boat/E31E24?viewbox=auto" },
+  { name: "Coca-Cola", logo: "https://cdn.simpleicons.org/cocacola/F40009?viewbox=auto" },
+  { name: "Netflix", logo: "https://cdn.simpleicons.org/netflix/E50914?viewbox=auto" },
+  { name: "Airbnb", logo: "https://cdn.simpleicons.org/airbnb/FF5A5F?viewbox=auto" },
+  { name: "Pepsi", logo: "https://cdn.simpleicons.org/pepsi/004B93?viewbox=auto" },
 ];
 
 /* ═══ HOOKS ═══ */
@@ -971,7 +971,7 @@ function LogoMarquee() {
         <div className="marquee-track">
           {doubled.map((brand, i) => (
             <div key={`${brand.name}-${i}`} className="brand-logo-tile" title={brand.name} aria-label={brand.name}>
-              <div className="brand-logo-plate"><img src={brand.logo} alt={`${brand.name} logo`} loading="eager" decoding="async" /></div>
+              <img src={brand.logo} alt={`${brand.name} logo`} loading="eager" decoding="async" onError={(e) => { e.currentTarget.style.display = "none"; }} />
             </div>
           ))}
         </div>
