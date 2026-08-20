@@ -459,7 +459,11 @@ const CSS = `
   }
 
   /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
-  .cleo-showcase { position:relative; overflow:hidden; }
+  
+  .collancer-ai-logo-spin{width:22px;height:22px;object-fit:contain;display:block;animation:collancerAiSpin 8s linear infinite;filter:drop-shadow(0 0 10px rgba(0,229,255,.28));}
+  .collancer-ai-logo-spin.large{width:28px;height:28px;}
+  @keyframes collancerAiSpin{from{transform:rotateY(0deg) rotateZ(0deg)}to{transform:rotateY(360deg) rotateZ(0deg)}}
+.cleo-showcase { position:relative; overflow:hidden; }
   .cleo-showcase::before {
     content:''; position:absolute; width:620px; height:620px; border-radius:50%;
     background:radial-gradient(circle, rgba(0,229,255,.12) 0%, rgba(124,58,237,.07) 35%, transparent 70%);
@@ -1203,7 +1207,7 @@ function CleoSection() {
     <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Collancer AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
       <div style={{ maxWidth: 1180, margin:'0 auto', position:'relative', zIndex:2 }}>
         <div style={{ textAlign:'center', marginBottom: 52 }}>
-          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Collancer AI</div>
+          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><img className="collancer-ai-logo-spin" src="/logo.png" alt="" aria-hidden="true" /> Meet Collancer AI</div>
           <h2 className="section-title reveal" style={{ marginBottom:18 }}>
             Tell Collancer AI What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
           </h2>
@@ -1214,7 +1218,7 @@ function CleoSection() {
 
         <div className="cleo-demo-shell reveal">
           <div className="cleo-windowbar">
-            <div className="cleo-window-orb"><Bot size={16} color="var(--cyan)" /></div>
+            <div className="cleo-window-orb"><img className="collancer-ai-logo-spin large" src="/logo.png" alt="" aria-hidden="true" /></div>
             <div>
               <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI <span style={{ color:'var(--purple)' }}>AI</span></div>
               <div style={{ fontSize:10, color:'var(--text-muted)' }}>Creator Discovery Engine</div>

@@ -590,7 +590,11 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 
 
   /* ═══ CLEO SHOWCASE — CINEMATIC AI DEMO ═══ */
-  .cleo-showcase { position:relative; overflow:hidden; }
+  
+  .collancer-ai-logo-spin{width:22px;height:22px;object-fit:contain;display:block;animation:collancerAiSpin 8s linear infinite;filter:drop-shadow(0 0 10px rgba(0,229,255,.28));}
+  .collancer-ai-logo-spin.large{width:28px;height:28px;}
+  @keyframes collancerAiSpin{from{transform:rotateY(0deg) rotateZ(0deg)}to{transform:rotateY(360deg) rotateZ(0deg)}}
+.cleo-showcase { position:relative; overflow:hidden; }
   .cleo-showcase::before {
     content:''; position:absolute; width:620px; height:620px; border-radius:50%;
     background:radial-gradient(circle, rgba(0,229,255,.12) 0%, rgba(124,58,237,.07) 35%, transparent 70%);
@@ -1306,7 +1310,7 @@ function CleoSection() {
     <section id="cleo" ref={sectionRef} className="cleo-showcase" aria-label="Collancer AI — AI creator discovery for brands" style={{ padding: (isMobile || isTablet) ? '64px 16px' : 'clamp(90px, 10vw, 130px) clamp(16px, 4vw, 24px)' }}>
       <div style={{ maxWidth: 1180, margin:'0 auto', position:'relative', zIndex:2 }}>
         <div style={{ textAlign:'center', marginBottom: 52 }}>
-          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><Bot size={13} /> Meet Collancer AI</div>
+          <div className="badge badge-purple reveal" style={{ marginBottom:18 }}><img className="collancer-ai-logo-spin" src="/logo.png" alt="" aria-hidden="true" /> Meet Collancer AI</div>
           <h2 className="section-title reveal" style={{ marginBottom:18 }}>
             Tell Collancer AI What You Need.<br /><span className="text-gradient-purple">Let AI Find the Right Creators.</span>
           </h2>
@@ -1317,7 +1321,7 @@ function CleoSection() {
 
         <div className="cleo-demo-shell reveal">
           <div className="cleo-windowbar">
-            <div className="cleo-window-orb"><Bot size={16} color="var(--cyan)" /></div>
+            <div className="cleo-window-orb"><img className="collancer-ai-logo-spin large" src="/logo.png" alt="" aria-hidden="true" /></div>
             <div>
               <div style={{ fontFamily:'var(--ff-display)', fontWeight:800, fontSize:14 }}>Collancer AI <span style={{ color:'var(--purple)' }}>AI</span></div>
               <div style={{ fontSize:10, color:'var(--text-muted)' }}>Creator Discovery Engine</div>
@@ -3054,6 +3058,63 @@ function usePremiumMotion() {
   }, []);
 }
 
+
+  /* ═══ COLLANCER 5s CINEMATIC SPLASH ═══ */
+  .collancer-splash { position: fixed; inset: 0; z-index: 99999; display: grid; place-items: center; overflow: hidden; background: #05050e; color: #fff; opacity: 1; visibility: visible; transition: opacity .75s cubic-bezier(.16,1,.3,1), visibility .75s; }
+  .collancer-splash.is-exiting { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash-grid { position:absolute; inset:-20%; background-image: linear-gradient(rgba(0,229,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(179,136,255,.045) 1px, transparent 1px); background-size: 52px 52px; transform: perspective(800px) rotateX(60deg) translateY(12%); transform-origin:center bottom; mask-image: linear-gradient(to top, black, transparent 75%); animation: splash-grid-drift 5s linear both; }
+  .splash-glow { position:absolute; width:min(70vw,720px); aspect-ratio:1; border-radius:50%; background: radial-gradient(circle, rgba(0,229,255,.18), rgba(179,136,255,.09) 34%, transparent 68%); filter: blur(8px); animation: splash-breathe 2.2s ease-in-out infinite; }
+  .splash-orb { position:absolute; width:clamp(190px,24vw,310px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.14); box-shadow: inset 0 0 70px rgba(0,229,255,.08), 0 0 80px rgba(0,229,255,.08); animation:splash-orb 4.8s cubic-bezier(.16,1,.3,1) both; }
+  .splash-orb::before,.splash-orb::after { content:""; position:absolute; inset:12%; border-radius:50%; border:1px solid rgba(0,229,255,.16); transform:rotate(55deg) scaleX(1.55); }
+  .splash-orb::after { inset:23%; border-color:rgba(179,136,255,.15); transform:rotate(-35deg) scaleX(1.7); }
+  .splash-core { position:absolute; width:clamp(58px,8vw,96px); aspect-ratio:1; border-radius:28%; background:linear-gradient(145deg, rgba(255,255,255,.28), rgba(0,229,255,.13) 40%, rgba(179,136,255,.12)); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(18px); box-shadow:0 0 35px rgba(0,229,255,.24), inset 0 1px 0 rgba(255,255,255,.28); transform:rotate(45deg); animation:splash-core 4.8s cubic-bezier(.16,1,.3,1) both; }
+  .splash-core::after { content:""; position:absolute; inset:24%; border-radius:22%; border:1px solid rgba(255,255,255,.4); box-shadow:0 0 22px rgba(0,229,255,.28); }
+  .splash-wordmark { position:relative; z-index:3; margin-top:clamp(240px,28vw,330px); text-align:center; font-family:var(--ff-display); font-weight:800; letter-spacing:-.055em; font-size:clamp(38px,7vw,78px); line-height:1; opacity:0; transform:translateY(22px) scale(.97); animation:splash-wordmark 1s .55s cubic-bezier(.16,1,.3,1) forwards; }
+  .splash-wordmark span { background:linear-gradient(100deg,#fff 10%,#bffaff 42%,#00e5ff 62%,#b388ff 92%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .splash-sub { margin-top:14px; color:rgba(238,238,255,.62); font-family:var(--ff-body); font-size:clamp(11px,1.5vw,15px); letter-spacing:.18em; text-transform:uppercase; opacity:0; animation:splash-sub 1s 1.05s ease forwards; }
+  .splash-line { position:absolute; bottom:8vh; width:min(250px,42vw); height:2px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.08); }
+  .splash-line::after { content:""; display:block; width:100%; height:100%; transform:translateX(-100%); background:linear-gradient(90deg,transparent,#00e5ff,#b388ff,transparent); animation:splash-progress 4.2s .2s cubic-bezier(.16,1,.3,1) forwards; box-shadow:0 0 18px rgba(0,229,255,.7); }
+  .splash-particle { position:absolute; width:3px; height:3px; border-radius:50%; background:#00e5ff; box-shadow:0 0 12px #00e5ff; animation:splash-particle 4.5s ease-out both; }
+  .splash-p1{left:18%;top:30%;animation-delay:.15s}.splash-p2{left:77%;top:25%;animation-delay:.65s}.splash-p3{left:12%;top:72%;animation-delay:1.1s}.splash-p4{left:86%;top:66%;animation-delay:.4s}.splash-p5{left:30%;top:16%;animation-delay:1.4s}.splash-p6{left:69%;top:80%;animation-delay:.9s}
+  @keyframes splash-grid-drift{from{transform:perspective(800px) rotateX(60deg) translateY(18%)}to{transform:perspective(800px) rotateX(60deg) translateY(5%)}}
+  @keyframes splash-breathe{0%,100%{transform:scale(.92);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+  @keyframes splash-orb{0%{transform:scale(.55) rotate(-28deg);opacity:0}35%{opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+  @keyframes splash-core{0%{transform:rotate(45deg) scale(.1);opacity:0}38%{opacity:1}100%{transform:rotate(225deg) scale(1);opacity:1}}
+  @keyframes splash-wordmark{to{opacity:1;transform:none}}
+  @keyframes splash-sub{to{opacity:1;transform:translateY(0)}}
+  @keyframes splash-progress{to{transform:translateX(100%)}}
+  @keyframes splash-particle{0%{transform:translate3d(0,35px,0) scale(.2);opacity:0}25%{opacity:1}100%{transform:translate3d(0,-45px,0) scale(1.3);opacity:0}}
+  @media (max-width:600px){ .splash-grid{background-size:36px 36px}.splash-wordmark{margin-top:220px}.splash-sub{letter-spacing:.11em}.splash-line{bottom:7vh;width:180px} }
+  @media (prefers-reduced-motion:reduce){.collancer-splash *{animation-duration:1ms!important;animation-delay:0ms!important}.collancer-splash{transition:none}}
+
+function CollancerSplash() {
+  const [visible, setVisible] = useState(() => {
+    try { return sessionStorage.getItem('collancer_splash_seen') !== '1'; } catch { return true; }
+  });
+  const [exiting, setExiting] = useState(false);
+  useEffect(() => {
+    if (!visible) return;
+    const exitTimer = setTimeout(() => setExiting(true), 4300);
+    const hideTimer = setTimeout(() => {
+      try { sessionStorage.setItem('collancer_splash_seen', '1'); } catch {}
+      setVisible(false);
+    }, 5050);
+    return () => { clearTimeout(exitTimer); clearTimeout(hideTimer); };
+  }, [visible]);
+  if (!visible) return null;
+  return (
+    <div className={`collancer-splash ${exiting ? 'is-exiting' : ''}`} aria-label="Collancer loading" role="status">
+      <div className="splash-grid" />
+      <div className="splash-glow" />
+      <div className="splash-orb" />
+      <div className="splash-core" />
+      <i className="splash-particle splash-p1"/><i className="splash-particle splash-p2"/><i className="splash-particle splash-p3"/><i className="splash-particle splash-p4"/><i className="splash-particle splash-p5"/><i className="splash-particle splash-p6"/>
+      <div className="splash-wordmark"><span>COLLANCER</span><div className="splash-sub">Where Indian Brands Meet Verified Creators</div></div>
+      <div className="splash-line" aria-hidden="true"/>
+    </div>
+  );
+}
+
 export default function App() {
   useRevealAnimation();
   usePremiumMotion();
@@ -3159,6 +3220,7 @@ export default function App() {
           the canvas from unmounting on navigation (which killed the animation loop)
           and keeps global CSS active on /blog so z-index stacking stays correct. */}
       <style>{FONTS}{CSS}</style>
+      <CollancerSplash />
       <canvas id="motion-bg" aria-hidden="true" />
 
       <ScrollToTop />
