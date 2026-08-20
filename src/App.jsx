@@ -602,7 +602,7 @@ span.text-gradient,span.text-gradient-cyan,span.text-gradient-purple,span.text-g
 .creator-ai-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
 .creator-ai-chip { display:inline-flex; align-items:center; gap:5px; padding:6px 8px; border-radius:999px; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.07); font-size:9px; color:var(--text-muted); }
 .creator-ai-opportunity { display:flex; align-items:center; gap:10px; padding:10px; border-radius:13px; margin-top:8px; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); animation:creatorAiBubble .55s both; }
-.creator-ai-logo { width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-weight:800; font-size:10px; color:var(--text); flex-shrink:0; }
+.creator-ai-logo { width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-weight:800; font-size:10px; color:var(--text); flex-shrink:0; } .creator-ai-logo img{width:24px;height:24px;object-fit:contain;display:block}
 .creator-ai-fit { margin-left:auto; text-align:right; }
 .creator-ai-score { color:var(--cyan); font-weight:800; font-size:13px; }
 .creator-ai-label { font-size:8px; color:var(--text-dim); letter-spacing:.8px; }
@@ -776,6 +776,7 @@ const LOGOS = [
   { name: "Minimalist", logo: "https://cdn.simpleicons.org/minimalist/111111?viewbox=auto", fallback: "minimalist", color: "#F2F2F2" },
   { name: "Mamaearth", logo: "https://cdn.simpleicons.org/mamaearth/00A651?viewbox=auto", fallback: "mamaearth", color: "#00A651" },
   { name: "Plum", logo: "https://cdn.simpleicons.org/plum/6B2D5C?viewbox=auto", fallback: "plum", color: "#E98BC3" },
+  { name: "MARS Cosmetics", logo: "https://cdn.simpleicons.org/mars/EF4444?viewbox=auto", fallback: "MARS", color: "#EF4444" },
   { name: "Dot & Key", logo: "https://cdn.simpleicons.org/dotandkey/111111?viewbox=auto", fallback: "dot&key", color: "#FFFFFF" },
   { name: "Foxtale", logo: "https://cdn.simpleicons.org/foxtale/FF5C7A?viewbox=auto", fallback: "foxtale", color: "#FF5C7A" },
   { name: "Pilgrim", logo: "https://cdn.simpleicons.org/pilgrim/111111?viewbox=auto", fallback: "pilgrim", color: "#FFFFFF" },
@@ -1242,8 +1243,25 @@ function CreatorAIShowcase() {
   const { isMobile } = useDevice();
   const [phase, setPhase] = useState(0);
   const [typed, setTyped] = useState('');
+  const demoRef = useRef(null);
+  const hasPlayed = useRef(false);
+  const [started, setStarted] = useState(false);
   const prompt = 'Find live paid skincare collabs for me in Mumbai under ₹10K, then help me create content for my next booking.';
   useEffect(() => {
+    const el = demoRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !hasPlayed.current) {
+        hasPlayed.current = true;
+        setStarted(true);
+      }
+    }, { threshold: 0.32 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
     let timers=[]; let i=0;
     const start=setTimeout(()=>setPhase(1),450);
     const type=setInterval(()=>{
@@ -1251,9 +1269,9 @@ function CreatorAIShowcase() {
       if(i>=prompt.length){ clearInterval(type); timers.push(setTimeout(()=>setPhase(2),800)); timers.push(setTimeout(()=>setPhase(3),2200)); timers.push(setTimeout(()=>setPhase(4),4300)); timers.push(setTimeout(()=>setPhase(5),6200)); }
     },40);
     return ()=>{ clearTimeout(start); clearInterval(type); timers.forEach(clearTimeout); };
-  },[]);
+  },[started]);
   return (
-    <section className="creator-ai-live glass-card reveal" aria-label="Collancer AI for creators" style={{marginBottom:48,padding:'clamp(22px,4vw,34px)',background:'linear-gradient(135deg,rgba(0,229,255,.055),rgba(179,136,255,.07))',borderColor:'rgba(0,229,255,.17)'}}>
+    <section ref={demoRef} className="creator-ai-live glass-card reveal" aria-label="Collancer AI for creators" style={{marginBottom:48,padding:'clamp(22px,4vw,34px)',background:'linear-gradient(135deg,rgba(0,229,255,.055),rgba(179,136,255,.07))',borderColor:'rgba(0,229,255,.17)'}}>
       <div style={{position:'relative',zIndex:2,textAlign:'center',marginBottom:28}}>
         <div className="badge badge-cyan" style={{marginBottom:16}}><Bot size={13}/> Meet Collancer AI for Creators</div>
         <h3 style={{fontFamily:'var(--ff-display)',fontSize:'clamp(22px,3.2vw,34px)',fontWeight:850,margin:'0 0 12px'}}>Stop hunting for collabs.<br/><span className="text-gradient">Let Collancer AI find them.</span></h3>
@@ -1270,7 +1288,7 @@ function CreatorAIShowcase() {
           {phase>=1 && <div className="creator-ai-bubble" style={{display:'flex',justifyContent:'flex-end',marginBottom:12}}><div className="creator-ai-user">{typed}<span style={{display:'inline-block',width:2,height:13,background:'var(--cyan)',marginLeft:2,verticalAlign:'middle',animation:'cleoCursor 1s infinite'}}/></div></div>}
           {phase>=2 && <div className="creator-ai-bubble" style={{display:'flex',justifyContent:'flex-start',marginBottom:12}}><div className="creator-ai-bot">Got it. I’m matching your profile to <strong>live campaigns</strong> using your niche, location, format, audience and budget — then I’ll turn any confirmed booking into content ideas.</div></div>}
           {phase>=3 && phase<4 && <div className="creator-ai-scan"><div style={{display:'flex',alignItems:'center',gap:8,color:'var(--cyan)',fontSize:11,fontWeight:700}}><Search size={13}/> Finding relevant live opportunities</div><div className="creator-ai-chips"><span className="creator-ai-chip"><Sparkles size={10}/> Paid</span><span className="creator-ai-chip"><MapPin size={10}/> Mumbai</span><span className="creator-ai-chip"><Shirt size={10}/> Skincare</span><span className="creator-ai-chip"><Video size={10}/> Reel</span><span className="creator-ai-chip"><IndianRupee size={10}/> Under ₹10K</span></div></div>}
-          {phase>=4 && <div className="creator-ai-bubble"><div className="creator-ai-bot" style={{maxWidth:'100%'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--cyan)',fontWeight:800,fontSize:11,textTransform:'uppercase',letterSpacing:.7,marginBottom:8}}><BadgeCheck size={14}/> 3 live collabs match your profile</div>{[['PLUM','Skincare Reel','₹7,500','96%'],['MARS','Beauty UGC Reel','₹6,000','93%'],['Minimalist','Routine Reel','₹5,500','91%']].map((x,i)=><div className="creator-ai-opportunity" key={x[0]}><div className="creator-ai-logo">{x[0].slice(0,2)}</div><div style={{minWidth:0,flex:1}}><div style={{fontSize:12,fontWeight:800}}>{x[0]} · {x[1]}</div><div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>Paid collaboration · Apply through Collancer</div></div><div className="creator-ai-fit"><div className="creator-ai-score">{x[3]}</div><div className="creator-ai-label">FIT</div></div></div>)}{phase>=5&&<div style={{marginTop:12,paddingTop:11,borderTop:'1px solid rgba(255,255,255,.06)'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--purple)',fontWeight:800,fontSize:11,marginBottom:8}}><Lightbulb size={14}/> Booking received — here are 3 content directions</div><div className="creator-ai-ideas"><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>01 · Hook-first</strong><br/>“I tested this for 7 days — here's what actually changed.”</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>02 · Routine</strong><br/>Build the product into a fast morning skincare routine.</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>03 · Story</strong><br/>Problem → product → result with a natural creator voice.</div></div></div>}</div></div>}
+          {phase>=4 && <div className="creator-ai-bubble"><div className="creator-ai-bot" style={{maxWidth:'100%'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--cyan)',fontWeight:800,fontSize:11,textTransform:'uppercase',letterSpacing:.7,marginBottom:8}}><BadgeCheck size={14}/> 3 live collabs match your profile</div>{[['PLUM','Skincare Reel','₹7,500','96%','https://cdn.simpleicons.org/plum'],['MARS','Beauty UGC Reel','₹6,000','93%','https://cdn.simpleicons.org/mars'],['Minimalist','Routine Reel','₹5,500','91%','https://cdn.simpleicons.org/minimalist']].map((x,i)=><div className="creator-ai-opportunity" key={x[0]}><div className="creator-ai-logo"><img src={x[4]} alt={`${x[0]} logo`} loading="lazy" onError={(e)=>{e.currentTarget.style.display='none';e.currentTarget.nextElementSibling.style.display='block';}}/><span style={{display:'none',fontWeight:800,fontSize:10}}>{x[0].slice(0,2)}</span></div><div style={{minWidth:0,flex:1}}><div style={{fontSize:12,fontWeight:800}}>{x[0]} · {x[1]}</div><div style={{fontSize:10,color:'var(--text-muted)',marginTop:2}}>Paid collaboration · Apply through Collancer</div></div><div className="creator-ai-fit"><div className="creator-ai-score">{x[3]}</div><div className="creator-ai-label">FIT</div></div></div>)}{phase>=5&&<div style={{marginTop:12,paddingTop:11,borderTop:'1px solid rgba(255,255,255,.06)'}}><div style={{display:'flex',alignItems:'center',gap:7,color:'var(--purple)',fontWeight:800,fontSize:11,marginBottom:8}}><Lightbulb size={14}/> Booking received — here are 3 content directions</div><div className="creator-ai-ideas"><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>01 · Hook-first</strong><br/>“I tested this for 7 days — here's what actually changed.”</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>02 · Routine</strong><br/>Build the product into a fast morning skincare routine.</div><div className="creator-ai-idea"><strong style={{color:'var(--text)'}}>03 · Story</strong><br/>Problem → product → result with a natural creator voice.</div></div></div>}</div></div>}
         </div>
       </div>
     </section>
@@ -1287,9 +1305,9 @@ function CleoSection() {
 
   const prompt = 'Find 3 skincare creators in Mumbai for a ₹25,000 launch. Prioritise strong engagement, women 18–34 audience, Reels, and creators who fit our premium positioning.';
   const creators = [
-    { initials:'AK', name:'Aarohi Kapoor', handle:'@aarohikapoor', niche:'Beauty · Mumbai', reach:'118K', fit:'98%', price:'₹8,500', note:'Premium aesthetic' },
-    { initials:'RS', name:'Riya Shah', handle:'@riyashah', niche:'Skincare · Mumbai', reach:'84K', fit:'96%', price:'₹6,500', note:'Strong engagement' },
-    { initials:'MN', name:'Mehak Nair', handle:'@mehaknair', niche:'Beauty · Mumbai', reach:'62K', fit:'94%', price:'₹5,500', note:'Audience match' },
+    { initials:'AK', name:'Aarohi Kapoor', handle:'@aarohikapoor', niche:'Beauty · Mumbai', reach:'118K', fit:'98%', price:'₹8,500', note:'Premium aesthetic', image:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80' },
+    { initials:'RS', name:'Riya Shah', handle:'@riyashah', niche:'Skincare · Mumbai', reach:'84K', fit:'96%', price:'₹6,500', note:'Strong engagement', image:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80' },
+    { initials:'MN', name:'Mehak Nair', handle:'@mehaknair', niche:'Beauty · Mumbai', reach:'62K', fit:'94%', price:'₹5,500', note:'Audience match', image:'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=160&q=80' },
   ];
 
   useEffect(() => {
@@ -1401,7 +1419,7 @@ function CleoSection() {
                       {creators.map((c, i) => (
                         <div className="cleo-result" key={c.name}>
                           {i === 0 && <span className="cleo-rank">TOP MATCH</span>}
-                          <div className="cleo-avatar">{c.initials}</div>
+                          <div className="cleo-avatar" style={{overflow:'hidden',padding:0}}><img src={c.image} alt={`${c.name} profile`} loading="lazy" style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} onError={(e)=>{e.currentTarget.style.display='none'; e.currentTarget.parentElement.textContent=c.initials;}} /></div>
                           <div style={{ minWidth:0, flex:1 }}>
                             <div style={{ fontSize:12, fontWeight:800, paddingRight:i===0?70:0 }}>{c.name}</div>
                             <div style={{ fontSize:10, color:'var(--text-muted)', marginTop:2 }}>{c.handle} · {c.niche}</div>
@@ -1616,7 +1634,6 @@ function ForCreators() {
           </button>
         </div>
 
-        {/* Collancer AI is intentionally the final feature moment in the creator section. */}
         <CreatorAIShowcase />
       </div>
     </section>
