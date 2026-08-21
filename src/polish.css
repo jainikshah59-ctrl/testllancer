@@ -8,7 +8,8 @@
 .creator-ai-live>* ,.cleo-demo-shell>*{position:relative;z-index:3;}
 .creator-ai-window,.cleo-windowbar,.cleo-chat,.creator-ai-chat{position:relative;z-index:4!important;}
 .creator-ai-window,.cleo-demo-shell .cleo-window{background:rgba(3,7,19,.78)!important;backdrop-filter:blur(18px)!important;border-color:rgba(255,255,255,.12)!important;box-shadow:0 30px 90px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.07)!important;}
-.creator-ai-live .creator-ai-chat:before,.cleo-demo-shell .cleo-chat:before{content:"";position:absolute;left:8%;right:8%;top:18%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.35),rgba(179,136,255,.3),transparent);box-shadow:0 0 28px rgba(0,229,255,.12);pointer-events:none;}
+/* Keep the creators AI chat clean: no decorative divider/line inside the chat. */
+.creator-ai-live .creator-ai-chat:before{display:none!important;content:none!important;}
 .creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{backdrop-filter:blur(12px)!important;background:rgba(12,16,34,.72)!important;border-color:rgba(255,255,255,.11)!important;box-shadow:0 16px 40px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.05)!important;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s,box-shadow .35s!important;}
 .creator-ai-opportunity:hover,.cleo-result:hover,.creator-ai-idea:hover,.cleo-metric-card:hover{transform:translateY(-5px)!important;border-color:rgba(0,229,255,.28)!important;box-shadow:0 24px 55px rgba(0,0,0,.34),0 0 28px rgba(0,229,255,.06)!important;}
 .creator-ai-orb,.cleo-window-orb{box-shadow:0 0 38px rgba(0,229,255,.28),0 0 70px rgba(124,58,237,.12),inset 0 1px 0 rgba(255,255,255,.18)!important;}
