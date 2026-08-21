@@ -27,21 +27,34 @@ function polishHeroCopy() {
     const text = el.textContent.trim().toLowerCase();
     return text.includes('brands') && text.includes('creators') && (text.includes('where') || text.includes('verified'));
   });
-  if (!hero || hero.dataset.heroCopyPolished === '1') return;
+  if (!hero) return;
 
-  hero.dataset.heroCopyPolished = '1';
   hero.innerHTML = 'The Future of Influencer Marketing<br/><span class="text-gradient">Starts Here</span>';
+  hero.dataset.heroCopyPolished = '1';
 
-  const section = hero.closest('section, header, div');
+  const desiredTagline = 'Connecting brands and creators without the chaos of agencies, forms, and endless DMs.';
+  const section = hero.closest('section') || hero.parentElement;
   if (!section) return;
-  const blocks = Array.from(section.querySelectorAll('p, div')).filter((el) => {
-    if (el === hero || el.querySelector('h1,h2')) return false;
+
+  // Replace the actual hero subtitle instead of relying on its previous wording.
+  const existing = Array.from(section.querySelectorAll('p, [role="paragraph"], .subtitle, .hero-subtitle')).find((el) => {
+    if (el === hero || el.contains(hero)) return false;
     const text = el.textContent.trim();
-    return text.includes('brands') && text.includes('creators') && (text.includes('agency') || text.includes('forms') || text.includes('DM'));
+    if (!text || text.length < 25 || text.length > 240) return false;
+    // Exclude button labels and legal/navigation copy.
+    const tag = el.tagName.toLowerCase();
+    return tag === 'p' || el.classList.contains('subtitle') || el.classList.contains('hero-subtitle');
   });
-  const tagline = blocks.sort((a,b) => a.textContent.length - b.textContent.length)[0];
-  if (tagline) {
-    tagline.textContent = 'Connecting brands and creators without the chaos of agencies, forms, and endless DMs.';
+
+  if (existing) {
+    existing.textContent = desiredTagline;
+    existing.dataset.heroTaglinePolished = '1';
+  } else if (!section.querySelector('[data-collancer-hero-tagline="1"]')) {
+    const tagline = document.createElement('p');
+    tagline.dataset.collancerHeroTagline = '1';
+    tagline.textContent = desiredTagline;
+    tagline.style.cssText = 'max-width:720px;margin:18px auto 0;text-align:center;color:rgba(226,232,240,.78);font-size:clamp(15px,1.45vw,19px);line-height:1.6;letter-spacing:-.01em;';
+    hero.insertAdjacentElement('afterend', tagline);
   }
 }
 
