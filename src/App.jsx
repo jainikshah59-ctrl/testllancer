@@ -435,13 +435,6 @@ const CSS = `
     background:linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
   }
   .testimonial-card:hover { transform:translateY(-4px); border-color:var(--border-hover); box-shadow:0 24px 64px rgba(0,0,0,0.4); }
-
-  .role-switch-wrap{position:fixed;top:84px;left:50%;transform:translateX(-50%);z-index:997;display:flex;justify-content:center;pointer-events:none;}
-  .role-switch{pointer-events:auto;display:flex;align-items:center;gap:3px;padding:3px;border:1px solid rgba(170,220,255,.12);background:rgba(5,12,21,.78);border-radius:999px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 34px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.06)}
-  .role-switch button{border:0;background:transparent;color:var(--text-muted);padding:7px 13px;border-radius:999px;font:600 12px var(--ff-body);cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease;white-space:nowrap}
-  .role-switch button:hover{color:var(--text)}
-  .role-switch button.active{color:#041016;background:linear-gradient(135deg,#8af5ff,#55dff5);box-shadow:0 4px 18px rgba(0,229,255,.18)}
-  @media(max-width:768px){.role-switch-wrap{top:62px}.role-switch button{padding:7px 11px;font-size:11px}}
   .nav-bar {
     position:fixed; top:0; left:0; right:0; z-index:1000; padding:16px 24px;
     transition:all 0.4s var(--ease-out-expo);
@@ -526,7 +519,7 @@ h1,h2,h3,.section-title{font-family:'Sora',sans-serif!important;letter-spacing:-
 .marquee-container{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .logo-marquee-section{margin-top:16px!important}
 @media(max-width:768px){.logo-marquee-section{margin-top:12px!important}}
-.reveal{transform:translate3d(0,22px,0) scale(.99);opacity:0;transition:opacity .55s var(--ease-out-expo),transform .62s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);opacity:1}.glass-card>*{position:relative;z-index:1}
+.reveal{transform:translate3d(0,60px,0);opacity:0;transition:opacity .9s var(--ease-out-expo),transform .9s var(--ease-out-expo)}.reveal.visible,.reveal.is-visible{transform:translate3d(0,0,0) scale(1);opacity:1}.glass-card>*{position:relative;z-index:1}
 
 .hero-background-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none;filter:saturate(.92) contrast(1.04) brightness(.72)}
 .hero-video-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 45%,rgba(3,9,20,.16),rgba(3,5,12,.56) 72%),linear-gradient(180deg,rgba(2,5,12,.58) 0%,rgba(2,5,12,.18) 38%,rgba(2,5,12,.74) 100%)}
@@ -960,13 +953,6 @@ function Nav() {
           </div>
         </div>
       </nav>
-
-      <div className="role-switch-wrap" aria-label="Choose your role">
-        <div className="role-switch">
-          <button className={activeRole === 'brands' ? 'active' : ''} onClick={() => { setActiveRole('brands'); scrollTo('for-brands'); }}>For Brands</button>
-          <button className={activeRole === 'creators' ? 'active' : ''} onClick={() => { setActiveRole('creators'); scrollTo('for-creators'); }}>For Creators</button>
-        </div>
-      </div>
 
       {menuOpen && (
         <div className="mobile-overlay" style={{
@@ -2452,7 +2438,7 @@ function FounderSection() {
 function Footer() {
   const { isMobile } = useDevice();
   return (
-    <footer style={{ padding: isMobile ? '40px 16px 32px' : '60px 24px 40px', borderTop: '1px solid var(--border)', background: '#05050e' }}>
+    <footer style={{ position:'relative', zIndex:2, padding: isMobile ? '40px 16px 32px' : '60px 24px 40px', borderTop: '1px solid var(--border)', background: '#05050e' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: isMobile ? 'flex-start' : 'flex-start', flexWrap: 'wrap', gap: isMobile ? 28 : 32, marginBottom: isMobile ? 32 : 48 }}>
           <div style={{ maxWidth: 300 }}>
@@ -3054,7 +3040,6 @@ export default function App() {
   useRevealAnimation();
   usePremiumMotion();
   useAnalytics();
-  useScrollRestriction();
 
   // ── Hash scroll on load ──────────────────────────────────────────────────
   // When someone visits /#faq, /#for-creators, etc., React mounts and then
@@ -3187,6 +3172,7 @@ body::after{display:none!important}
                 <FounderSection />
               </article>
             </main>
+            <Footer />
           </>
         } />
     </Routes>
