@@ -14,7 +14,7 @@
 .creator-ai-opportunity:hover,.cleo-result:hover,.creator-ai-idea:hover,.cleo-metric-card:hover{transform:translateY(-5px)!important;border-color:rgba(0,229,255,.28)!important;box-shadow:0 24px 55px rgba(0,0,0,.34),0 0 28px rgba(0,229,255,.06)!important;}
 /* Collancer AI robot icon — shared by Brands and Creators demos. */
 .creator-ai-orb,.cleo-window-orb{position:relative!important;background:transparent!important;box-shadow:none!important;border:none!important;overflow:visible!important;}
-.creator-ai-orb::before,.cleo-window-orb::before{content:""!important;position:absolute!important;inset:-5px!important;background:url('/collancer-ai-robot.svg') center/contain no-repeat!important;filter:drop-shadow(0 0 18px rgba(0,229,255,.28)) drop-shadow(0 0 30px rgba(124,58,237,.18))!important;animation:collancerRobotFloat 5s ease-in-out infinite!important;transform-origin:center!important;}
+.creator-ai-orb::before,.cleo-window-orb::before{content:""!important;position:absolute!important;inset:-5px!important;background:url('https://img.icons8.com/pulsar-gradient/48/bot.png') center/48px 48px no-repeat!important;filter:drop-shadow(0 0 18px rgba(0,229,255,.28)) drop-shadow(0 0 30px rgba(124,58,237,.18))!important;animation:collancerRobotFloat 5s ease-in-out infinite!important;transform-origin:center!important;}
 @keyframes collancerRobotFloat{0%,100%{transform:translateY(0) rotate(-1deg) scale(1)}50%{transform:translateY(-5px) rotate(1deg) scale(1.025)}}
 .creator-ai-status,.cleo-status{box-shadow:0 0 24px rgba(74,222,128,.08)!important;}
 /* Brands AI: remove the rotating orbit/dot decoration from the demo background. */
