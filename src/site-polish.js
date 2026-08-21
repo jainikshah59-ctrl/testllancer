@@ -80,9 +80,10 @@ function injectAiDemoBackgrounds() {
     @keyframes collancerAiAtmosphere{from{transform:scale(1.08) translate3d(-1%,1%,0)}to{transform:scale(1.14) translate3d(2%,-2%,0)}}
     @keyframes collancerAiGrid{from{background-position:0 0,0 0}to{background-position:44px 44px,-44px 44px}}
 
-    /* Creator CTA and AI demo must read as two separate sections on every viewport. */
-    .creator-profile-cta-section{margin-bottom:24px!important}
-    .creator-ai-section{margin-top:24px!important}
+    /* Creator CTA and AI demo are deliberately separated, never stacked edge-to-edge. */
+    .creator-profile-cta-section{margin-bottom:56px!important}
+    .creator-ai-section{margin-top:0!important;padding-top:0!important}
+    .creator-ai-section + section{margin-top:0!important}
 
     /* Keep the creator header compact without shrinking the actual demo content. */
     .creator-ai-status{white-space:nowrap!important;display:inline-flex!important;align-items:center!important;flex-shrink:0!important}
@@ -91,13 +92,13 @@ function injectAiDemoBackgrounds() {
 
     /* Touch devices do not need expensive hover transforms or large blur layers. */
     @media (hover:none) and (pointer:coarse) {
-      .glass-card:hover,.btn-glow:hover,.btn-outline:hover{transform:none!important;box-shadow:none}
+      .glass-card:hover,.btn-glow:hover,.btn-outline:hover{transform:none!important}
       .cleo-demo-shell .cleo-window{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
     }
     @media(max-width:680px){
       .cleo-demo-shell::after{background-size:30px 30px!important;opacity:.20!important}
-      .creator-profile-cta-section{margin-bottom:20px!important}
-      .creator-ai-section{margin-top:20px!important}
+      .creator-profile-cta-section{margin-bottom:40px!important}
+      .creator-ai-section{margin-top:0!important}
       .creator-ai-windowbar{gap:8px!important}
       .creator-ai-windowbar>div:nth-child(2){min-width:0!important}
       .creator-ai-windowbar>div:nth-child(2)>div:first-child{font-size:13px!important}
@@ -115,18 +116,14 @@ function injectAiDemoBackgrounds() {
 function polishCreatorAiDemo() {
   const demo = document.querySelector('.creator-ai-window');
   if (!demo) return;
-
   const windowbar = demo.querySelector('.creator-ai-windowbar');
   if (windowbar) {
     const textColumn = windowbar.querySelector(':scope > div:nth-child(2)');
     if (textColumn) {
       const tagline = textColumn.querySelector(':scope > div:nth-child(2)');
-      if (tagline && tagline.textContent.trim() !== 'Creator assistant') {
-        tagline.textContent = 'Creator assistant';
-      }
+      if (tagline) tagline.textContent = 'Creator assistant';
     }
   }
-
   const status = demo.querySelector('.creator-ai-status');
   if (status) {
     status.style.whiteSpace = 'nowrap';
@@ -134,14 +131,18 @@ function polishCreatorAiDemo() {
     status.style.alignItems = 'center';
     status.style.flexShrink = '0';
   }
-
-  demo.dataset.headerPolished = '1';
 }
 
 function polishCreatorSectionSpacing() {
   const sections = Array.from(document.querySelectorAll('section'));
-  const profileSection = sections.find((section) => section.textContent.includes('List Your Profile Free'));
-  const creatorSection = sections.find((section) => section.textContent.includes('MEET COLLANCER AI FOR CREATORS'));
+  const profileSection = sections.find((section) => {
+    const text = section.textContent.replace(/\s+/g, ' ').trim().toLowerCase();
+    return text.includes('list your profile free');
+  });
+  const creatorSection = sections.find((section) => {
+    const text = section.textContent.replace(/\s+/g, ' ').trim().toLowerCase();
+    return text.includes('meet collancer ai for creators');
+  });
   if (profileSection) profileSection.classList.add('creator-profile-cta-section');
   if (creatorSection) creatorSection.classList.add('creator-ai-section');
 }
