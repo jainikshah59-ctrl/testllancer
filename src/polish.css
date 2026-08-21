@@ -19,6 +19,25 @@
 .creator-ai-status,.cleo-status{box-shadow:0 0 24px rgba(74,222,128,.08)!important;}
 /* Brands AI: remove the rotating orbit/dot decoration from the demo background. */
 .cleo-showcase .cleo-orbit,.cleo-demo-shell .cleo-orbit,.cleo-demo-shell .cleo-pulse-ring{display:none!important;animation:none!important;}
-@media(max-width:680px){.creator-ai-live,.cleo-demo-shell{border-radius:24px!important}.creator-ai-live:after,.cleo-demo-shell:after{background-size:30px 30px!important;opacity:.32!important}.creator-ai-window,.cleo-demo-shell .cleo-window{backdrop-filter:blur(12px)!important}.creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{backdrop-filter:blur(8px)!important}.creator-ai-orb::before,.cleo-window-orb::before{inset:0!important;background-size:34px 34px!important}}
+
+/* Creator AI: give the creator-side demo the same generous presentation scale as the brand demo. */
+@media(min-width:821px){
+  .creator-ai-live{width:calc(100% + 80px)!important;max-width:none!important;margin-left:-40px!important;margin-right:-40px!important;padding:34px!important;}
+  .creator-ai-window{min-height:620px!important;border-radius:30px!important;}
+  .creator-ai-windowbar{padding:16px 20px!important;min-height:62px!important;}
+  .creator-ai-chat{min-height:558px!important;padding:24px!important;}
+  .creator-ai-user{max-width:78%!important;}
+  .creator-ai-bot{max-width:88%!important;}
+  .creator-ai-opportunity{padding:12px!important;margin-top:9px!important;min-height:58px!important;}
+  .creator-ai-logo{width:46px!important;height:38px!important;}
+  .creator-ai-ideas{gap:9px!important;margin-top:12px!important;}
+  .creator-ai-idea{padding:11px!important;font-size:10px!important;}
+}
+@media(min-width:681px) and (max-width:820px){
+  .creator-ai-live{padding:30px!important;}
+  .creator-ai-window{min-height:600px!important;}
+  .creator-ai-chat{min-height:540px!important;padding:22px!important;}
+}
+@media(max-width:680px){.creator-ai-live,.cleo-demo-shell{border-radius:24px!important}.creator-ai-live:after,.cleo-demo-shell:after{background-size:30px 30px!important;opacity:.32!important}.creator-ai-window,.cleo-demo-shell .cleo-window{backdrop-filter:blur(12px)!important}.creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{backdrop-filter:blur(8px)!important}.creator-ai-orb::before,.cleo-window-orb::before{inset:0!important;background-size:34px 34px!important}.creator-ai-window{min-height:0!important}.creator-ai-chat{min-height:600px!important;padding:18px 16px!important}.creator-ai-user{max-width:94%!important}.creator-ai-bot{max-width:96%!important}.creator-ai-ideas{grid-template-columns:1fr!important;gap:8px!important}}
 @media(prefers-reduced-motion:reduce){.creator-ai-live:after,.cleo-demo-shell:after,.creator-ai-orb::before,.cleo-window-orb::before{animation:none!important}.creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{transition:none!important}}
 .footer-line{display:flex;align-items:center;gap:5px}.footer-line-made{margin-top:5px;color:var(--text-dim)}
