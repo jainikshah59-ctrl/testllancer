@@ -1,5 +1,5 @@
 // Launch polish layer kept outside the main React component.
-// Applies final visual, copy, and mobile hero polish after React mounts.
+// Applies final visual, copy, spacing, and performance polish after React mounts.
 
 function polishCollancerFooter() {
   document.querySelectorAll('footer p').forEach((p) => {
@@ -24,7 +24,7 @@ function polishHeroCopy() {
     const text = el.textContent.trim().toLowerCase();
     return text.includes('brands') && text.includes('creators') && (text.includes('where') || text.includes('verified'));
   });
-  if (!hero) return;
+  if (!hero || hero.dataset.heroCopyPolished === '1') return;
   hero.innerHTML = 'The Future of Influencer Marketing<br/><span class="text-gradient">Starts Here</span>';
   hero.dataset.heroCopyPolished = '1';
   const desiredTagline = 'Connecting brands and creators without the chaos of agencies, forms, and endless DMs.';
@@ -79,20 +79,52 @@ function injectAiDemoBackgrounds() {
     .cleo-showcase .cleo-orbit,.cleo-demo-shell .cleo-orbit,.cleo-demo-shell .cleo-pulse-ring{display:none!important;animation:none!important}
     @keyframes collancerAiAtmosphere{from{transform:scale(1.08) translate3d(-1%,1%,0)}to{transform:scale(1.14) translate3d(2%,-2%,0)}}
     @keyframes collancerAiGrid{from{background-position:0 0,0 0}to{background-position:44px 44px,-44px 44px}}
-    @media(max-width:680px){.cleo-demo-shell::after{background-size:30px 30px!important;opacity:.28!important}}
-    @media(prefers-reduced-motion:reduce){.cleo-demo-shell::before,.cleo-demo-shell::after{animation:none!important}}
+
+    /* Creator CTA and AI demo must read as two separate sections on every viewport. */
+    .creator-profile-cta-section{margin-bottom:24px!important}
+    .creator-ai-section{margin-top:24px!important}
+
+    /* Keep the creator header compact without shrinking the actual demo content. */
+    .creator-ai-status{white-space:nowrap!important;display:inline-flex!important;align-items:center!important;flex-shrink:0!important}
+    .creator-ai-orb{width:26px!important;height:26px!important;min-width:26px!important;min-height:26px!important;flex:0 0 26px!important;border-radius:8px!important}
+    .creator-ai-orb svg{width:12px!important;height:12px!important}
+
+    /* Touch devices do not need expensive hover transforms or large blur layers. */
+    @media (hover:none) and (pointer:coarse) {
+      .glass-card:hover,.btn-glow:hover,.btn-outline:hover{transform:none!important;box-shadow:none}
+      .cleo-demo-shell .cleo-window{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+    }
+    @media(max-width:680px){
+      .cleo-demo-shell::after{background-size:30px 30px!important;opacity:.20!important}
+      .creator-profile-cta-section{margin-bottom:20px!important}
+      .creator-ai-section{margin-top:20px!important}
+      .creator-ai-windowbar{gap:8px!important}
+      .creator-ai-windowbar>div:nth-child(2){min-width:0!important}
+      .creator-ai-windowbar>div:nth-child(2)>div:first-child{font-size:13px!important}
+      .creator-ai-windowbar>div:nth-child(2)>div:nth-child(2){font-size:10px!important;white-space:nowrap!important}
+      .creator-ai-status{font-size:10px!important}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .cleo-demo-shell::before,.cleo-demo-shell::after{animation:none!important}
+    }
   `;
   document.head.appendChild(style);
 }
 
 function polishCreatorAiDemo() {
   const demo = document.querySelector('.creator-ai-window');
-  if (!demo || demo.dataset.headerPolished === '1') return;
+  if (!demo) return;
 
-  const title = Array.from(demo.querySelectorAll('div')).find((el) => el.textContent.trim() === 'Collancer AI');
-  if (title) {
-    const tagline = title.parentElement?.querySelector('div:nth-child(2)');
-    if (tagline) tagline.textContent = 'Creator assistant';
+  const windowbar = demo.querySelector('.creator-ai-windowbar');
+  if (windowbar) {
+    const textColumn = windowbar.querySelector(':scope > div:nth-child(2)');
+    if (textColumn) {
+      const tagline = textColumn.querySelector(':scope > div:nth-child(2)');
+      if (tagline && tagline.textContent.trim() !== 'Creator assistant') {
+        tagline.textContent = 'Creator assistant';
+      }
+    }
   }
 
   const status = demo.querySelector('.creator-ai-status');
@@ -103,20 +135,15 @@ function polishCreatorAiDemo() {
     status.style.flexShrink = '0';
   }
 
-  const orb = demo.querySelector('.creator-ai-orb');
-  if (orb) {
-    orb.style.width = '30px';
-    orb.style.height = '30px';
-    orb.style.minWidth = '30px';
-    orb.style.minHeight = '30px';
-    const icon = orb.querySelector('svg');
-    if (icon) {
-      icon.setAttribute('width', '13');
-      icon.setAttribute('height', '13');
-    }
-  }
-
   demo.dataset.headerPolished = '1';
+}
+
+function polishCreatorSectionSpacing() {
+  const sections = Array.from(document.querySelectorAll('section'));
+  const profileSection = sections.find((section) => section.textContent.includes('List Your Profile Free'));
+  const creatorSection = sections.find((section) => section.textContent.includes('MEET COLLANCER AI FOR CREATORS'));
+  if (profileSection) profileSection.classList.add('creator-profile-cta-section');
+  if (creatorSection) creatorSection.classList.add('creator-ai-section');
 }
 
 function runLaunchPolish() {
@@ -125,22 +152,24 @@ function runLaunchPolish() {
   injectMobileHeroPolish();
   injectAiDemoBackgrounds();
   polishCreatorAiDemo();
+  polishCreatorSectionSpacing();
+}
+
+let polishQueued = false;
+function queueLaunchPolish() {
+  if (polishQueued) return;
+  polishQueued = true;
+  requestAnimationFrame(() => {
+    polishQueued = false;
+    runLaunchPolish();
+  });
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(runLaunchPolish, 0);
-    setTimeout(runLaunchPolish, 350);
-    setTimeout(runLaunchPolish, 1000);
-  }, { once: true });
+  document.addEventListener('DOMContentLoaded', queueLaunchPolish, { once: true });
 } else {
-  setTimeout(runLaunchPolish, 0);
-  setTimeout(runLaunchPolish, 350);
+  queueLaunchPolish();
 }
 
-const footerObserver = new MutationObserver(() => {
-  polishCollancerFooter();
-  polishHeroCopy();
-  polishCreatorAiDemo();
-});
-footerObserver.observe(document.documentElement, { childList: true, subtree: true });
+const polishObserver = new MutationObserver(() => queueLaunchPolish());
+polishObserver.observe(document.documentElement, { childList: true, subtree: true });
