@@ -95,6 +95,56 @@ function injectMobileHeroPolish() {
   document.head.appendChild(style);
 }
 
+function polishCreatorAiHeader() {
+  const demos = document.querySelectorAll('.creator-ai-window');
+  demos.forEach((demo) => {
+    const tagline = demo.querySelector('.creator-ai-windowbar > div:nth-child(2) > div:nth-child(2)');
+    if (tagline) {
+      tagline.textContent = 'Creator assistant';
+    }
+
+    const status = demo.querySelector('.creator-ai-status');
+    if (status) {
+      status.style.whiteSpace = 'nowrap';
+      status.style.flexShrink = '0';
+      status.style.minWidth = 'max-content';
+    }
+
+    const orb = demo.querySelector('.creator-ai-orb');
+    if (orb) {
+      orb.style.width = '28px';
+      orb.style.height = '28px';
+      orb.style.borderRadius = '9px';
+      const icon = orb.querySelector('svg');
+      if (icon) {
+        icon.setAttribute('width', '13');
+        icon.setAttribute('height', '13');
+        icon.style.width = '13px';
+        icon.style.height = '13px';
+      }
+    }
+  });
+}
+
+function injectCreatorAiHeaderPolish() {
+  if (document.getElementById('collancer-creator-ai-header-fix')) return;
+  const style = document.createElement('style');
+  style.id = 'collancer-creator-ai-header-fix';
+  style.textContent = `
+    .creator-ai-status { white-space:nowrap !important; flex-shrink:0 !important; min-width:max-content !important; }
+    .creator-ai-orb { width:28px !important; height:28px !important; border-radius:9px !important; flex:0 0 28px !important; }
+    .creator-ai-orb svg { width:13px !important; height:13px !important; }
+    @media(max-width:680px){
+      .creator-ai-windowbar { gap:8px !important; padding:14px 14px !important; }
+      .creator-ai-windowbar > div:nth-child(2) { min-width:0 !important; }
+      .creator-ai-windowbar > div:nth-child(2) > div:first-child { font-size:13px !important; }
+      .creator-ai-windowbar > div:nth-child(2) > div:nth-child(2) { font-size:10px !important; white-space:nowrap !important; }
+      .creator-ai-status { font-size:10px !important; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function injectAiDemoBackgrounds() {
   if (document.getElementById('collancer-ai-demo-bg-fix')) return;
   const style = document.createElement('style');
@@ -120,6 +170,8 @@ function runLaunchPolish() {
   polishCollancerFooter();
   polishHeroCopy();
   injectMobileHeroPolish();
+  injectCreatorAiHeaderPolish();
+  polishCreatorAiHeader();
   injectAiDemoBackgrounds();
 }
 
@@ -137,5 +189,6 @@ if (document.readyState === 'loading') {
 const footerObserver = new MutationObserver(() => {
   polishCollancerFooter();
   polishHeroCopy();
+  polishCreatorAiHeader();
 });
 footerObserver.observe(document.documentElement, { childList: true, subtree: true });
