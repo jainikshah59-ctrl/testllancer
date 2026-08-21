@@ -1,0 +1,57 @@
+/* Creator Collancer AI: keep the section content unboxed; only the AI demo gets a surface. */
+.creator-ai-live {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+/* The Creator AI demo's immediate outer container must never become a second card. */
+*:has(> .creator-ai-live) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+/* Cover common section/card wrappers when the demo is nested one level deeper. */
+.glass-card:has(.creator-ai-live),
+[class*="card"]:has(.creator-ai-live),
+[class*="showcase"]:has(.creator-ai-live),
+[class*="section"]:has(.creator-ai-live) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  backdrop-filter: none !important;
+}
+
+.glass-card:has(.creator-ai-live)::before,
+.glass-card:has(.creator-ai-live)::after,
+[class*="card"]:has(.creator-ai-live)::before,
+[class*="card"]:has(.creator-ai-live)::after,
+[class*="showcase"]:has(.creator-ai-live)::before,
+[class*="showcase"]:has(.creator-ai-live)::after,
+[class*="section"]:has(.creator-ai-live)::before,
+[class*="section"]:has(.creator-ai-live)::after {
+  display: none !important;
+  content: none !important;
+}
+
+*:has(> .creator-ai-live):hover,
+.glass-card:has(.creator-ai-live):hover,
+[class*="card"]:has(.creator-ai-live):hover,
+[class*="showcase"]:has(.creator-ai-live):hover,
+[class*="section"]:has(.creator-ai-live):hover {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Preserve generous space around the standalone AI window itself. */
+.creator-ai-window {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-radius: 24px !important;
+}
