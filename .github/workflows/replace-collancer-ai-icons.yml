@@ -1,0 +1,42 @@
+name: Replace Collancer AI icons
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  replace-icons:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace both Collancer AI icons
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/polish.css')
+          s = p.read_text()
+          old = "background:url('/collancer-ai-robot.svg') center/contain no-repeat!important;"
+          new = "background:url('https://img.icons8.com/pulsar-gradient/48/bot.png') center/48px 48px no-repeat!important;"
+          count = s.count(old)
+          if count != 1:
+              raise SystemExit(f'Expected 1 shared Collancer AI icon rule, found {count}')
+          p.write_text(s.replace(old, new))
+          print('Replaced the shared Brands + Creators Collancer AI icon with the requested Icons8 bot icon.')
+          PY
+
+      - name: Commit change and remove temporary workflow
+        run: |
+          rm -f .github/workflows/replace-collancer-ai-icons.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/polish.css .github/workflows/replace-collancer-ai-icons.yml
+          git diff --cached --quiet && exit 0
+          git commit -m 'Replace both Collancer AI icons with Icons8 bot'
+          git push origin HEAD:main
