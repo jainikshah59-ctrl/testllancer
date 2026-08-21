@@ -19,7 +19,7 @@ function polishCollancerFooter() {
 }
 
 function polishHeroCopy() {
-  const candidates = Array.from(document.querySelectorAll('main h1, main h2, h1, h2'));
+  const candidates = Array.from(document.querySelectorAll('h1, h2'));
   const hero = candidates.find((el) => {
     const text = el.textContent.trim().toLowerCase();
     return text.includes('brands') && text.includes('creators') && (text.includes('where') || text.includes('verified'));
@@ -34,8 +34,7 @@ function polishHeroCopy() {
     if (el === hero || el.contains(hero)) return false;
     const text = el.textContent.trim();
     if (!text || text.length < 25 || text.length > 240) return false;
-    const tag = el.tagName.toLowerCase();
-    return tag === 'p' || el.classList.contains('subtitle') || el.classList.contains('hero-subtitle');
+    return el.tagName.toLowerCase() === 'p' || el.classList.contains('subtitle') || el.classList.contains('hero-subtitle');
   });
   if (existing) {
     existing.textContent = desiredTagline;
@@ -53,46 +52,43 @@ function injectMobileHeroPolish() {
   const style = document.createElement('style');
   style.id = 'collancer-mobile-hero-fix';
   style.textContent = `
-    /* Mobile hero: compact, balanced, and fully visible without excessive vertical scale. */
+    /* Target the actual hero heading regardless of whether it is inside main. */
     @media (max-width: 680px) {
-      main h1 {
-        font-size: clamp(36px, 10.8vw, 52px) !important;
-        line-height: .98 !important;
-        letter-spacing: -.045em !important;
-        max-width: 94vw !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+      h1[data-hero-copy-polished="1"] {
+        display:block !important;
+        width:100% !important;
+        max-width:94vw !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        font-size:clamp(36px,10.8vw,52px) !important;
+        line-height:.98 !important;
+        letter-spacing:-.045em !important;
+        text-align:center !important;
       }
-      main h1 br { display:block !important; }
-      main h1 + p,
-      main [data-collancer-hero-tagline="1"],
-      main .hero-subtitle,
-      main .subtitle {
-        max-width: 92vw !important;
-        margin: 13px auto 0 !important;
-        padding: 0 8px !important;
-        font-size: 14px !important;
-        line-height: 1.45 !important;
+      h1[data-hero-copy-polished="1"] + p,
+      [data-collancer-hero-tagline="1"] {
+        display:block !important;
+        width:100% !important;
+        max-width:92vw !important;
+        margin:13px auto 0 !important;
+        padding:0 8px !important;
+        font-size:14px !important;
+        line-height:1.45 !important;
+        text-align:center !important;
       }
-      main h1 ~ div button,
-      main h1 ~ div a {
-        min-height: 46px !important;
-      }
-      main section:first-of-type {
-        min-height: auto !important;
+      h1[data-hero-copy-polished="1"] ~ div button,
+      h1[data-hero-copy-polished="1"] ~ div a {
+        min-height:46px !important;
       }
     }
-    @media (max-width: 390px) {
-      main h1 {
-        font-size: 35px !important;
-        line-height: .98 !important;
+    @media (max-width:390px) {
+      h1[data-hero-copy-polished="1"] {
+        font-size:35px !important;
       }
-      main h1 + p,
-      main [data-collancer-hero-tagline="1"],
-      main .hero-subtitle,
-      main .subtitle {
-        font-size: 13.5px !important;
-        line-height: 1.42 !important;
+      h1[data-hero-copy-polished="1"] + p,
+      [data-collancer-hero-tagline="1"] {
+        font-size:13.5px !important;
+        line-height:1.42 !important;
       }
     }
   `;
