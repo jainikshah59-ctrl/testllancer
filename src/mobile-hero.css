@@ -1,0 +1,90 @@
+/* Direct mobile hero layout fix.
+   This intentionally targets the hero section by its content instead of relying on
+   the original component's internal class names. */
+
+@media (max-width: 680px) {
+  /* Keep the hero compact and stop desktop spacing from carrying into phones. */
+  .collancer-mobile-hero {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 88px 18px 34px !important;
+    margin: 0 !important;
+  }
+
+  .collancer-mobile-hero .collancer-hero-inner {
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .collancer-mobile-hero h1 {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    font-size: 34px !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .collancer-mobile-hero .collancer-hero-tagline {
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 14px auto 0 !important;
+    padding: 0 !important;
+    font-size: 13.5px !important;
+    line-height: 1.48 !important;
+  }
+
+  .collancer-mobile-hero .collancer-role-buttons {
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 22px auto 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .collancer-mobile-hero .collancer-role-buttons > * {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+  }
+
+  .collancer-mobile-hero .collancer-logo-train {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 22px auto 0 !important;
+    padding: 10px 0 !important;
+  }
+
+  .collancer-mobile-hero .collancer-logo-train img,
+  .collancer-mobile-hero .collancer-logo-train svg {
+    max-height: 26px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .collancer-mobile-hero {
+    padding: 82px 14px 28px !important;
+  }
+
+  .collancer-mobile-hero h1 {
+    max-width: 330px !important;
+    font-size: 31px !important;
+  }
+
+  .collancer-mobile-hero .collancer-hero-tagline {
+    max-width: 320px !important;
+    font-size: 13px !important;
+  }
+
+  .collancer-mobile-hero .collancer-role-buttons {
+    max-width: 330px !important;
+    gap: 8px !important;
+  }
+}
