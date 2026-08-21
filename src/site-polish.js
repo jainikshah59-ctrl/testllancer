@@ -1,5 +1,5 @@
 // Launch polish layer kept outside the main React component.
-// Applies final visual and copy polish after React mounts.
+// Applies final visual, copy, and mobile hero polish after React mounts.
 
 function polishCollancerFooter() {
   document.querySelectorAll('footer p').forEach((p) => {
@@ -7,16 +7,13 @@ function polishCollancerFooter() {
     p.dataset.footerPolished = '1';
     const originalIcon = p.querySelector('svg');
     p.replaceChildren();
-
     const first = document.createElement('span');
     first.className = 'footer-line footer-line-main';
     if (originalIcon) first.appendChild(originalIcon.cloneNode(true));
     first.append(document.createTextNode('2026 Collancer. All rights reserved.'));
-
     const second = document.createElement('span');
     second.className = 'footer-line footer-line-made';
     second.append(document.createTextNode('Made in India'));
-
     p.append(first, second);
   });
 }
@@ -28,24 +25,18 @@ function polishHeroCopy() {
     return text.includes('brands') && text.includes('creators') && (text.includes('where') || text.includes('verified'));
   });
   if (!hero) return;
-
   hero.innerHTML = 'The Future of Influencer Marketing<br/><span class="text-gradient">Starts Here</span>';
   hero.dataset.heroCopyPolished = '1';
-
   const desiredTagline = 'Connecting brands and creators without the chaos of agencies, forms, and endless DMs.';
   const section = hero.closest('section') || hero.parentElement;
   if (!section) return;
-
-  // Replace the actual hero subtitle instead of relying on its previous wording.
   const existing = Array.from(section.querySelectorAll('p, [role="paragraph"], .subtitle, .hero-subtitle')).find((el) => {
     if (el === hero || el.contains(hero)) return false;
     const text = el.textContent.trim();
     if (!text || text.length < 25 || text.length > 240) return false;
-    // Exclude button labels and legal/navigation copy.
     const tag = el.tagName.toLowerCase();
     return tag === 'p' || el.classList.contains('subtitle') || el.classList.contains('hero-subtitle');
   });
-
   if (existing) {
     existing.textContent = desiredTagline;
     existing.dataset.heroTaglinePolished = '1';
@@ -53,9 +44,59 @@ function polishHeroCopy() {
     const tagline = document.createElement('p');
     tagline.dataset.collancerHeroTagline = '1';
     tagline.textContent = desiredTagline;
-    tagline.style.cssText = 'max-width:720px;margin:18px auto 0;text-align:center;color:rgba(226,232,240,.78);font-size:clamp(15px,1.45vw,19px);line-height:1.6;letter-spacing:-.01em;';
-    hero.insertAdjacentElement('afterend', tagline);
+    section.insertBefore(tagline, hero.nextSibling);
   }
+}
+
+function injectMobileHeroPolish() {
+  if (document.getElementById('collancer-mobile-hero-fix')) return;
+  const style = document.createElement('style');
+  style.id = 'collancer-mobile-hero-fix';
+  style.textContent = `
+    /* Mobile hero: compact, balanced, and fully visible without excessive vertical scale. */
+    @media (max-width: 680px) {
+      main h1 {
+        font-size: clamp(36px, 10.8vw, 52px) !important;
+        line-height: .98 !important;
+        letter-spacing: -.045em !important;
+        max-width: 94vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      main h1 br { display:block !important; }
+      main h1 + p,
+      main [data-collancer-hero-tagline="1"],
+      main .hero-subtitle,
+      main .subtitle {
+        max-width: 92vw !important;
+        margin: 13px auto 0 !important;
+        padding: 0 8px !important;
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+      }
+      main h1 ~ div button,
+      main h1 ~ div a {
+        min-height: 46px !important;
+      }
+      main section:first-of-type {
+        min-height: auto !important;
+      }
+    }
+    @media (max-width: 390px) {
+      main h1 {
+        font-size: 35px !important;
+        line-height: .98 !important;
+      }
+      main h1 + p,
+      main [data-collancer-hero-tagline="1"],
+      main .hero-subtitle,
+      main .subtitle {
+        font-size: 13.5px !important;
+        line-height: 1.42 !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
 }
 
 function injectAiDemoBackgrounds() {
@@ -81,6 +122,7 @@ function injectAiDemoBackgrounds() {
 function runLaunchPolish() {
   polishCollancerFooter();
   polishHeroCopy();
+  injectMobileHeroPolish();
   injectAiDemoBackgrounds();
 }
 
