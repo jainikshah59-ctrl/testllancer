@@ -1,57 +1,56 @@
-/* Creator Collancer AI: keep the section content unboxed; only the AI demo gets a surface. */
-.creator-ai-live {
+/* Creator Collancer AI — the showcase itself is NOT a card. */
+/* Match the Brand AI architecture: heading/content live on the page; only the AI window is surfaced. */
+.creator-ai-live,
+.creator-ai-live.glass-card {
   background: transparent !important;
+  background-image: none !important;
   border: 0 !important;
-  box-shadow: none !important;
-  outline: 0 !important;
-}
-
-/* The Creator AI demo's immediate outer container must never become a second card. */
-*:has(> .creator-ai-live) {
-  background: transparent !important;
+  border-width: 0 !important;
   border-color: transparent !important;
-  box-shadow: none !important;
-  outline: 0 !important;
-}
-
-/* Cover common section/card wrappers when the demo is nested one level deeper. */
-.glass-card:has(.creator-ai-live),
-[class*="card"]:has(.creator-ai-live),
-[class*="showcase"]:has(.creator-ai-live),
-[class*="section"]:has(.creator-ai-live) {
-  background: transparent !important;
-  border-color: transparent !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   outline: 0 !important;
   backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
-.glass-card:has(.creator-ai-live)::before,
-.glass-card:has(.creator-ai-live)::after,
-[class*="card"]:has(.creator-ai-live)::before,
-[class*="card"]:has(.creator-ai-live)::after,
-[class*="showcase"]:has(.creator-ai-live)::before,
-[class*="showcase"]:has(.creator-ai-live)::after,
-[class*="section"]:has(.creator-ai-live)::before,
-[class*="section"]:has(.creator-ai-live)::after {
+/* Remove every decorative layer inherited from .glass-card / .creator-ai-live. */
+.creator-ai-live::before,
+.creator-ai-live::after,
+.creator-ai-live.glass-card::before,
+.creator-ai-live.glass-card::after {
   display: none !important;
   content: none !important;
-}
-
-*:has(> .creator-ai-live):hover,
-.glass-card:has(.creator-ai-live):hover,
-[class*="card"]:has(.creator-ai-live):hover,
-[class*="showcase"]:has(.creator-ai-live):hover,
-[class*="section"]:has(.creator-ai-live):hover {
-  transform: none !important;
-  border-color: transparent !important;
+  background: none !important;
+  border: 0 !important;
   box-shadow: none !important;
 }
 
-/* Preserve generous space around the standalone AI window itself. */
+.creator-ai-live:hover,
+.creator-ai-live.glass-card:hover {
+  transform: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* The AI interface below is the ONLY box on the creator-side demo. */
 .creator-ai-window {
+  display: block !important;
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
   border-radius: 24px !important;
+  overflow: hidden !important;
+  background: rgba(5,7,20,.72) !important;
+  box-shadow: 0 28px 80px rgba(0,0,0,.35) !important;
+}
+
+@media (max-width: 640px) {
+  .creator-ai-window { border-radius: 19px !important; }
 }
