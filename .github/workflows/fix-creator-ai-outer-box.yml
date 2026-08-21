@@ -1,0 +1,43 @@
+name: Apply Creator AI structure fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-creator-ai-outer-box.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove Creator AI outer card
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('src/App.jsx')
+          text = path.read_text(encoding='utf-8')
+          pattern = r'<section ref=\{demoRef\} className="creator-ai-live glass-card reveal" aria-label="Collancer AI for creators" style=\{\{.*?\}\}'
+          replacement = '<section ref={demoRef} className="creator-ai-live reveal" aria-label="Collancer AI for creators" style={{marginBottom:48}}'
+          updated, count = re.subn(pattern, replacement, text, count=1)
+          if count != 1:
+              raise SystemExit('Expected Creator AI outer card wrapper was not found exactly once.')
+          path.write_text(updated, encoding='utf-8')
+          PY
+
+      - name: Commit Creator AI structure fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/App.jsx
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix: remove creator AI outer card wrapper'
+          git push
