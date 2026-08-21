@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="side" x1="42" y1="145" x2="214" y2="145" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35C7F5"/>
+      <stop offset="1" stop-color="#2D79E8"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="67" y1="105" x2="191" y2="184" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17356F"/>
+      <stop offset="1" stop-color="#061A52"/>
+    </linearGradient>
+    <linearGradient id="head" x1="53" y1="74" x2="205" y2="205" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2F4F7"/>
+      <stop offset="1" stop-color="#C9CDD4"/>
+    </linearGradient>
+  </defs>
+  <!-- antenna -->
+  <rect x="124" y="45" width="8" height="25" rx="4" fill="#172F72"/>
+  <circle cx="128" cy="37" r="18" fill="url(#side)"/>
+  <!-- side ear modules -->
+  <rect x="18" y="111" width="31" height="70" rx="18" fill="url(#side)"/>
+  <rect x="207" y="111" width="31" height="70" rx="18" fill="url(#side)"/>
+  <!-- main bot head -->
+  <path d="M52 86C52 72 63 62 77 62H179C193 62 204 72 204 86V186C204 204 190 216 173 216H83C66 216 52 204 52 186V86Z" fill="url(#head)"/>
+  <!-- face screen -->
+  <rect x="70" y="95" width="116" height="91" rx="24" fill="url(#screen)"/>
+  <!-- glass reflection -->
+  <path d="M73 132L108 97H123L73 147V132Z" fill="#6BA4D7" opacity=".2"/>
+  <path d="M91 186L177 100H187V112L113 186H91Z" fill="#6BA4D7" opacity=".18"/>
+  <!-- eyes -->
+  <rect x="91" y="125" width="24" height="42" rx="12" fill="#39B8F0"/>
+  <rect x="141" y="125" width="24" height="42" rx="12" fill="#39B8F0"/>
+  <!-- mouth/speech tail -->
+  <path d="M112 216H153L112 239V216Z" fill="url(#head)"/>
+  <!-- speech bubble -->
+  <path d="M171 43C171 29 182 19 196 19H224C238 19 249 29 249 43V70C249 84 238 94 224 94H198L185 106L188 94C178 91 171 82 171 70V43Z" fill="url(#head)"/>
+  <circle cx="196" cy="56" r="6" fill="#173B78"/>
+  <circle cx="210" cy="56" r="6" fill="#173B78"/>
+  <circle cx="224" cy="56" r="6" fill="#173B78"/>
+</svg>
