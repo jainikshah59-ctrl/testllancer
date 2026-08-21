@@ -8,7 +8,7 @@
 .creator-ai-live>* ,.cleo-demo-shell>*{position:relative;z-index:3;}
 .creator-ai-window,.cleo-windowbar,.cleo-chat,.creator-ai-chat{position:relative;z-index:4!important;}
 .creator-ai-window,.cleo-demo-shell .cleo-window{background:rgba(3,7,19,.78)!important;backdrop-filter:blur(18px)!important;border-color:rgba(255,255,255,.12)!important;box-shadow:0 30px 90px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.07)!important;}
-/* Creator AI demo: match the generous Brand AI demo footprint instead of using the old narrow card. */
+/* Creator AI demo: generous footprint, with the inner AI window allowed to use it fully. */
 .creator-ai-live{width:100%!important;max-width:none!important;margin-inline:auto!important;min-height:760px!important;}
 .creator-ai-window{width:100%!important;max-width:none!important;min-height:720px!important;}
 .creator-ai-chat{width:100%!important;max-width:none!important;min-height:600px!important;padding:34px 34px 42px!important;}
@@ -25,14 +25,17 @@
 .cleo-showcase .cleo-orbit,.cleo-demo-shell .cleo-orbit,.cleo-demo-shell .cleo-pulse-ring{display:none!important;animation:none!important;}
 @media(max-width:680px){
   .creator-ai-live,.cleo-demo-shell{border-radius:24px!important}
-  /* Both demos now use the same full-width mobile footprint. */
-  .creator-ai-live{width:calc(100vw - 62px)!important;max-width:none!important;min-height:760px!important;margin-left:auto!important;margin-right:auto!important;}
-  .creator-ai-window{width:100%!important;min-height:720px!important;}
-  .creator-ai-chat{min-height:600px!important;padding:30px 28px 42px!important;}
+  /* Mobile: make Creator AI occupy the same visual width as the Brand demo. */
+  .creator-ai-live{width:calc(100vw - 64px)!important;max-width:none!important;min-height:760px!important;margin-left:calc((100% - 100vw + 64px)/2)!important;margin-right:0!important;}
+  /* Remove the nested narrow-card effect that was squeezing the creator demo. */
+  .creator-ai-window{width:calc(100% + 56px)!important;max-width:none!important;min-height:720px!important;margin-left:-28px!important;margin-right:0!important;}
+  .creator-ai-chat{width:100%!important;min-height:600px!important;padding:30px 24px 42px!important;}
+  .creator-ai-user,.creator-ai-bot{width:100%!important;max-width:100%!important;}
+  .creator-ai-opportunity,.creator-ai-idea{width:100%!important;max-width:none!important;min-height:104px!important;}
+  .creator-ai-ideas{width:100%!important;max-width:none!important;}
   .creator-ai-live:after,.cleo-demo-shell:after{background-size:30px 30px!important;opacity:.32!important}
   .creator-ai-window,.cleo-demo-shell .cleo-window{backdrop-filter:blur(12px)!important}
   .creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{backdrop-filter:blur(8px)!important}
-  .creator-ai-opportunity,.creator-ai-idea{min-height:104px!important;}
   .creator-ai-orb::before,.cleo-window-orb::before{inset:0!important;background-size:34px 34px!important}
 }
 @media(prefers-reduced-motion:reduce){.creator-ai-live:after,.cleo-demo-shell:after,.creator-ai-orb::before,.cleo-window-orb::before{animation:none!important}.creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{transition:none!important}}
