@@ -900,7 +900,7 @@ function Nav() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
             <div style={{ width: 40, height: 40, borderRadius: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <img src="/logo.png" alt="Collancer Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 12 }} />
+              <img src="/logo.png" alt="Collancer Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 5, background: 'rgba(255,255,255,0.04)', borderRadius: 12 }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               <span style={{ fontFamily: "var(--ff-display)", fontSize: 20, fontWeight: 800, letterSpacing: -0.5, lineHeight: 1.1 }}>
@@ -963,7 +963,7 @@ function Nav() {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 48 }}>
             <div style={{ width: 40, height: 40, borderRadius: 12, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <img src="/logo.png" alt="Collancer Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 12 }} />
+              <img src="/logo.png" alt="Collancer Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 5, background: 'rgba(255,255,255,0.04)', borderRadius: 12 }} />
             </div>
             <div style={{ fontFamily: "var(--ff-display)", fontSize: 24, fontWeight: 800 }}>Coll<span className="text-gradient-cyan">ancer</span></div>
           </div>
