@@ -1275,7 +1275,7 @@ function CreatorAIShowcase() {
     return ()=>{ clearTimeout(start); clearInterval(type); timers.forEach(clearTimeout); };
   },[started]);
   return (
-    <section ref={demoRef} className="creator-ai-live glass-card reveal" aria-label="Collancer AI for creators" style={{marginBottom:48,padding:'clamp(22px,4vw,34px)',background:'linear-gradient(135deg,rgba(0,229,255,.055),rgba(179,136,255,.07))',borderColor:'rgba(0,229,255,.17)'}}>
+    <section ref={demoRef} className="creator-ai-live reveal" aria-label="Collancer AI for creators" style={{marginBottom:48}}>
       <div style={{position:'relative',zIndex:2,textAlign:'center',marginBottom:28}}>
         <div className="badge badge-cyan" style={{marginBottom:16}}><Bot size={13}/> Meet Collancer AI for Creators</div>
         <h3 style={{fontFamily:'var(--ff-display)',fontSize:'clamp(22px,3.2vw,34px)',fontWeight:850,margin:'0 0 12px'}}>Stop hunting for collabs.<br/><span className="text-gradient">Let Collancer AI find them.</span></h3>
