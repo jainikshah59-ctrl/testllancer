@@ -2437,75 +2437,40 @@ function FounderSection() {
 /* ═══ FOOTER ═══ */
 function Footer() {
   const { isMobile } = useDevice();
+  const platformLinks = [
+    ['For Creators', '#for-creators'], ['How It Works', '#how-it-works'],
+    ['Categories', '#categories'], ['Collancer AI', '#cleo'], ['Join Early', '#join']
+  ];
+  const socialLinks = [
+    ['Instagram', 'https://instagram.com/collancerr'],
+    ['LinkedIn', 'https://www.linkedin.com/in/jainikdand/']
+  ];
   return (
-    <footer style={{ position:'relative', zIndex:2, padding: isMobile ? '40px 16px 32px' : '60px 24px 40px', borderTop: '1px solid var(--border)', background: '#05050e' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: isMobile ? 'flex-start' : 'flex-start', flexWrap: 'wrap', gap: isMobile ? 28 : 32, marginBottom: isMobile ? 32 : 48 }}>
-          <div style={{ maxWidth: 300 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <img src="/logo.png" alt="Collancer Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 10 }} />
-              </div>
-              <div>
-                <div style={{ fontFamily: "var(--ff-display)", fontSize: 20, fontWeight: 800, lineHeight: 1.1 }}>Coll<span className="glow-cyan">ancer</span></div>
-                <div style={{ fontSize: 9, fontWeight: 500, color: 'var(--text-dim)', letterSpacing: 1, textTransform: 'uppercase' }}>where influence meets industry</div>
-              </div>
+    <footer style={{ position:'relative', zIndex:2, padding: isMobile ? '48px 18px 28px' : '64px 28px 32px', borderTop:'1px solid var(--border)', background:'#05050e' }}>
+      <div style={{ maxWidth:1100, margin:'0 auto' }}>
+        <div style={{ display:'grid', gridTemplateColumns:isMobile ? '1fr' : '1.5fr 1fr 1fr', gap:isMobile ? 36 : 72, paddingBottom:isMobile ? 34 : 46 }}>
+          <div style={{ maxWidth:360 }}>
+            <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:14 }}>
+              <div style={{ width:38, height:38, borderRadius:10, overflow:'hidden', flexShrink:0 }}><img src='/logo.png' alt='Collancer Logo' style={{ width:'100%', height:'100%', objectFit:'cover' }} /></div>
+              <div><div style={{ fontFamily:'var(--ff-display)', fontSize:21, fontWeight:800 }}>Coll<span className='glow-cyan'>ancer</span></div><div style={{ fontSize:9, color:'var(--text-dim)', letterSpacing:1, textTransform:'uppercase' }}>where influence meets industry</div></div>
             </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.75 }}>
-              India's first structured influencer booking marketplace for creators across 25 niches, powered by Collancer AI.
-            </p>
+            <p style={{ margin:0, color:'var(--text-muted)', fontSize:14, lineHeight:1.75 }}>India's first structured influencer booking marketplace for creators across 25 niches, powered by Collancer AI.</p>
           </div>
-
-          <div style={{ display: 'flex', gap: isMobile ? 32 : 'clamp(32px, 5vw, 64px)', flexWrap: 'wrap' }}>
-            <div>
-              <div style={{ fontFamily: "var(--ff-display)", fontWeight: 700, marginBottom: 16, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-muted)' }}>Platform</div>
-            {['For Creators', 'How It Works', 'Categories', 'Collancer AI', 'Join Early'].map(l => {
-                const ids = { 'For Creators': '#for-creators', 'How It Works': '#how-it-works', 'Categories': '#categories', 'Collancer AI': '#cleo', 'Join Early': '#join' };
-                return (
-                <div key={l} style={{ marginBottom: 10 }}>
-                  <a href={ids[l] || '#'} style={{ color: 'var(--text-muted)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s' }}
-                    onMouseEnter={e => e.target.style.color = 'var(--cyan)'}
-                    onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>{l}</a>
-                </div>
-              )})}
-            </div>
-            <div>
-              <div style={{ fontFamily: "var(--ff-display)", fontWeight: 700, marginBottom: 16, fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-muted)' }}>Contact</div>
-              {[
-                { label: 'support@collancer.in', href: 'mailto:support@collancer.in' },
-                { label: 'Instagram', href: 'https://www.instagram.com/collancer_in' },
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/company/collancer' },
-                { label: 'Twitter / X', href: 'https://twitter.com/collancer_in' },
-              ].map(l => (
-                <div key={l.label} style={{ marginBottom: 10 }}>
-                  <a href={l.href} style={{ color: 'var(--text-muted)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s' }}
-                    onMouseEnter={e => e.target.style.color = 'var(--cyan)'}
-                    onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}
-                    rel="noopener noreferrer"
-                    target={l.href.startsWith('http') ? '_blank' : undefined}
-                  >{l.label}</a>
-                </div>
-              ))}
-            </div>
+          <div>
+            <div style={{ fontFamily:'var(--ff-display)', fontWeight:700, marginBottom:16, fontSize:12, letterSpacing:1.2, textTransform:'uppercase', color:'var(--text-muted)' }}>Platform</div>
+            {platformLinks.map(([label,href]) => <a key={label} href={href} style={{ display:'block', marginBottom:11, color:'var(--text-muted)', fontSize:14, textDecoration:'none' }}>{label}</a>)}
+          </div>
+          <div>
+            <div style={{ fontFamily:'var(--ff-display)', fontWeight:700, marginBottom:16, fontSize:12, letterSpacing:1.2, textTransform:'uppercase', color:'var(--text-muted)' }}>Connect</div>
+            <a href='mailto:support@collancer.in' style={{ display:'block', marginBottom:11, color:'var(--text-muted)', fontSize:14, textDecoration:'none' }}>support@collancer.in</a>
+            {socialLinks.map(([label,href]) => <a key={label} href={href} target='_blank' rel='noopener noreferrer' style={{ display:'block', marginBottom:11, color:'var(--text-muted)', fontSize:14, textDecoration:'none' }}>{label}</a>)}
           </div>
         </div>
-
-        <div className="divider-line" style={{ marginBottom: 24 }} />
-
-        <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', alignItems: isMobile ? 'center' : 'center', textAlign: isMobile ? 'center' : 'left', gap: isMobile ? 10 : 12 }}>
-          <p style={{ color: 'var(--text-muted)', fontSize: 13, display: 'flex', alignItems: 'center', gap: 4 }}>
-            <Copyright size={13} /> 2026 Collancer. All rights reserved. Made in India <MapPin size={13} />
-          </p>
-          <div style={{ display: 'flex', gap: isMobile ? 14 : 20, flexWrap: 'wrap', justifyContent: isMobile ? 'center' : 'flex-end' }}>
-            {[
-              { label: 'Contact Us', href: 'mailto:support@collancer.in' },
-              { label: 'Privacy Policy', href: 'mailto:support@collancer.in?subject=Privacy%20Policy%20Request' },
-              { label: 'Terms of Service', href: 'mailto:support@collancer.in?subject=Terms%20of%20Service%20Request' }
-            ].map(l => (
-              <a key={l.label} href={l.href} style={{ color: 'var(--text-muted)', fontSize: 13, textDecoration: 'none' }}
-                onMouseEnter={e => e.target.style.color = 'var(--cyan)'}
-                onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}>{l.label}</a>
-            ))}
+        <div className='divider-line' style={{ marginBottom:22 }} />
+        <div style={{ display:'flex', flexDirection:isMobile?'column':'row', justifyContent:'space-between', alignItems:isMobile?'center':'center', gap:14, textAlign:isMobile?'center':'left' }}>
+          <p style={{ margin:0, color:'var(--text-muted)', fontSize:12.5, display:'flex', alignItems:'center', gap:5 }}><Copyright size={13}/> 2026 Collancer. All rights reserved. · Made in India <MapPin size={13}/></p>
+          <div style={{ display:'flex', gap:isMobile?14:22, flexWrap:'wrap', justifyContent:'center' }}>
+            {[['Contact Us','mailto:support@collancer.in'],['Privacy Policy','mailto:support@collancer.in?subject=Privacy%20Policy%20Request'],['Terms of Service','mailto:support@collancer.in?subject=Terms%20of%20Service%20Request']].map(([label,href]) => <a key={label} href={href} style={{ color:'var(--text-muted)', fontSize:12.5, textDecoration:'none' }}>{label}</a>)}
           </div>
         </div>
       </div>
