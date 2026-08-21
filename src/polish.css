@@ -52,3 +52,13 @@
 }
 @media(prefers-reduced-motion:reduce){.creator-ai-live:after,.cleo-demo-shell:after,.creator-ai-orb::before,.cleo-window-orb::before{animation:none!important}.creator-ai-opportunity,.cleo-result,.creator-ai-idea,.cleo-metric-card{transition:none!important}}
 .footer-line{display:flex;align-items:center;gap:5px}.footer-line-made{margin-top:5px;color:var(--text-dim)}
+
+/* Final Creator-side spacing + compact icon correction. */
+.creator-ai-live{margin-top:56px!important;}
+.creator-ai-orb{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;}
+.creator-ai-orb::before{background-size:28px 28px!important;}
+@media(max-width:680px){
+  .creator-ai-live{margin-top:40px!important;}
+  .creator-ai-orb{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;}
+  .creator-ai-orb::before{background-size:26px 26px!important;}
+}
