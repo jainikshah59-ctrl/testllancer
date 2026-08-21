@@ -52,44 +52,14 @@ function injectMobileHeroPolish() {
   const style = document.createElement('style');
   style.id = 'collancer-mobile-hero-fix';
   style.textContent = `
-    /* Target the actual hero heading regardless of whether it is inside main. */
     @media (max-width: 680px) {
-      h1[data-hero-copy-polished="1"] {
-        display:block !important;
-        width:100% !important;
-        max-width:94vw !important;
-        margin-left:auto !important;
-        margin-right:auto !important;
-        font-size:clamp(36px,10.8vw,52px) !important;
-        line-height:.98 !important;
-        letter-spacing:-.045em !important;
-        text-align:center !important;
-      }
-      h1[data-hero-copy-polished="1"] + p,
-      [data-collancer-hero-tagline="1"] {
-        display:block !important;
-        width:100% !important;
-        max-width:92vw !important;
-        margin:13px auto 0 !important;
-        padding:0 8px !important;
-        font-size:14px !important;
-        line-height:1.45 !important;
-        text-align:center !important;
-      }
-      h1[data-hero-copy-polished="1"] ~ div button,
-      h1[data-hero-copy-polished="1"] ~ div a {
-        min-height:46px !important;
-      }
+      h1[data-hero-copy-polished="1"] { display:block !important; width:100% !important; max-width:94vw !important; margin-left:auto !important; margin-right:auto !important; font-size:clamp(36px,10.8vw,52px) !important; line-height:.98 !important; letter-spacing:-.045em !important; text-align:center !important; }
+      h1[data-hero-copy-polished="1"] + p, [data-collancer-hero-tagline="1"] { display:block !important; width:100% !important; max-width:92vw !important; margin:13px auto 0 !important; padding:0 8px !important; font-size:14px !important; line-height:1.45 !important; text-align:center !important; }
+      h1[data-hero-copy-polished="1"] ~ div button, h1[data-hero-copy-polished="1"] ~ div a { min-height:46px !important; }
     }
     @media (max-width:390px) {
-      h1[data-hero-copy-polished="1"] {
-        font-size:35px !important;
-      }
-      h1[data-hero-copy-polished="1"] + p,
-      [data-collancer-hero-tagline="1"] {
-        font-size:13.5px !important;
-        line-height:1.42 !important;
-      }
+      h1[data-hero-copy-polished="1"] { font-size:35px !important; }
+      h1[data-hero-copy-polished="1"] + p, [data-collancer-hero-tagline="1"] { font-size:13.5px !important; line-height:1.42 !important; }
     }
   `;
   document.head.appendChild(style);
@@ -100,7 +70,6 @@ function injectAiDemoBackgrounds() {
   const style = document.createElement('style');
   style.id = 'collancer-ai-demo-bg-fix';
   style.textContent = `
-    /* Brand AI keeps its cinematic outer demo surface. Creator AI intentionally does NOT: its section wrapper must stay unboxed. */
     .cleo-demo-shell{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#070a18!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 40px 120px rgba(0,0,0,.52),0 0 100px rgba(0,229,255,.08),inset 0 1px 0 rgba(255,255,255,.10)!important}
     .cleo-demo-shell::before{content:""!important;position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;background:radial-gradient(circle at 12% 16%,rgba(0,229,255,.22),transparent 25%),radial-gradient(circle at 88% 18%,rgba(124,58,237,.21),transparent 26%),radial-gradient(circle at 78% 88%,rgba(179,136,255,.16),transparent 28%),linear-gradient(135deg,#070b1d 0%,#0b1027 48%,#100a22 100%)!important;transform:scale(1.08)!important;animation:collancerAiAtmosphere 11s ease-in-out infinite alternate!important}
     .cleo-demo-shell::after{content:""!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;opacity:.42!important;background-image:linear-gradient(rgba(255,255,255,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.038) 1px,transparent 1px)!important;background-size:44px 44px!important;mask-image:radial-gradient(ellipse at center,black 15%,transparent 84%)!important;animation:collancerAiGrid 18s linear infinite!important}
@@ -116,11 +85,46 @@ function injectAiDemoBackgrounds() {
   document.head.appendChild(style);
 }
 
+function polishCreatorAiDemo() {
+  const demo = document.querySelector('.creator-ai-window');
+  if (!demo || demo.dataset.headerPolished === '1') return;
+
+  const title = Array.from(demo.querySelectorAll('div')).find((el) => el.textContent.trim() === 'Collancer AI');
+  if (title) {
+    const tagline = title.parentElement?.querySelector('div:nth-child(2)');
+    if (tagline) tagline.textContent = 'Creator assistant';
+  }
+
+  const status = demo.querySelector('.creator-ai-status');
+  if (status) {
+    status.style.whiteSpace = 'nowrap';
+    status.style.display = 'inline-flex';
+    status.style.alignItems = 'center';
+    status.style.flexShrink = '0';
+  }
+
+  const orb = demo.querySelector('.creator-ai-orb');
+  if (orb) {
+    orb.style.width = '30px';
+    orb.style.height = '30px';
+    orb.style.minWidth = '30px';
+    orb.style.minHeight = '30px';
+    const icon = orb.querySelector('svg');
+    if (icon) {
+      icon.setAttribute('width', '13');
+      icon.setAttribute('height', '13');
+    }
+  }
+
+  demo.dataset.headerPolished = '1';
+}
+
 function runLaunchPolish() {
   polishCollancerFooter();
   polishHeroCopy();
   injectMobileHeroPolish();
   injectAiDemoBackgrounds();
+  polishCreatorAiDemo();
 }
 
 if (document.readyState === 'loading') {
@@ -137,5 +141,6 @@ if (document.readyState === 'loading') {
 const footerObserver = new MutationObserver(() => {
   polishCollancerFooter();
   polishHeroCopy();
+  polishCreatorAiDemo();
 });
 footerObserver.observe(document.documentElement, { childList: true, subtree: true });
