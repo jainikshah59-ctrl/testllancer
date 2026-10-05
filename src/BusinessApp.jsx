@@ -15,32 +15,16 @@ import {
 } from 'lucide-react';
 
 import DiscoverPage from './components/Business/DiscoverPage';
-
-
 import WalletPage from './components/Business/WalletPage';
 
-const DashboardPage = () => (
-  <div className="p-6">
-    <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-    <p className="text-gray-500">Manage your active campaigns and bookings.</p>
-  </div>
-);
+
+import DashboardPage from './components/Business/DashboardPage';
 
 
-const AIPage = () => (
-  <div className="p-6">
-    <h1 className="text-2xl font-bold mb-4">Cleo AI</h1>
-    <p className="text-gray-500">Your AI assistant for creator discovery and campaign planning.</p>
-  </div>
-);
+import CleoAIPage from './components/Shared/CleoAIPage';
 
 
-const MarketplacePage = () => (
-  <div className="p-6">
-    <h1 className="text-2xl font-bold mb-4">Requirements Marketplace</h1>
-    <p className="text-gray-500">Post briefs and receive offers from creators.</p>
-  </div>
-);
+import MarketplacePage from './components/Marketplace/MarketplacePage';
 
 const ReferralPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Referral</h1></div>;
 const ProPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Collancer Pro</h1></div>;
@@ -56,7 +40,7 @@ export default function BusinessApp() {
     switch (currentPage) {
       case 'discover': return <DiscoverPage />;
       case 'dashboard': return <DashboardPage />;
-      case 'ai': return <AIPage />;
+      case 'ai': return <CleoAIPage />;
       case 'wallet': return <WalletPage />;
       case 'marketplace': return <MarketplacePage />;
       case 'referral': return <ReferralPage />;
